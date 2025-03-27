@@ -1,0 +1,95 @@
+project:
+  type: website
+
+website:
+  title: "API Docs"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Core
+        menu:
+          - href: core/index.qmd
+            text: Overview
+          - href: core/ts_api.qmd
+            text: TS_API
+          - href: core/asset_manager.qmd
+            text: Asset Manager
+          - href: core/device.qmd
+            text: Device
+          - href: core/device_manager.qmd
+            text: Device Manager
+          - href: core/mapper.qmd
+            text: Mapper
+          - href: core/data_structures.qmd
+            text: Data Structures
+      - text: Subsystems
+        menu:
+          - href: subsystems/index.qmd
+            text: Overview
+          - href: subsystems/ppg.qmd
+            text: PPG
+          - href: subsystems/emg.qmd
+            text: EMG
+          - href: subsystems/haptic.qmd
+            text: Haptic
+          - href: subsystems/mocap.qmd 
+            text: Mocap
+          - href: subsystems/force_feedback.qmd
+            text: Force Feedback
+      - text: Examples
+        menu:
+          - href: examples/index.qmd
+            text: Overview
+          - href: examples/ppg_example.qmd
+            text: PPG Example
+          - href: examples/emg_example.qmd
+            text: EMG Example
+          - href: examples/haptic_example.qmd
+            text: Haptic Example
+          - href: examples/mocap_example.qmd
+            text: Mocap Example
+          - href: examples/force_feedback_example.qmd
+            text: Force Feedback Example
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - section: "Home"
+        contents:
+          - index.qmd
+      - section: "Core"
+        contents:
+          - core/index.qmd
+          - core/ts_api.qmd
+          - core/asset_manager.qmd
+          - core/device.qmd
+          - core/device_manager.qmd
+          - core/mapper.qmd
+          - core/data_structures.qmd
+      - section: "Subsystems"
+        contents:
+          - subsystems/index.qmd
+          - subsystems/ppg.qmd
+          - subsystems/emg.qmd
+          - subsystems/haptic.qmd
+          - subsystems/mocap.qmd
+          - subsystems/force_feedback.qmd
+      - section: "Examples"
+        contents:
+          - examples/index.qmd
+          - examples/ppg_example.qmd
+          - examples/emg_example.qmd
+          - examples/haptic_example.qmd
+          - examples/mocap_example.qmd
+          - examples/force_feedback_example.qmd
+
+execute:
+  warning: false
+  error: false
+  cache: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true  # Включает оглавление внутри страницы

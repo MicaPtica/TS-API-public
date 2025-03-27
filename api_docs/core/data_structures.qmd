@@ -1,0 +1,43 @@
+---
+title: 'Data structures'
+---
+
+## Intro
+This is the page where you can find explanation of data structures used in TESLASUIT SDK
+
+## PPG
+### TsHrv(Structure):
+Represents Heart Rate Variability (HRV) metrics.
+
+This structure stores various HRV parameters, which are used to analyze 
+fluctuations in heart rate over time. These metrics help assess autonomic 
+nervous system activity and overall heart health.
+
+Attributes:
+    mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.
+    sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.
+
+    sdsd (float): Standard deviation of successive RR interval differences.
+
+    rmssd (float): Root Mean Square of Successive Differences between RR intervals, 
+                    reflecting short-term HRV.
+
+    sd1 (float): Poincaré plot standard deviation perpendicular to the line of identity 
+                    (short-term HRV component).
+
+    sd2 (float): Poincaré plot standard deviation along the line of identity 
+                    (long-term HRV component).
+
+    hlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.
+
+
+
+### TsPpgRawData(Structure):
+Represents raw PPG (Photoplethysmography) data from multiple sensor nodes.
+
+This structure holds raw PPG data collected from multiple sensor nodes, each of which 
+contains infrared, red, blue, and green sensor values, along with timestamps.
+
+Attributes:
+    number_of_nodes (int): The number of sensor nodes providing PPG data.
+    nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.
