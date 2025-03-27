@@ -1,5 +1,0 @@
----
-title: "EMG"
----
-
-### EMPTY PAGE
