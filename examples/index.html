@@ -87,41 +87,83 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-home" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Home</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
+        <li>
+    <a class="dropdown-item" href="../index.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../Getting_started.html">
+ <span class="dropdown-text">Getting started</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-main-concepts" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Main concepts</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-main-concepts">    
+        <li>
+    <a class="dropdown-item" href="../Main concepts/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
+ <span class="dropdown-text">EMG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
+ <span class="dropdown-text">PPG</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/haptic_concept.html">
+ <span class="dropdown-text">Haptic</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/mocap_concept.html">
+ <span class="dropdown-text">Mocap</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
+ <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-core" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Core</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-core">    
         <li>
-    <a class="dropdown-item" href="../core/index.html">
+    <a class="dropdown-item" href="../API Reference/core/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/ts_api.html">
- <span class="dropdown-text">TS_API</span></a>
+    <a class="dropdown-item" href="../API Reference/core/ts_api.html">
+ <span class="dropdown-text">TS API</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/asset_manager.html">
+    <a class="dropdown-item" href="../API Reference/core/asset_manager.html">
  <span class="dropdown-text">Asset Manager</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/device.html">
+    <a class="dropdown-item" href="../API Reference/core/device.html">
  <span class="dropdown-text">Device</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/device_manager.html">
+    <a class="dropdown-item" href="../API Reference/core/device_manager.html">
  <span class="dropdown-text">Device Manager</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/mapper.html">
+    <a class="dropdown-item" href="../API Reference/core/mapper.html">
  <span class="dropdown-text">Mapper</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../core/data_structures.html">
+    <a class="dropdown-item" href="../API Reference/core/data_structures.html">
  <span class="dropdown-text">Data Structures</span></a>
   </li>  
     </ul>
@@ -132,27 +174,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-subsystems">    
         <li>
-    <a class="dropdown-item" href="../subsystems/index.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../subsystems/ppg.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../subsystems/emg.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
  <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../subsystems/haptic.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../subsystems/mocap.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/mocap.html">
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../subsystems/force_feedback.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
     </ul>
@@ -185,6 +227,25 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-usecases" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Usecases</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-usecases">    
+        <li>
+    <a class="dropdown-item" href="../usecases/index.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../usecases/elbow_FES.html">
+ <span class="dropdown-text">Elbow FES</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../usecases/walking_FES.html">
+ <span class="dropdown-text">Walking FES</span></a>
   </li>  
     </ul>
   </li>
@@ -222,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Core</span></a>
+ <span class="menu-text">Home</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -230,38 +291,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../core/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../core/ts_api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TS API</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../core/asset_manager.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Asset manager</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../core/device.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Device</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../core/device_manager.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Device manager</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../core/mapper.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapper</span></a>
+  <a href="../Getting_started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting started</span></a>
   </div>
 </li>
       </ul>
@@ -269,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Subsystems</span></a>
+ <span class="menu-text">Main concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -277,38 +314,38 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../subsystems/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../subsystems/ppg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../subsystems/emg.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../subsystems/haptic.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../subsystems/mocap.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/mocap_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mocap</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force feedback</span></a>
+  <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
       </ul>
@@ -316,12 +353,123 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Examples</span></a>
+ <span class="menu-text">API Reference</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Core</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/ts_api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TS API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/asset_manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asset manager</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/device.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Device</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/device_manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Device manager</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/mapper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mapper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/core/data_structures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Subsystems</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Haptic</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/mocap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mocap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/index.html" class="sidebar-item-text sidebar-link active">
@@ -331,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../examples/ppg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Example PPG</span></a>
+ <span class="menu-text">PPG example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -356,6 +504,35 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Usecases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../usecases/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../usecases/elbow_FES.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elbow FES</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../usecases/walking_FES.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Walking FES</span></a>
   </div>
 </li>
       </ul>

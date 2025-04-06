@@ -1,0 +1,152 @@
+{
+  "core/index.qmd": {
+    "index.html": "441cc336"
+  },
+  "index.qmd": {
+    "index.html": "66a13f68"
+  },
+  "api_docs.qmd": {
+    "api_docs.html": "237f9507"
+  },
+  "examples/index.qmd": {
+    "index.html": "8e03d207"
+  },
+  "examples/ppg_example.qmd": {
+    "ppg_example.html": "bc4bffdc"
+  },
+  "subsystems/index.qmd": {
+    "index.html": "241f874f"
+  },
+  "subsystems/ppg.qmd": {
+    "ppg.html": "57f32c3e"
+  },
+  "core/core_index.qmd": {
+    "core_index.html": "1de7cbd0"
+  },
+  "examples/example_index.qmd": {
+    "example_index.html": "4358bf73"
+  },
+  "subsystems/subsystem_index.qmd": {
+    "subsystem_index.html": "b12085e4"
+  },
+  "subsystems/emg.qmd": {
+    "emg.html": "d27f7c0b"
+  },
+  "subsystems/ppg/ppg.qmd": {
+    "ppg.html": "bb719f05"
+  },
+  "subsystems/mocap.qmd": {
+    "mocap.html": "5c9af08f"
+  },
+  "subsystems/haptic.qmd": {
+    "haptic.html": "65727dcb"
+  },
+  "subsystems/force_feedback.qmd": {
+    "force_feedback.html": "a1c87d22"
+  },
+  "core/asset_manager.qmd": {
+    "asset_manager.html": "f9897b79"
+  },
+  "core/device_manager.qmd": {
+    "device_manager.html": "3e02fdca"
+  },
+  "core/loader.qmd": {
+    "loader.html": "033b7db2"
+  },
+  "core/mapper.qmd": {
+    "mapper.html": "47d4aee2"
+  },
+  "core/ts_api.qmd": {
+    "ts_api.html": "d45c994c"
+  },
+  "core/device.qmd": {
+    "device.html": "3ce56cc4"
+  },
+  "examples/emg_example.qmd": {
+    "emg_example.html": "409a7be7"
+  },
+  "examples/mocap_example.qmd": {
+    "mocap_example.html": "67e4285b"
+  },
+  "examples/force_feedback_example.qmd": {
+    "force_feedback_example.html": "b0aab3f3"
+  },
+  "examples/haptic_example.qmd": {
+    "haptic_example.html": "af942252"
+  },
+  "core/data_structures.qmd": {
+    "data_structures.html": "63252a65"
+  },
+  "usecases/index.qmd": {
+    "index.html": "ea826177"
+  },
+  "usecases/elbow_FES.qmd": {
+    "elbow_FES.html": "0e104e9a"
+  },
+  "usecases/walking_FES.qmd": {
+    "walking_FES.html": "c6e1feb2"
+  },
+  "Main concepts/emg_concept.qmd": {
+    "emg_concept.html": "2e2d9fcd"
+  },
+  "Main concepts/index.qmd": {
+    "index.html": "683409c1"
+  },
+  "Main concepts/haptic_concept.qmd": {
+    "haptic_concept.html": "bd6da77e"
+  },
+  "Main concepts/mocap_concept.qmd": {
+    "mocap_concept.html": "ffd51858"
+  },
+  "Main concepts/force_feedback_concept.qmd": {
+    "force_feedback_concept.html": "6cf3281e"
+  },
+  "Main concepts/ppg_concept.qmd": {
+    "ppg_concept.html": "851fa2b9"
+  },
+  "Getting_started.qmd": {
+    "Getting_started.html": "7bc98268"
+  },
+  "API Reference/core/asset_manager.qmd": {
+    "asset_manager.html": "14884052"
+  },
+  "API Reference/core/device_manager.qmd": {
+    "device_manager.html": "fb482317"
+  },
+  "API Reference/core/loader.qmd": {
+    "loader.html": "dc131114"
+  },
+  "API Reference/core/index.qmd": {
+    "index.html": "53614d8d"
+  },
+  "API Reference/core/mapper.qmd": {
+    "mapper.html": "24c153ac"
+  },
+  "API Reference/core/ts_api.qmd": {
+    "ts_api.html": "2141311a"
+  },
+  "API Reference/core/device.qmd": {
+    "device.html": "a5724696"
+  },
+  "API Reference/core/data_structures.qmd": {
+    "data_structures.html": "e8e7476f"
+  },
+  "API Reference/subsystems/mocap.qmd": {
+    "mocap.html": "7e4e0aa4"
+  },
+  "API Reference/subsystems/haptic.qmd": {
+    "haptic.html": "9c758361"
+  },
+  "API Reference/subsystems/index.qmd": {
+    "index.html": "84513303"
+  },
+  "API Reference/subsystems/ppg.qmd": {
+    "ppg.html": "0b4ae6c3"
+  },
+  "API Reference/subsystems/emg.qmd": {
+    "emg.html": "504318d6"
+  },
+  "API Reference/subsystems/force_feedback.qmd": {
+    "force_feedback.html": "998a37aa"
+  }
+}

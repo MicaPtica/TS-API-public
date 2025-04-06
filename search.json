@@ -1,86 +1,299 @@
 [
   {
-    "objectID": "subsystems/ppg.html",
-    "href": "subsystems/ppg.html",
+    "objectID": "examples/ppg_example.html",
+    "href": "examples/ppg_example.html",
+    "title": "PPG example",
+    "section": "",
+    "text": "This is an example of how to get data from the PPG sensor of your device",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#intro",
+    "href": "examples/ppg_example.html#intro",
+    "title": "PPG example",
+    "section": "",
+    "text": "This is an example of how to get data from the PPG sensor of your device",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#example-with-code",
+    "href": "examples/ppg_example.html#example-with-code",
+    "title": "PPG example",
+    "section": "Example with code",
+    "text": "Example with code\nImport of necessary libs\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_ppg\ndef main():\n    print(\"Initialize API\")\nCreating and initializing the instance of Teslasuit API\n    api = ts_api.TsApi()\nGet a connected Teslasuit device or waits until a device is attached if not already connected\n    device = api.get_device_manager().get_or_wait_last_device_attached()\nAccess the PPG subsystem of the device\n    ppg = device.ppg\n    \n\n    print(\"Wait for ppg data...\")\nStarting the streaming of a raw PPG data\n    ppg.start_raw_streaming()\nWait until getting a Mean RR data which is part of Ts_HRV and then prints it\nwhile True:\n    data = ppg.get_hrv_data_on_ready()\n    print(\"Mean R-R:\", data.mean_rr)\nWait until getting Heart rate data which is part of TsPpgNodeData and then prints it\nwhile True:\n    data = ppg.node[0].get_data()\n    print(\"Heart Rate:\", data.heart_rate)",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "The Teslasuit Python SDK provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s biometric, motion capture, and haptic capabilities through an efficient and extensible Python API.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Overview",
+    "section": "",
+    "text": "The Teslasuit Python SDK provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s biometric, motion capture, and haptic capabilities through an efficient and extensible Python API.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#key-capabilities",
+    "href": "index.html#key-capabilities",
+    "title": "Overview",
+    "section": "Key Capabilities",
+    "text": "Key Capabilities\nThe Teslasuit Python SDK provides access to the following subsystems:\nMotion Capture (Mocap):\n\nReal-time full-body kinematic data via embedded IMUs.\n\nBiometry:\n\nEMG (Electromyography): Muscle activity acquisition.\nPPG (Photoplethysmography): Heart rate and cardiovascular signal monitoring.\n\nHaptics:\n\nFine-grained control over electrostimulation parameters.\nTargeted stimulation per suit zone or grouped patterns.\nSupport for real-time triggering and feedback design.",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#documentation-structure",
+    "href": "index.html#documentation-structure",
+    "title": "Overview",
+    "section": "Documentation Structure",
+    "text": "Documentation Structure\nAPI documentation is divided into several modules:\n\nGetting started\nMain Concepts\nAPI Reference\n\nCore\nSubsystems\n\nExamples\nUsecases",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#support-and-contact",
+    "href": "index.html#support-and-contact",
+    "title": "Overview",
+    "section": "Support and Contact",
+    "text": "Support and Contact\nFor technical inquiries, feature requests, or troubleshooting assistance, please contact:\n\nHelp Desk\nFAQ\nForum\nSupport at: support@teslasuit.io",
+    "crumbs": [
+      "Home",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/ppg.html",
+    "href": "API Reference/subsystems/ppg.html",
     "title": "PPG",
     "section": "",
     "text": "Biometry subsystem provides functions to access PPG functionality.",
     "crumbs": [
-      "Home",
+      "API Reference",
       "Subsystems",
       "PPG"
     ]
   },
   {
-    "objectID": "subsystems/ppg.html#intro",
-    "href": "subsystems/ppg.html#intro",
+    "objectID": "API Reference/subsystems/ppg.html#intro",
+    "href": "API Reference/subsystems/ppg.html#intro",
     "title": "PPG",
     "section": "",
     "text": "Biometry subsystem provides functions to access PPG functionality.",
     "crumbs": [
-      "Home",
+      "API Reference",
       "Subsystems",
       "PPG"
     ]
   },
   {
-    "objectID": "subsystems/ppg.html#prerequisites",
-    "href": "subsystems/ppg.html#prerequisites",
+    "objectID": "API Reference/subsystems/ppg.html#prerequisites",
+    "href": "API Reference/subsystems/ppg.html#prerequisites",
     "title": "PPG",
     "section": "Prerequisites",
     "text": "Prerequisites\n\nTeslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem The TsPPG class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
-      "Home",
+      "API Reference",
       "Subsystems",
       "PPG"
     ]
   },
   {
-    "objectID": "subsystems/ppg.html#class-tsppg",
-    "href": "subsystems/ppg.html#class-tsppg",
+    "objectID": "API Reference/subsystems/ppg.html#class-tsppg",
+    "href": "API Reference/subsystems/ppg.html#class-tsppg",
     "title": "PPG",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\nClass methods:\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\nget_data(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\nget_data(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
+    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate” or “oxygen_percent”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
     "crumbs": [
-      "Home",
+      "API Reference",
       "Subsystems",
       "PPG"
     ]
   },
   {
-    "objectID": "examples/index.html",
-    "href": "examples/index.html",
+    "objectID": "API Reference/core/data_structures.html",
+    "href": "API Reference/core/data_structures.html",
+    "title": "Data structures",
+    "section": "",
+    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#intro",
+    "href": "API Reference/core/data_structures.html#intro",
+    "title": "Data structures",
+    "section": "",
+    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#ppg",
+    "href": "API Reference/core/data_structures.html#ppg",
+    "title": "Data structures",
+    "section": "PPG",
+    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes: mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds. sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\nsdsd (float): Standard deviation of successive RR interval differences.\n\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, \n                reflecting short-term HRV.\n\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity \n                (short-term HRV component).\n\nsd2 (float): Poincaré plot standard deviation along the line of identity \n                (long-term HRV component).\n\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.\n\n\nTsPpgData(Structure):\nRepresents processed PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.\n\n\nTsPpgNodeData(Structure):\nRepresents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/index.html",
+    "href": "API Reference/subsystems/index.html",
     "title": "Overview",
     "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
     "crumbs": [
-      "Home",
-      "Examples",
+      "API Reference",
+      "Subsystems",
       "Overview"
     ]
   },
   {
-    "objectID": "examples/index.html#intro",
-    "href": "examples/index.html#intro",
+    "objectID": "API Reference/subsystems/index.html#intro",
+    "href": "API Reference/subsystems/index.html#intro",
     "title": "Overview",
     "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
     "crumbs": [
-      "Home",
-      "Examples",
+      "API Reference",
+      "Subsystems",
       "Overview"
     ]
   },
   {
-    "objectID": "examples/index.html#examples",
-    "href": "examples/index.html#examples",
+    "objectID": "API Reference/subsystems/index.html#subsystems",
+    "href": "API Reference/subsystems/index.html#subsystems",
     "title": "Overview",
-    "section": "Examples",
-    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic",
+    "section": "Subsystems",
+    "text": "Subsystems\n\nEMG\nHAPTIC\nMOCAP\nPPG\nFORCE FEEDBACK",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/emg.html",
+    "href": "API Reference/subsystems/emg.html",
+    "title": "EMG",
+    "section": "",
+    "text": "EMPTY PAGE",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html",
+    "href": "Getting_started.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "Welcome to the Teslasuit SDK! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
     "crumbs": [
       "Home",
-      "Examples",
-      "Overview"
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#welcome",
+    "href": "Getting_started.html#welcome",
+    "title": "Getting started",
+    "section": "",
+    "text": "Welcome to the Teslasuit SDK! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
+    "crumbs": [
+      "Home",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#requirements",
+    "href": "Getting_started.html#requirements",
+    "title": "Getting started",
+    "section": "Requirements",
+    "text": "Requirements\nTo get started, make sure the following requirements are met:\n\nTeslasuit device connected and recognized by the system\nTeslasuit Control Center installed (for suit calibration)\nTeslasuit SDK added to your PATH",
+    "crumbs": [
+      "Home",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#environment-setup",
+    "href": "Getting_started.html#environment-setup",
+    "title": "Getting started",
+    "section": "Environment Setup",
+    "text": "Environment Setup\nBefore writing any code, make sure the Teslasuit SDK is available in your Python environment.\nIf you’re developing locally and the SDK is not in your PATH, you can use the following snippet to add it dynamically:\ntry:\n    import teslasuit_sdk\nexcept ImportError:\n    import os\n    import sys\n    sdk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))\n    sys.path.insert(0, sdk_path)\n    import teslasuit_sdk\n    print(f'Successfully added \\'{sdk_path}\\' into sys.path')",
+    "crumbs": [
+      "Home",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#first-steps",
+    "href": "Getting_started.html#first-steps",
+    "title": "Getting started",
+    "section": "First steps",
+    "text": "First steps\n\nConnect the Suit\nAfter connecting your Teslasuit to your PC or laptop, you’re ready to explore its capabilities using Python.\nTo begin, you need to:\n\nAttach the device\nInitialize the API and Device\nCreate a haptic playable\n\n⚠️ Safety First!\nPlease calibrate your suit in Control Center in order to avoid unpleasant or painful experience\n\n\nRun Your First Touch\nBelow is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:\nimport time\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_haptic\nfrom teslasuit_sdk.ts_mapper import TsBone2dIndex\n\nTOUCH_DURATION_MS = 1000\n\ndef main():\n    print(\"Initialize API\")\n    api = ts_api.TsApi()\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n    player = device.haptic\n    mapper = api.mapper\n\n    print(\"Setup channels to play and touch parameters\")\n    layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n    bones = mapper.get_layout_bones(layout)\n    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n    params = player.create_touch_parameters(100, 40, 150)\n\n    print(\"Create touch and play\")\n    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n    player.play_playable(playable_id)\n\n    print(\"Wait until playback finished...\")\n    time.sleep(TOUCH_DURATION_MS / 1000)\n    print(\"Finished\")\n\n\nif __name__ == '__main__':\n    main()",
+    "crumbs": [
+      "Home",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#test-your-setup",
+    "href": "Getting_started.html#test-your-setup",
+    "title": "Getting started",
+    "section": "Test Your Setup",
+    "text": "Test Your Setup\nIf the suit is connected and the SDK is installed correctly, running the script above should produce a short haptic effect on the right upper arm of the suit.\nIf nothing happens:\nEnsure the device is calibrated in the Control Center Check the connection Confirm that Python can import the teslasuit_sdk module",
+    "crumbs": [
+      "Home",
+      "Getting started"
+    ]
+  },
+  {
+    "objectID": "Getting_started.html#explore-more",
+    "href": "Getting_started.html#explore-more",
+    "title": "Getting started",
+    "section": "Explore more",
+    "text": "Explore more\nReady to dive deeper?\n\nLearn about Teslasuit systems in the Main concepts section.\nExplore the Core and Subsystems API in the API Reference.\nWalk through various Examples to get started with specific suit features.\nGet inspired by real-world applications in the Usecases section",
+    "crumbs": [
+      "Home",
+      "Getting started"
     ]
   },
   {
@@ -98,156 +311,36 @@
     "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
   },
   {
-    "objectID": "core/data_structures.html",
-    "href": "core/data_structures.html",
-    "title": "Data structures",
-    "section": "",
-    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
-    "crumbs": [
-      "Home",
-      "Core",
-      "Data structures"
-    ]
-  },
-  {
-    "objectID": "core/data_structures.html#intro",
-    "href": "core/data_structures.html#intro",
-    "title": "Data structures",
-    "section": "",
-    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
-    "crumbs": [
-      "Home",
-      "Core",
-      "Data structures"
-    ]
-  },
-  {
-    "objectID": "core/data_structures.html#ppg",
-    "href": "core/data_structures.html#ppg",
-    "title": "Data structures",
-    "section": "PPG",
-    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes: mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds. sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\nsdsd (float): Standard deviation of successive RR interval differences.\n\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, \n                reflecting short-term HRV.\n\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity \n                (short-term HRV component).\n\nsd2 (float): Poincaré plot standard deviation along the line of identity \n                (long-term HRV component).\n\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.",
-    "crumbs": [
-      "Home",
-      "Core",
-      "Data structures"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Python API documentation",
-    "section": "",
-    "text": "TESLASUIT Python API is a wrapper around the native TESLASUIT API library. It provides managed object-oriented classes library that provide high-level access to the Teslasuit API.",
-    "crumbs": [
-      "Home",
-      "Python API documentation"
-    ]
-  },
-  {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Python API documentation",
-    "section": "",
-    "text": "TESLASUIT Python API is a wrapper around the native TESLASUIT API library. It provides managed object-oriented classes library that provide high-level access to the Teslasuit API.",
-    "crumbs": [
-      "Home",
-      "Python API documentation"
-    ]
-  },
-  {
-    "objectID": "index.html#modules",
-    "href": "index.html#modules",
-    "title": "Python API documentation",
-    "section": "Modules",
-    "text": "Modules\nAPI documentation is divided into several modules:\n\nCore\nSubsystems\nExamples",
-    "crumbs": [
-      "Home",
-      "Python API documentation"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html",
-    "href": "examples/ppg_example.html",
-    "title": "Example PPG",
-    "section": "",
-    "text": "This is an example of how to get data from the PPG sensor of your device",
-    "crumbs": [
-      "Home",
-      "Examples",
-      "Example PPG"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html#intro",
-    "href": "examples/ppg_example.html#intro",
-    "title": "Example PPG",
-    "section": "",
-    "text": "This is an example of how to get data from the PPG sensor of your device",
-    "crumbs": [
-      "Home",
-      "Examples",
-      "Example PPG"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html#example-with-code",
-    "href": "examples/ppg_example.html#example-with-code",
-    "title": "Example PPG",
-    "section": "Example with code",
-    "text": "Example with code\nImport of necessary libs\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_ppg\ndef main():\n    print(\"Initialize API\")\nCreating and initializing the instance of Teslasuit API\n    api = ts_api.TsApi()\nGet a connected Teslasuit device or waits until a device is attached if not already connected\n    device = api.get_device_manager().get_or_wait_last_device_attached()\nAccess the PPG  subsystem of the device\n    ppg = device.ppg\n    \n\n    print(\"Wait for ppg data...\")\nStarting the streaming of a raw PPG data\n    ppg.start_raw_streaming()\nWhile alive, wait until getting a HRV data and then prints it\n    while True:\n        data = ppg.get_hrv_data_on_ready()\n        print(\"Mean R-R:\", data.mean_rr)\nif name == ‘main’: main()",
-    "crumbs": [
-      "Home",
-      "Examples",
-      "Example PPG"
-    ]
-  },
-  {
-    "objectID": "subsystems/index.html",
-    "href": "subsystems/index.html",
+    "objectID": "examples/index.html",
+    "href": "examples/index.html",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
+    "text": "On this page you can find some examples of API usage",
     "crumbs": [
-      "Home",
-      "Subsystems",
+      "Examples",
       "Overview"
     ]
   },
   {
-    "objectID": "subsystems/index.html#intro",
-    "href": "subsystems/index.html#intro",
+    "objectID": "examples/index.html#intro",
+    "href": "examples/index.html#intro",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
+    "text": "On this page you can find some examples of API usage",
     "crumbs": [
-      "Home",
-      "Subsystems",
+      "Examples",
       "Overview"
     ]
   },
   {
-    "objectID": "subsystems/index.html#subsystems",
-    "href": "subsystems/index.html#subsystems",
+    "objectID": "examples/index.html#examples",
+    "href": "examples/index.html#examples",
     "title": "Overview",
-    "section": "Subsystems",
-    "text": "Subsystems\n\nEMG\nHAPTIC\nMOCAP\nPPG\nFORCE FEEDBACK",
+    "section": "Examples",
+    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic",
     "crumbs": [
-      "Home",
-      "Subsystems",
+      "Examples",
       "Overview"
-    ]
-  },
-  {
-    "objectID": "subsystems/emg.html",
-    "href": "subsystems/emg.html",
-    "title": "EMG",
-    "section": "",
-    "text": "EMPTY PAGE",
-    "crumbs": [
-      "Home",
-      "Subsystems",
-      "EMG"
     ]
   }
 ]
