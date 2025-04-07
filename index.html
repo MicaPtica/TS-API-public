@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Raman Teush, Uladzislau Mitskevitch">
-<meta name="dcterms.date" content="2025-04-07">
 
-<title>Overview – API Docs</title>
+<title>API Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3f13cc09417cf69baaf74afa0e2e3cf6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9eb995e8644016eb670a0cb3bf478a26.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -262,7 +260,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -294,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Overview</span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -549,106 +547,107 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements:</a></li>
-  <li><a href="#key-capabilities" id="toc-key-capabilities" class="nav-link" data-scroll-target="#key-capabilities">Key Capabilities</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#core-capabilities" id="toc-core-capabilities" class="nav-link" data-scroll-target="#core-capabilities">Core Capabilities</a>
+  <ul class="collapse">
+  <li><a href="#haptics" id="toc-haptics" class="nav-link" data-scroll-target="#haptics">Haptics</a></li>
+  <li><a href="#motion-capture" id="toc-motion-capture" class="nav-link" data-scroll-target="#motion-capture">Motion Capture</a></li>
+  <li><a href="#biometry" id="toc-biometry" class="nav-link" data-scroll-target="#biometry">Biometry</a></li>
+  </ul></li>
   <li><a href="#documentation-structure" id="toc-documentation-structure" class="nav-link" data-scroll-target="#documentation-structure">Documentation Structure</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#support-and-contact" id="toc-support-and-contact" class="nav-link" data-scroll-target="#support-and-contact">Support and Contact</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Overview</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Raman Teush, Uladzislau Mitskevitch </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 7, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The Teslasuit Python SDK provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s biometric, motion capture, and haptic capabilities through an efficient and extensible Python API.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The <strong>Teslasuit SDK</strong> is a developer toolkit for integrating the Teslasuit — a full-body haptic suit with motion capture and biometric sensors — into immersive applications. With this SDK, developers can control the suit’s haptic feedback system, stream and record motion data, and monitor biometric signals in real time.</p>
+<p>The <strong>Teslasuit SDK Python API</strong> provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s haptic, motion capture, and biometric capabilities through an efficient and extensible API.</p>
+<hr>
+<section id="core-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="core-capabilities">Core Capabilities</h2>
+<section id="haptics" class="level3">
+<h3 class="anchored" data-anchor-id="haptics">Haptics</h3>
+<p>The Haptics module allows you to control the suit’s network of electrical stimulators to create realistic tactile feedback or stimulate major muscle groups to elicit contractions. Developers can configure custom stimulation patterns, adjust intensity levels, and trigger feedback events in sync with application logic.</p>
+<p>For example, you might simulate the feeling of impact or rainfall on the user’s body, or provide a complex stimulation pattern across multiple muscle groups in the lower extremities, synchronized with the <a href="./usecases/walking_FES.html"><strong>gait cycle</strong></a>.</p>
+<p>➡️ <a href="./examples/haptic_example.html"><strong>Create</strong></a> your first haptic touch.<br>
+🔍 Learn more about the suit’s EMS system and best practices for designing haptic feedback <a href="./Main concepts/haptic_concept.html"><strong>here</strong></a>.</p>
+<hr>
 </section>
-<section id="requirements" class="level2">
-<h2 class="anchored" data-anchor-id="requirements">Requirements:</h2>
-<ul>
-<li>Windows 10 or above</li>
-<li>Installed Control Center</li>
-<li>Python version 3.8 or above</li>
-<li>Connected Teslasuit</li>
-</ul>
+<section id="motion-capture" class="level3">
+<h3 class="anchored" data-anchor-id="motion-capture">Motion Capture</h3>
+<p>The Motion Capture module provides access to the suit’s built-in IMU-based inertial tracking system. The SDK streams detailed motion and biomechanical data in real time, using a skeletal model to deliver full-body pose tracking.</p>
+<p>For example, you can animate a game character using real-time body motion, record physical activity for replay or analysis, or dynamically adjust stimulation based on biomechanical <a href="./usecases/elbow_FES.html"><strong>feedback</strong></a>.</p>
+<p>➡️ <a href="./examples/mocap_example.html"><strong>Start</strong></a> your first motion capture stream.<br>
+🔍 Learn more about Teslasuit’s MoCap system, coordinate systems, and best practices <a href="./Main concepts/mocap_concept.html"><strong>here</strong></a>.</p>
+<hr>
 </section>
-<section id="key-capabilities" class="level2">
-<h2 class="anchored" data-anchor-id="key-capabilities">Key Capabilities</h2>
-<p>The Teslasuit Python SDK provides access to the following subsystems:</p>
-<p>Motion Capture (Mocap):</p>
-<ul>
-<li>Real-time full-body kinematic data via embedded IMUs.</li>
-</ul>
-<p>Biometry:</p>
-<ul>
-<li>EMG (Electromyography): Muscle activity acquisition.</li>
-<li>PPG (Photoplethysmography): Heart rate and cardiovascular signal monitoring.</li>
-</ul>
-<p>Haptics:</p>
-<ul>
-<li>Fine-grained control over electrostimulation parameters.</li>
-<li>Targeted stimulation per suit zone or grouped patterns.</li>
-<li>Support for real-time triggering and feedback design.</li>
-</ul>
+<section id="biometry" class="level3">
+<h3 class="anchored" data-anchor-id="biometry">Biometry</h3>
+<p>The Biometry module provides real-time biometric readings from the suit’s sensors to monitor the user’s physical state. With the Python API, developers can access data such as heart rate and heart rate variability (HRV), offering insights into stress, fatigue, or exertion levels.</p>
+<p>For instance, an adaptive training application can adjust difficulty or feedback based on a user’s physiological response.</p>
+<p>➡️ <a href="./examples/ppg_example.html"><strong>Measure</strong></a> your heart rate now.<br>
+🔍 Learn more about Teslasuit’s biometric system and HRV metrics <a href="./Main concepts/ppg_concept.html"><strong>here</strong></a>.</p>
+<hr>
+</section>
 </section>
 <section id="documentation-structure" class="level2">
 <h2 class="anchored" data-anchor-id="documentation-structure">Documentation Structure</h2>
-<p>API documentation is divided into several modules:</p>
+<p>The API documentation is organized into the following sections:</p>
 <ul>
-<li><a href="./Getting_started.html">Getting started</a></li>
-<li><a href="./Main concepts/index.html">Main Concepts</a></li>
-<li>API Reference
+<li><a href="./Getting_started.html">Getting Started</a> – Fast setup for quick firs steps</li>
+<li><a href="./Main concepts/index.html">Main Concepts</a> – Theory and architecture of Teslasuit systems<br>
+</li>
+<li><strong>API Reference</strong>
 <ul>
-<li><a href="API Reference/core/">Core</a></li>
-<li><a href="API Reference/subsystems/">Subsystems</a></li>
+<li><a href="API Reference/core/">Core</a> – Initialization, connection, session control<br>
+</li>
+<li><a href="API Reference/subsystems/">Subsystems</a> – Haptics, Mocap, Biometry, Mapping, etc.<br>
+</li>
 </ul></li>
-<li><a href="examples/">Examples</a></li>
-<li><a href="usecases/">Usecases</a></li>
+<li><a href="examples/">Examples</a> – Step-by-step usage scripts<br>
+</li>
+<li><a href="usecases/">Use Cases</a> – Practical applications and integration flows</li>
 </ul>
+<hr>
+</section>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<p>To use the Teslasuit SDK Python API, ensure you have:</p>
+<ul>
+<li>Windows 10 or later<br>
+</li>
+<li>Installed <a href="https://teslasuit.io/software/control-center/"><strong>Teslasuit Control Center</strong></a></li>
+<li>Python 3.8 or higher<br>
+</li>
+<li>A connected Teslasuit device</li>
+</ul>
+<hr>
 </section>
 <section id="support-and-contact" class="level2">
 <h2 class="anchored" data-anchor-id="support-and-contact">Support and Contact</h2>
 <p>For technical inquiries, feature requests, or troubleshooting assistance, please contact:</p>
 <ul>
-<li><a href="https://developer.teslasuit.io/profile/help-desk/#">Help Desk</a></li>
-<li><a href="https://developer.teslasuit.io/faq/">FAQ</a></li>
-<li><a href="https://developer.teslasuit.io/forum/">Forum</a></li>
-<li>Support at: support@teslasuit.io</li>
+<li><a href="https://developer.teslasuit.io/profile/help-desk/#">Help Desk</a><br>
+</li>
+<li><a href="https://developer.teslasuit.io/faq/">FAQ</a><br>
+</li>
+<li><a href="https://developer.teslasuit.io/forum/">Developer Forum</a><br>
+</li>
+<li>Email support: <strong>support@teslasuit.io</strong></li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
