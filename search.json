@@ -1,5 +1,63 @@
 [
   {
+    "objectID": "Main concepts/ppg_concept.html#quick-access",
+    "href": "Main concepts/ppg_concept.html#quick-access",
+    "title": "PPG",
+    "section": "Quick access",
+    "text": "Quick access\n\nPPG Subsystem\nExamples\nUsecase",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "examples/index.html",
+    "href": "examples/index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "On this page you can find some examples of API usage",
+    "crumbs": [
+      "Examples",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "examples/index.html#intro",
+    "href": "examples/index.html#intro",
+    "title": "Overview",
+    "section": "",
+    "text": "On this page you can find some examples of API usage",
+    "crumbs": [
+      "Examples",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "examples/index.html#examples",
+    "href": "examples/index.html#examples",
+    "title": "Overview",
+    "section": "Examples",
+    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic",
+    "crumbs": [
+      "Examples",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "api_docs.html",
+    "href": "api_docs.html",
+    "title": "api_docs",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "api_docs.html#quarto",
+    "href": "api_docs.html#quarto",
+    "title": "api_docs",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
     "objectID": "Getting_started.html",
     "href": "Getting_started.html",
     "title": "Getting started",
@@ -77,51 +135,15 @@
     ]
   },
   {
-    "objectID": "API Reference/subsystems/ppg.html",
-    "href": "API Reference/subsystems/ppg.html",
-    "title": "PPG",
+    "objectID": "API Reference/subsystems/emg.html",
+    "href": "API Reference/subsystems/emg.html",
+    "title": "EMG",
     "section": "",
-    "text": "Biometry subsystem provides functions to access PPG functionality.",
+    "text": "EMPTY PAGE",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "PPG"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/ppg.html#intro",
-    "href": "API Reference/subsystems/ppg.html#intro",
-    "title": "PPG",
-    "section": "",
-    "text": "Biometry subsystem provides functions to access PPG functionality.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "PPG"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/ppg.html#prerequisites",
-    "href": "API Reference/subsystems/ppg.html#prerequisites",
-    "title": "PPG",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem The TsPPG class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "PPG"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/ppg.html#class-tsppg",
-    "href": "API Reference/subsystems/ppg.html#class-tsppg",
-    "title": "PPG",
-    "section": "Class TsPpg",
-    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate” or “oxygen_percent”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "PPG"
+      "EMG"
     ]
   },
   {
@@ -197,95 +219,51 @@
     ]
   },
   {
-    "objectID": "API Reference/subsystems/emg.html",
-    "href": "API Reference/subsystems/emg.html",
-    "title": "EMG",
-    "section": "",
-    "text": "EMPTY PAGE",
+    "objectID": "API Reference/subsystems/ppg.html#quick-access",
+    "href": "API Reference/subsystems/ppg.html#quick-access",
+    "title": "PPG",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "EMG"
+      "PPG"
     ]
   },
   {
-    "objectID": "api_docs.html",
-    "href": "api_docs.html",
-    "title": "api_docs",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "api_docs.html#quarto",
-    "href": "api_docs.html#quarto",
-    "title": "api_docs",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "examples/index.html",
-    "href": "examples/index.html",
-    "title": "Overview",
-    "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "objectID": "API Reference/subsystems/ppg.html#intro",
+    "href": "API Reference/subsystems/ppg.html#intro",
+    "title": "PPG",
+    "section": "Intro",
+    "text": "Intro\nBiometry subsystem provides functions to access PPG functionality.",
     "crumbs": [
-      "Examples",
-      "Overview"
+      "API Reference",
+      "Subsystems",
+      "PPG"
     ]
   },
   {
-    "objectID": "examples/index.html#intro",
-    "href": "examples/index.html#intro",
-    "title": "Overview",
-    "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "objectID": "API Reference/subsystems/ppg.html#prerequisites",
+    "href": "API Reference/subsystems/ppg.html#prerequisites",
+    "title": "PPG",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem The TsPPG class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
-      "Examples",
-      "Overview"
+      "API Reference",
+      "Subsystems",
+      "PPG"
     ]
   },
   {
-    "objectID": "examples/index.html#examples",
-    "href": "examples/index.html#examples",
-    "title": "Overview",
-    "section": "Examples",
-    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic",
+    "objectID": "API Reference/subsystems/ppg.html#class-tsppg",
+    "href": "API Reference/subsystems/ppg.html#class-tsppg",
+    "title": "PPG",
+    "section": "Class TsPpg",
+    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate” or “oxygen_percent”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
     "crumbs": [
-      "Examples",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html",
-    "href": "examples/ppg_example.html",
-    "title": "PPG example",
-    "section": "",
-    "text": "This is an example of how to get data from the PPG sensor of your device",
-    "crumbs": [
-      "Examples",
-      "PPG example"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html#intro",
-    "href": "examples/ppg_example.html#intro",
-    "title": "PPG example",
-    "section": "",
-    "text": "This is an example of how to get data from the PPG sensor of your device",
-    "crumbs": [
-      "Examples",
-      "PPG example"
-    ]
-  },
-  {
-    "objectID": "examples/ppg_example.html#example-with-code",
-    "href": "examples/ppg_example.html#example-with-code",
-    "title": "PPG example",
-    "section": "Example with code",
-    "text": "Example with code\nImport of necessary libs\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_ppg\ndef main():\n    print(\"Initialize API\")\nCreating and initializing the instance of Teslasuit API\n    api = ts_api.TsApi()\nGet a connected Teslasuit device or waits until a device is attached if not already connected\n    device = api.get_device_manager().get_or_wait_last_device_attached()\nAccess the PPG subsystem of the device\n    ppg = device.ppg\n    \n\n    print(\"Wait for ppg data...\")\nStarting the streaming of a raw PPG data\n    ppg.start_raw_streaming()\nWait until getting a Mean RR data which is part of Ts_HRV and then prints it\nwhile True:\n    data = ppg.get_hrv_data_on_ready()\n    print(\"Mean R-R:\", data.mean_rr)\nWait until getting Heart rate data which is part of TsPpgNodeData and then prints it\nwhile True:\n    data = ppg.node[0].get_data()\n    print(\"Heart Rate:\", data.heart_rate)",
-    "crumbs": [
-      "Examples",
-      "PPG example"
+      "API Reference",
+      "Subsystems",
+      "PPG"
     ]
   },
   {
@@ -341,6 +319,94 @@
     "crumbs": [
       "Home",
       "Introduction"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#quick-access",
+    "href": "examples/ppg_example.html#quick-access",
+    "title": "PPG example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nPPG Subsystem\nUsecase",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#intro",
+    "href": "examples/ppg_example.html#intro",
+    "title": "PPG example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve data from the PPG (Photoplethysmography) sensor of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the PPG subsystem, and streaming data such as heart rate and HRV (Heart Rate Variability).",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#code-for-hrv-data",
+    "href": "examples/ppg_example.html#code-for-hrv-data",
+    "title": "PPG example",
+    "section": "Code for HRV data",
+    "text": "Code for HRV data\n\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_ppg\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the PPG subsystem...\")\n    ppg = device.ppg\n\n6    print(\"Starting raw PPG data streaming...\")\n    ppg.start_raw_streaming()\n\n    print(\"Waiting for HRV data (Mean R-R)...\")\n    while True:\n7        hrv_data = ppg.get_hrv_data_on_ready()\n8        print(\"Mean R-R Interval:\", hrv_data.mean_rr)\n\n# Entry point for the script\nif __name__ == \"__main__\":\n9    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the PPG subsystem from the SDK.\n\n3\n\nCreate an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the PPG subsystem from the device.\n\n6\n\nStart streaming raw PPG data from the suit.\n\n7\n\nWait for HRV data to become available.\n\n8\n\nPrint the mean R-R interval from HRV data.\n\n9\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#expected-output",
+    "href": "examples/ppg_example.html#expected-output",
+    "title": "PPG example",
+    "section": "Expected output",
+    "text": "Expected output\n\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the PPG subsystem...\n4Starting raw PPG data streaming...\n5Waiting for HRV data (Mean R-R)...\n6Mean R-R Interval: 750\n\n1\n\nApi is initialized via api = ts_api.TsApi()\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe PPG subsystem of the connected device is accessed via device.ppg.\n\n4\n\nRaw PPG data streaming is initiated with ppg.start_raw_streaming().\n\n5\n\nThe program enters a loop to wait for HRV data, specifically the Mean R-R interval, using ppg.get_hrv_data_on_ready().\n\n6\n\nThe Mean R-R interval is printed to the console as it becomes available.\n\n\n⚠️ In order to get valid HRV data, you have to wait for at least 30 seconds before getting actual data.",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#code-for-heart-rate-data",
+    "href": "examples/ppg_example.html#code-for-heart-rate-data",
+    "title": "PPG example",
+    "section": "Code for Heart rate data",
+    "text": "Code for Heart rate data\n\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_ppg\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the PPG subsystem...\")\n    ppg = device.ppg\n\n6    print(\"Starting raw PPG data streaming...\")\n    ppg.start_raw_streaming()\n\n    # Wait for and print Heart Rate data from the PPG node\n    print(\"Waiting for Heart Rate data...\")\n    while True:\n7        node_data = ppg.get_data()\n8        print(\"Heart Rate:\", node_data.nodes[0].heart_rate)\n\n# Entry point for the script\nif __name__ == \"__main__\":\n9    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the PPG subsystem from the SDK.\n\n3\n\nCreate an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the PPG subsystem from the device.\n\n6\n\nStart streaming raw PPG data from the suit.\n\n7\n\nGet PPG data from the node.\n\n8\n\nPrint the current heart rate from the first node.\n\n9\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/ppg_example.html#expected-output-1",
+    "href": "examples/ppg_example.html#expected-output-1",
+    "title": "PPG example",
+    "section": "Expected output",
+    "text": "Expected output\n\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the PPG subsystem...\n4Starting raw PPG data streaming...\n5Waiting for Heart Rate data...\n6Heart Rate: 72\n\n1\n\nApi is initialized via api = ts_api.TsApi()\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe PPG subsystem of the connected device is accessed via device.ppg.\n\n4\n\nRaw PPG data streaming is initiated with ppg.start_raw_streaming().\n\n5\n\nThe program enters another loop to wait for heart rate data from the first PPG node using ppg.get_data().\n\n6\n\nThe heart rate value is printed to the console as it becomes available using node_data.nodes[0].heart_rate()",
+    "crumbs": [
+      "Examples",
+      "PPG example"
+    ]
+  },
+  {
+    "objectID": "usecases/ppg_visualiser.html#quick-access",
+    "href": "usecases/ppg_visualiser.html#quick-access",
+    "title": "Real-time Heart rate visualiser",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nPPG Subsystem\n\n\n\n\n\n\n\nTo start we need\n\n\n\n\n\nTo start working with the Teslasuit PPG sensor, you need to ensure the following prerequisites are met:\n\nTeslasuit Device\n\nEnsure you have access to a Teslasuit device with of version 4.7 or higher.\n\nTeslasuit SDK\n\nInstall the Teslasuit SDK.\n\nFollow the installation guide to set up the SDK on your system.\n\nPython Environment\n\nInstall Python 3.8 or higher.\nEnsure that Python SDK is added to your . If it’s not run script from this section\n\nConnection Setup\n\nEnsure the Teslasuit device is powered on and connected to your computer via WiFi.\nVerify the connection using the Teslasuit Control Center application.\n\nDevelopment Environment\n\nUse an IDE or text editor that supports Python development, such as VS Code or PyCharm.\n\nPermissions\n\nEnsure you have the necessary permissions to access the Teslasuit device and its subsystems.\n\nOn some systems, you may need to run the script with elevated privileges.\n\n\nOnce these prerequisites are met, you can proceed to initialize the Teslasuit API and start working with the PPG subsystem as demonstrated in the code section below.",
+    "crumbs": [
+      "Usecases",
+      "Real-time Heart rate visualiser"
+    ]
+  },
+  {
+    "objectID": "usecases/ppg_visualiser.html#visualising-heart-rate-data",
+    "href": "usecases/ppg_visualiser.html#visualising-heart-rate-data",
+    "title": "Real-time Heart rate visualiser",
+    "section": "Visualising Heart Rate data",
+    "text": "Visualising Heart Rate data\nimport matplotlib.pyplot as plt\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_ppg\n\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the PPG subsystem...\")\n    ppg = device.ppg\n\n6    print(\"Starting raw PPG data streaming...\")\n    ppg.start_raw_streaming()\n\n    # Initialize plot\n7    plt.ion()\n    fig, ax = plt.subplots()\n    x_data, y_data = [], []\n    line, = ax.plot(x_data, y_data, label=\"Heart Rate (bpm)\")\n    ax.set_xlabel(\"Timestamp (s)\")\n    ax.set_ylabel(\"Heart Rate (bpm)\")\n    ax.set_title(\"Real-Time Heart Rate Data\")\n    ax.legend()\n\n8    print(\"Waiting for Heart Rate data...\")\n\n    try:\n        while True:\n            # Get processed PPG data\n9            node_data = ppg.get_data()\n            heart_rate = node_data.nodes[0].heart_rate\n            timestamp = node_data.nodes[0].timestamp\n\n            # Update data\n10            x_data.append(timestamp)\n            y_data.append(heart_rate)\n\n            # Update plot\n11            line.set_xdata(x_data)\n            line.set_ydata(y_data)\n            ax.relim()\n            ax.autoscale_view()\n            plt.draw()\n            plt.pause(0.01)\n\n12    except KeyboardInterrupt:\n        print(\"Stopping real-time plotting...\")\n    finally:\n13        ppg.stop_raw_streaming()\n        plt.ioff()\n        plt.show()\n\nif __name__ == \"__main__\":\n14    main()\n\n1\n\nImport the main Teslasuit API module: Import the required Teslasuit SDK modules.\n\n2\n\nImport the PPG subsystem: Import the PPG subsystem from the SDK.\n\n3\n\nInitialize the Teslasuit API: Create an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to connect: Wait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the PPG subsystem: Access the PPG subsystem from the connected device.\n\n6\n\nStart raw PPG data streaming: Start streaming raw PPG data from the suit.\n\n7\n\nInitialize the real-time plot: Set up the matplotlib plot for real-time visualization of heart rate data.\n\n8\n\nStart waiting for heart rate data: Begin the loop to process and visualize heart rate data.\n\n9\n\nRetrieve heart rate data: Get processed PPG data and extract the heart rate and timestamp.\n\n10\n\nUpdate data arrays: Append the timestamp and heart rate to the respective data arrays.\n\n11\n\nUpdate the plot: Update the plot with the new data and refresh the visualization.\n\n12\n\nHandle keyboard interrupt: Gracefully stop the program when interrupted (e.g., via Ctrl+C).\n\n13\n\nStop raw PPG data streaming: Stop the PPG data stream and close the plot.\n\n14\n\nRun the main function: Start the program using the main function.\n\n\n\n\n\n\n\n\nPotential problems and solutions\n\n\n\n\n\n\nDevice Connection Issues\n\nProblem: The Teslasuit device may not connect or be detected by the API.\n\nSolution: Ensure the device is powered on and within range. Verify that the Teslasuit drivers and SDK are correctly installed. Check for any connection errors in the logs.\n\nPPG Subsystem Not Accessible\n\nProblem: The PPG subsystem might not be available or initialized properly.\n\nSolution: Confirm that the connected Teslasuit device supports the PPG subsystem. Restart the device and reinitialize the API if necessary. Double-check that the Teslasuit version is 4.7 or higher, as earlier versions may not support the PPG functionality.\n\nSDK Initialization Issues\n\nProblem: The SDK cannot be initialized, or the library is not found.\n\nSolution: Verify that the Teslasuit SDK is installed correctly. Refer to the installation guide for instructions. Ensure the environment of the working project is properly set up. Refer to the this section for details.\n\nData Streaming Delays\n\nProblem: There may be delays in receiving HRV or heart rate data.\n\nSolution: Delays could be caused by the algorithm behind HRV calculation. Usually it requires at least 30 second of raw data to calculate HRV.",
+    "crumbs": [
+      "Usecases",
+      "Real-time Heart rate visualiser"
     ]
   }
 ]
