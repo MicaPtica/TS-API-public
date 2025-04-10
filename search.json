@@ -4,7 +4,7 @@
     "href": "Main concepts/ppg_concept.html#quick-access",
     "title": "PPG",
     "section": "Quick access",
-    "text": "Quick access\n\nPPG Subsystem\nExamples\nUsecase",
+    "text": "Quick access\n\nPPG Subsystem\nExamples\nUsecase\nPPG Data structures",
     "crumbs": [
       "Main concepts",
       "PPG"
@@ -211,7 +211,7 @@
     "href": "API Reference/core/data_structures.html#ppg",
     "title": "Data structures",
     "section": "PPG",
-    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes: mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds. sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\nsdsd (float): Standard deviation of successive RR interval differences.\n\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, \n                reflecting short-term HRV.\n\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity \n                (short-term HRV component).\n\nsd2 (float): Poincaré plot standard deviation along the line of identity \n                (long-term HRV component).\n\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.\n\n\nTsPpgData(Structure):\nRepresents processed PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.\n\n\nTsPpgNodeData(Structure):\nRepresents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.",
+    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes:\nmean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.\n\nsdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\n\nsdsd (float): Standard deviation of successive RR interval differences.\n\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, \n                reflecting short-term HRV.\n\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity \n                (short-term HRV component).\n\nsd2 (float): Poincaré plot standard deviation along the line of identity \n                (long-term HRV component).\n\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.\n\n\nTsPpgData(Structure):\nRepresents processed PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.\n\n\nTsPpgNodeData(Structure):\nRepresents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -223,7 +223,7 @@
     "href": "API Reference/subsystems/ppg.html#quick-access",
     "title": "PPG",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nPPG Data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -326,7 +326,7 @@
     "href": "examples/ppg_example.html#quick-access",
     "title": "PPG example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nPPG Subsystem\nUsecase",
+    "text": "Quick access\n\nMain concept\nPPG Subsystem\nUsecase\nPPG Data structures",
     "crumbs": [
       "Examples",
       "PPG example"
@@ -392,7 +392,7 @@
     "href": "usecases/ppg_visualiser.html#quick-access",
     "title": "Real-time Heart rate visualiser",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nPPG Subsystem\n\n\n\n\n\n\n\nTo start we need\n\n\n\n\n\nTo start working with the Teslasuit PPG sensor, you need to ensure the following prerequisites are met:\n\nTeslasuit Device\n\nEnsure you have access to a Teslasuit device with of version 4.7 or higher.\n\nTeslasuit SDK\n\nInstall the Teslasuit SDK.\n\nFollow the installation guide to set up the SDK on your system.\n\nPython Environment\n\nInstall Python 3.8 or higher.\nEnsure that Python SDK is added to your . If it’s not run script from this section\n\nConnection Setup\n\nEnsure the Teslasuit device is powered on and connected to your computer via WiFi.\nVerify the connection using the Teslasuit Control Center application.\n\nDevelopment Environment\n\nUse an IDE or text editor that supports Python development, such as VS Code or PyCharm.\n\nPermissions\n\nEnsure you have the necessary permissions to access the Teslasuit device and its subsystems.\n\nOn some systems, you may need to run the script with elevated privileges.\n\n\nOnce these prerequisites are met, you can proceed to initialize the Teslasuit API and start working with the PPG subsystem as demonstrated in the code section below.",
+    "text": "Quick access\n\nMain concept\nExamples\nPPG Subsystem\nPPG Data structures\n\n\n\n\n\n\n\nTo start we need\n\n\n\n\n\nTo start working with the Teslasuit PPG sensor, you need to ensure the following prerequisites are met:\n\nTeslasuit Device\n\nEnsure you have access to a Teslasuit device with of version 4.7 or higher.\n\nTeslasuit SDK\n\nInstall the Teslasuit SDK.\n\nFollow the installation guide to set up the SDK on your system.\n\nPython Environment\n\nInstall Python 3.8 or higher.\nEnsure that Python SDK is added to your . If it’s not run script from this section\n\nConnection Setup\n\nEnsure the Teslasuit device is powered on and connected to your computer via WiFi.\nVerify the connection using the Teslasuit Control Center application.\n\nDevelopment Environment\n\nUse an IDE or text editor that supports Python development, such as VS Code or PyCharm.\n\nPermissions\n\nEnsure you have the necessary permissions to access the Teslasuit device and its subsystems.\n\nOn some systems, you may need to run the script with elevated privileges.\n\n\nOnce these prerequisites are met, you can proceed to initialize the Teslasuit API and start working with the PPG subsystem as demonstrated in the code section below.",
     "crumbs": [
       "Usecases",
       "Real-time Heart rate visualiser"

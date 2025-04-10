@@ -600,8 +600,12 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="tshrvstructure">TsHrv(Structure):</h3>
 <p>Represents Heart Rate Variability (HRV) metrics.</p>
 <p>This structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.</p>
-<p>Attributes: mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds. sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.</p>
-<pre><code>sdsd (float): Standard deviation of successive RR interval differences.
+<p>Attributes:</p>
+<pre><code>mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.
+
+sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.
+
+sdsd (float): Standard deviation of successive RR interval differences.
 
 rmssd (float): Root Mean Square of Successive Differences between RR intervals, 
                 reflecting short-term HRV.
