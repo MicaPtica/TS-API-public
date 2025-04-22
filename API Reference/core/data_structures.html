@@ -542,7 +542,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../usecases/ppg_visualiser.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Real-time Heart rate visualiser</span></a>
+ <span class="menu-text">Real-time heart rate visualiser</span></a>
   </div>
 </li>
       </ul>
@@ -564,6 +564,35 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tsppgrawdatastructure" id="toc-tsppgrawdatastructure" class="nav-link" data-scroll-target="#tsppgrawdatastructure">TsPpgRawData(Structure):</a></li>
   <li><a href="#tsppgdatastructure" id="toc-tsppgdatastructure" class="nav-link" data-scroll-target="#tsppgdatastructure">TsPpgData(Structure):</a></li>
   <li><a href="#tsppgnodedatastructure" id="toc-tsppgnodedatastructure" class="nav-link" data-scroll-target="#tsppgnodedatastructure">TsPpgNodeData(Structure):</a></li>
+  </ul></li>
+  <li><a href="#mocap" id="toc-mocap" class="nav-link" data-scroll-target="#mocap">Mocap</a>
+  <ul class="collapse">
+  <li><a href="#tsvec2fstructure" id="toc-tsvec2fstructure" class="nav-link" data-scroll-target="#tsvec2fstructure">TsVec2f(Structure):</a></li>
+  <li><a href="#tsvec3fstructure" id="toc-tsvec3fstructure" class="nav-link" data-scroll-target="#tsvec3fstructure">TsVec3f(Structure):</a></li>
+  <li><a href="#tsquatstructure" id="toc-tsquatstructure" class="nav-link" data-scroll-target="#tsquatstructure">TsQuat(Structure):</a></li>
+  <li><a href="#tsmocapbonestructure" id="toc-tsmocapbonestructure" class="nav-link" data-scroll-target="#tsmocapbonestructure">TsMocapBone(Structure):</a></li>
+  <li><a href="#tsmocapsensorstructure" id="toc-tsmocapsensorstructure" class="nav-link" data-scroll-target="#tsmocapsensorstructure">TsMocapSensor(Structure):</a></li>
+  </ul></li>
+  <li><a href="#emg" id="toc-emg" class="nav-link" data-scroll-target="#emg">EMG</a>
+  <ul class="collapse">
+  <li><a href="#tsemgoptionsstructure" id="toc-tsemgoptionsstructure" class="nav-link" data-scroll-target="#tsemgoptionsstructure">TsEmgOptions(Structure):</a></li>
+  <li><a href="#tsemgchanneldatastructure" id="toc-tsemgchanneldatastructure" class="nav-link" data-scroll-target="#tsemgchanneldatastructure">TsEmgChannelData(Structure):</a></li>
+  <li><a href="#tsemgnodedatastructure" id="toc-tsemgnodedatastructure" class="nav-link" data-scroll-target="#tsemgnodedatastructure">TsEmgNodeData(Structure):</a></li>
+  <li><a href="#tsemgdatastructure" id="toc-tsemgdatastructure" class="nav-link" data-scroll-target="#tsemgdatastructure">TsEmgData(Structure):</a></li>
+  </ul></li>
+  <li><a href="#haptic" id="toc-haptic" class="nav-link" data-scroll-target="#haptic">Haptic</a>
+  <ul class="collapse">
+  <li><a href="#tshapticparamstructure" id="toc-tshapticparamstructure" class="nav-link" data-scroll-target="#tshapticparamstructure">TsHapticParam(Structure):</a></li>
+  <li><a href="#tshapticparammultiplierstructure" id="toc-tshapticparammultiplierstructure" class="nav-link" data-scroll-target="#tshapticparammultiplierstructure">TsHapticParamMultiplier(Structure):</a></li>
+  <li><a href="#tshapticparamtypeenum" id="toc-tshapticparamtypeenum" class="nav-link" data-scroll-target="#tshapticparamtypeenum">TsHapticParamType(Enum):</a></li>
+  <li><a href="#tshapticplayerstructure" id="toc-tshapticplayerstructure" class="nav-link" data-scroll-target="#tshapticplayerstructure">TsHapticPlayer(Structure):</a></li>
+  </ul></li>
+  <li><a href="#magnetic-encoder" id="toc-magnetic-encoder" class="nav-link" data-scroll-target="#magnetic-encoder">Magnetic Encoder</a>
+  <ul class="collapse">
+  <li><a href="#tsmagneticencoderconfigstructure" id="toc-tsmagneticencoderconfigstructure" class="nav-link" data-scroll-target="#tsmagneticencoderconfigstructure">TsMagneticEncoderConfig(Structure):</a></li>
+  <li><a href="#tsmagneticencoderlockdirectionenum" id="toc-tsmagneticencoderlockdirectionenum" class="nav-link" data-scroll-target="#tsmagneticencoderlockdirectionenum">TsMagneticEncoderLockDirection(Enum):</a></li>
+  <li><a href="#tsfingermepositionclass" id="toc-tsfingermepositionclass" class="nav-link" data-scroll-target="#tsfingermepositionclass">TsFingerMEPosition(Class):</a></li>
+  <li><a href="#tsglovemepositionclass" id="toc-tsglovemepositionclass" class="nav-link" data-scroll-target="#tsglovemepositionclass">TsGloveMEPosition(Class):</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -592,7 +621,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>This is the page where you can find explanation of data structures used in TESLASUIT SDK</p>
+<p>This is the page where you can find explanation of data structures used in TESLASUIT SDK.</p>
 </section>
 <section id="ppg" class="level2">
 <h2 class="anchored" data-anchor-id="ppg">PPG</h2>
@@ -633,6 +662,149 @@ hlf (float): High-frequency component of HRV, associated with parasympathetic ne
 <section id="tsppgnodedatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsppgnodedatastructure">TsPpgNodeData(Structure):</h3>
 <p>Represents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.</p>
+</section>
+</section>
+<section id="mocap" class="level2">
+<h2 class="anchored" data-anchor-id="mocap">Mocap</h2>
+<section id="tsvec2fstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsvec2fstructure">TsVec2f(Structure):</h3>
+<p>Represents a 2D vector with float coordinates.</p>
+<p>Attributes: x (float): X coordinate. y (float): Y coordinate.</p>
+<hr>
+</section>
+<section id="tsvec3fstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsvec3fstructure">TsVec3f(Structure):</h3>
+<p>Represents a 3D vector with float coordinates.</p>
+<p>Attributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.</p>
+<hr>
+</section>
+<section id="tsquatstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsquatstructure">TsQuat(Structure):</h3>
+<p>Represents a quaternion for 3D rotation.</p>
+<p>Attributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.</p>
+<hr>
+</section>
+<section id="tsmocapbonestructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsmocapbonestructure">TsMocapBone(Structure):</h3>
+<p>Represents skeleton bone data.</p>
+<p>Attributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.</p>
+<hr>
+</section>
+<section id="tsmocapsensorstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsmocapsensorstructure">TsMocapSensor(Structure):</h3>
+<p>Represents raw IMU sensor data.</p>
+<p>Attributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.</p>
+</section>
+</section>
+<section id="emg" class="level2">
+<h2 class="anchored" data-anchor-id="emg">EMG</h2>
+<section id="tsemgoptionsstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsemgoptionsstructure">TsEmgOptions(Structure):</h3>
+<p>Represents EMG filter options.</p>
+<p>Attributes: lower_bandwidth (int): Filter’s lower bandwidth.<br>
+upper_bandwidth (int): Filter’s upper bandwidth.<br>
+sampling_frequency (int): Sampling frequency.<br>
+sample_size (int): Sample size.</p>
+<hr>
+</section>
+<section id="tsemgchanneldatastructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsemgchanneldatastructure">TsEmgChannelData(Structure):</h3>
+<p>Represents EMG channel data.</p>
+<p>Attributes: channel_index (int): Index of the channel.<br>
+number_of_samples (int): Number of samples in the channel.<br>
+samples (list): List of samples.</p>
+<hr>
+</section>
+<section id="tsemgnodedatastructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsemgnodedatastructure">TsEmgNodeData(Structure):</h3>
+<p>Represents EMG node data.</p>
+<p>Attributes: node_index (int): Index of the node.<br>
+number_of_channels (int): Number of channels in the node.<br>
+channels (list): List of <a href="#tsemgchanneldata">TsEmgChannelData</a> objects.<br>
+number_of_timestamps (int): Number of timestamps.<br>
+timestamps (list): List of timestamps.</p>
+<hr>
+</section>
+<section id="tsemgdatastructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsemgdatastructure">TsEmgData(Structure):</h3>
+<p>Represents EMG data.</p>
+<p>Attributes: number_of_nodes (int): Number of nodes.<br>
+nodes (list): List of <a href="#tsemgnodedata">TsEmgNodeData</a> objects.<br>
+options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
+</section>
+</section>
+<section id="haptic" class="level2">
+<h2 class="anchored" data-anchor-id="haptic">Haptic</h2>
+<section id="tshapticparamstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tshapticparamstructure">TsHapticParam(Structure):</h3>
+<p>Represents a haptic parameter.</p>
+<p>Attributes: - <code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+- <code>value (float)</code>: Value of the parameter.</p>
+<hr>
+</section>
+<section id="tshapticparammultiplierstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tshapticparammultiplierstructure">TsHapticParamMultiplier(Structure):</h3>
+<p>Represents a multiplier for haptic parameters.</p>
+<p>Attributes: - <code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+- <code>value (float)</code>: Multiplier value (between 0 and 1).</p>
+<hr>
+</section>
+<section id="tshapticparamtypeenum" class="level3">
+<h3 class="anchored" data-anchor-id="tshapticparamtypeenum">TsHapticParamType(Enum):</h3>
+<p>Enumeration of haptic parameter types.</p>
+<p>Values: - <code>Undefined</code>: Undefined parameter type.<br>
+- <code>Period</code>: Period parameter.<br>
+- <code>Amplitude</code>: Amplitude parameter.<br>
+- <code>PulseWidth</code>: Pulse width parameter.<br>
+- <code>Temperature</code>: Temperature parameter.</p>
+<hr>
+</section>
+<section id="tshapticplayerstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tshapticplayerstructure">TsHapticPlayer(Structure):</h3>
+<p>Represents the Haptic Player for managing haptic feedback.</p>
+<p>Attributes: - <code>playables (list)</code>: List of active haptic playables.<br>
+- <code>is_running (bool)</code>: Indicates if the player is running.<br>
+- <code>is_paused (bool)</code>: Indicates if the player is paused.<br>
+- <code>is_muted (bool)</code>: Indicates if the player is muted.</p>
+<hr>
+</section>
+</section>
+<section id="magnetic-encoder" class="level2">
+<h2 class="anchored" data-anchor-id="magnetic-encoder">Magnetic Encoder</h2>
+<section id="tsmagneticencoderconfigstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsmagneticencoderconfigstructure">TsMagneticEncoderConfig(Structure):</h3>
+<p>Represents the configuration for servomotor magnetic encoder.</p>
+<p>Attributes:<br>
+- <code>bone_index (int)</code>: Index of the bone.<br>
+- <code>angle (float)</code>: Angle for the magnetic encoder.<br>
+- <code>hardness_percent (int)</code>: Hardness percentage from 0 to 100.<br>
+- <code>lock_direction ([TsMagneticEncoderLockDirection](#tsmagneticencoderlockdirection))</code>: Direction of the lock.</p>
+<hr>
+</section>
+<section id="tsmagneticencoderlockdirectionenum" class="level3">
+<h3 class="anchored" data-anchor-id="tsmagneticencoderlockdirectionenum">TsMagneticEncoderLockDirection(Enum):</h3>
+<p>Enumeration of magnetic encoder lock directions.</p>
+<p>Values:<br>
+- <code>Up</code>: Lock movement upwards.<br>
+- <code>Down</code>: Lock movement downwards.<br>
+- <code>Both</code>: Lock movement in both directions.</p>
+<hr>
+</section>
+<section id="tsfingermepositionclass" class="level3">
+<h3 class="anchored" data-anchor-id="tsfingermepositionclass">TsFingerMEPosition(Class):</h3>
+<p>Represents the position of a finger.</p>
+<p>Attributes:<br>
+- <code>flexion_angle (float)</code>: Flexion angle of the finger.<br>
+- <code>abduction_angle (float)</code>: Abduction angle of the finger.</p>
+<hr>
+</section>
+<section id="tsglovemepositionclass" class="level3">
+<h3 class="anchored" data-anchor-id="tsglovemepositionclass">TsGloveMEPosition(Class):</h3>
+<p>Represents the magnetic encoder position structures for the fingers.</p>
+<p>Attributes:<br>
+- <code>side (TsDeviceSide)</code>: Side of the glove (left or right).<br>
+- <code>fingers (dict)</code>: Dictionary of bone indexes and their corresponding <a href="#tsfingermeposition">TsFingerMEPosition</a>.</p>
+<hr>
 
 
 </section>

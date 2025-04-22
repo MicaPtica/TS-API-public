@@ -11,6 +11,94 @@
     ]
   },
   {
+    "objectID": "examples/haptic_example.html#quick-access",
+    "href": "examples/haptic_example.html#quick-access",
+    "title": "Haptic example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nHaptic Subsystem\nUsecase\nHaptic Data structures",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#intro",
+    "href": "examples/haptic_example.html#intro",
+    "title": "Haptic example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#code-for-haptic-touch",
+    "href": "examples/haptic_example.html#code-for-haptic-touch",
+    "title": "Haptic example",
+    "section": "Code for Haptic Touch",
+    "text": "Code for Haptic Touch\nimport time\nimport _setup_sys_path\n\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_haptic\n3from teslasuit_sdk.ts_mapper import TsBone2dIndex\n\n4TOUCH_DURATION_MS = 3000\n\ndef main():\n    try:\n5        print(\"Initialize API\")\n        api = ts_api.TsApi()\n\n6        device = api.get_device_manager().get_or_wait_last_device_attached()\n7        player = device.haptic\n8        mapper = api.mapper\n\n9        print(\"Setup channels to play and touch parameters\")\n        layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n10        bones = mapper.get_layout_bones(layout)\n11        channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n12        params = player.create_touch_parameters(100, 40, 150)\n\n13        print(\"Create touch and play\")\n        playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n14        player.play_playable(playable_id)\n\n15        print(\"Wait until playback finished...\")\n        time.sleep(TOUCH_DURATION_MS / 1000)\n16        print(\"Finished\")\n\n17    except (KeyboardInterrupt, SystemExit):\n        print('\\n! Received keyboard interrupt, quitting haptic touch play\\n')\n\n\nif __name__ == '__main__':\n18    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the Haptic subsystem from the SDK.\n\n3\n\nImport the TsBone2dIndex for mapping bones.\n\n4\n\nDefine the duration of the haptic touch in milliseconds.\n\n5\n\nInitialize the Teslasuit API.\n\n6\n\nWait for a Teslasuit device to connect and get it.\n\n7\n\nAccess the Haptic subsystem from the device.\n\n8\n\nAccess the mapper for haptic channel mapping.\n\n9\n\nRetrieve the haptic channel layout for the device.\n\n10\n\nGet the bones from the layout.\n\n11\n\nRetrieve the haptic channels for the right upper arm.\n\n12\n\nCreate touch parameters with period, amplitude, and pulse width.\n\n13\n\nCreate a haptic touch and play it.\n\n14\n\nPlay the created haptic touch.\n\n15\n\nWait for the playback to finish.\n\n16\n\nPrint “Finished” after playback ends.\n\n17\n\nHandle keyboard interrupts gracefully.\n\n18\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#expected-output",
+    "href": "examples/haptic_example.html#expected-output",
+    "title": "Haptic example",
+    "section": "Expected output",
+    "text": "Expected output\n1Initialize API\n2Setup channels to play and touch parameters\n3Create touch and play\n4Wait until playback finished...\n5Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nChannels and touch parameters are set up using the mapper and haptic subsystem.\n\n3\n\nA haptic touch is created and played using player.create_touch() and player.play_playable().\n\n4\n\nThe program waits for the playback to finish using time.sleep().\n\n5\n\nThe program prints “Finished” after the playback ends.\n\n\n⚠️ Ensure the Teslasuit device is connected and properly calibrated before running the script.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/force_feedback_example.html#quick-access",
+    "href": "examples/force_feedback_example.html#quick-access",
+    "title": "Force Feedback example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nForce Feedback Subsystem\nUsecase\nForce Feedback Data structures",
+    "crumbs": [
+      "Examples",
+      "Force Feedback example"
+    ]
+  },
+  {
+    "objectID": "examples/force_feedback_example.html#intro",
+    "href": "examples/force_feedback_example.html#intro",
+    "title": "Force Feedback example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to use the Force Feedback feature of the Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, configuring force feedback parameters, and enabling/disabling force feedback.",
+    "crumbs": [
+      "Examples",
+      "Force Feedback example"
+    ]
+  },
+  {
+    "objectID": "examples/force_feedback_example.html#code-for-force-feedback",
+    "href": "examples/force_feedback_example.html#code-for-force-feedback",
+    "title": "Force Feedback example",
+    "section": "Code for Force Feedback",
+    "text": "Code for Force Feedback\n\nimport time\n1from teslasuit_sdk import ts_api\n2from teslasuit_sdk.ts_mapper import TsBone2dIndex\n3from teslasuit_sdk.subsystems.ts_magnetic_encoder import (\n    TsForceFeedbackLockDirection, TsForceFeedbackConfig)\n\ndef main():\n    try:\n4        print(\"Initialize API\")\n        api = ts_api.TsApi()\n\n5        print(\"Waiting for a Teslasuit device to connect...\")\n        device = api.get_device_manager().get_or_wait_last_device_attached()\n\n6        print(\"Accessing the Magnetic Encoder subsystem...\")\n        encoder = device.magnetic_encoder\n\n7        print(\"Set force feedback angle\")\n        ff_config = [TsForceFeedbackConfig()]\n        ff_config[0].bone_index = TsBone2dIndex.RightThumbProximal.value\n        ff_config[0].angle = 45\n        ff_config[0].hardness_percent = 100\n        ff_config[0].lock_direction = TsForceFeedbackLockDirection.Both.value\n8        encoder.ts_force_feedback_enable(ff_config)\n\n9        time.sleep(10)\n10        print(\"Release force feedback\")\n        encoder.ts_force_feedback_disable([TsBone2dIndex.RightThumbProximal.value])\n11        print(\"Finished\")\n\n12    except (KeyboardInterrupt, SystemExit):\n        print('\\n! Received keyboard interrupt, quitting glove forcefeedback\\n')\n\n13main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the bone index mapper for specifying bones.\n\n3\n\nImport the force feedback configuration and lock direction classes.\n\n4\n\nInitialize the Teslasuit API.\n\n5\n\nWait for a Teslasuit device to connect.\n\n6\n\nAccess the Magnetic Encoder subsystem of the connected device.\n\n7\n\nConfigure force feedback parameters, including bone index, angle, hardness, and lock direction.\n\n8\n\nEnable force feedback using the configured parameters.\n\n9\n\nWait for 10 seconds to observe the force feedback effect.\n\n10\n\nDisable force feedback for the specified bone index.\n\n11\n\nPrint a message indicating the process is finished.\n\n12\n\nHandle keyboard interrupts gracefully.\n\n13\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "Force Feedback example"
+    ]
+  },
+  {
+    "objectID": "examples/force_feedback_example.html#expected-output",
+    "href": "examples/force_feedback_example.html#expected-output",
+    "title": "Force Feedback example",
+    "section": "Expected output",
+    "text": "Expected output\n\n1Initialize API\n2Waiting for a Teslasuit device to connect...\n3Accessing the Magnetic Encoder subsystem...\n4Set force feedback angle\n5Release force feedback\n6Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe Magnetic Encoder subsystem of the connected device is accessed via device.magnetic_encoder.\n\n4\n\nForce feedback parameters are configured and enabled using encoder.ts_force_feedback_enable(ff_config).\n\n5\n\nForce feedback is disabled using encoder.ts_force_feedback_disable().\n\n6\n\nThe program prints a completion message.",
+    "crumbs": [
+      "Examples",
+      "Force Feedback example"
+    ]
+  },
+  {
     "objectID": "examples/index.html",
     "href": "examples/index.html",
     "title": "Overview",
@@ -62,7 +150,7 @@
     "href": "Getting_started.html",
     "title": "Getting started",
     "section": "",
-    "text": "Welcome to the Teslasuit SDK! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
+    "text": "Welcome to the Teslasuit API! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
     "crumbs": [
       "Home",
       "Getting started"
@@ -73,7 +161,7 @@
     "href": "Getting_started.html#welcome",
     "title": "Getting started",
     "section": "",
-    "text": "Welcome to the Teslasuit SDK! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
+    "text": "Welcome to the Teslasuit API! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.\nMake sure your Teslasuit is connected to your PC or laptop before continuing.",
     "crumbs": [
       "Home",
       "Getting started"
@@ -106,7 +194,7 @@
     "href": "Getting_started.html#first-steps",
     "title": "Getting started",
     "section": "First steps",
-    "text": "First steps\n\nConnect the Suit\nAfter connecting your Teslasuit to your PC or laptop, you’re ready to explore its capabilities using Python.\nTo begin, you need to:\n\nAttach the device\nInitialize the API and Device\nCreate a haptic playable\n\n⚠️ Safety First!\nPlease calibrate your suit in Control Center in order to avoid unpleasant or painful experience\n\n\nRun Your First Touch\nBelow is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:\nimport time\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_haptic\nfrom teslasuit_sdk.ts_mapper import TsBone2dIndex\n\nTOUCH_DURATION_MS = 1000\n\ndef main():\n    print(\"Initialize API\")\n    api = ts_api.TsApi()\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n    player = device.haptic\n    mapper = api.mapper\n\n    print(\"Setup channels to play and touch parameters\")\n    layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n    bones = mapper.get_layout_bones(layout)\n    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n    params = player.create_touch_parameters(100, 40, 150)\n\n    print(\"Create touch and play\")\n    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n    player.play_playable(playable_id)\n\n    print(\"Wait until playback finished...\")\n    time.sleep(TOUCH_DURATION_MS / 1000)\n    print(\"Finished\")\n\n\nif __name__ == '__main__':\n    main()",
+    "text": "First steps\n\nConnect the Suit\nAfter connecting your Teslasuit to your PC or laptop, you’re ready to explore its capabilities using Python.\nTo begin, you need to:\n\nAttach the device\nInitialize the API and Device\nCreate a haptic playable\n\n⚠️ Safety First!  Please calibrate your suit in Control Center in order to avoid unpleasant or painful experience\n\n\nRun Your First Touch\nBelow is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:\nimport time\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_haptic\nfrom teslasuit_sdk.ts_mapper import TsBone2dIndex\n\nTOUCH_DURATION_MS = 1000\n\ndef main():\n    print(\"Initialize API\")\n    api = ts_api.TsApi()\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n    player = device.haptic\n    mapper = api.mapper\n\n    print(\"Setup channels to play and touch parameters\")\n    layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n    bones = mapper.get_layout_bones(layout)\n    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n    params = player.create_touch_parameters(100, 40, 150)\n\n    print(\"Create touch and play\")\n    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n    player.play_playable(playable_id)\n\n    print(\"Wait until playback finished...\")\n    time.sleep(TOUCH_DURATION_MS / 1000)\n    print(\"Finished\")\n\n\nif __name__ == '__main__':\n    main()",
     "crumbs": [
       "Home",
       "Getting started"
@@ -128,18 +216,54 @@
     "href": "Getting_started.html#explore-more",
     "title": "Getting started",
     "section": "Explore more",
-    "text": "Explore more\nReady to dive deeper?\n\nLearn about Teslasuit systems in the Main concepts section.\nExplore the Core and Subsystems API in the API Reference.\nWalk through various Examples to get started with specific suit features.\nGet inspired by real-world applications in the Usecases section",
+    "text": "Explore more\nReady to dive deeper?\n\nLearn about Teslasuit systems in the Main concepts section.\nExplore the Core and Subsystems API in the API Reference.\nWalk through various Examples to get started with specific suit features.\nGet inspired by real-world applications in the Use cases section",
     "crumbs": [
       "Home",
       "Getting started"
     ]
   },
   {
-    "objectID": "API Reference/subsystems/emg.html",
-    "href": "API Reference/subsystems/emg.html",
+    "objectID": "API Reference/subsystems/emg.html#quick-access",
+    "href": "API Reference/subsystems/emg.html#quick-access",
     "title": "EMG",
-    "section": "",
-    "text": "EMPTY PAGE",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nEMG Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/emg.html#intro",
+    "href": "API Reference/subsystems/emg.html#intro",
+    "title": "EMG",
+    "section": "Intro",
+    "text": "Intro\nThe EMG subsystem provides functionality to access and process Electromyography (EMG) data from Teslasuit devices.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/emg.html#prerequisites",
+    "href": "API Reference/subsystems/emg.html#prerequisites",
+    "title": "EMG",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the EMG Subsystem\nThe TsEmg class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsEmg is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/emg.html#class-tsemg",
+    "href": "API Reference/subsystems/emg.html#class-tsemg",
+    "title": "EMG",
+    "section": "Class TsEmg",
+    "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\nlower_bandwidth (int): Filter’s lower bandwidth.\nupper_bandwidth (int): Filter’s upper bandwidth.\nsample_frequency (int): Sampling frequency.\nsample_size (int): Sample size.\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\nTsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -151,7 +275,7 @@
     "href": "API Reference/subsystems/index.html",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
+    "text": "In this section you can find a documentation for parts of API responsible for communication with different Teslasuit and Teslaglove subsystems.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -163,7 +287,7 @@
     "href": "API Reference/subsystems/index.html#intro",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different TESLASUIT and TESLAGLOVE subsystems.",
+    "text": "In this section you can find a documentation for parts of API responsible for communication with different Teslasuit and Teslaglove subsystems.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -175,7 +299,7 @@
     "href": "API Reference/subsystems/index.html#subsystems",
     "title": "Overview",
     "section": "Subsystems",
-    "text": "Subsystems\n\nEMG\nHAPTIC\nMOCAP\nPPG\nFORCE FEEDBACK",
+    "text": "Subsystems\n\nEMG\nHaptic\nMocap\nPPG\nForce feedback",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -183,11 +307,59 @@
     ]
   },
   {
+    "objectID": "API Reference/subsystems/mocap.html#quick-access",
+    "href": "API Reference/subsystems/mocap.html#quick-access",
+    "title": "Mocap",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nPPG Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/mocap.html#intro",
+    "href": "API Reference/subsystems/mocap.html#intro",
+    "title": "Mocap",
+    "section": "Intro",
+    "text": "Intro\nBiometry subsystem provides functions to access Mocap functionality.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/mocap.html#prerequisites",
+    "href": "API Reference/subsystems/mocap.html#prerequisites",
+    "title": "Mocap",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem\nThe TsMocap class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsMocap is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/mocap.html#class-tsppg",
+    "href": "API Reference/subsystems/mocap.html#class-tsppg",
+    "title": "Mocap",
+    "section": "Class TsPpg",
+    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing biomechanical angles for all bones in format ‘TsBiomechanicalIndex’: angle value.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Mocap"
+    ]
+  },
+  {
     "objectID": "API Reference/core/data_structures.html",
     "href": "API Reference/core/data_structures.html",
     "title": "Data structures",
     "section": "",
-    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
+    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -199,7 +371,7 @@
     "href": "API Reference/core/data_structures.html#intro",
     "title": "Data structures",
     "section": "",
-    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK",
+    "text": "This is the page where you can find explanation of data structures used in TESLASUIT SDK.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -216,6 +388,102 @@
       "API Reference",
       "Core",
       "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#mocap",
+    "href": "API Reference/core/data_structures.html#mocap",
+    "title": "Data structures",
+    "section": "Mocap",
+    "text": "Mocap\n\nTsVec2f(Structure):\nRepresents a 2D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate.\n\n\n\nTsVec3f(Structure):\nRepresents a 3D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsQuat(Structure):\nRepresents a quaternion for 3D rotation.\nAttributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsMocapBone(Structure):\nRepresents skeleton bone data.\nAttributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.\n\n\n\nTsMocapSensor(Structure):\nRepresents raw IMU sensor data.\nAttributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#emg",
+    "href": "API Reference/core/data_structures.html#emg",
+    "title": "Data structures",
+    "section": "EMG",
+    "text": "EMG\n\nTsEmgOptions(Structure):\nRepresents EMG filter options.\nAttributes: lower_bandwidth (int): Filter’s lower bandwidth.\nupper_bandwidth (int): Filter’s upper bandwidth.\nsampling_frequency (int): Sampling frequency.\nsample_size (int): Sample size.\n\n\n\nTsEmgChannelData(Structure):\nRepresents EMG channel data.\nAttributes: channel_index (int): Index of the channel.\nnumber_of_samples (int): Number of samples in the channel.\nsamples (list): List of samples.\n\n\n\nTsEmgNodeData(Structure):\nRepresents EMG node data.\nAttributes: node_index (int): Index of the node.\nnumber_of_channels (int): Number of channels in the node.\nchannels (list): List of TsEmgChannelData objects.\nnumber_of_timestamps (int): Number of timestamps.\ntimestamps (list): List of timestamps.\n\n\n\nTsEmgData(Structure):\nRepresents EMG data.\nAttributes: number_of_nodes (int): Number of nodes.\nnodes (list): List of TsEmgNodeData objects.\noptions (TsEmgOptions): EMG options.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#haptic",
+    "href": "API Reference/core/data_structures.html#haptic",
+    "title": "Data structures",
+    "section": "Haptic",
+    "text": "Haptic\n\nTsHapticParam(Structure):\nRepresents a haptic parameter.\nAttributes: - type (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n- value (float): Value of the parameter.\n\n\n\nTsHapticParamMultiplier(Structure):\nRepresents a multiplier for haptic parameters.\nAttributes: - type (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n- value (float): Multiplier value (between 0 and 1).\n\n\n\nTsHapticParamType(Enum):\nEnumeration of haptic parameter types.\nValues: - Undefined: Undefined parameter type.\n- Period: Period parameter.\n- Amplitude: Amplitude parameter.\n- PulseWidth: Pulse width parameter.\n- Temperature: Temperature parameter.\n\n\n\nTsHapticPlayer(Structure):\nRepresents the Haptic Player for managing haptic feedback.\nAttributes: - playables (list): List of active haptic playables.\n- is_running (bool): Indicates if the player is running.\n- is_paused (bool): Indicates if the player is paused.\n- is_muted (bool): Indicates if the player is muted.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/data_structures.html#magnetic-encoder",
+    "href": "API Reference/core/data_structures.html#magnetic-encoder",
+    "title": "Data structures",
+    "section": "Magnetic Encoder",
+    "text": "Magnetic Encoder\n\nTsMagneticEncoderConfig(Structure):\nRepresents the configuration for servomotor magnetic encoder.\nAttributes:\n- bone_index (int): Index of the bone.\n- angle (float): Angle for the magnetic encoder.\n- hardness_percent (int): Hardness percentage from 0 to 100.\n- lock_direction ([TsMagneticEncoderLockDirection](#tsmagneticencoderlockdirection)): Direction of the lock.\n\n\n\nTsMagneticEncoderLockDirection(Enum):\nEnumeration of magnetic encoder lock directions.\nValues:\n- Up: Lock movement upwards.\n- Down: Lock movement downwards.\n- Both: Lock movement in both directions.\n\n\n\nTsFingerMEPosition(Class):\nRepresents the position of a finger.\nAttributes:\n- flexion_angle (float): Flexion angle of the finger.\n- abduction_angle (float): Abduction angle of the finger.\n\n\n\nTsGloveMEPosition(Class):\nRepresents the magnetic encoder position structures for the fingers.\nAttributes:\n- side (TsDeviceSide): Side of the glove (left or right).\n- fingers (dict): Dictionary of bone indexes and their corresponding TsFingerMEPosition.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html",
+    "href": "API Reference/subsystems/haptic.html",
+    "title": "Haptic",
+    "section": "",
+    "text": "The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#intro",
+    "href": "API Reference/subsystems/haptic.html#intro",
+    "title": "Haptic",
+    "section": "",
+    "text": "The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#prerequisites",
+    "href": "API Reference/subsystems/haptic.html#prerequisites",
+    "title": "Haptic",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Haptic Subsystem\nThe TsHapticPlayer class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#class-tshapticplayer",
+    "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
+    "title": "Haptic",
+    "section": "Class TsHapticPlayer",
+    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\nbool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\nbool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nParameters:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\nbool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nParameters:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\nint: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nParameters:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\nint: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nParameters:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nParameters:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nParameters:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\nlist: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nParameters:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\nlist: List of TsHapticParamMultiplier objects.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
     ]
   },
   {
@@ -267,11 +535,71 @@
     ]
   },
   {
+    "objectID": "API Reference/subsystems/force_feedback.html#quick-access",
+    "href": "API Reference/subsystems/force_feedback.html#quick-access",
+    "title": "Force feedback",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nMagnetic Encoder Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/force_feedback.html#intro",
+    "href": "API Reference/subsystems/force_feedback.html#intro",
+    "title": "Force feedback",
+    "section": "Intro",
+    "text": "Intro\nThe Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/force_feedback.html#prerequisites",
+    "href": "API Reference/subsystems/force_feedback.html#prerequisites",
+    "title": "Force feedback",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Magnetic Encoder Subsystem\nThe Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nMagnetic Encoder functionality is tied to the device class and cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
+    "href": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
+    "title": "Force feedback",
+    "section": "Class TsMagneticEncoder",
+    "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers. Returns: dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nParameters:\n- me_configs (list): A list of TsMagneticEncoderConfig objects.\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nParameters:\n- bone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder. Returns: A TsForceFeedbackConfig structure.\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n- list: A list of bone indexes.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/force_feedback.html#utilities",
+    "href": "API Reference/subsystems/force_feedback.html#utilities",
+    "title": "Force feedback",
+    "section": "Utilities",
+    "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nParameters:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsMagneticEncoderConfig structure for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsMagneticEncoderConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction",
     "section": "",
-    "text": "The Teslasuit SDK is a developer toolkit for integrating the Teslasuit — a full-body haptic suit with motion capture and biometric sensors — into immersive applications. With this SDK, developers can control the suit’s haptic feedback system, stream and record motion data, and monitor biometric signals in real time.\nThe Teslasuit SDK Python API provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s haptic, motion capture, and biometric capabilities through an efficient and extensible API.\n\n\n\n\n\nThe Haptics module allows you to control the suit’s network of electrical stimulators to create realistic tactile feedback or stimulate major muscle groups to elicit contractions. Developers can configure custom stimulation patterns, adjust intensity levels, and trigger feedback events in sync with application logic.\nFor example, you might simulate the feeling of impact or rainfall on the user’s body, or provide a complex stimulation pattern across multiple muscle groups in the lower extremities, synchronized with the gait cycle.\n➡️ Create your first haptic touch.\n🔍 Learn more about the suit’s EMS system and best practices for designing haptic feedback here.\n\n\n\n\nThe Motion Capture module provides access to the suit’s built-in IMU-based inertial tracking system. The SDK streams detailed motion and biomechanical data in real time, using a skeletal model to deliver full-body pose tracking.\nFor example, you can animate a game character using real-time body motion, record physical activity for replay or analysis, or dynamically adjust stimulation based on biomechanical feedback.\n➡️ Start your first motion capture stream.\n🔍 Learn more about Teslasuit’s MoCap system, coordinate systems, and best practices here.\n\n\n\n\nThe Biometry module provides real-time biometric readings from the suit’s sensors to monitor the user’s physical state. With the Python API, developers can access data such as heart rate and heart rate variability (HRV), offering insights into stress, fatigue, or exertion levels.\nFor instance, an adaptive training application can adjust difficulty or feedback based on a user’s physiological response.\n➡️ Measure your heart rate now.\n🔍 Learn more about Teslasuit’s biometric system and HRV metrics here.\n\n\n\n\n\nThe API documentation is organized into the following sections:\n\nGetting Started – Fast setup for quick firs steps\nMain Concepts – Theory and architecture of Teslasuit systems\n\nAPI Reference\n\nCore – Initialization, connection, session control\n\nSubsystems – Haptics, Mocap, Biometry, Mapping, etc.\n\n\nExamples – Step-by-step usage scripts\n\nUse Cases – Practical applications and integration flows\n\n\n\n\n\nTo use the Teslasuit SDK Python API, ensure you have:\n\nWindows 10 or later\n\nInstalled Teslasuit Control Center\nPython 3.8 or higher\n\nA connected Teslasuit device\n\n\n\n\n\nFor technical inquiries, feature requests, or troubleshooting assistance, please contact:\n\nHelp Desk\n\nFAQ\n\nDeveloper Forum\n\nEmail support: support@teslasuit.io",
+    "text": "The Teslasuit SDK is a developer toolkit for integrating the Teslasuit — a full-body haptic suit with motion capture and biometric sensors — into immersive applications. With this SDK, developers can control the suit’s haptic feedback system, stream and record motion data, and monitor biometric signals in real time.\nThe Teslasuit SDK Python API provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s haptic, motion capture, and biometric capabilities through an efficient and extensible API.\n\n\n\n\n\nThe Haptics module allows you to control the suit’s network of electrical stimulators to create realistic tactile feedback or stimulate major muscle groups to elicit contractions. Developers can configure custom stimulation patterns, adjust intensity levels, and trigger feedback events in sync with application logic.\nFor example, you might simulate the feeling of impact or rainfall on the user’s body, or provide a complex stimulation pattern across multiple muscle groups in the lower extremities, synchronized with the gait cycle.\n➡️ Create your first haptic touch.\n🔍 Learn more about the suit’s EMS system and best practices for designing haptic feedback here.\n\n\n\n\nThe Motion Capture module provides access to the suit’s built-in IMU-based inertial tracking system. The SDK streams detailed motion and biomechanical data in real time, using a skeletal model to deliver full-body pose tracking.\nFor example, you can animate a game character using real-time body motion, record physical activity for replay or analysis, or dynamically adjust stimulation based on biomechanical feedback.\n➡️ Start your first motion capture stream.\n🔍 Learn more about Teslasuit’s MoCap system, coordinate systems, and best practices here.\n\n\n\n\nThe Biometry module provides real-time biometric readings from the suit’s sensors to monitor the user’s physical state. With the Python API, developers can access data such as heart rate and heart rate variability (HRV), offering insights into stress, fatigue, or exertion levels.\nFor instance, an adaptive training application can adjust difficulty or feedback based on a user’s physiological response.\n➡️ Measure your heart rate now.\n🔍 Learn more about Teslasuit’s biometric system and HRV metrics here.\n\n\n\n\n\nThe API documentation is organized into the following sections:\n\nGetting Started – Fast setup for quick first steps\nMain Concepts – Theory and architecture of Teslasuit systems\n\nAPI Reference\n\nCore – Initialization, connection, session control\n\nSubsystems – Haptics, Mocap, Biometry, Mapping, etc.\n\n\nExamples – Step-by-step usage scripts\n\nUse Cases – Practical applications and integration flows\n\n\n\n\n\nTo use the Teslasuit SDK Python API, ensure you have:\n\nWindows 10 or later\n\nInstalled Teslasuit Control Center\nPython 3.8 or higher\n\nA connected Teslasuit device\n\n\n\n\n\nFor technical inquiries, feature requests, or troubleshooting assistance, please contact:\n\nHelp Desk\n\nFAQ\n\nDeveloper Forum\n\nEmail support: support@teslasuit.io",
     "crumbs": [
       "Home",
       "Introduction"
@@ -293,7 +621,7 @@
     "href": "index.html#documentation-structure",
     "title": "Introduction",
     "section": "",
-    "text": "The API documentation is organized into the following sections:\n\nGetting Started – Fast setup for quick firs steps\nMain Concepts – Theory and architecture of Teslasuit systems\n\nAPI Reference\n\nCore – Initialization, connection, session control\n\nSubsystems – Haptics, Mocap, Biometry, Mapping, etc.\n\n\nExamples – Step-by-step usage scripts\n\nUse Cases – Practical applications and integration flows",
+    "text": "The API documentation is organized into the following sections:\n\nGetting Started – Fast setup for quick first steps\nMain Concepts – Theory and architecture of Teslasuit systems\n\nAPI Reference\n\nCore – Initialization, connection, session control\n\nSubsystems – Haptics, Mocap, Biometry, Mapping, etc.\n\n\nExamples – Step-by-step usage scripts\n\nUse Cases – Practical applications and integration flows",
     "crumbs": [
       "Home",
       "Introduction"
@@ -319,6 +647,94 @@
     "crumbs": [
       "Home",
       "Introduction"
+    ]
+  },
+  {
+    "objectID": "examples/emg_example.html#quick-access",
+    "href": "examples/emg_example.html#quick-access",
+    "title": "EMG example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nEMG Subsystem\nUsecase\nEMG Data structures",
+    "crumbs": [
+      "Examples",
+      "EMG example"
+    ]
+  },
+  {
+    "objectID": "examples/emg_example.html#intro",
+    "href": "examples/emg_example.html#intro",
+    "title": "EMG example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve data from the EMG (Electromyography) sensor of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the EMG subsystem, and streaming data.",
+    "crumbs": [
+      "Examples",
+      "EMG example"
+    ]
+  },
+  {
+    "objectID": "examples/emg_example.html#code-for-emg-data",
+    "href": "examples/emg_example.html#code-for-emg-data",
+    "title": "EMG example",
+    "section": "Code for EMG data",
+    "text": "Code for EMG data\n1from teslasuit_sdk import ts_api\n\ndef main():\n2    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n3    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n4    print(\"Accessing the EMG subsystem...\")\n    emg = device.emg\n\n5    print(\"Starting EMG data streaming...\")\n    emg.start_streaming()\n\n    desired_fps = 60\n    period_in_ms = 1. / desired_fps\n    frames_to_stream = 10\n\n    print(\"Streaming EMG data...\")\n6    while frames_to_stream:\n        time.sleep(period_in_ms)\n7        print(\"EMG data:\", emg)\n        frames_to_stream -= 1\n\n    print(\"Stopping EMG data streaming...\")\n8    emg.stop_streaming()\n9    print(\"Finished\")\n\n# Entry point for the script\nif __name__ == \"__main__\":\n10    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nCreate an instance of the Teslasuit API.\n\n3\n\nWait for a Teslasuit device to be connected and get it.\n\n4\n\nAccess the EMG subsystem from the device.\n\n5\n\nStart streaming EMG data from the suit.\n\n6\n\nStream EMG data for a specified number of frames.\n\n7\n\nPrint the EMG data to the console.\n\n8\n\nStop the EMG data streaming.\n\n9\n\nIndicate that the process is finished.\n\n10\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "EMG example"
+    ]
+  },
+  {
+    "objectID": "examples/emg_example.html#expected-output",
+    "href": "examples/emg_example.html#expected-output",
+    "title": "EMG example",
+    "section": "Expected output",
+    "text": "Expected output\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the EMG subsystem...\n4Starting EMG data streaming...\n5Streaming EMG data...\n6EMG data: &lt;data&gt;\n7Stopping EMG data streaming...\n8Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe EMG subsystem of the connected device is accessed via device.emg.\n\n4\n\nEMG data streaming is initiated with emg.start_streaming().\n\n5\n\nThe program streams EMG data for a specified number of frames.\n\n6\n\nEMG data is printed to the console.\n\n7\n\nEMG data streaming is stopped using emg.stop_streaming().\n\n8\n\nThe process is completed.",
+    "crumbs": [
+      "Examples",
+      "EMG example"
+    ]
+  },
+  {
+    "objectID": "examples/mocap_example.html#quick-access",
+    "href": "examples/mocap_example.html#quick-access",
+    "title": "Mocap example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nMocap Subsystem\nUsecase\nMocap Data structures",
+    "crumbs": [
+      "Examples",
+      "Mocap example"
+    ]
+  },
+  {
+    "objectID": "examples/mocap_example.html#intro",
+    "href": "examples/mocap_example.html#intro",
+    "title": "Mocap example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve data from the IMU (Inertial Measurement Unit) sensors of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Mocap subsystem, and streaming data such as biomechanical angles and quaternions.",
+    "crumbs": [
+      "Examples",
+      "Mocap example"
+    ]
+  },
+  {
+    "objectID": "examples/mocap_example.html#code-for-mocap-data",
+    "href": "examples/mocap_example.html#code-for-mocap-data",
+    "title": "Mocap example",
+    "section": "Code for Mocap data",
+    "text": "Code for Mocap data\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_mocap\n3from teslasuit_sdk.ts_mapper import (TsBone2dIndex, TsBiomechanicalIndex)\n\ndef main():\n4    is_streaming = False\n    try:\n5        print(\"Initializing Teslasuit API...\")\n        api = ts_api.TsApi()\n\n6        print(\"Waiting for a Teslasuit device to connect...\")\n        device = api.get_device_manager().get_or_wait_last_device_attached()\n\n7        print(\"Accessing the Mocap subsystem...\")\n        mocap = device.mocap\n\n8        print(\"Starting Mocap data streaming...\")\n        mocap.start_streaming()\n        is_streaming = True\n\n        frames = 100\n9        while frames &gt; 0:\n10            data = mocap.get_raw_data_on_ready()\n            print(\"Bone data:\", data[TsBone2dIndex.RightUpperArm])\n11            biomech_data = mocap.get_biomechanical_angles_on_ready()\n            print(\"Biomech Pelvis Tilt: \", biomech_data[TsBiomechanicalIndex.PelvisTilt])\n12            frames -= 1\n\n13        print(\"Finished\")\n\n14    except (KeyboardInterrupt, SystemExit):\n        print('\\n! Received keyboard interrupt, quitting mocap streaming\\n')\n\n15    if is_streaming:\n        mocap.stop_streaming()\n        print(\"Mocap streaming was stopped\")\n\nif __name__ == '__main__':\n16    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the Mocap subsystem from the SDK.\n\n3\n\nImport the necessary mapper indices for bone and biomechanical data.\n\n4\n\nInitialize a flag to track streaming status.\n\n5\n\nCreate an instance of the Teslasuit API.\n\n6\n\nWait for a Teslasuit device to be connected and get it.\n\n7\n\nAccess the Mocap subsystem from the device.\n\n8\n\nStart streaming Mocap data from the suit.\n\n9\n\nEnter a loop to process a fixed number of frames.\n\n10\n\nRetrieve and print raw bone data for the right upper arm.\n\n11\n\nRetrieve and print biomechanical pelvis tilt data.\n\n12\n\nDecrement the frame counter.\n\n13\n\nPrint a message when streaming is finished.\n\n14\n\nHandle keyboard interrupts gracefully.\n\n15\n\nStop Mocap streaming if it was started.\n\n16\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "Mocap example"
+    ]
+  },
+  {
+    "objectID": "examples/mocap_example.html#expected-output",
+    "href": "examples/mocap_example.html#expected-output",
+    "title": "Mocap example",
+    "section": "Expected output",
+    "text": "Expected output\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the Mocap subsystem...\n4Starting Mocap data streaming...\n5Bone data: [0.5, 0.2, 0.1]\n6Biomech Pelvis Tilt: 15.0\n7...\n8Finished\n9Mocap streaming was stopped\n\n1\n\nAPI is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe Mocap subsystem of the connected device is accessed via device.mocap.\n\n4\n\nMocap data streaming is initiated with mocap.start_streaming().\n\n5\n\nRaw bone data for the right upper arm is printed using mocap.get_raw_data_on_ready().\n\n6\n\nBiomechanical pelvis tilt data is printed using mocap.get_biomechanical_angles_on_ready().\n\n7\n\nThe loop continues for the specified number of frames.\n\n8\n\nA message is printed when streaming is finished.\n\n9\n\nMocap streaming is stopped, and a confirmation message is printed.",
+    "crumbs": [
+      "Examples",
+      "Mocap example"
     ]
   },
   {
@@ -390,23 +806,23 @@
   {
     "objectID": "usecases/ppg_visualiser.html#quick-access",
     "href": "usecases/ppg_visualiser.html#quick-access",
-    "title": "Real-time Heart rate visualiser",
+    "title": "Real-time heart rate visualiser",
     "section": "Quick access",
     "text": "Quick access\n\nMain concept\nExamples\nPPG Subsystem\nPPG Data structures\n\n\n\n\n\n\n\nTo start we need\n\n\n\n\n\nTo start working with the Teslasuit PPG sensor, you need to ensure the following prerequisites are met:\n\nTeslasuit Device\n\nEnsure you have access to a Teslasuit device with of version 4.7 or higher.\n\nTeslasuit SDK\n\nInstall the Teslasuit SDK.\n\nFollow the installation guide to set up the SDK on your system.\n\nPython Environment\n\nInstall Python 3.8 or higher.\nEnsure that Python SDK is added to your . If it’s not run script from this section\n\nConnection Setup\n\nEnsure the Teslasuit device is powered on and connected to your computer via WiFi.\nVerify the connection using the Teslasuit Control Center application.\n\nDevelopment Environment\n\nUse an IDE or text editor that supports Python development, such as VS Code or PyCharm.\n\nPermissions\n\nEnsure you have the necessary permissions to access the Teslasuit device and its subsystems.\n\nOn some systems, you may need to run the script with elevated privileges.\n\n\nOnce these prerequisites are met, you can proceed to initialize the Teslasuit API and start working with the PPG subsystem as demonstrated in the code section below.",
     "crumbs": [
       "Usecases",
-      "Real-time Heart rate visualiser"
+      "Real-time heart rate visualiser"
     ]
   },
   {
     "objectID": "usecases/ppg_visualiser.html#visualising-heart-rate-data",
     "href": "usecases/ppg_visualiser.html#visualising-heart-rate-data",
-    "title": "Real-time Heart rate visualiser",
-    "section": "Visualising Heart Rate data",
-    "text": "Visualising Heart Rate data\nimport matplotlib.pyplot as plt\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_ppg\n\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the PPG subsystem...\")\n    ppg = device.ppg\n\n6    print(\"Starting raw PPG data streaming...\")\n    ppg.start_raw_streaming()\n\n    # Initialize plot\n7    plt.ion()\n    fig, ax = plt.subplots()\n    x_data, y_data = [], []\n    line, = ax.plot(x_data, y_data, label=\"Heart Rate (bpm)\")\n    ax.set_xlabel(\"Timestamp (s)\")\n    ax.set_ylabel(\"Heart Rate (bpm)\")\n    ax.set_title(\"Real-Time Heart Rate Data\")\n    ax.legend()\n\n8    print(\"Waiting for Heart Rate data...\")\n\n    try:\n        while True:\n            # Get processed PPG data\n9            node_data = ppg.get_data()\n            heart_rate = node_data.nodes[0].heart_rate\n            timestamp = node_data.nodes[0].timestamp\n\n            # Update data\n10            x_data.append(timestamp)\n            y_data.append(heart_rate)\n\n            # Update plot\n11            line.set_xdata(x_data)\n            line.set_ydata(y_data)\n            ax.relim()\n            ax.autoscale_view()\n            plt.draw()\n            plt.pause(0.01)\n\n12    except KeyboardInterrupt:\n        print(\"Stopping real-time plotting...\")\n    finally:\n13        ppg.stop_raw_streaming()\n        plt.ioff()\n        plt.show()\n\nif __name__ == \"__main__\":\n14    main()\n\n1\n\nImport the main Teslasuit API module: Import the required Teslasuit SDK modules.\n\n2\n\nImport the PPG subsystem: Import the PPG subsystem from the SDK.\n\n3\n\nInitialize the Teslasuit API: Create an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to connect: Wait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the PPG subsystem: Access the PPG subsystem from the connected device.\n\n6\n\nStart raw PPG data streaming: Start streaming raw PPG data from the suit.\n\n7\n\nInitialize the real-time plot: Set up the matplotlib plot for real-time visualization of heart rate data.\n\n8\n\nStart waiting for heart rate data: Begin the loop to process and visualize heart rate data.\n\n9\n\nRetrieve heart rate data: Get processed PPG data and extract the heart rate and timestamp.\n\n10\n\nUpdate data arrays: Append the timestamp and heart rate to the respective data arrays.\n\n11\n\nUpdate the plot: Update the plot with the new data and refresh the visualization.\n\n12\n\nHandle keyboard interrupt: Gracefully stop the program when interrupted (e.g., via Ctrl+C).\n\n13\n\nStop raw PPG data streaming: Stop the PPG data stream and close the plot.\n\n14\n\nRun the main function: Start the program using the main function.\n\n\n\n\n\n\n\n\nPotential problems and solutions\n\n\n\n\n\n\nDevice Connection Issues\n\nProblem: The Teslasuit device may not connect or be detected by the API.\n\nSolution: Ensure the device is powered on and within range. Verify that the Teslasuit drivers and SDK are correctly installed. Check for any connection errors in the logs.\n\nPPG Subsystem Not Accessible\n\nProblem: The PPG subsystem might not be available or initialized properly.\n\nSolution: Confirm that the connected Teslasuit device supports the PPG subsystem. Restart the device and reinitialize the API if necessary. Double-check that the Teslasuit version is 4.7 or higher, as earlier versions may not support the PPG functionality.\n\nSDK Initialization Issues\n\nProblem: The SDK cannot be initialized, or the library is not found.\n\nSolution: Verify that the Teslasuit SDK is installed correctly. Refer to the installation guide for instructions. Ensure the environment of the working project is properly set up. Refer to the this section for details.\n\nData Streaming Delays\n\nProblem: There may be delays in receiving HRV or heart rate data.\n\nSolution: Delays could be caused by the algorithm behind HRV calculation. Usually it requires at least 30 second of raw data to calculate HRV.",
+    "title": "Real-time heart rate visualiser",
+    "section": "Visualising heart rate data",
+    "text": "Visualising heart rate data\nimport matplotlib.pyplot as plt\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_ppg\n\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the PPG subsystem...\")\n    ppg = device.ppg\n\n6    print(\"Starting raw PPG data streaming...\")\n    ppg.start_raw_streaming()\n\n    # Initialize plot\n7    plt.ion()\n    fig, ax = plt.subplots()\n    x_data, y_data = [], []\n    line, = ax.plot(x_data, y_data, label=\"Heart Rate (bpm)\")\n    ax.set_xlabel(\"Timestamp (s)\")\n    ax.set_ylabel(\"Heart Rate (bpm)\")\n    ax.set_title(\"Real-Time Heart Rate Data\")\n    ax.legend()\n\n8    print(\"Waiting for Heart Rate data...\")\n\n    try:\n        while True:\n            # Get processed PPG data\n9            node_data = ppg.get_data()\n            heart_rate = node_data.nodes[0].heart_rate\n            timestamp = node_data.nodes[0].timestamp\n\n            # Update data\n10            x_data.append(timestamp)\n            y_data.append(heart_rate)\n\n            # Update plot\n11            line.set_xdata(x_data)\n            line.set_ydata(y_data)\n            ax.relim()\n            ax.autoscale_view()\n            plt.draw()\n            plt.pause(0.01)\n\n12    except KeyboardInterrupt:\n        print(\"Stopping real-time plotting...\")\n    finally:\n13        ppg.stop_raw_streaming()\n        plt.ioff()\n        plt.show()\n\nif __name__ == \"__main__\":\n14    main()\n\n1\n\nImport the main Teslasuit API module: Import the required Teslasuit SDK modules.\n\n2\n\nImport the PPG subsystem: Import the PPG subsystem from the SDK.\n\n3\n\nInitialize the Teslasuit API: Create an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to connect: Wait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the PPG subsystem: Access the PPG subsystem from the connected device.\n\n6\n\nStart raw PPG data streaming: Start streaming raw PPG data from the suit.\n\n7\n\nInitialize the real-time plot: Set up the matplotlib plot for real-time visualization of heart rate data.\n\n8\n\nStart waiting for heart rate data: Begin the loop to process and visualize heart rate data.\n\n9\n\nRetrieve heart rate data: Get processed PPG data and extract the heart rate and timestamp.\n\n10\n\nUpdate data arrays: Append the timestamp and heart rate to the respective data arrays.\n\n11\n\nUpdate the plot: Update the plot with the new data and refresh the visualization.\n\n12\n\nHandle keyboard interrupt: Gracefully stop the program when interrupted (e.g., via Ctrl+C).\n\n13\n\nStop raw PPG data streaming: Stop the PPG data stream and close the plot.\n\n14\n\nRun the main function: Start the program using the main function.\n\n\n\n\n\n\n\n\nPotential problems and solutions\n\n\n\n\n\n\nDevice Connection Issues\n\nProblem: The Teslasuit device may not connect or be detected by the API.\n\nSolution: Ensure the device is powered on and within range. Verify that the Teslasuit drivers and SDK are correctly installed. Check for any connection errors in the logs.\n\nPPG Subsystem Not Accessible\n\nProblem: The PPG subsystem might not be available or initialized properly.\n\nSolution: Confirm that the connected Teslasuit device supports the PPG subsystem. Restart the device and reinitialize the API if necessary. Double-check that the Teslasuit version is 4.7 or higher, as earlier versions may not support the PPG functionality.\n\nSDK Initialization Issues\n\nProblem: The SDK cannot be initialized, or the library is not found.\n\nSolution: Verify that the Teslasuit SDK is installed correctly. Refer to the installation guide for instructions. Ensure the environment of the working project is properly set up. Refer to the this section for details.\n\nData Streaming Delays\n\nProblem: There may be delays in receiving HRV or heart rate data.\n\nSolution: Delays could be caused by the algorithm behind HRV calculation. Usually it requires at least 30 second of raw data to calculate HRV.",
     "crumbs": [
       "Usecases",
-      "Real-time Heart rate visualiser"
+      "Real-time heart rate visualiser"
     ]
   }
 ]
