@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -164,6 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+ <span class="dropdown-text">BIA</span></a>
   </li>  
     </ul>
   </li>
@@ -231,6 +242,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -261,6 +280,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+ <span class="dropdown-text">Current Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/bia_example.html">
+ <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
   </li>
@@ -386,6 +413,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -474,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -493,6 +532,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current Feedback (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example</span></a>
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -542,6 +593,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback example (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -601,6 +664,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
   </ul></li>
+  <li><a href="#access-to-the-data" id="toc-access-to-the-data" class="nav-link" data-scroll-target="#access-to-the-data">Access to the data</a>
+  <ul class="collapse">
+  <li><a href="#access-to-raw-data" id="toc-access-to-raw-data" class="nav-link" data-scroll-target="#access-to-raw-data">Access to raw data</a></li>
+  <li><a href="#access-to-hrv-data" id="toc-access-to-hrv-data" class="nav-link" data-scroll-target="#access-to-hrv-data">Access to HRV data</a></li>
+  <li><a href="#access-to-heart-rate-data" id="toc-access-to-heart-rate-data" class="nav-link" data-scroll-target="#access-to-heart-rate-data">Access to heart rate data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -626,7 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7,%204.8-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7,%204.8-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -649,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <section id="note" class="level3">
 <h3 class="anchored" data-anchor-id="note">Note:</h3>
-<p>Since TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.</p>
+<p>Since <code>TsPPG</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class, it cannot be used independently without an active Teslasuit device.</p>
 </section>
 </section>
 <section id="class-tsppg" class="level2">
@@ -679,10 +748,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_data(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Retrieves the latest processed PPG data. Returns <a href="../../API Reference/core/data_structures.html#tsppgdata">TsPpgData</a>: The latest processed PPG data.</p>
-<p><strong>NB!</strong> <a href="../../API Reference/core/data_structures.html#tsppgdata">TsPpgData</a> struct doesn’t provide any parameters such as “heart_rate” or “oxygen_percent”. The access is given through the <a href="../../API Reference/core/data_structures.html#tsppgnodedata">TsPpgNodeData</a> struct. Please see the <a href="../../examples/ppg_example.html#code-for-heart-rate-data">example</a>.</p>
+<p><strong>NB!</strong> <a href="../../API Reference/core/data_structures.html#tsppgdata">TsPpgData</a> struct doesn’t provide any parameters such as “heart_rate”. The access is given through the <a href="../../API Reference/core/data_structures.html#tsppgnodedata">TsPpgNodeData</a> struct. Please see the <a href="../../examples/ppg_example.html#code-for-heart-rate-data">example</a>.</p>
 <hr>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>calibrate(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Calibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.</p>
+</section>
+</section>
+<section id="access-to-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
+<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#ppg">data structures</a> page.</p>
+<section id="access-to-raw-data" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-raw-data">Access to raw data</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>TsPpg.get_raw_data_on_ready().nodes[<span class="dv">0</span>].ir_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsPpgRawData] --&gt; B[TsPpgRawNodeData]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="access-to-hrv-data" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-hrv-data">Access to HRV data</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>TsPpg.get_hrv_data_on_ready().mean_rr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="access-to-heart-rate-data" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-heart-rate-data">Access to heart rate data</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>TsPpg.get_data().nodes[<span class="dv">0</span>].heart_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsPpgData] --&gt; B[TsPpgNodeData]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 </section>

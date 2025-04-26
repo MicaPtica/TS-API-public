@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EMG – API Docs</title>
+<title>EMG (experimental) – API Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -164,6 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+ <span class="dropdown-text">BIA</span></a>
   </li>  
     </ul>
   </li>
@@ -231,6 +242,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -261,6 +280,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+ <span class="dropdown-text">Current Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/bia_example.html">
+ <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
   </li>
@@ -298,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/emg.html">EMG</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/emg.html">EMG (experimental)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -384,6 +411,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA</span></a>
   </div>
 </li>
       </ul>
@@ -474,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">EMG</span></a>
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -493,6 +532,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current Feedback (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example</span></a>
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -542,6 +593,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback example (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -601,15 +664,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
   </ul></li>
+  <li><a href="#access-to-the-data" id="toc-access-to-the-data" class="nav-link" data-scroll-target="#access-to-the-data">Access to the data</a>
+  <ul class="collapse">
+  <li><a href="#access-to-emg-channel-data" id="toc-access-to-emg-channel-data" class="nav-link" data-scroll-target="#access-to-emg-channel-data">Access to EMG channel data</a></li>
+  <li><a href="#access-to-emg-options" id="toc-access-to-emg-options" class="nav-link" data-scroll-target="#access-to-emg-options">Access to EMG options</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/emg.html">EMG</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/emg.html">EMG (experimental)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">EMG</h1>
+<h1 class="title">EMG (experimental)</h1>
 </div>
 
 
@@ -626,13 +694,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7,%204.8-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-5.0+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
 <li><a href="../../Main concepts/emg_concept.html">Main concept</a></li>
 <li><a href="../../examples/emg_example.html">Examples</a></li>
-<li><a href="../../usecases/emg_analysis.qmd">Usecase</a></li>
 <li><a href="../../API Reference/core/data_structures.html#emg">EMG Data structures</a></li>
 </ul>
 </section>
@@ -648,11 +715,11 @@ The Teslasuit API must be initialized before accessing any of its features.</li>
 <li>Connected Teslasuit Device<br>
 A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.</li>
 <li>Access to the EMG Subsystem<br>
-The <a href="../../API Reference/core/data_structures.html#tsemgdata">TsEmg</a> class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.</li>
+The TsEmg class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.</li>
 </ol>
 <section id="note" class="level3">
 <h3 class="anchored" data-anchor-id="note">Note:</h3>
-<p>Since <a href="../../API Reference/core/data_structures.html#tsemgdata">TsEmg</a> is a member of the device class, it cannot be used independently without an active Teslasuit device.</p>
+<p>Since <code>TsEmg</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class, it cannot be used independently without an active Teslasuit device.</p>
 </section>
 </section>
 <section id="class-tsemg" class="level2">
@@ -682,7 +749,50 @@ This method unsubscribes from the data update callbacks and stops the streaming 
 <p>Wait until EMG data is ready and retrieve it.<br>
 This method blocks until data is available or streaming is stopped.<br>
 Returns:<br>
-<a href="../../API Reference/core/data_structures.html#tsemgdata">TsEmgData</a>: The latest EMG data object containing information about nodes, channels, and timestamps.</p>
+<a href="../../API Reference/core/data_structures.html#emgdata">TsEmgData</a>: The latest EMG data object containing information about nodes, channels, and timestamps.</p>
+</section>
+</section>
+<section id="access-to-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
+<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#emg">data structures</a> page.</p>
+<section id="access-to-emg-channel-data" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-emg-channel-data">Access to EMG channel data</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TsEmg.get_data_on_ready().nodes[<span class="dv">0</span>].channels[<span class="dv">0</span>].samples[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsEmgData] --&gt; B[TsEmgNodeData]
+B --&gt; C[TsEmgChannelData]
+C --&gt; D[samples]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="access-to-emg-options" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-emg-options">Access to EMG options</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>TsEmg.get_data_on_ready().options.lower_bandwidth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsEmgOptions] --&gt; B[lower_bandwidth]
+A --&gt; C[upper_bandwidth]
+A --&gt; D[sampling_frequency]
+A --&gt; E[sample_size]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 </section>

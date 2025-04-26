@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Force feedback – API Docs</title>
+<title>BIA example (experimental) – API Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3f13cc09417cf69baaf74afa0e2e3cf6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3f13cc09417cf69baaf74afa0e2e3cf6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,9 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -114,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">API Docs</span>
     </a>
   </div>
@@ -130,11 +127,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-home">    
         <li>
-    <a class="dropdown-item" href="../../index.html">
+    <a class="dropdown-item" href="../index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Getting_started.html">
+    <a class="dropdown-item" href="../Getting_started.html">
  <span class="dropdown-text">Getting started</span></a>
   </li>  
     </ul>
@@ -145,35 +142,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-main-concepts">    
         <li>
-    <a class="dropdown-item" href="../../Main concepts/index.html">
+    <a class="dropdown-item" href="../Main concepts/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/emg_concept.html">
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
  <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/ppg_concept.html">
+    <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/haptic_concept.html">
+    <a class="dropdown-item" href="../Main concepts/haptic_concept.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/mocap_concept.html">
+    <a class="dropdown-item" href="../Main concepts/mocap_concept.html">
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
+    <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+    <a class="dropdown-item" href="../Main concepts/current_feedback_concept.html">
  <span class="dropdown-text">Current Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+    <a class="dropdown-item" href="../Main concepts/bia_concept.html">
  <span class="dropdown-text">BIA</span></a>
   </li>  
     </ul>
@@ -184,31 +181,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-core">    
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/index.html">
+    <a class="dropdown-item" href="../API Reference/core/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/ts_api.html">
+    <a class="dropdown-item" href="../API Reference/core/ts_api.html">
  <span class="dropdown-text">TS API</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/asset_manager.html">
+    <a class="dropdown-item" href="../API Reference/core/asset_manager.html">
  <span class="dropdown-text">Asset Manager</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/device.html">
+    <a class="dropdown-item" href="../API Reference/core/device.html">
  <span class="dropdown-text">Device</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/device_manager.html">
+    <a class="dropdown-item" href="../API Reference/core/device_manager.html">
  <span class="dropdown-text">Device Manager</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/mapper.html">
+    <a class="dropdown-item" href="../API Reference/core/mapper.html">
  <span class="dropdown-text">Mapper</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/core/data_structures.html">
+    <a class="dropdown-item" href="../API Reference/core/data_structures.html">
  <span class="dropdown-text">Data Structures</span></a>
   </li>  
     </ul>
@@ -219,35 +216,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-subsystems">    
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/index.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/ppg.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/emg.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
  <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/haptic.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/mocap.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/mocap.html">
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/current_feedback.html">
  <span class="dropdown-text">Current Feedback</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+    <a class="dropdown-item" href="../API Reference/subsystems/bia.html">
  <span class="dropdown-text">BIA</span></a>
   </li>  
     </ul>
@@ -258,35 +255,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-examples">    
         <li>
-    <a class="dropdown-item" href="../../examples/index.html">
+    <a class="dropdown-item" href="../examples/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/ppg_example.html">
+    <a class="dropdown-item" href="../examples/ppg_example.html">
  <span class="dropdown-text">PPG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/emg_example.html">
+    <a class="dropdown-item" href="../examples/emg_example.html">
  <span class="dropdown-text">EMG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/haptic_example.html">
+    <a class="dropdown-item" href="../examples/haptic_example.html">
  <span class="dropdown-text">Haptic Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/mocap_example.html">
+    <a class="dropdown-item" href="../examples/mocap_example.html">
  <span class="dropdown-text">Mocap Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/force_feedback_example.html">
+    <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+    <a class="dropdown-item" href="../examples/current_feedback_example.html">
  <span class="dropdown-text">Current Feedback Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../examples/bia_example.html">
+    <a class="dropdown-item" href="../examples/bia_example.html">
  <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
@@ -297,19 +294,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-usecases">    
         <li>
-    <a class="dropdown-item" href="../../usecases/index.html">
+    <a class="dropdown-item" href="../usecases/index.html">
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../usecases/elbow_FES.html">
+    <a class="dropdown-item" href="../usecases/elbow_FES.html">
  <span class="dropdown-text">Elbow FES</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../usecases/walking_FES.html">
+    <a class="dropdown-item" href="../usecases/walking_FES.html">
  <span class="dropdown-text">Walking FES</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../usecases/ppg_visualiser.html">
+    <a class="dropdown-item" href="../usecases/ppg_visualiser.html">
  <span class="dropdown-text">PPG visualiser</span></a>
   </li>  
     </ul>
@@ -325,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/index.html">Examples</a></li><li class="breadcrumb-item"><a href="../examples/bia_example.html">BIA example (experimental)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -356,13 +353,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="../Getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Getting started</span></a>
   </div>
 </li>
@@ -379,49 +376,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PPG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/mocap_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/mocap_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mocap</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Current feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+  <a href="../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">BIA</span></a>
   </div>
 </li>
@@ -447,43 +444,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/ts_api.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/ts_api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TS API</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/asset_manager.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/asset_manager.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Asset manager</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/device.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/device.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Device</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/device_manager.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/device_manager.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Device manager</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/mapper.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/mapper.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mapper</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/core/data_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/core/data_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data structures</span></a>
   </div>
 </li>
@@ -491,58 +488,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Subsystems</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PPG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/mocap.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/mocap.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mocap</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link active">
+  <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Current Feedback (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+  <a href="../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
@@ -561,49 +558,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/ppg_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/ppg_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PPG example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/mocap_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/mocap_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mocap example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Current feedback example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+  <a href="../examples/bia_example.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
@@ -620,25 +617,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../usecases/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../usecases/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../usecases/elbow_FES.html" class="sidebar-item-text sidebar-link">
+  <a href="../usecases/elbow_FES.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Elbow FES</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../usecases/walking_FES.html" class="sidebar-item-text sidebar-link">
+  <a href="../usecases/walking_FES.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Walking FES</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../usecases/ppg_visualiser.html" class="sidebar-item-text sidebar-link">
+  <a href="../usecases/ppg_visualiser.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Real-time heart rate visualiser</span></a>
   </div>
 </li>
@@ -656,32 +653,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
   <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
-  <ul class="collapse">
-  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
-  </ul></li>
-  <li><a href="#class-tsmagneticencoder" id="toc-class-tsmagneticencoder" class="nav-link" data-scroll-target="#class-tsmagneticencoder">Class TsMagneticEncoder</a>
-  <ul class="collapse">
-  <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
-  </ul></li>
-  <li><a href="#utilities" id="toc-utilities" class="nav-link" data-scroll-target="#utilities">Utilities</a>
-  <ul class="collapse">
-  <li><a href="#utility-functions" id="toc-utility-functions" class="nav-link" data-scroll-target="#utility-functions">Utility functions:</a></li>
-  </ul></li>
-  <li><a href="#access-to-the-data" id="toc-access-to-the-data" class="nav-link" data-scroll-target="#access-to-the-data">Access to the data</a>
-  <ul class="collapse">
-  <li><a href="#access-to-finger-positions" id="toc-access-to-finger-positions" class="nav-link" data-scroll-target="#access-to-finger-positions">Access to finger positions</a></li>
-  <li><a href="#access-to-force-feedback-configuration" id="toc-access-to-force-feedback-configuration" class="nav-link" data-scroll-target="#access-to-force-feedback-configuration">Access to force feedback configuration</a></li>
-  </ul></li>
+  <li><a href="#code-for-bia-data-streaming" id="toc-code-for-bia-data-streaming" class="nav-link" data-scroll-target="#code-for-bia-data-streaming">Code for BIA data streaming</a></li>
+  <li><a href="#expected-output" id="toc-expected-output" class="nav-link" data-scroll-target="#expected-output">Expected output</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../examples/index.html">Examples</a></li><li class="breadcrumb-item"><a href="../examples/bia_example.html">BIA example (experimental)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Force feedback</h1>
+<h1 class="title">BIA example (experimental)</h1>
 </div>
 
 
@@ -698,165 +680,173 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslaglove_v.-1.0+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-5.0+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
-<li><a href="../../Main concepts/force_feedback_concept.html">Main concept</a></li>
-<li><a href="../../examples/force_feedback_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#magnetic-encoder">Magnetic Encoder Data structures</a></li>
+<li><a href="../Main concepts/bia_concept.html">Main concept</a></li>
+<li><a href="../API Reference/subsystems/bia.html">BIA Subsystem</a></li>
+<li><a href="../API Reference/core/data_structures.html#bia">BIA Data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>The Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.</p>
+<p>This web page provides a comprehensive guide on how to retrieve data from the BIA (Bioelectrical Impedance Analysis) subsystem of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, configuring the BIA subsystem, and streaming data.</p>
 </section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<ol type="1">
-<li>Teslasuit API Initialization<br>
-The Teslasuit API must be initialized before accessing any of its features.<br>
-</li>
-<li>Connected Teslasuit Device<br>
-A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.<br>
-</li>
-<li>Access to the Magnetic Encoder Subsystem<br>
-The Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.</li>
-</ol>
-<section id="note" class="level3">
-<h3 class="anchored" data-anchor-id="note">Note:</h3>
-<p>since <code>TsMagneticEncoder</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class and cannot be used independently without an active Teslasuit device.</p>
+<section id="code-for-bia-data-streaming" class="level2">
+<h2 class="anchored" data-anchor-id="code-for-bia-data-streaming">Code for BIA data streaming</h2>
+<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk <span class="im">import</span> ts_api</span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Initializing Teslasuit API..."</span>)</span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>    api <span class="op">=</span> ts_api.TsApi()</span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Waiting for a Teslasuit device to connect..."</span>)</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> api.get_device_manager().get_or_wait_last_device_attached()</span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4">4</button><span id="annotated-cell-1-10" class="code-annotation-target"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Accessing the BIA subsystem..."</span>)</span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    bia <span class="op">=</span> device.bia</span>
+<span id="annotated-cell-1-12"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5">5</button><span id="annotated-cell-1-13" class="code-annotation-target"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Setting up streaming configuration..."</span>)</span>
+<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a>    channels_indexes <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">12</span>]</span>
+<span id="annotated-cell-1-15"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>    bia.set_streaming_config(channels_indexes, <span class="dv">24000</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="annotated-cell-1-16"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6">6</button><span id="annotated-cell-1-17" class="code-annotation-target"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Starting BIA data streaming..."</span>)</span>
+<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a>    bia.start_streaming()</span>
+<span id="annotated-cell-1-19"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="annotated-cell-1-21"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="7">7</button><span id="annotated-cell-1-22" class="code-annotation-target"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> bia.get_data_on_ready()</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="8">8</button><span id="annotated-cell-1-23" class="code-annotation-target"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Number of channels:"</span>, data.number_of_channels)</span>
+<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> channel <span class="kw">in</span> data.channels:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="9">9</button><span id="annotated-cell-1-25" class="code-annotation-target"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"Channel index:"</span>, channel.channel_index)</span>
+<span id="annotated-cell-1-26"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> freq <span class="kw">in</span> channel.frequencies:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="10">10</button><span id="annotated-cell-1-27" class="code-annotation-target"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Frequency:"</span>, freq.frequency)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="11">11</button><span id="annotated-cell-1-28" class="code-annotation-target"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Real part:"</span>, freq.complex_number.real_value)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="12">12</button><span id="annotated-cell-1-29" class="code-annotation-target"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Imaginary part:"</span>, freq.complex_number.im_value)</span>
+<span id="annotated-cell-1-30"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">KeyboardInterrupt</span>:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="13">13</button><span id="annotated-cell-1-31" class="code-annotation-target"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Stopping BIA streaming..."</span>)</span>
+<span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a>        bia.stop_streaming()</span>
+<span id="annotated-cell-1-33"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Entry point for the script</span></span>
+<span id="annotated-cell-1-35"><a href="#annotated-cell-1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="14">14</button><span id="annotated-cell-1-36" class="code-annotation-target"><a href="#annotated-cell-1-36" aria-hidden="true" tabindex="-1"></a>    main()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="1" data-code-annotation="1">Import the main Teslasuit API module.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="4,5" data-code-annotation="2">Create an instance of the Teslasuit API.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="7,8" data-code-annotation="3">Wait for a Teslasuit device to be connected and get it.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="10,11" data-code-annotation="4">Access the BIA subsystem from the device.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="13,14,15" data-code-annotation="5">Configure the BIA subsystem for streaming.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="17,18" data-code-annotation="6">Start streaming BIA data from the suit.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="22" data-code-annotation="7">Wait for BIA data to become available.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="23" data-code-annotation="8">Print the number of channels in the BIA data.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="25" data-code-annotation="9">Iterate through each channel and print its index.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="10">10</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="27" data-code-annotation="10">Print the frequency of each data point.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="11">11</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="28" data-code-annotation="11">Print the real part of the complex number for each frequency.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="12">12</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="29" data-code-annotation="12">Print the imaginary part of the complex number for each frequency.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="13">13</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="31,32" data-code-annotation="13">Stop streaming when interrupted.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="14">14</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="36" data-code-annotation="14">Start the program using the main function.</span>
+</dd>
+</dl>
 </section>
-</section>
-<section id="class-tsmagneticencoder" class="level2">
-<h2 class="anchored" data-anchor-id="class-tsmagneticencoder">Class TsMagneticEncoder</h2>
-<p>Handles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.</p>
-<section id="class-methods" class="level3">
-<h3 class="anchored" data-anchor-id="class-methods">Class methods:</h3>
-<hr>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>get_positions(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the current positions of the fingers. Returns: dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.</p>
-<hr>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>start_me_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Starts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.</p>
-<hr>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stop_me_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Stops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.</p>
-<hr>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_enable(<span class="va">self</span>, me_configs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Enable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
-- <code>me_configs (list)</code>: A list of <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> objects.</p>
-<hr>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_disable(<span class="va">self</span>, bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Disable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: A list of bone indexes to disable magnetic encoder for.</p>
-<hr>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_default_me_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the default magnetic encoder controls structure.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
-<hr>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_default_ff_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the default force feedback controls structure for the magnetic encoder. Returns: A TsForceFeedbackConfig structure.</p>
-<hr>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>get_bone_indexes(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the bone indexes for the magnetic encoder.</p>
-<p>Returns:<br>
-- <code>list</code>: A list of bone indexes.</p>
-</section>
-</section>
-<section id="utilities" class="level2">
-<h2 class="anchored" data-anchor-id="utilities">Utilities</h2>
-<section id="utility-functions" class="level3">
-<h3 class="anchored" data-anchor-id="utility-functions">Utility functions:</h3>
-<hr>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>get_position_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a dictionary of <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a> for the given bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: List of bone indexes.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>get_left_default_position_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default position struct for the left hand.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>get_right_default_position_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default position struct for the right hand.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mirror_bone_index(bone_index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mirror the bone index for the opposite hand.</p>
-<p>Parameters:<br>
-- <code>bone_index</code>: Bone index to be mirrored.</p>
-<p>Returns:<br>
-- <code>int</code>: Mirrored bone index.</p>
-<hr>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>get_me_controls_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> structure for the given bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: List of bone indexes.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Magnetic encoder configuration structure.</p>
-<hr>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>get_left_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default magnetic encoder controls struct for the left hand.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
-<hr>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_right_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default magnetic encoder controls struct for the right hand.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
-</section>
-</section>
-<section id="access-to-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
-<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#magnetic-encoder">data structures</a> page.</p>
-<section id="access-to-finger-positions" class="level3">
-<h3 class="anchored" data-anchor-id="access-to-finger-positions">Access to finger positions</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-A[TsFingerMEPosition] --&gt; B[flexion_angle]
-A --&gt; C[abduction_angle]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="access-to-force-feedback-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="access-to-force-feedback-configuration">Access to force feedback configuration</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TsMagneticEncoder.get_default_ff_controls_struct().bone_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-A[TsForceFeedbackConfig] --&gt; B[bone_index]
-A --&gt; C[angle]
-A --&gt; D[hardness_percent]
-A --&gt; E[lock_direction]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="expected-output" class="level2">
+<h2 class="anchored" data-anchor-id="expected-output">Expected output</h2>
+<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>Initializing Teslasuit API...</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>Waiting <span class="cf">for</span> a Teslasuit device to <span class="ex">connect</span>...</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3">3</button><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>Accessing the BIA subsystem...</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4">4</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>Setting up streaming configuration...</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5">5</button><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>Starting BIA data streaming...</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="6">6</button><span id="annotated-cell-2-6" class="code-annotation-target"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>Number of channels: <span class="dv">5</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="7">7</button><span id="annotated-cell-2-7" class="code-annotation-target"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a>Channel index: <span class="dv">1</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="8">8</button><span id="annotated-cell-2-8" class="code-annotation-target"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>Frequency: <span class="dv">24000</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="9">9</button><span id="annotated-cell-2-9" class="code-annotation-target"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>Real part: <span class="dv">123</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="10">10</button><span id="annotated-cell-2-10" class="code-annotation-target"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a>Imaginary part: <span class="dv">456</span></span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>...</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">The API is initialized via <code>api = ts_api.TsApi()</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="2">The program waits for a Teslasuit device to connect using <code>api.get_device_manager().get_or_wait_last_device_attached()</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="3">The BIA subsystem of the connected device is accessed via <code>device.bia</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="4">Streaming configuration is set using <code>bia.set_streaming_config()</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="5" data-code-annotation="5">BIA data streaming is initiated with <code>bia.start_streaming()</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="6" data-code-annotation="6">The program prints the number of channels in the BIA data.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="7">7</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="7" data-code-annotation="7">The channel index is printed for each channel.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="8">8</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="8" data-code-annotation="8">The frequency value is printed for each data point.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="9">9</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="9" data-code-annotation="9">The real part of the complex number is printed.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="10">10</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="10" data-code-annotation="10">The imaginary part of the complex number is printed.</span>
+</dd>
+</dl>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1218,25 +1208,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;

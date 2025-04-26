@@ -11,47 +11,91 @@
     ]
   },
   {
-    "objectID": "examples/haptic_example.html#quick-access",
-    "href": "examples/haptic_example.html#quick-access",
-    "title": "Haptic example",
+    "objectID": "examples/bia_example.html#quick-access",
+    "href": "examples/bia_example.html#quick-access",
+    "title": "BIA example (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nHaptic Subsystem\nUsecase\nHaptic Data structures",
+    "text": "Quick access\n\nMain concept\nBIA Subsystem\nBIA Data structures",
     "crumbs": [
       "Examples",
-      "Haptic example"
+      "BIA example (experimental)"
     ]
   },
   {
-    "objectID": "examples/haptic_example.html#intro",
-    "href": "examples/haptic_example.html#intro",
-    "title": "Haptic example",
+    "objectID": "examples/bia_example.html#intro",
+    "href": "examples/bia_example.html#intro",
+    "title": "BIA example (experimental)",
     "section": "Intro",
-    "text": "Intro\nThis web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve data from the BIA (Bioelectrical Impedance Analysis) subsystem of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, configuring the BIA subsystem, and streaming data.",
     "crumbs": [
       "Examples",
-      "Haptic example"
+      "BIA example (experimental)"
     ]
   },
   {
-    "objectID": "examples/haptic_example.html#code-for-haptic-touch",
-    "href": "examples/haptic_example.html#code-for-haptic-touch",
-    "title": "Haptic example",
-    "section": "Code for Haptic Touch",
-    "text": "Code for Haptic Touch\nimport time\nimport _setup_sys_path\n\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_haptic\n3from teslasuit_sdk.ts_mapper import TsBone2dIndex\n\n4TOUCH_DURATION_MS = 3000\n\ndef main():\n    try:\n5        print(\"Initialize API\")\n        api = ts_api.TsApi()\n\n6        device = api.get_device_manager().get_or_wait_last_device_attached()\n7        player = device.haptic\n8        mapper = api.mapper\n\n9        print(\"Setup channels to play and touch parameters\")\n        layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n10        bones = mapper.get_layout_bones(layout)\n11        channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n12        params = player.create_touch_parameters(100, 40, 150)\n\n13        print(\"Create touch and play\")\n        playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n14        player.play_playable(playable_id)\n\n15        print(\"Wait until playback finished...\")\n        time.sleep(TOUCH_DURATION_MS / 1000)\n16        print(\"Finished\")\n\n17    except (KeyboardInterrupt, SystemExit):\n        print('\\n! Received keyboard interrupt, quitting haptic touch play\\n')\n\n\nif __name__ == '__main__':\n18    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the Haptic subsystem from the SDK.\n\n3\n\nImport the TsBone2dIndex for mapping bones.\n\n4\n\nDefine the duration of the haptic touch in milliseconds.\n\n5\n\nInitialize the Teslasuit API.\n\n6\n\nWait for a Teslasuit device to connect and get it.\n\n7\n\nAccess the Haptic subsystem from the device.\n\n8\n\nAccess the mapper for haptic channel mapping.\n\n9\n\nRetrieve the haptic channel layout for the device.\n\n10\n\nGet the bones from the layout.\n\n11\n\nRetrieve the haptic channels for the right upper arm.\n\n12\n\nCreate touch parameters with period, amplitude, and pulse width.\n\n13\n\nCreate a haptic touch and play it.\n\n14\n\nPlay the created haptic touch.\n\n15\n\nWait for the playback to finish.\n\n16\n\nPrint “Finished” after playback ends.\n\n17\n\nHandle keyboard interrupts gracefully.\n\n18\n\nStart the program using the main function.",
+    "objectID": "examples/bia_example.html#code-for-bia-data-streaming",
+    "href": "examples/bia_example.html#code-for-bia-data-streaming",
+    "title": "BIA example (experimental)",
+    "section": "Code for BIA data streaming",
+    "text": "Code for BIA data streaming\n1from teslasuit_sdk import ts_api\n\ndef main():\n2    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n3    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n4    print(\"Accessing the BIA subsystem...\")\n    bia = device.bia\n\n5    print(\"Setting up streaming configuration...\")\n    channels_indexes = [1, 3, 7, 9, 12]\n    bia.set_streaming_config(channels_indexes, 24000, 1, 1000)\n\n6    print(\"Starting BIA data streaming...\")\n    bia.start_streaming()\n\n    try:\n        while True:\n7            data = bia.get_data_on_ready()\n8            print(\"Number of channels:\", data.number_of_channels)\n            for channel in data.channels:\n9                print(\"Channel index:\", channel.channel_index)\n                for freq in channel.frequencies:\n10                    print(\"Frequency:\", freq.frequency)\n11                    print(\"Real part:\", freq.complex_number.real_value)\n12                    print(\"Imaginary part:\", freq.complex_number.im_value)\n    except KeyboardInterrupt:\n13        print(\"Stopping BIA streaming...\")\n        bia.stop_streaming()\n\n# Entry point for the script\nif __name__ == \"__main__\":\n14    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nCreate an instance of the Teslasuit API.\n\n3\n\nWait for a Teslasuit device to be connected and get it.\n\n4\n\nAccess the BIA subsystem from the device.\n\n5\n\nConfigure the BIA subsystem for streaming.\n\n6\n\nStart streaming BIA data from the suit.\n\n7\n\nWait for BIA data to become available.\n\n8\n\nPrint the number of channels in the BIA data.\n\n9\n\nIterate through each channel and print its index.\n\n10\n\nPrint the frequency of each data point.\n\n11\n\nPrint the real part of the complex number for each frequency.\n\n12\n\nPrint the imaginary part of the complex number for each frequency.\n\n13\n\nStop streaming when interrupted.\n\n14\n\nStart the program using the main function.",
     "crumbs": [
       "Examples",
-      "Haptic example"
+      "BIA example (experimental)"
     ]
   },
   {
-    "objectID": "examples/haptic_example.html#expected-output",
-    "href": "examples/haptic_example.html#expected-output",
-    "title": "Haptic example",
+    "objectID": "examples/bia_example.html#expected-output",
+    "href": "examples/bia_example.html#expected-output",
+    "title": "BIA example (experimental)",
     "section": "Expected output",
-    "text": "Expected output\n1Initialize API\n2Setup channels to play and touch parameters\n3Create touch and play\n4Wait until playback finished...\n5Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nChannels and touch parameters are set up using the mapper and haptic subsystem.\n\n3\n\nA haptic touch is created and played using player.create_touch() and player.play_playable().\n\n4\n\nThe program waits for the playback to finish using time.sleep().\n\n5\n\nThe program prints “Finished” after the playback ends.\n\n\n⚠️ Ensure the Teslasuit device is connected and properly calibrated before running the script.",
+    "text": "Expected output\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the BIA subsystem...\n4Setting up streaming configuration...\n5Starting BIA data streaming...\n6Number of channels: 5\n7Channel index: 1\n8Frequency: 24000\n9Real part: 123\n10Imaginary part: 456\n...\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe BIA subsystem of the connected device is accessed via device.bia.\n\n4\n\nStreaming configuration is set using bia.set_streaming_config().\n\n5\n\nBIA data streaming is initiated with bia.start_streaming().\n\n6\n\nThe program prints the number of channels in the BIA data.\n\n7\n\nThe channel index is printed for each channel.\n\n8\n\nThe frequency value is printed for each data point.\n\n9\n\nThe real part of the complex number is printed.\n\n10\n\nThe imaginary part of the complex number is printed.",
     "crumbs": [
       "Examples",
-      "Haptic example"
+      "BIA example (experimental)"
+    ]
+  },
+  {
+    "objectID": "examples/current_feedback_example.html#quick-access",
+    "href": "examples/current_feedback_example.html#quick-access",
+    "title": "Current feedback example (experimental)",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nCurrent Feedback Subsystem\nCurrent Feedback Data structures",
+    "crumbs": [
+      "Examples",
+      "Current feedback example (experimental)"
+    ]
+  },
+  {
+    "objectID": "examples/current_feedback_example.html#intro",
+    "href": "examples/current_feedback_example.html#intro",
+    "title": "Current feedback example (experimental)",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve current feedback data from a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Current Feedback subsystem, and streaming data from nodes and channels.",
+    "crumbs": [
+      "Examples",
+      "Current feedback example (experimental)"
+    ]
+  },
+  {
+    "objectID": "examples/current_feedback_example.html#code-for-current-feedback-data",
+    "href": "examples/current_feedback_example.html#code-for-current-feedback-data",
+    "title": "Current feedback example (experimental)",
+    "section": "Code for Current Feedback Data",
+    "text": "Code for Current Feedback Data\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_current_feedback\n\ndef main():\n3    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n4    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n5    print(\"Accessing the Current Feedback subsystem...\")\n    current_feedback = device.current_feedback\n\n6    print(\"Starting current feedback data streaming...\")\n    current_feedback.start_streaming()\n\n    print(\"Waiting for Current Feedback data...\")\n    nodes_data = {}\n    while True:\n7        data = current_feedback.get_data_on_ready()\n        for node in data.nodes:\n            for channel in node.channels_data:\n                nodes_data.setdefault(node.node_index, {})[channel.channel_index] = channel.value\n8                print(f\"Node {node.node_index}, Channel {channel.channel_index}: {channel.value}\")\n        if len(nodes_data.keys()) == 5:  # Adjust based on device configuration\n            break\n\n    print(\"Final Nodes Data:\", nodes_data)\n\n# Entry point for the script\nif __name__ == \"__main__\":\n9    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the Current Feedback subsystem from the SDK.\n\n3\n\nCreate an instance of the Teslasuit API.\n\n4\n\nWait for a Teslasuit device to be connected and get it.\n\n5\n\nAccess the Current Feedback subsystem from the device.\n\n6\n\nStart streaming current feedback data from the suit.\n\n7\n\nWait for current feedback data to become available.\n\n8\n\nPrint the node and channel data values.\n\n9\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "Current feedback example (experimental)"
+    ]
+  },
+  {
+    "objectID": "examples/current_feedback_example.html#expected-output",
+    "href": "examples/current_feedback_example.html#expected-output",
+    "title": "Current feedback example (experimental)",
+    "section": "Expected output",
+    "text": "Expected output\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the Current Feedback subsystem...\n4Starting current feedback data streaming...\n5Waiting for Current Feedback data...\n6Node 0, Channel 0: 123\nNode 0, Channel 1: 456\n...\n7Final Nodes Data: {0: {0: 123, 1: 456}, ...}\n\n1\n\nAPI is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe Current Feedback subsystem of the connected device is accessed via device.current_feedback.\n\n4\n\nCurrent feedback data streaming is initiated with current_feedback.start_streaming().\n\n5\n\nThe program enters a loop to wait for current feedback data using current_feedback.get_data_on_ready().\n\n6\n\nNode and channel data values are printed as they become available.\n\n7\n\nThe final nodes data is displayed after streaming is complete.",
+    "crumbs": [
+      "Examples",
+      "Current feedback example (experimental)"
     ]
   },
   {
@@ -59,7 +103,7 @@
     "href": "examples/force_feedback_example.html#quick-access",
     "title": "Force Feedback example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nForce Feedback Subsystem\nUsecase\nForce Feedback Data structures",
+    "text": "Quick access\n\nMain concept\nForce Feedback Subsystem\nForce Feedback Data structures",
     "crumbs": [
       "Examples",
       "Force Feedback example"
@@ -125,7 +169,7 @@
     "href": "examples/index.html#examples",
     "title": "Overview",
     "section": "Examples",
-    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic",
+    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic\nBIA\nCurrent feedback",
     "crumbs": [
       "Examples",
       "Overview"
@@ -225,49 +269,61 @@
   {
     "objectID": "API Reference/subsystems/emg.html#quick-access",
     "href": "API Reference/subsystems/emg.html#quick-access",
-    "title": "EMG",
+    "title": "EMG (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nEMG Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nEMG Data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "EMG"
+      "EMG (experimental)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/emg.html#intro",
     "href": "API Reference/subsystems/emg.html#intro",
-    "title": "EMG",
+    "title": "EMG (experimental)",
     "section": "Intro",
     "text": "Intro\nThe EMG subsystem provides functionality to access and process Electromyography (EMG) data from Teslasuit devices.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "EMG"
+      "EMG (experimental)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/emg.html#prerequisites",
     "href": "API Reference/subsystems/emg.html#prerequisites",
-    "title": "EMG",
+    "title": "EMG (experimental)",
     "section": "Prerequisites",
     "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the EMG Subsystem\nThe TsEmg class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsEmg is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "EMG"
+      "EMG (experimental)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/emg.html#class-tsemg",
     "href": "API Reference/subsystems/emg.html#class-tsemg",
-    "title": "EMG",
+    "title": "EMG (experimental)",
     "section": "Class TsEmg",
     "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\nlower_bandwidth (int): Filter’s lower bandwidth.\nupper_bandwidth (int): Filter’s upper bandwidth.\nsample_frequency (int): Sampling frequency.\nsample_size (int): Sample size.\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\nTsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "EMG"
+      "EMG (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/emg.html#access-to-the-data",
+    "href": "API Reference/subsystems/emg.html#access-to-the-data",
+    "title": "EMG (experimental)",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to EMG channel data\nTsEmg.get_data_on_ready().nodes[0].channels[0].samples[0]\n\n\n\n\n\nflowchart TD\nA[TsEmgData] --&gt; B[TsEmgNodeData]\nB --&gt; C[TsEmgChannelData]\nC --&gt; D[samples]\n\n\n\n\n\n\n\n\nAccess to EMG options\nTsEmg.get_data_on_ready().options.lower_bandwidth\n\n\n\n\n\nflowchart TD\nA[TsEmgOptions] --&gt; B[lower_bandwidth]\nA --&gt; C[upper_bandwidth]\nA --&gt; D[sampling_frequency]\nA --&gt; E[sample_size]",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "EMG (experimental)"
     ]
   },
   {
@@ -299,11 +355,71 @@
     "href": "API Reference/subsystems/index.html#subsystems",
     "title": "Overview",
     "section": "Subsystems",
-    "text": "Subsystems\n\nEMG\nHaptic\nMocap\nPPG\nForce feedback",
+    "text": "Subsystems\n\nEMG\nHaptic\nMocap\nPPG\nForce feedback\nCurrent feedback\nBIA",
     "crumbs": [
       "API Reference",
       "Subsystems",
       "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#quick-access",
+    "href": "API Reference/subsystems/haptic.html#quick-access",
+    "title": "Haptic",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nPPG Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#intro",
+    "href": "API Reference/subsystems/haptic.html#intro",
+    "title": "Haptic",
+    "section": "Intro",
+    "text": "Intro\nThe Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#prerequisites",
+    "href": "API Reference/subsystems/haptic.html#prerequisites",
+    "title": "Haptic",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Haptic Subsystem\nThe TsHapticPlayer class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsHapticPlayer is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#class-tshapticplayer",
+    "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
+    "title": "Haptic",
+    "section": "Class TsHapticPlayer",
+    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\nbool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\nbool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nParameters:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\nbool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nParameters:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\nint: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nParameters:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\nint: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nParameters:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nParameters:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nParameters:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\nlist: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nParameters:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\nlist: List of TsHapticParamMultiplier objects.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/haptic.html#access-to-the-data",
+    "href": "API Reference/subsystems/haptic.html#access-to-the-data",
+    "title": "Haptic",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to haptic player multipliers\nTsHapticPlayer.get_master_multipliers()[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParamMultiplier] --&gt; B[type]\nA --&gt; C[value]\n\n\n\n\n\n\n\n\nAccess to haptic touch parameters\nTsHapticPlayer.create_touch_parameters(10, 0.5, 0.2)[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParam] --&gt; B[type]\nA --&gt; C[value]",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Haptic"
     ]
   },
   {
@@ -347,11 +463,315 @@
     "href": "API Reference/subsystems/mocap.html#class-tsppg",
     "title": "Mocap",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing biomechanical angles for all bones in format ‘TsBiomechanicalIndex’: angle value.",
+    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing biomechanical angles for all bones in format 'TsBiomechanicalIndex': angle value.",
     "crumbs": [
       "API Reference",
       "Subsystems",
       "Mocap"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/mocap.html#access-to-the-data",
+    "href": "API Reference/subsystems/mocap.html#access-to-the-data",
+    "title": "Mocap",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to raw sensor data\nTsMocap.get_raw_data_on_ready()[TsBone2dIndex.LeftUpperArm].gyro.x\n\n\n\n\n\nflowchart TD\nA[TsMocapSensor] --&gt; B[gyro]\nB --&gt; C[x]\nB --&gt; D[y]\nB --&gt; E[z]\n\n\n\n\n\n\n\n\nAccess to skeleton data\nTsMocap.get_skeleton_data_on_ready()[TsBone2dIndex.LeftUpperArm].position.x\n\n\n\n\n\nflowchart TD\nA[TsMocapBone] --&gt; B[position]\nB --&gt; C[x]\nB --&gt; D[y]\nB --&gt; E[z]\n\n\n\n\n\n\n\n\nAccess to biomechanical angles\nTsMocap.get_biomechanical_angles_on_ready()[TsBiomechanicalIndex.LeftElbowFlexion]\n\n\n\n\n\nflowchart TD\nA[TsBiomechanicalIndex] --&gt; B[angle_value]",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device.html#quick-access",
+    "href": "API Reference/core/device.html#quick-access",
+    "title": "Device",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device.html#intro",
+    "href": "API Reference/core/device.html#intro",
+    "title": "Device",
+    "section": "Intro",
+    "text": "Intro\nThe Device module provides functions for connecting to TESLASUIT devices, subscribing to connections and disconnections of TESLASUIT devices, retrieving device information, and controlling the device.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device.html#prerequisites",
+    "href": "API Reference/core/device.html#prerequisites",
+    "title": "Device",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to Device Subsystems\nThe TsDevice class provides access to various subsystems (e.g., motion capture, haptics, PPG, etc.) and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsDevice is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device.html#class-tsdevice",
+    "href": "API Reference/core/device.html#class-tsdevice",
+    "title": "Device",
+    "section": "Class TsDevice",
+    "text": "Class TsDevice\nHandles the connection, control, and information retrieval for a Teslasuit device. This class also provides access to various subsystems such as motion capture, haptics, and biometry.\n\nAttributes:\n\ndevice_uuid: UUID of the device.\n\ndevice_handle: TsDeviceHandle of the device.\nmocap: TsMocap class that provides access to the motion capture subsystem.\n\nemg: TsEmg class that provides access to the EMG subsystem.\n\nppg: TsPpg class that provides access to the PPG subsystem.\n\ncurrent_feedback: TsCurrentFeedback class that provides access to the current feedback subsystem.\n\nmagnetic_encoder: TsMagneticEncoder class that provides access to the magnetic encoder subsystem.\n\nhaptic: TsHapticPlayer class that provides access to the haptic subsystem.\n\nbia: TsBia class that provides access to the BIA subsystem.\n\n\n\nClass methods:\n\nget_device_ssid(self)\nRetrieves the SSID of the device.\nReturns:\n- list: SSID of the device.\n\nget_device_serial(self)\nRetrieves the serial number of the device.\nReturns:\n- str: Serial number of the device.\n\nget_product_type(self)\nRetrieves the product type of the device.\nReturns:\n- TsDeviceType: Product type of the device.\n\nget_mapping(self)\nRetrieves the mapping according to the device type and version.\nReturns:\n- TsMapping2D: Mapping of the device.\n\n\nSubsystems:\nThe TsDevice class provides access to the following subsystems: - Motion Capture (TsMocap)\n- EMG (TsEmg)\n- PPG (TsPpg)\n- Current Feedback (TsCurrentFeedback)\n- Magnetic Encoder (TsMagneticEncoder)\n- Haptics (TsHapticPlayer)\n- BIA (TsBia)\nNotes Each subsystem requires an active connection to a Teslasuit device. Refer to the respective subsystem documentation for more details.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/mapper.html#quick-access",
+    "href": "API Reference/core/mapper.html#quick-access",
+    "title": "Mapper",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Mapper"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/mapper.html#intro",
+    "href": "API Reference/core/mapper.html#intro",
+    "title": "Mapper",
+    "section": "Intro",
+    "text": "Intro\nThe Mapper subsystem provides functionality to handle 2D mapping of device elements, including layouts, bones, and their associated data.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Mapper"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/mapper.html#prerequisites",
+    "href": "API Reference/core/mapper.html#prerequisites",
+    "title": "Mapper",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Mapper Subsystem\nThe TsMapper class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsMapper interacts with device mappings, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Mapper"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/mapper.html#class-tsmapper",
+    "href": "API Reference/core/mapper.html#class-tsmapper",
+    "title": "Mapper",
+    "section": "Class TsMapper",
+    "text": "Class TsMapper\nMapping represents a set of device’s elements mapped on 2d space. Elements are described by the 2D Polygon - an array of points. Elements are bound to bones, a full set of bones is included in a layout, multiple layouts with the same element types are contained in an array, an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType. Mappings might have different versions. Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.\n\nClass methods:\n\nget_mapping_by_device(self, device)\nGet the default mapping handler for a device.\nArgs:\ndevice (TsDevice): Device handle.\nReturns:\nTsMapping2d: Mapping handler.\n\nget_mapping_by_version(self, version)\nGet the mapping handler by the mapping version.\nArgs:\nversion (TsMapping2dVersion): Mapping version.\nReturns:\nTsMapping2d: Mapping handler.\n\nget_number_of_layouts(self, mapping)\nGet the number of layouts in the mapping.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nint: Number of layouts.\n\nget_layouts(self, mapping)\nGet all layouts in the mapping.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nlist: List of layouts.\n\nget_layout_index(self, layout)\nGet the index of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout index.\n\nget_layout_type(self, layout)\nGet the type of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout type.\n\nget_layout_element_type(self, layout)\nGet the element type of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout element type.\n\nget_number_of_bones(self, layout)\nGet the number of bones in a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Number of bones.\n\nget_layout_bones(self, layout)\nGet all bones in a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nlist: List of bones.\n\nget_bone_index(self, bone_handle)\nGet the index of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Bone index.\n\nget_bone_side(self, bone_handle)\nGet the side of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Bone side.\n\nget_bone_number_of_contents(self, bone_handle)\nGet the number of contents in a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Number of contents.\n\nget_bone_contents(self, bone_handle)\nGet all contents of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nlist: List of bone contents.\n\nget_bone_number_of_points(self, bone_handle)\nGet the number of points in a bone content.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Number of points.\n\nget_bone_points(self, bone_handle)\nGet the points representing the shape of a bone content in 2D space.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nlist: List of points.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nTsLayout: Electric channel layout handle.\n\n\nMapping Utils:\n\nget_layout_by_type(self, mapping, layout_type, layout_element_type)\nGet a layout by its type and element type.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\n- layout_type (int): Layout type.\n- layout_element_type (int): Layout element type.\nReturns:\nTsLayout: Layout handle.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\nReturns:\nTsLayout: Electric channel layout handle.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Mapper"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/loader.html#quick-access",
+    "href": "API Reference/core/loader.html#quick-access",
+    "title": "Loader",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase"
+  },
+  {
+    "objectID": "API Reference/core/loader.html#intro",
+    "href": "API Reference/core/loader.html#intro",
+    "title": "Loader",
+    "section": "Intro",
+    "text": "Intro\nThe Loader subsystem provides functionality to load the Teslasuit C API library dynamically."
+  },
+  {
+    "objectID": "API Reference/core/loader.html#prerequisites",
+    "href": "API Reference/core/loader.html#prerequisites",
+    "title": "Loader",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Library Path Ensure the Teslasuit API library path is correctly set in the environment variable TESLASUIT_API_LIB_PATH or provided explicitly.\n64-bit System The Teslasuit API supports only 64-bit systems."
+  },
+  {
+    "objectID": "API Reference/core/loader.html#class-tsloader",
+    "href": "API Reference/core/loader.html#class-tsloader",
+    "title": "Loader",
+    "section": "Class TsLoader",
+    "text": "Class TsLoader\nHandles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.\n\nInitialization Parameters:\n\nlib_path (str, optional): Path to the Teslasuit API library. If not provided, the environment variable TESLASUIT_API_LIB_PATH is used.\n\n\n\nClass methods:\n\nload(self)\nLoads the Teslasuit C API library and returns the library object.\n\nReturns:\n\nctypes.CDLL or ctypes.WinDLL: The loaded library object.\nNone: If the library cannot be loaded.\n\nNote: If the library path is not provided or invalid, the system attempts to find the library using the default library name (teslasuit_api).\n\nNotes Ensure the library path is valid and accessible."
+  },
+  {
+    "objectID": "API Reference/core/asset_manager.html#quick-access",
+    "href": "API Reference/core/asset_manager.html#quick-access",
+    "title": "Asset manager",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Asset manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/asset_manager.html#intro",
+    "href": "API Reference/core/asset_manager.html#intro",
+    "title": "Asset manager",
+    "section": "Intro",
+    "text": "Intro\nThe Asset Manager subsystem provides functions to manage TESLASUIT assets, such as loading, retrieving, and unloading assets.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Asset manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/asset_manager.html#prerequisites",
+    "href": "API Reference/core/asset_manager.html#prerequisites",
+    "title": "Asset manager",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Asset Manager Subsystem\nThe TsAssetManager class is part of the TESLASUIT SDK and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsAssetManager is a member of the SDK, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Asset manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/asset_manager.html#class-tsassetmanager",
+    "href": "API Reference/core/asset_manager.html#class-tsassetmanager",
+    "title": "Asset manager",
+    "section": "Class TsAssetManager",
+    "text": "Class TsAssetManager\nHandles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.\n\nClass methods:\n\nload_asset_from_path(self, path)\nLoads an asset from a specified file path.\nArgs:\n- path (str): Path to the asset.\nReturns:\n- TsAssetHandle: Handle to the loaded asset.\n\nload_asset_from_data(self, data, size)\nLoads an asset from binary data.\nArgs:\n- data (bytes): Binary data of the asset.\n- size (int): Size of the binary data.\nReturns:\n- TsAssetHandle: Handle to the loaded asset.\n\nget_asset_type(self, asset_handle)\nRetrieves the type of a loaded asset.\nArgs:\n- asset_handle (TsAssetHandle): Handle to the asset.\nReturns:\n- TsAssetType: Type of the asset.\n\nunload_asset(self, asset_handle)\nUnloads a previously loaded asset.\nArgs:\n- asset_handle (TsAssetHandle): Handle to the asset.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Asset manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device_manager.html#quick-access",
+    "href": "API Reference/core/device_manager.html#quick-access",
+    "title": "Device manager",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device_manager.html#intro",
+    "href": "API Reference/core/device_manager.html#intro",
+    "title": "Device manager",
+    "section": "Intro",
+    "text": "Intro\nThe TsDeviceManager class is responsible for managing the connection and disconnection of TESLASUIT devices. It provides access to connected devices and their properties, enabling seamless interaction with the TESLASUIT ecosystem.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device_manager.html#prerequisites",
+    "href": "API Reference/core/device_manager.html#prerequisites",
+    "title": "Device manager",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nAt least one Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to Device Manager\nThe TsDeviceManager class is the entry point for managing devices. Ensure that the Teslasuit SDK is properly configured and the required libraries are loaded.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/device_manager.html#class-tsdevicemanager",
+    "href": "API Reference/core/device_manager.html#class-tsdevicemanager",
+    "title": "Device manager",
+    "section": "Class TsDeviceManager",
+    "text": "Class TsDeviceManager\nHandles the connection and disconnection of TESLASUIT devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\n\nArgs:\n\nnumber_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\n\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\n\n\nReturns:\n\nTsDevice: The last device connected.\n\n\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Device manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#quick-access",
+    "href": "API Reference/core/ts_api.html#quick-access",
+    "title": "TS API",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#intro",
+    "href": "API Reference/core/ts_api.html#intro",
+    "title": "TS API",
+    "section": "Intro",
+    "text": "Intro\nThe TsApi class serves as the central interface for interacting with the Teslasuit API. It provides access to core functionalities, including device management, asset management, and mapping subsystems. This class is essential for initializing and managing the Teslasuit API and its associated components.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#prerequisites",
+    "href": "API Reference/core/ts_api.html#prerequisites",
+    "title": "TS API",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Library\nEnsure the Teslasuit API library (libteslasuit_api.dylib) is available and correctly loaded.\nConnected Teslasuit Device\nA Teslasuit device must be connected to access its features.\nPython Environment\nPython 3.8+ is required to use the Teslasuit SDK.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#class-tsapi",
+    "href": "API Reference/core/ts_api.html#class-tsapi",
+    "title": "TS API",
+    "section": "Class TsApi",
+    "text": "Class TsApi\nThe TsApi class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.\n\nClass methods:\n\nget_device_manager(self)\nReturns the TsDeviceManager instance, which provides access to connected Teslasuit devices.\n\nReturns:\n\nTsDeviceManager: The device manager instance.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#usage-example",
+    "href": "API Reference/core/ts_api.html#usage-example",
+    "title": "TS API",
+    "section": "Usage Example",
+    "text": "Usage Example\nfrom teslasuit_sdk.ts_api import TsApi\n\n# Initialize the API\napi = TsApi(lib_path=\"/path/to/libteslasuit_api.dylib\")\n\n# Access the device manager\ndevice_manager = api.get_device_manager()\n\n# Perform operations with the device manager\n# ...",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/ts_api.html#notes",
+    "href": "API Reference/core/ts_api.html#notes",
+    "title": "TS API",
+    "section": "Notes",
+    "text": "Notes\n\nThe TsApi class must be initialized before accessing any Teslasuit functionalities.\nEnsure proper cleanup by deleting the TsApi instance to release resources.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "TS API"
     ]
   },
   {
@@ -391,11 +811,23 @@
     ]
   },
   {
+    "objectID": "API Reference/core/data_structures.html#bia",
+    "href": "API Reference/core/data_structures.html#bia",
+    "title": "Data structures",
+    "section": "BIA",
+    "text": "BIA\n\nTsBiaConfig(Structure):\nRepresents the configuration for BIA (Bioelectrical Impedance Analysis) data streaming.\nAttributes: - channels (list): List of channel indexes to stream. - number_of_channels (int): Number of channels. - start_frequency (int): Starting frequency for the BIA data streaming. - frequency_step (int): Frequency step size. - number_of_steps (int): Number of frequency steps.\n\n\n\nTsComplexNumber(Structure):\nRepresents a complex number.\nAttributes: - real_value (int): Real part of the complex number. - im_value (int): Imaginary part of the complex number.\n\n\n\nTsBiaFrequencyData(Structure):\nRepresents frequency data for a BIA channel.\nAttributes: - frequency (int): Frequency value. - complex_number (TsComplexNumber): Complex number associated with the frequency.\n\n\n\nTsBiaChannelData(Structure):\nRepresents data for a single BIA channel.\nAttributes: - channel_index (int): Index of the channel. - number_of_frequencies (int): Number of frequencies in the channel. - frequencies (list): List of TsBiaFrequencyData objects.\n\n\n\nTsBiaChannels(Structure):\nRepresents data for all BIA channels.\nAttributes: - number_of_channels (int): Number of channels. - channels (list): List of TsBiaChannelData objects.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
     "objectID": "API Reference/core/data_structures.html#mocap",
     "href": "API Reference/core/data_structures.html#mocap",
     "title": "Data structures",
     "section": "Mocap",
-    "text": "Mocap\n\nTsVec2f(Structure):\nRepresents a 2D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate.\n\n\n\nTsVec3f(Structure):\nRepresents a 3D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsQuat(Structure):\nRepresents a quaternion for 3D rotation.\nAttributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsMocapBone(Structure):\nRepresents skeleton bone data.\nAttributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.\n\n\n\nTsMocapSensor(Structure):\nRepresents raw IMU sensor data.\nAttributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.",
+    "text": "Mocap\n\nTsVec2f(Structure):\nRepresents a 2D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate.\n\n\n\nTsVec3f(Structure):\nRepresents a 3D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsQuat(Structure):\nRepresents a quaternion for 3D rotation.\nAttributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsMocapBone(Structure):\nRepresents skeleton bone data.\nAttributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.\n\n\n\nTsMocapSensor(Structure):\nRepresents raw IMU sensor data.\nAttributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.\n\n\n\nTsBone(Structure):\nRepresents a bone data in the mapping.\nAttributes: id (int): Bone ID.\nbone_index (int): Bone index.\nbone_side (int): Bone side.\nchannels (int): Bone channels.\n\n\n\nTsLayout(Structure):\nRepresents a layout data in the mapping.\nAttributes: id (int): Layout ID.\nlayout_type (int): Layout type.\nelement_type (int): Element type.\nlayout_index (int): Layout index.\nbone (POINTER(TsBone)): Pointer to a bone.\n\n\n\nTsMappingData(Structure):\nRepresents a set of device’s elements mapped on 2D space.\nAttributes: mapping_handle (void*): Mapping handle.\nlayouts (POINTER(TsLayout)): Pointer to an array of layouts.\n\n\n\nTsMapping2dVersion(Enum):\nEnumeration of mapping versions.\nValues: - Undefined: Undefined version.\n- Mapping_4_5_4: Version 4.5.4.\n- Mapping_4_5_5: Version 4.5.5.\n- Mapping_4_6_0: Version 4.6.0.\n- MappingLeftGlove_1_0_0: Left glove version 1.0.0.\n- MappingRightGlove_1_0_0: Right glove version 1.0.0.\n- Mapping_5_1_0_Men: Version 5.1.0 for men.\n- Mapping_5_1_0_Women: Version 5.1.0 for women.\n\n\n\nTsLayout2dType(Enum):\nEnumeration of layout types.\nValues: - Undefined: Undefined layout type.\n- Electric: Electric layout.\n- Temperature: Temperature layout.\n- Vibration: Vibration layout.\n- Emg: EMG layout.\n- Ecg: ECG layout.\n\n\n\nTsLayout2dElementType(Enum):\nEnumeration of layout element types.\nValues: - Undefined: Undefined element type.\n- Cell: Cell element.\n- Channel: Channel element.\n\n\n\nTsBone2dIndex(Enum):\nEnumeration of bone indices in the mapping.\nValues: - Hips: Hips bone.\n- LeftUpperLeg: Left upper leg bone.\n- RightUpperLeg: Right upper leg bone.\n- LeftLowerLeg: Left lower leg bone.\n- RightLowerLeg: Right lower leg bone.\n- LeftFoot: Left foot bone.\n- RightFoot: Right foot bone.\n- Spine: Spine bone.\n- Chest: Chest bone.\n- Head: Head bone.\n- LeftHand: Left hand bone.\n- RightHand: Right hand bone.\n\n\n\nTsBone2dSide(Enum):\nEnumeration of bone sides.\nValues: - Undefined: Undefined side.\n- Front: Front side.\n- Back: Back side.\n\n\n\nTsBiomechanicalIndex(Enum):\nEnumeration of biomechanical indices.\nValues: - PelvisTilt: Pelvis tilt.\n- PelvisList: Pelvis list.\n- PelvisRotation: Pelvis rotation.\n- HipFlexExtR: Right hip flexion/extension.\n- HipAddAbdR: Right hip adduction/abduction.\n- KneeFlexExtR: Right knee flexion/extension.\n- AnkleFlexExtR: Right ankle flexion/extension.\n- ElbowFlexExtR: Right elbow flexion/extension.\n- WristFlexExtR: Right wrist flexion/extension.\n- ShoulderAddAbdR: Right shoulder adduction/abduction.\n- ShoulderFlexExtR: Right shoulder flexion/extension.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -439,51 +871,159 @@
     ]
   },
   {
-    "objectID": "API Reference/subsystems/haptic.html",
-    "href": "API Reference/subsystems/haptic.html",
-    "title": "Haptic",
-    "section": "",
-    "text": "The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
+    "objectID": "API Reference/core/data_structures.html#device",
+    "href": "API Reference/core/data_structures.html#device",
+    "title": "Data structures",
+    "section": "Device",
+    "text": "Device\n\nTsDevice(Structure):\nRepresents a TESLASUIT device.\nAttributes: - uuid (bytes): A 16-byte UUID that uniquely identifies the device.\n\n\n\nTsVersion(Structure):\nRepresents the version of the TESLASUIT C API.\nAttributes: - major (int): Major version number.\n- minor (int): Minor version number.\n- patch (int): Patch version number.\n- build (int): Build version number.\n\n\n\nTsDeviceType(Enum):\nEnumeration of TESLASUIT device types.\nValues: - Undefined: Undefined device type.\n- Suit: TESLASUIT suit device type.\n- Glove: TESLASUIT glove device type.\n\n\n\nTsDeviceSide(Enum):\nEnumeration of TESLASUIT glove device sides.\nValues: - Undefined: Undefined device side.\n- Right: Right glove device side.\n- Left: Left glove device side.\n\n\n\nTsDeviceEventPolicy(Enum):\nEnumeration of policies for handling TESLASUIT device events.\nValues: - Enumerate: Enumerate all devices.\n- Attach: Attach a device.\n- Detach: Detach a device.\n\n\n\nTsDeviceEvent(Enum):\nEnumeration of events related to TESLASUIT devices.\nValues: - DeviceAttached: Device attached event.\n- DeviceDetached: Device detached event.",
     "crumbs": [
       "API Reference",
-      "Subsystems",
-      "Haptic"
+      "Core",
+      "Data structures"
     ]
   },
   {
-    "objectID": "API Reference/subsystems/haptic.html#intro",
-    "href": "API Reference/subsystems/haptic.html#intro",
-    "title": "Haptic",
-    "section": "",
-    "text": "The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
+    "objectID": "API Reference/core/data_structures.html#asset-manager",
+    "href": "API Reference/core/data_structures.html#asset-manager",
+    "title": "Data structures",
+    "section": "Asset Manager",
+    "text": "Asset Manager\n\nTsAssetType(Enum):\nEnumeration of TESLASUIT asset types.\nValues:\n- Undefined: Undefined asset type.\n- Spline: Spline asset.\n- HapticEffect: Haptic effect asset.\n- Material: Material asset.\n- TouchSequence: Touch sequence asset.\n- PresetAnimation: Preset animation asset.\n- SceneAnimation: Scene animation asset.",
     "crumbs": [
       "API Reference",
-      "Subsystems",
-      "Haptic"
+      "Core",
+      "Data structures"
     ]
   },
   {
-    "objectID": "API Reference/subsystems/haptic.html#prerequisites",
-    "href": "API Reference/subsystems/haptic.html#prerequisites",
-    "title": "Haptic",
+    "objectID": "API Reference/core/data_structures.html#current-feedback",
+    "href": "API Reference/core/data_structures.html#current-feedback",
+    "title": "Data structures",
+    "section": "Current Feedback",
+    "text": "Current Feedback\n\nTsCurrentFeedbackChannelData(Structure):\nRepresents a current feedback channel data.\nAttributes: - channel_index (int): Index of the channel. - value (int): Value of the channel.\n\n\n\nTsCurrentFeedbackNodeData(Structure):\nRepresents a current feedback node data.\nAttributes: - node_index (int): Index of the node. - number_of_channels (int): Number of channels in the node. - channels_data (list): List of TsCurrentFeedbackChannelData objects.\n\n\n\nTsCurrentFeedbackNodes(Structure):\nRepresents a collection of current feedback nodes.\nAttributes: - number_of_nodes (int): Number of nodes. - nodes (list): List of TsCurrentFeedbackNodeData objects.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Data structures"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/bia.html#quick-access",
+    "href": "API Reference/subsystems/bia.html#quick-access",
+    "title": "BIA (experimental)",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nBIA Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "BIA (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/bia.html#intro",
+    "href": "API Reference/subsystems/bia.html#intro",
+    "title": "BIA (experimental)",
+    "section": "Intro",
+    "text": "Intro\nThe BIA (Bioelectrical Impedance Analysis) subsystem provides functions to access BIA functionality.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "BIA (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/bia.html#prerequisites",
+    "href": "API Reference/subsystems/bia.html#prerequisites",
+    "title": "BIA (experimental)",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Haptic Subsystem\nThe TsHapticPlayer class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the BIA Subsystem\nThe TsBia class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsBia is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Haptic"
+      "BIA (experimental)"
     ]
   },
   {
-    "objectID": "API Reference/subsystems/haptic.html#class-tshapticplayer",
-    "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
-    "title": "Haptic",
-    "section": "Class TsHapticPlayer",
-    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\nbool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\nbool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nParameters:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\nbool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nParameters:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\nint: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nParameters:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\nint: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nParameters:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nParameters:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nParameters:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\nlist: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nParameters:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\nlist: List of TsHapticParamMultiplier objects.",
+    "objectID": "API Reference/subsystems/bia.html#class-tsbia",
+    "href": "API Reference/subsystems/bia.html#class-tsbia",
+    "title": "BIA (experimental)",
+    "section": "Class TsBia",
+    "text": "Class TsBia\nHandles BIA (Bioelectrical Impedance Analysis) data processing and streaming.\nThis class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of BIA data.\n\nstop_streaming(self)\nStop the streaming of BIA data.\n\nget_data_on_ready(self)\nBlocks execution until BIA data is ready and returns the latest data.\nReturns TsBiaChannels (struct): The latest BIA data.\n\nset_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)\nSet the streaming configuration for BIA data.\nParameters:\n- channels (list): List of channel indexes to stream.\n- start_frequency (int): Starting frequency for the BIA data.\n- number_of_steps (int): Number of frequency steps.\n- frequency_step (int): Frequency step size.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Haptic"
+      "BIA (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/bia.html#access-to-the-data",
+    "href": "API Reference/subsystems/bia.html#access-to-the-data",
+    "title": "BIA (experimental)",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to BIA channel data\nTsBia.get_data_on_ready().channels[0].frequencies[0].complex_number.real_value\n\n\n\n\n\nflowchart TD\nA[TsBiaChannels] --&gt; B[TsBiaChannelData]\nB --&gt; C[TsBiaFrequencyData]\nC --&gt; D[TsComplexNumber]\nD --&gt; E[real_value]\nD --&gt; F[im_value]",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "BIA (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/current_feedback.html#quick-access",
+    "href": "API Reference/subsystems/current_feedback.html#quick-access",
+    "title": "Current Feedback (experimental)",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nExamples\nCurrent Feedback Data structures",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Current Feedback (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/current_feedback.html#intro",
+    "href": "API Reference/subsystems/current_feedback.html#intro",
+    "title": "Current Feedback (experimental)",
+    "section": "Intro",
+    "text": "Intro\nThe Current Feedback subsystem provides functions to access and stream current feedback data from Teslasuit devices.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Current Feedback (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/current_feedback.html#prerequisites",
+    "href": "API Reference/subsystems/current_feedback.html#prerequisites",
+    "title": "Current Feedback (experimental)",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Current Feedback Subsystem\nThe TsCurrentFeedback class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsCurrentFeedback is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Current Feedback (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/current_feedback.html#class-tscurrentfeedback",
+    "href": "API Reference/subsystems/current_feedback.html#class-tscurrentfeedback",
+    "title": "Current Feedback (experimental)",
+    "section": "Class TsCurrentFeedback",
+    "text": "Class TsCurrentFeedback\nHandles current feedback data processing and streaming.\nThis class manages the interaction with current feedback nodes, including data streaming and retrieval.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of current feedback data.\n\nstop_streaming(self)\nStop the streaming of current feedback data.\n\nget_data_on_ready(self)\nBlocks execution until current feedback data is ready and returns the latest data.\nReturns TsCurrentFeedbackNodes (struct): The latest current feedback data.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Current Feedback (experimental)"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/current_feedback.html#access-to-the-data",
+    "href": "API Reference/subsystems/current_feedback.html#access-to-the-data",
+    "title": "Current Feedback (experimental)",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to current feedback channel data\nTsCurrentFeedback.get_data_on_ready().nodes[0].channels_data[0].value\n\n\n\n\n\nflowchart TD\nA[TsCurrentFeedbackNodes] --&gt; B[TsCurrentFeedbackNodeData]\nB --&gt; C[TsCurrentFeedbackChannelData]\nC --&gt; D[value]",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Current Feedback (experimental)"
     ]
   },
   {
@@ -527,7 +1067,19 @@
     "href": "API Reference/subsystems/ppg.html#class-tsppg",
     "title": "PPG",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate” or “oxygen_percent”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
+    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/ppg.html#access-to-the-data",
+    "href": "API Reference/subsystems/ppg.html#access-to-the-data",
+    "title": "PPG",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to raw data\nTsPpg.get_raw_data_on_ready().nodes[0].ir_data\n\n\n\n\n\nflowchart TD\nA[TsPpgRawData] --&gt; B[TsPpgRawNodeData]\n\n\n\n\n\n\n\n\nAccess to HRV data\nTsPpg.get_hrv_data_on_ready().mean_rr\n\n\nAccess to heart rate data\nTsPpg.get_data().nodes[0].heart_rate\n\n\n\n\n\nflowchart TD\nA[TsPpgData] --&gt; B[TsPpgNodeData]",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -539,7 +1091,7 @@
     "href": "API Reference/subsystems/force_feedback.html#quick-access",
     "title": "Force feedback",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nMagnetic Encoder Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nMagnetic Encoder Data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -563,7 +1115,7 @@
     "href": "API Reference/subsystems/force_feedback.html#prerequisites",
     "title": "Force feedback",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Magnetic Encoder Subsystem\nThe Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nMagnetic Encoder functionality is tied to the device class and cannot be used independently without an active Teslasuit device.",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Magnetic Encoder Subsystem\nThe Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nsince TsMagneticEncoder is a member of the device class and cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -588,6 +1140,18 @@
     "title": "Force feedback",
     "section": "Utilities",
     "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nParameters:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsMagneticEncoderConfig structure for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsMagneticEncoderConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Force feedback"
+    ]
+  },
+  {
+    "objectID": "API Reference/subsystems/force_feedback.html#access-to-the-data",
+    "href": "API Reference/subsystems/force_feedback.html#access-to-the-data",
+    "title": "Force feedback",
+    "section": "Access to the data",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to finger positions\nTsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle\n\n\n\n\n\nflowchart TD\nA[TsFingerMEPosition] --&gt; B[flexion_angle]\nA --&gt; C[abduction_angle]\n\n\n\n\n\n\n\n\nAccess to force feedback configuration\nTsMagneticEncoder.get_default_ff_controls_struct().bone_index\n\n\n\n\n\nflowchart TD\nA[TsForceFeedbackConfig] --&gt; B[bone_index]\nA --&gt; C[angle]\nA --&gt; D[hardness_percent]\nA --&gt; E[lock_direction]",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -652,45 +1216,45 @@
   {
     "objectID": "examples/emg_example.html#quick-access",
     "href": "examples/emg_example.html#quick-access",
-    "title": "EMG example",
+    "title": "EMG example (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nEMG Subsystem\nUsecase\nEMG Data structures",
+    "text": "Quick access\n\nMain concept\nEMG Subsystem\nEMG Data structures",
     "crumbs": [
       "Examples",
-      "EMG example"
+      "EMG example (experimental)"
     ]
   },
   {
     "objectID": "examples/emg_example.html#intro",
     "href": "examples/emg_example.html#intro",
-    "title": "EMG example",
+    "title": "EMG example (experimental)",
     "section": "Intro",
     "text": "Intro\nThis web page provides a comprehensive guide on how to retrieve data from the EMG (Electromyography) sensor of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the EMG subsystem, and streaming data.",
     "crumbs": [
       "Examples",
-      "EMG example"
+      "EMG example (experimental)"
     ]
   },
   {
     "objectID": "examples/emg_example.html#code-for-emg-data",
     "href": "examples/emg_example.html#code-for-emg-data",
-    "title": "EMG example",
+    "title": "EMG example (experimental)",
     "section": "Code for EMG data",
     "text": "Code for EMG data\n1from teslasuit_sdk import ts_api\n\ndef main():\n2    print(\"Initializing Teslasuit API...\")\n    api = ts_api.TsApi()\n\n3    print(\"Waiting for a Teslasuit device to connect...\")\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n\n4    print(\"Accessing the EMG subsystem...\")\n    emg = device.emg\n\n5    print(\"Starting EMG data streaming...\")\n    emg.start_streaming()\n\n    desired_fps = 60\n    period_in_ms = 1. / desired_fps\n    frames_to_stream = 10\n\n    print(\"Streaming EMG data...\")\n6    while frames_to_stream:\n        time.sleep(period_in_ms)\n7        print(\"EMG data:\", emg)\n        frames_to_stream -= 1\n\n    print(\"Stopping EMG data streaming...\")\n8    emg.stop_streaming()\n9    print(\"Finished\")\n\n# Entry point for the script\nif __name__ == \"__main__\":\n10    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nCreate an instance of the Teslasuit API.\n\n3\n\nWait for a Teslasuit device to be connected and get it.\n\n4\n\nAccess the EMG subsystem from the device.\n\n5\n\nStart streaming EMG data from the suit.\n\n6\n\nStream EMG data for a specified number of frames.\n\n7\n\nPrint the EMG data to the console.\n\n8\n\nStop the EMG data streaming.\n\n9\n\nIndicate that the process is finished.\n\n10\n\nStart the program using the main function.",
     "crumbs": [
       "Examples",
-      "EMG example"
+      "EMG example (experimental)"
     ]
   },
   {
     "objectID": "examples/emg_example.html#expected-output",
     "href": "examples/emg_example.html#expected-output",
-    "title": "EMG example",
+    "title": "EMG example (experimental)",
     "section": "Expected output",
     "text": "Expected output\n1Initializing Teslasuit API...\n2Waiting for a Teslasuit device to connect...\n3Accessing the EMG subsystem...\n4Starting EMG data streaming...\n5Streaming EMG data...\n6EMG data: &lt;data&gt;\n7Stopping EMG data streaming...\n8Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nThe program waits for a Teslasuit device to connect using api.get_device_manager().get_or_wait_last_device_attached().\n\n3\n\nThe EMG subsystem of the connected device is accessed via device.emg.\n\n4\n\nEMG data streaming is initiated with emg.start_streaming().\n\n5\n\nThe program streams EMG data for a specified number of frames.\n\n6\n\nEMG data is printed to the console.\n\n7\n\nEMG data streaming is stopped using emg.stop_streaming().\n\n8\n\nThe process is completed.",
     "crumbs": [
       "Examples",
-      "EMG example"
+      "EMG example (experimental)"
     ]
   },
   {
@@ -698,7 +1262,7 @@
     "href": "examples/mocap_example.html#quick-access",
     "title": "Mocap example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nMocap Subsystem\nUsecase\nMocap Data structures",
+    "text": "Quick access\n\nMain concept\nMocap Subsystem\nMocap Data structures",
     "crumbs": [
       "Examples",
       "Mocap example"
@@ -801,6 +1365,50 @@
     "crumbs": [
       "Examples",
       "PPG example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#quick-access",
+    "href": "examples/haptic_example.html#quick-access",
+    "title": "Haptic example",
+    "section": "Quick access",
+    "text": "Quick access\n\nMain concept\nHaptic Subsystem\nHaptic Data structures",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#intro",
+    "href": "examples/haptic_example.html#intro",
+    "title": "Haptic example",
+    "section": "Intro",
+    "text": "Intro\nThis web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#code-for-haptic-touch",
+    "href": "examples/haptic_example.html#code-for-haptic-touch",
+    "title": "Haptic example",
+    "section": "Code for Haptic Touch",
+    "text": "Code for Haptic Touch\nimport time\nimport _setup_sys_path\n\n1from teslasuit_sdk import ts_api\n2import teslasuit_sdk.subsystems.ts_haptic\n3from teslasuit_sdk.ts_mapper import TsBone2dIndex\n\n4TOUCH_DURATION_MS = 3000\n\ndef main():\n    try:\n5        print(\"Initialize API\")\n        api = ts_api.TsApi()\n\n6        device = api.get_device_manager().get_or_wait_last_device_attached()\n7        player = device.haptic\n8        mapper = api.mapper\n\n9        print(\"Setup channels to play and touch parameters\")\n        layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n10        bones = mapper.get_layout_bones(layout)\n11        channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n12        params = player.create_touch_parameters(100, 40, 150)\n\n13        print(\"Create touch and play\")\n        playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n14        player.play_playable(playable_id)\n\n15        print(\"Wait until playback finished...\")\n        time.sleep(TOUCH_DURATION_MS / 1000)\n16        print(\"Finished\")\n\n17    except (KeyboardInterrupt, SystemExit):\n        print('\\n! Received keyboard interrupt, quitting haptic touch play\\n')\n\n\nif __name__ == '__main__':\n18    main()\n\n1\n\nImport the main Teslasuit API module.\n\n2\n\nImport the Haptic subsystem from the SDK.\n\n3\n\nImport the TsBone2dIndex for mapping bones.\n\n4\n\nDefine the duration of the haptic touch in milliseconds.\n\n5\n\nInitialize the Teslasuit API.\n\n6\n\nWait for a Teslasuit device to connect and get it.\n\n7\n\nAccess the Haptic subsystem from the device.\n\n8\n\nAccess the mapper for haptic channel mapping.\n\n9\n\nRetrieve the haptic channel layout for the device.\n\n10\n\nGet the bones from the layout.\n\n11\n\nRetrieve the haptic channels for the right upper arm.\n\n12\n\nCreate touch parameters with period, amplitude, and pulse width.\n\n13\n\nCreate a haptic touch and play it.\n\n14\n\nPlay the created haptic touch.\n\n15\n\nWait for the playback to finish.\n\n16\n\nPrint “Finished” after playback ends.\n\n17\n\nHandle keyboard interrupts gracefully.\n\n18\n\nStart the program using the main function.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
+    ]
+  },
+  {
+    "objectID": "examples/haptic_example.html#expected-output",
+    "href": "examples/haptic_example.html#expected-output",
+    "title": "Haptic example",
+    "section": "Expected output",
+    "text": "Expected output\n1Initialize API\n2Setup channels to play and touch parameters\n3Create touch and play\n4Wait until playback finished...\n5Finished\n\n1\n\nThe API is initialized via api = ts_api.TsApi().\n\n2\n\nChannels and touch parameters are set up using the mapper and haptic subsystem.\n\n3\n\nA haptic touch is created and played using player.create_touch() and player.play_playable().\n\n4\n\nThe program waits for the playback to finish using time.sleep().\n\n5\n\nThe program prints “Finished” after the playback ends.\n\n\n⚠️ Ensure the Teslasuit device is connected and properly calibrated before running the script.",
+    "crumbs": [
+      "Examples",
+      "Haptic example"
     ]
   },
   {

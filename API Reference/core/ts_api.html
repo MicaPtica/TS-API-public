@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -131,6 +165,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -197,6 +239,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -227,6 +277,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+ <span class="dropdown-text">Current Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/bia_example.html">
+ <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
   </li>
@@ -352,6 +410,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -440,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -459,6 +529,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current Feedback (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -489,7 +571,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example</span></a>
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -508,6 +590,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback example (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -552,8 +646,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#class-tsapi" id="toc-class-tsapi" class="nav-link" data-scroll-target="#class-tsapi">Class TsApi</a>
+  <ul class="collapse">
+  <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
+  </ul></li>
+  <li><a href="#usage-example" id="toc-usage-example" class="nav-link" data-scroll-target="#usage-example">Usage Example</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -577,8 +685,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../../Main concepts/index.html">Main concept</a></li>
+<li><a href="../../examples/index.html">Examples</a></li>
+<li><a href="../../usecases/index.html">Usecase</a></li>
+</ul>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>The <code>TsApi</code> class serves as the central interface for interacting with the Teslasuit API. It provides access to core functionalities, including device management, asset management, and mapping subsystems. This class is essential for initializing and managing the Teslasuit API and its associated components.</p>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ol type="1">
+<li><strong>Teslasuit API Library</strong><br>
+Ensure the Teslasuit API library (<code>libteslasuit_api.dylib</code>) is available and correctly loaded.</li>
+<li><strong>Connected Teslasuit Device</strong><br>
+A Teslasuit device must be connected to access its features.</li>
+<li><strong>Python Environment</strong><br>
+Python 3.8+ is required to use the Teslasuit SDK.</li>
+</ol>
+</section>
+<section id="class-tsapi" class="level2">
+<h2 class="anchored" data-anchor-id="class-tsapi">Class TsApi</h2>
+<p>The <code>TsApi</code> class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.</p>
+<section id="class-methods" class="level3">
+<h3 class="anchored" data-anchor-id="class-methods">Class methods:</h3>
+<hr>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>get_device_manager(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Returns the <a href="../../API Reference/core/device_manager.html">TsDeviceManager</a> instance, which provides access to connected Teslasuit devices.</p>
+<ul>
+<li><strong>Returns</strong>:
+<ul>
+<li><a href="../../API Reference/core/device_manager.html">TsDeviceManager</a>: The device manager instance.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="usage-example" class="level2">
+<h2 class="anchored" data-anchor-id="usage-example">Usage Example</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk.ts_api <span class="im">import</span> TsApi</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the API</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>api <span class="op">=</span> TsApi(lib_path<span class="op">=</span><span class="st">"/path/to/libteslasuit_api.dylib"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the device manager</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>device_manager <span class="op">=</span> api.get_device_manager()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform operations with the device manager</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li>The <code>TsApi</code> class must be initialized before accessing any Teslasuit functionalities.</li>
+<li>Ensure proper cleanup by deleting the <code>TsApi</code> instance to release resources.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

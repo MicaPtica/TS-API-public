@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Force feedback – API Docs</title>
+<title>Current Feedback (experimental) – API Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/current_feedback.html">Current Feedback (experimental)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -530,13 +530,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Current Feedback (experimental)</span></a>
   </div>
 </li>
@@ -660,18 +660,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
   </ul></li>
-  <li><a href="#class-tsmagneticencoder" id="toc-class-tsmagneticencoder" class="nav-link" data-scroll-target="#class-tsmagneticencoder">Class TsMagneticEncoder</a>
+  <li><a href="#class-tscurrentfeedback" id="toc-class-tscurrentfeedback" class="nav-link" data-scroll-target="#class-tscurrentfeedback">Class TsCurrentFeedback</a>
   <ul class="collapse">
   <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
   </ul></li>
-  <li><a href="#utilities" id="toc-utilities" class="nav-link" data-scroll-target="#utilities">Utilities</a>
-  <ul class="collapse">
-  <li><a href="#utility-functions" id="toc-utility-functions" class="nav-link" data-scroll-target="#utility-functions">Utility functions:</a></li>
-  </ul></li>
   <li><a href="#access-to-the-data" id="toc-access-to-the-data" class="nav-link" data-scroll-target="#access-to-the-data">Access to the data</a>
   <ul class="collapse">
-  <li><a href="#access-to-finger-positions" id="toc-access-to-finger-positions" class="nav-link" data-scroll-target="#access-to-finger-positions">Access to finger positions</a></li>
-  <li><a href="#access-to-force-feedback-configuration" id="toc-access-to-force-feedback-configuration" class="nav-link" data-scroll-target="#access-to-force-feedback-configuration">Access to force feedback configuration</a></li>
+  <li><a href="#access-to-current-feedback-channel-data" id="toc-access-to-current-feedback-channel-data" class="nav-link" data-scroll-target="#access-to-current-feedback-channel-data">Access to current feedback channel data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -679,9 +674,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/current_feedback.html">Current Feedback (experimental)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Force feedback</h1>
+<h1 class="title">Current Feedback (experimental)</h1>
 </div>
 
 
@@ -698,18 +693,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslaglove_v.-1.0+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
-<li><a href="../../Main concepts/force_feedback_concept.html">Main concept</a></li>
-<li><a href="../../examples/force_feedback_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#magnetic-encoder">Magnetic Encoder Data structures</a></li>
+<li><a href="../../Main concepts/current_feedback_concept.html">Main concept</a></li>
+<li><a href="../../examples/current_feedback_example.html">Examples</a></li>
+<li><a href="../../API Reference/core/data_structures.html#current-feedback">Current Feedback Data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>The Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.</p>
+<p>The Current Feedback subsystem provides functions to access and stream current feedback data from Teslasuit devices.</p>
 </section>
 <section id="prerequisites" class="level2">
 <h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
@@ -720,134 +715,47 @@ The Teslasuit API must be initialized before accessing any of its features.<br>
 <li>Connected Teslasuit Device<br>
 A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.<br>
 </li>
-<li>Access to the Magnetic Encoder Subsystem<br>
-The Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.</li>
+<li>Access to the Current Feedback Subsystem<br>
+The <code>TsCurrentFeedback</code> class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.</li>
 </ol>
 <section id="note" class="level3">
 <h3 class="anchored" data-anchor-id="note">Note:</h3>
-<p>since <code>TsMagneticEncoder</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class and cannot be used independently without an active Teslasuit device.</p>
+<p>Since <code>TsCurrentFeedback</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class, it cannot be used independently without an active Teslasuit device.</p>
 </section>
 </section>
-<section id="class-tsmagneticencoder" class="level2">
-<h2 class="anchored" data-anchor-id="class-tsmagneticencoder">Class TsMagneticEncoder</h2>
-<p>Handles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.</p>
+<section id="class-tscurrentfeedback" class="level2">
+<h2 class="anchored" data-anchor-id="class-tscurrentfeedback">Class TsCurrentFeedback</h2>
+<p>Handles current feedback data processing and streaming.<br>
+This class manages the interaction with current feedback nodes, including data streaming and retrieval.</p>
 <section id="class-methods" class="level3">
 <h3 class="anchored" data-anchor-id="class-methods">Class methods:</h3>
 <hr>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>get_positions(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the current positions of the fingers. Returns: dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>start_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Start the streaming of current feedback data.</p>
 <hr>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>start_me_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Starts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>stop_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Stop the streaming of current feedback data.</p>
 <hr>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>stop_me_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Stops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.</p>
-<hr>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_enable(<span class="va">self</span>, me_configs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Enable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
-- <code>me_configs (list)</code>: A list of <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> objects.</p>
-<hr>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_disable(<span class="va">self</span>, bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Disable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: A list of bone indexes to disable magnetic encoder for.</p>
-<hr>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_default_me_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the default magnetic encoder controls structure.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
-<hr>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_default_ff_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the default force feedback controls structure for the magnetic encoder. Returns: A TsForceFeedbackConfig structure.</p>
-<hr>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>get_bone_indexes(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the bone indexes for the magnetic encoder.</p>
-<p>Returns:<br>
-- <code>list</code>: A list of bone indexes.</p>
-</section>
-</section>
-<section id="utilities" class="level2">
-<h2 class="anchored" data-anchor-id="utilities">Utilities</h2>
-<section id="utility-functions" class="level3">
-<h3 class="anchored" data-anchor-id="utility-functions">Utility functions:</h3>
-<hr>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>get_position_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a dictionary of <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a> for the given bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: List of bone indexes.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>get_left_default_position_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default position struct for the left hand.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>get_right_default_position_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default position struct for the right hand.</p>
-<p>Returns:<br>
-- <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
-<hr>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mirror_bone_index(bone_index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mirror the bone index for the opposite hand.</p>
-<p>Parameters:<br>
-- <code>bone_index</code>: Bone index to be mirrored.</p>
-<p>Returns:<br>
-- <code>int</code>: Mirrored bone index.</p>
-<hr>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>get_me_controls_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> structure for the given bone indexes.</p>
-<p>Parameters:<br>
-- <code>bone_indexes (list)</code>: List of bone indexes.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Magnetic encoder configuration structure.</p>
-<hr>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>get_left_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default magnetic encoder controls struct for the left hand.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
-<hr>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_right_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a default magnetic encoder controls struct for the right hand.</p>
-<p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_data_on_ready(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Blocks execution until current feedback data is ready and returns the latest data.<br>
+Returns <a href="../../API Reference/core/data_structures.html#tscurrentfeedbacknodes">TsCurrentFeedbackNodes</a> (struct): The latest current feedback data.</p>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
-<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#magnetic-encoder">data structures</a> page.</p>
-<section id="access-to-finger-positions" class="level3">
-<h3 class="anchored" data-anchor-id="access-to-finger-positions">Access to finger positions</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#current-feedback">data structures</a> page.</p>
+<section id="access-to-current-feedback-channel-data" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-current-feedback-channel-data">Access to current feedback channel data</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>TsCurrentFeedback.get_data_on_ready().nodes[<span class="dv">0</span>].channels_data[<span class="dv">0</span>].value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
-A[TsFingerMEPosition] --&gt; B[flexion_angle]
-A --&gt; C[abduction_angle]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="access-to-force-feedback-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="access-to-force-feedback-configuration">Access to force feedback configuration</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TsMagneticEncoder.get_default_ff_controls_struct().bone_index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-A[TsForceFeedbackConfig] --&gt; B[bone_index]
-A --&gt; C[angle]
-A --&gt; D[hardness_percent]
-A --&gt; E[lock_direction]
+A[TsCurrentFeedbackNodes] --&gt; B[TsCurrentFeedbackNodeData]
+B --&gt; C[TsCurrentFeedbackChannelData]
+C --&gt; D[value]
 </pre>
 </div>
 <p></p></figure><p></p>

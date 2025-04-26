@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -164,6 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+ <span class="dropdown-text">BIA</span></a>
   </li>  
     </ul>
   </li>
@@ -231,6 +242,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -261,6 +280,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+ <span class="dropdown-text">Current Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/bia_example.html">
+ <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
   </li>
@@ -386,6 +413,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -474,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -493,6 +532,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current Feedback (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example</span></a>
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -542,6 +593,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback example (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -591,11 +654,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
+  </ul></li>
   <li><a href="#class-tshapticplayer" id="toc-class-tshapticplayer" class="nav-link" data-scroll-target="#class-tshapticplayer">Class TsHapticPlayer</a>
   <ul class="collapse">
   <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
+  </ul></li>
+  <li><a href="#access-to-the-data" id="toc-access-to-the-data" class="nav-link" data-scroll-target="#access-to-the-data">Access to the data</a>
+  <ul class="collapse">
+  <li><a href="#access-to-haptic-player-multipliers" id="toc-access-to-haptic-player-multipliers" class="nav-link" data-scroll-target="#access-to-haptic-player-multipliers">Access to haptic player multipliers</a></li>
+  <li><a href="#access-to-haptic-touch-parameters" id="toc-access-to-haptic-touch-parameters" class="nav-link" data-scroll-target="#access-to-haptic-touch-parameters">Access to haptic touch parameters</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -622,6 +694,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.5+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../../Main concepts/haptic_concept.html">Main concept</a></li>
+<li><a href="../../examples/haptic_example.html">Examples</a></li>
+<li><a href="../../API Reference/core/data_structures.html#haptic">PPG Data structures</a></li>
+</ul>
+</section>
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.</p>
@@ -636,6 +717,10 @@ A Teslasuit device must be connected. If no device is available, the system will
 <li><p><strong>Access to the Haptic Subsystem</strong><br>
 The <code>TsHapticPlayer</code> class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.</p></li>
 </ol>
+<section id="note" class="level3">
+<h3 class="anchored" data-anchor-id="note">Note:</h3>
+<p>Since <code>TsHapticPlayer</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class, it cannot be used independently without an active Teslasuit device.</p>
+</section>
 </section>
 <section id="class-tshapticplayer" class="level2">
 <h2 class="anchored" data-anchor-id="class-tshapticplayer">Class TsHapticPlayer</h2>
@@ -716,7 +801,7 @@ The <code>TsHapticPlayer</code> class is part of the device’s functionality an
 - <code>amplitude (float)</code>: Amplitude value.<br>
 - <code>pulse_width (float)</code>: Pulse width value.</p>
 <p>Returns:<br>
-<code>list</code>: List of <code>TsHapticParam</code> objects.</p>
+<code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparam(structure)"><code>TsHapticParam</code></a> objects.</p>
 <hr>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>create_touch_multipliers(<span class="va">self</span>, period_ms_m, amplitude_m, pulse_width_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates multipliers for an instant haptic touch.</p>
@@ -725,7 +810,47 @@ The <code>TsHapticPlayer</code> class is part of the device’s functionality an
 - <code>amplitude_m (float)</code>: Amplitude multiplier.<br>
 - <code>pulse_width_m (float)</code>: Pulse width multiplier.</p>
 <p>Returns:<br>
-<code>list</code>: List of <code>TsHapticParamMultiplier</code> objects.</p>
+<code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparammultiplier(structure)"><code>TsHapticParamMultiplier</code></a> objects.</p>
+</section>
+</section>
+<section id="access-to-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
+<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#haptic">data structures</a> page.</p>
+<section id="access-to-haptic-player-multipliers" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-haptic-player-multipliers">Access to haptic player multipliers</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TsHapticPlayer.get_master_multipliers()[<span class="dv">0</span>].value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsHapticParamMultiplier] --&gt; B[type]
+A --&gt; C[value]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="access-to-haptic-touch-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="access-to-haptic-touch-parameters">Access to haptic touch parameters</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TsHapticPlayer.create_touch_parameters(<span class="dv">10</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>)[<span class="dv">0</span>].value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[TsHapticParam] --&gt; B[type]
+A --&gt; C[value]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 </section>

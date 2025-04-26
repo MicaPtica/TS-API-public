@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -131,6 +165,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/current_feedback_concept.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Main concepts/bia_concept.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -197,6 +239,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/current_feedback.html">
+ <span class="dropdown-text">Current Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../API Reference/subsystems/bia.html">
+ <span class="dropdown-text">BIA</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -227,6 +277,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/current_feedback_example.html">
+ <span class="dropdown-text">Current Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/bia_example.html">
+ <span class="dropdown-text">BIA Example</span></a>
   </li>  
     </ul>
   </li>
@@ -352,6 +410,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Force Feedback</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/current_feedback_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Main concepts/bia_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -440,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -459,6 +529,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/current_feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current Feedback (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../API Reference/subsystems/bia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -489,7 +571,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example</span></a>
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -508,6 +590,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/current_feedback_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Current feedback example (experimental)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../examples/bia_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BIA example (experimental)</span></a>
   </div>
 </li>
       </ul>
@@ -552,8 +646,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
+  </ul></li>
+  <li><a href="#class-tsassetmanager" id="toc-class-tsassetmanager" class="nav-link" data-scroll-target="#class-tsassetmanager">Class TsAssetManager</a>
+  <ul class="collapse">
+  <li><a href="#class-methods" id="toc-class-methods" class="nav-link" data-scroll-target="#class-methods">Class methods:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -577,8 +686,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../../Main concepts/index.html">Main concept</a></li>
+<li><a href="../../examples/index.html">Examples</a></li>
+<li><a href="../../usecases/index.html">Usecase</a></li>
+</ul>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>The Asset Manager subsystem provides functions to manage TESLASUIT assets, such as loading, retrieving, and unloading assets.</p>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ol type="1">
+<li>Teslasuit API Initialization<br>
+The Teslasuit API must be initialized before accessing any of its features.<br>
+</li>
+<li>Connected Teslasuit Device<br>
+A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.<br>
+</li>
+<li>Access to the Asset Manager Subsystem<br>
+The <code>TsAssetManager</code> class is part of the TESLASUIT SDK and can only be used after obtaining access to a connected Teslasuit device.</li>
+</ol>
+<section id="note" class="level3">
+<h3 class="anchored" data-anchor-id="note">Note:</h3>
+<p>Since <code>TsAssetManager</code> is a member of the SDK, it cannot be used independently without an active Teslasuit device.</p>
+</section>
+</section>
+<section id="class-tsassetmanager" class="level2">
+<h2 class="anchored" data-anchor-id="class-tsassetmanager">Class TsAssetManager</h2>
+<p>Handles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.</p>
+<section id="class-methods" class="level3">
+<h3 class="anchored" data-anchor-id="class-methods">Class methods:</h3>
+<hr>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>load_asset_from_path(<span class="va">self</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Loads an asset from a specified file path.</p>
+<p><strong>Args:</strong><br>
+- <code>path (str)</code>: Path to the asset.</p>
+<p><strong>Returns:</strong><br>
+- <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
+<hr>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>load_asset_from_data(<span class="va">self</span>, data, size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Loads an asset from binary data.</p>
+<p><strong>Args:</strong><br>
+- <code>data (bytes)</code>: Binary data of the asset.<br>
+- <code>size (int)</code>: Size of the binary data.</p>
+<p><strong>Returns:</strong><br>
+- <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
+<hr>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_asset_type(<span class="va">self</span>, asset_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Retrieves the type of a loaded asset.</p>
+<p><strong>Args:</strong><br>
+- <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
+<p><strong>Returns:</strong><br>
+- <a href="../../API Reference/core/data_structures.html#tsassettype"><code>TsAssetType</code></a>: Type of the asset.</p>
+<hr>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>unload_asset(<span class="va">self</span>, asset_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unloads a previously loaded asset.</p>
+<p><strong>Args:</strong><br>
+- <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
