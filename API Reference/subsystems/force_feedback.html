@@ -704,7 +704,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="../../Main concepts/force_feedback_concept.html">Main concept</a></li>
 <li><a href="../../examples/force_feedback_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#magnetic-encoder">Magnetic Encoder Data structures</a></li>
+<li><a href="../../API Reference/core/data_structures.html#magnetic-encoder">Magnetic encoder data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
@@ -735,7 +735,7 @@ The Magnetic Encoder subsystem can only be used after obtaining access to a conn
 <h3 class="anchored" data-anchor-id="class-methods">Class methods:</h3>
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>get_positions(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the current positions of the fingers. Returns: dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.</p>
+<p>Get the current positions of the fingers. Returns: - <code>dict</code>: A dictionary of bone indexes and their corresponding TsFingerMEPosition.</p>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>start_me_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Starts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.</p>
@@ -745,21 +745,21 @@ The Magnetic Encoder subsystem can only be used after obtaining access to a conn
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_enable(<span class="va">self</span>, me_configs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Enable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
-- <code>me_configs (list)</code>: A list of <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> objects.</p>
+<p>Args:<br>
+- <code>me_configs (list)</code>: A list of <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a> objects.</p>
 <hr>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ts_magnetic_encoder_disable(<span class="va">self</span>, bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Disable magnetic encoder for the specified bone indexes.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>bone_indexes (list)</code>: A list of bone indexes to disable magnetic encoder for.</p>
 <hr>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_default_me_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the default magnetic encoder controls structure.</p>
 <p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
+- <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</p>
 <hr>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_default_ff_controls_struct(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Get the default force feedback controls structure for the magnetic encoder. Returns: A TsForceFeedbackConfig structure.</p>
+<p>Get the default force feedback controls structure for the magnetic encoder. Returns: - <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfig"><code>TsForceFeedbackConfig</code></a>: A <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfig">TsForceFeedbackConfig</a> structure.</p>
 <hr>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>get_bone_indexes(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the bone indexes for the magnetic encoder.</p>
@@ -774,7 +774,7 @@ The Magnetic Encoder subsystem can only be used after obtaining access to a conn
 <hr>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>get_position_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a dictionary of <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a> for the given bone indexes.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>bone_indexes (list)</code>: List of bone indexes.</p>
 <p>Returns:<br>
 - <code>dict</code>: A dictionary of bone indexes and their corresponding <a href="../../API Reference/core/data_structures.html#tsfingermeposition">TsFingerMEPosition</a>.</p>
@@ -791,27 +791,27 @@ The Magnetic Encoder subsystem can only be used after obtaining access to a conn
 <hr>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mirror_bone_index(bone_index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Mirror the bone index for the opposite hand.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>bone_index</code>: Bone index to be mirrored.</p>
 <p>Returns:<br>
 - <code>int</code>: Mirrored bone index.</p>
 <hr>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>get_me_controls_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a> structure for the given bone indexes.</p>
-<p>Parameters:<br>
+<p>Create a <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfig">TsForceFeedbackConfig</a> structure for the given bone indexes.</p>
+<p>Args:<br>
 - <code>bone_indexes (list)</code>: List of bone indexes.</p>
 <p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Magnetic encoder configuration structure.</p>
+- <a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Magnetic encoder configuration structure.</p>
 <hr>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>get_left_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a default magnetic encoder controls struct for the left hand.</p>
 <p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
+- <a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</p>
 <hr>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_right_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a default magnetic encoder controls struct for the right hand.</p>
 <p>Returns:<br>
-- <a href="../../API Reference/core/data_structures.html#tsmagneticencoderconfig">TsMagneticEncoderConfig</a>: Default magnetic encoder configuration.</p>
+- <a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</p>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">

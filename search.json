@@ -15,7 +15,7 @@
     "href": "examples/bia_example.html#quick-access",
     "title": "BIA example (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nBIA Subsystem\nBIA Data structures",
+    "text": "Quick access\n\nMain concept\nBIA Subsystem\nBIA data structures",
     "crumbs": [
       "Examples",
       "BIA example (experimental)"
@@ -59,7 +59,7 @@
     "href": "examples/current_feedback_example.html#quick-access",
     "title": "Current feedback example (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nCurrent Feedback Subsystem\nCurrent Feedback Data structures",
+    "text": "Quick access\n\nMain concept\nCurrent feedback Subsystem\nCurrent feedback data structures",
     "crumbs": [
       "Examples",
       "Current feedback example (experimental)"
@@ -103,7 +103,7 @@
     "href": "examples/force_feedback_example.html#quick-access",
     "title": "Force Feedback example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nForce Feedback Subsystem\nForce Feedback Data structures",
+    "text": "Quick access\n\nMain concept\nForce Feedback Subsystem\nForce Feedback data structures",
     "crumbs": [
       "Examples",
       "Force Feedback example"
@@ -147,7 +147,7 @@
     "href": "examples/index.html",
     "title": "Overview",
     "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "text": "On this page, you can find categorized examples of API usage for the Teslasuit SDK. Each example demonstrates how to interact with a specific subsystem or feature of the Teslasuit.",
     "crumbs": [
       "Examples",
       "Overview"
@@ -158,7 +158,7 @@
     "href": "examples/index.html#intro",
     "title": "Overview",
     "section": "",
-    "text": "On this page you can find some examples of API usage",
+    "text": "On this page, you can find categorized examples of API usage for the Teslasuit SDK. Each example demonstrates how to interact with a specific subsystem or feature of the Teslasuit.",
     "crumbs": [
       "Examples",
       "Overview"
@@ -169,7 +169,7 @@
     "href": "examples/index.html#examples",
     "title": "Overview",
     "section": "Examples",
-    "text": "Examples\n\nPPG\nEMG\nMocap\nForce Feedback\nHaptic\nBIA\nCurrent feedback",
+    "text": "Examples\n\nSensor Data\n\nPPG (Photoplethysmography): Retrieve heart rate and HRV data.\nEMG (Electromyography): Stream muscle activity data.\nBIA (Bioelectrical Impedance Analysis): Analyze body composition using impedance data.\n\n\n\nMotion Capture\n\nMocap: Stream biomechanical angles and IMU data.\n\n\n\nFeedback Systems\n\nForce Feedback: Configure and control force feedback.\nHaptic: Create and play haptic feedback.\n\n\n\nCurrent Monitoring\n\nCurrent Feedback: Stream current feedback data from nodes and channels.",
     "crumbs": [
       "Examples",
       "Overview"
@@ -271,7 +271,7 @@
     "href": "API Reference/subsystems/emg.html#quick-access",
     "title": "EMG (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nEMG Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nEMG data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -307,7 +307,7 @@
     "href": "API Reference/subsystems/emg.html#class-tsemg",
     "title": "EMG (experimental)",
     "section": "Class TsEmg",
-    "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\nlower_bandwidth (int): Filter’s lower bandwidth.\nupper_bandwidth (int): Filter’s upper bandwidth.\nsample_frequency (int): Sampling frequency.\nsample_size (int): Sample size.\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\nTsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
+    "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\n- lower_bandwidth (int): Filter’s lower bandwidth.\n- upper_bandwidth (int): Filter’s upper bandwidth.\n- sample_frequency (int): Sampling frequency.\n- sample_size (int): Sample size.\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\n- TsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -331,7 +331,7 @@
     "href": "API Reference/subsystems/index.html",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different Teslasuit and Teslaglove subsystems.",
+    "text": "In this section, you can find documentation for the API subsystems responsible for communication with various Teslasuit and Teslaglove functionalities.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -343,7 +343,7 @@
     "href": "API Reference/subsystems/index.html#intro",
     "title": "Overview",
     "section": "",
-    "text": "In this section you can find a documentation for parts of API responsible for communication with different Teslasuit and Teslaglove subsystems.",
+    "text": "In this section, you can find documentation for the API subsystems responsible for communication with various Teslasuit and Teslaglove functionalities.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -355,7 +355,7 @@
     "href": "API Reference/subsystems/index.html#subsystems",
     "title": "Overview",
     "section": "Subsystems",
-    "text": "Subsystems\n\nEMG\nHaptic\nMocap\nPPG\nForce feedback\nCurrent feedback\nBIA",
+    "text": "Subsystems\n\nPPG (Photoplethysmography): Provides access to PPG sensor data, including raw data, HRV, and heart rate.\nHaptic: Enables control of haptic feedback, including instant touches and looped playables.\nForce Feedback: Manages servomotor control for haptic feedback and movement restriction.\nCurrent Feedback: Streams and processes current feedback data from Teslasuit devices.\nBIA (Bioelectrical Impedance Analysis): Handles BIA data streaming and configuration.\nEMG (Electromyography): Provides access to EMG data for muscle activity analysis.\nMocap (Motion Capture): Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -367,7 +367,7 @@
     "href": "API Reference/subsystems/haptic.html#quick-access",
     "title": "Haptic",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nPPG Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nHaptic data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -403,7 +403,7 @@
     "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
     "title": "Haptic",
     "section": "Class TsHapticPlayer",
-    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\nbool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\nbool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nParameters:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\nbool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nParameters:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\nint: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nParameters:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\nint: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nParameters:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nParameters:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nParameters:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nParameters:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\nlist: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nParameters:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\nlist: List of TsHapticParamMultiplier objects.",
+    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\n- bool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\n- bool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nArgs:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\n- bool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nArgs:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\n- int: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nArgs:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\n- int: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nArgs:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nArgs:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nArgs:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\n- list: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nArgs:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\n- list: List of TsHapticParamMultiplier objects.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -427,7 +427,7 @@
     "href": "API Reference/subsystems/mocap.html#quick-access",
     "title": "Mocap",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nPPG Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nUsecase\nMocap data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -463,7 +463,7 @@
     "href": "API Reference/subsystems/mocap.html#class-tsppg",
     "title": "Mocap",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\ndict: A dictionary containing biomechanical angles for all bones in format 'TsBiomechanicalIndex': angle value.",
+    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing biomechanical angles for all bones in format 'TsBiomechanicalIndex': angle value.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -571,7 +571,7 @@
     "href": "API Reference/core/mapper.html#class-tsmapper",
     "title": "Mapper",
     "section": "Class TsMapper",
-    "text": "Class TsMapper\nMapping represents a set of device’s elements mapped on 2d space. Elements are described by the 2D Polygon - an array of points. Elements are bound to bones, a full set of bones is included in a layout, multiple layouts with the same element types are contained in an array, an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType. Mappings might have different versions. Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.\n\nClass methods:\n\nget_mapping_by_device(self, device)\nGet the default mapping handler for a device.\nArgs:\ndevice (TsDevice): Device handle.\nReturns:\nTsMapping2d: Mapping handler.\n\nget_mapping_by_version(self, version)\nGet the mapping handler by the mapping version.\nArgs:\nversion (TsMapping2dVersion): Mapping version.\nReturns:\nTsMapping2d: Mapping handler.\n\nget_number_of_layouts(self, mapping)\nGet the number of layouts in the mapping.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nint: Number of layouts.\n\nget_layouts(self, mapping)\nGet all layouts in the mapping.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nlist: List of layouts.\n\nget_layout_index(self, layout)\nGet the index of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout index.\n\nget_layout_type(self, layout)\nGet the type of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout type.\n\nget_layout_element_type(self, layout)\nGet the element type of a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Layout element type.\n\nget_number_of_bones(self, layout)\nGet the number of bones in a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nint: Number of bones.\n\nget_layout_bones(self, layout)\nGet all bones in a layout.\nArgs:\nlayout (TsLayout): Layout handle.\nReturns:\nlist: List of bones.\n\nget_bone_index(self, bone_handle)\nGet the index of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Bone index.\n\nget_bone_side(self, bone_handle)\nGet the side of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Bone side.\n\nget_bone_number_of_contents(self, bone_handle)\nGet the number of contents in a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Number of contents.\n\nget_bone_contents(self, bone_handle)\nGet all contents of a bone.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nlist: List of bone contents.\n\nget_bone_number_of_points(self, bone_handle)\nGet the number of points in a bone content.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nint: Number of points.\n\nget_bone_points(self, bone_handle)\nGet the points representing the shape of a bone content in 2D space.\nArgs:\nbone_handle (TsBone): Bone handle.\nReturns:\nlist: List of points.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\nmapping (TsMapping2d): Mapping handler.\nReturns:\nTsLayout: Electric channel layout handle.\n\n\nMapping Utils:\n\nget_layout_by_type(self, mapping, layout_type, layout_element_type)\nGet a layout by its type and element type.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\n- layout_type (int): Layout type.\n- layout_element_type (int): Layout element type.\nReturns:\nTsLayout: Layout handle.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\nReturns:\nTsLayout: Electric channel layout handle.",
+    "text": "Class TsMapper\nMapping represents a set of device’s elements mapped on 2d space. Elements are described by the 2D Polygon - an array of points. Elements are bound to bones, a full set of bones is included in a layout, multiple layouts with the same element types are contained in an array, an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType. Mappings might have different versions. Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.\n\nClass methods:\n\nget_mapping_by_device(self, device)\nGet the default mapping handler for a device.\nArgs:\n- device class (TsDevice): Device handle.\nReturns:\n- TsMapping2d: Mapping handler.\n\nget_mapping_by_version(self, version)\nGet the mapping handler by the mapping version.\nArgs:\n- version (TsMapping2dVersion): Mapping version.\nReturns: - TsMapping2d: Mapping handler.\n\nget_number_of_layouts(self, mapping)\nGet the number of layouts in the mapping.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns: - int: Number of layouts.\n\nget_layouts(self, mapping)\nGet all layouts in the mapping.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns:\n- list: List of layouts.\n\nget_layout_index(self, layout)\nGet the index of a layout.\nArgs:\n- layout (TsLayout): Layout handle.\nReturns:\n- int: Layout index.\n\nget_layout_type(self, layout)\nGet the type of a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Layout type.\n\nget_layout_element_type(self, layout)\nGet the element type of a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Layout element type.\n\nget_number_of_bones(self, layout)\nGet the number of bones in a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Number of bones.\n\nget_layout_bones(self, layout)\nGet all bones in a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns:\n- list: List of bones.\n\nget_bone_index(self, bone_handle)\nGet the index of a bone.\nArgs:\n-bone_handle (TsBone): Bone handle.\nReturns: -int: Bone index.\n\nget_bone_side(self, bone_handle)\nGet the side of a bone.\nArgs: -bone_handle (TsBone): Bone handle.\nReturns: -int: Bone side.\n\nget_bone_number_of_contents(self, bone_handle)\nGet the number of contents in a bone.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns: -int: Number of contents.\n\nget_bone_contents(self, bone_handle)\nGet all contents of a bone.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns:\n- list: List of bone contents.\n\nget_bone_number_of_points(self, bone_handle)\nGet the number of points in a bone content.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns: - int: Number of points.\n\nget_bone_points(self, bone_handle)\nGet the points representing the shape of a bone content in 2D space.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns:\n- list: List of points.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns:\n- TsLayout: Electric channel layout handle.\n\n\nMapping Utils:\n\nget_layout_by_type(self, mapping, layout_type, layout_element_type)\nGet a layout by its type and element type.\nArgs: - mapping (TsMapping2d): Mapping handler.\n- layout_type (int): Layout type.\n- layout_element_type (int): Layout element type.\nReturns: - TsLayout: Layout handle.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\nReturns: - TsLayout: Electric channel layout handle.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -604,7 +604,7 @@
     "href": "API Reference/core/loader.html#class-tsloader",
     "title": "Loader",
     "section": "Class TsLoader",
-    "text": "Class TsLoader\nHandles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.\n\nInitialization Parameters:\n\nlib_path (str, optional): Path to the Teslasuit API library. If not provided, the environment variable TESLASUIT_API_LIB_PATH is used.\n\n\n\nClass methods:\n\nload(self)\nLoads the Teslasuit C API library and returns the library object.\n\nReturns:\n\nctypes.CDLL or ctypes.WinDLL: The loaded library object.\nNone: If the library cannot be loaded.\n\nNote: If the library path is not provided or invalid, the system attempts to find the library using the default library name (teslasuit_api).\n\nNotes Ensure the library path is valid and accessible."
+    "text": "Class TsLoader\nHandles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.\n\nInitialization Parameters:\n\nlib_path (str, optional): Path to the Teslasuit API library. If not provided, the environment variable TESLASUIT_API_LIB_PATH is used.\n\n\n\nClass methods:\n\nload(self)\nLoads the Teslasuit C API library and returns the library object.\nReturns: - ctypes.CDLL or ctypes.WinDLL: The loaded library object. - None: If the library cannot be loaded.\n\nNote: If the library path is not provided or invalid, the system attempts to find the library using the default library name (teslasuit_api).\n\nNotes Ensure the library path is valid and accessible."
   },
   {
     "objectID": "API Reference/core/asset_manager.html#quick-access",
@@ -647,7 +647,7 @@
     "href": "API Reference/core/asset_manager.html#class-tsassetmanager",
     "title": "Asset manager",
     "section": "Class TsAssetManager",
-    "text": "Class TsAssetManager\nHandles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.\n\nClass methods:\n\nload_asset_from_path(self, path)\nLoads an asset from a specified file path.\nArgs:\n- path (str): Path to the asset.\nReturns:\n- TsAssetHandle: Handle to the loaded asset.\n\nload_asset_from_data(self, data, size)\nLoads an asset from binary data.\nArgs:\n- data (bytes): Binary data of the asset.\n- size (int): Size of the binary data.\nReturns:\n- TsAssetHandle: Handle to the loaded asset.\n\nget_asset_type(self, asset_handle)\nRetrieves the type of a loaded asset.\nArgs:\n- asset_handle (TsAssetHandle): Handle to the asset.\nReturns:\n- TsAssetType: Type of the asset.\n\nunload_asset(self, asset_handle)\nUnloads a previously loaded asset.\nArgs:\n- asset_handle (TsAssetHandle): Handle to the asset.",
+    "text": "Class TsAssetManager\nHandles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.\n\nClass methods:\n\nload_asset_from_path(self, path)\nLoads an asset from a specified file path.\nArgs: - path (str): Path to the asset.\nReturns - TsAssetHandle: Handle to the loaded asset.\n\nload_asset_from_data(self, data, size)\nLoads an asset from binary data.\nArgs: - data (bytes): Binary data of the asset.\n- size (int): Size of the binary data.\nReturns: - TsAssetHandle: Handle to the loaded asset.\n\nget_asset_type(self, asset_handle)\nRetrieves the type of a loaded asset.\nArgs: - asset_handle (TsAssetHandle): Handle to the asset.\nReturns: - TsAssetType: Type of the asset.\n\nunload_asset(self, asset_handle)\nUnloads a previously loaded asset.\nArgs: - asset_handle (TsAssetHandle): Handle to the asset.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -695,11 +695,47 @@
     "href": "API Reference/core/device_manager.html#class-tsdevicemanager",
     "title": "Device manager",
     "section": "Class TsDeviceManager",
-    "text": "Class TsDeviceManager\nHandles the connection and disconnection of TESLASUIT devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\n\nArgs:\n\nnumber_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\n\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\n\n\nReturns:\n\nTsDevice: The last device connected.\n\n\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
+    "text": "Class TsDeviceManager\nHandles the connection and disconnection of TESLASUIT devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\nArgs: - number_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\nReturns: - TsDevice: The last device connected.\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
     "crumbs": [
       "API Reference",
       "Core",
       "Device manager"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/index.html#introduction",
+    "href": "API Reference/core/index.html#introduction",
+    "title": "Overview",
+    "section": "Introduction",
+    "text": "Introduction\nThe Teslasuit SDK provides a comprehensive set of tools and APIs for interacting with Teslasuit devices. This documentation covers the core components of the SDK, including device management, mapping, asset handling, and subsystem access.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/index.html#core-components",
+    "href": "API Reference/core/index.html#core-components",
+    "title": "Overview",
+    "section": "Core Components",
+    "text": "Core Components\n\nTS API\nThe central interface for initializing and managing the Teslasuit API. It provides access to core functionalities such as device management, asset management, and mapping subsystems.\n\n\nDevice Manager\nHandles the connection and disconnection of Teslasuit devices. It provides access to connected devices and their properties, enabling seamless interaction with the Teslasuit ecosystem.\n\n\nDevice\nRepresents a Teslasuit device and provides access to its subsystems, such as motion capture, haptics, and biometry. It also allows retrieval of device-specific information.\n\n\nMapper\nProvides functionality for handling 2D mapping of device elements, including layouts, bones, and associated data. It supports operations like retrieving mappings and layouts.\n\n\nLoader\nHandles the dynamic loading of the Teslasuit C API library. It ensures the library is correctly loaded and accessible for API operations.\n\n\nAsset Manager\nManages Teslasuit assets, including loading, retrieving, and unloading assets. It supports operations with assets such as haptic effects and animations.\n\n\nData Structures\nDefines the data structures and enumerations used across the Teslasuit SDK, including mappings, layouts, bones, and subsystem-specific configurations.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/index.html#notes",
+    "href": "API Reference/core/index.html#notes",
+    "title": "Overview",
+    "section": "Notes",
+    "text": "Notes\n\nEnsure the Teslasuit API is initialized before accessing any of its components.\nRefer to the respective component pages for detailed usage and examples.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Overview"
     ]
   },
   {
@@ -743,7 +779,7 @@
     "href": "API Reference/core/ts_api.html#class-tsapi",
     "title": "TS API",
     "section": "Class TsApi",
-    "text": "Class TsApi\nThe TsApi class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.\n\nClass methods:\n\nget_device_manager(self)\nReturns the TsDeviceManager instance, which provides access to connected Teslasuit devices.\n\nReturns:\n\nTsDeviceManager: The device manager instance.",
+    "text": "Class TsApi\nThe TsApi class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.\n\nClass methods:\n\nget_device_manager(self)\nReturns the TsDeviceManager instance, which provides access to connected Teslasuit devices.\nReturns: - TsDeviceManager: The device manager instance.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -803,7 +839,7 @@
     "href": "API Reference/core/data_structures.html#ppg",
     "title": "Data structures",
     "section": "PPG",
-    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes:\nmean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.\n\nsdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\n\nsdsd (float): Standard deviation of successive RR interval differences.\n\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, \n                reflecting short-term HRV.\n\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity \n                (short-term HRV component).\n\nsd2 (float): Poincaré plot standard deviation along the line of identity \n                (long-term HRV component).\n\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.\n\n\nTsPpgData(Structure):\nRepresents processed PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.\nAttributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.\n\n\nTsPpgNodeData(Structure):\nRepresents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.",
+    "text": "PPG\n\nTsHrv(Structure):\nRepresents Heart Rate Variability (HRV) metrics.\nThis structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.\nAttributes:\n\nmean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.\nsdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.\nsdsd (float): Standard deviation of successive RR interval differences.\nrmssd (float): Root Mean Square of Successive Differences between RR intervals, reflecting short-term HRV.\nsd1 (float): Poincaré plot standard deviation perpendicular to the line of identity (short-term HRV component).\nsd2 (float): Poincaré plot standard deviation along the line of identity(long-term HRV component).\nhlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.\n\n\n\n\nTsPpgRawData(Structure):\nRepresents raw PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.\nAttributes:\n\nnumber_of_nodes (int): The number of sensor nodes providing PPG data.\nnodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.\n\n\n\n\nTsPpgData(Structure):\nRepresents processed PPG (Photoplethysmography) data from multiple sensor nodes.\nThis structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.\nAttributes:\n\nnumber_of_nodes (int): The number of sensor nodes providing PPG data.\nnodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.\n\n\n\n\nTsPpgNodeData(Structure):\nRepresents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes:\n\nheart_rate (int): Heart rate calculated in BPM.\nis_heart_rate_valid (bool): Is calculated heart rate valid.\ntimestamp (int): Time point that set when the last raw PPG data sample was processed.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -815,7 +851,7 @@
     "href": "API Reference/core/data_structures.html#bia",
     "title": "Data structures",
     "section": "BIA",
-    "text": "BIA\n\nTsBiaConfig(Structure):\nRepresents the configuration for BIA (Bioelectrical Impedance Analysis) data streaming.\nAttributes: - channels (list): List of channel indexes to stream. - number_of_channels (int): Number of channels. - start_frequency (int): Starting frequency for the BIA data streaming. - frequency_step (int): Frequency step size. - number_of_steps (int): Number of frequency steps.\n\n\n\nTsComplexNumber(Structure):\nRepresents a complex number.\nAttributes: - real_value (int): Real part of the complex number. - im_value (int): Imaginary part of the complex number.\n\n\n\nTsBiaFrequencyData(Structure):\nRepresents frequency data for a BIA channel.\nAttributes: - frequency (int): Frequency value. - complex_number (TsComplexNumber): Complex number associated with the frequency.\n\n\n\nTsBiaChannelData(Structure):\nRepresents data for a single BIA channel.\nAttributes: - channel_index (int): Index of the channel. - number_of_frequencies (int): Number of frequencies in the channel. - frequencies (list): List of TsBiaFrequencyData objects.\n\n\n\nTsBiaChannels(Structure):\nRepresents data for all BIA channels.\nAttributes: - number_of_channels (int): Number of channels. - channels (list): List of TsBiaChannelData objects.",
+    "text": "BIA\n\nTsBiaConfig(Structure):\nRepresents the configuration for BIA (Bioelectrical Impedance Analysis) data streaming.\nAttributes:\n\nchannels (list): List of channel indexes to stream.\nnumber_of_channels (int): Number of channels.\nstart_frequency (int): Starting frequency for the BIA data streaming.\nfrequency_step (int): Frequency step size.\nnumber_of_steps (int): Number of frequency steps.\n\n\n\n\nTsComplexNumber(Structure):\nRepresents a complex number.\nAttributes:\n\nreal_value (int): Real part of the complex number.\nim_value (int): Imaginary part of the complex number.\n\n\n\n\nTsBiaFrequencyData(Structure):\nRepresents frequency data for a BIA channel.\nAttributes:\n\nfrequency (int): Frequency value.\ncomplex_number (TsComplexNumber): Complex number associated with the frequency.\n\n\n\n\nTsBiaChannelData(Structure):\nRepresents data for a single BIA channel.\nAttributes:\n\nchannel_index (int): Index of the channel.\nnumber_of_frequencies (int): Number of frequencies in the channel.\nfrequencies (list): List of TsBiaFrequencyData objects.\n\n\n\n\nTsBiaChannels(Structure):\nRepresents data for all BIA channels.\nAttributes:\n\nnumber_of_channels (int): Number of channels.\nchannels (list): List of TsBiaChannelData objects.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -827,7 +863,7 @@
     "href": "API Reference/core/data_structures.html#mocap",
     "title": "Data structures",
     "section": "Mocap",
-    "text": "Mocap\n\nTsVec2f(Structure):\nRepresents a 2D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate.\n\n\n\nTsVec3f(Structure):\nRepresents a 3D vector with float coordinates.\nAttributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsQuat(Structure):\nRepresents a quaternion for 3D rotation.\nAttributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.\n\n\n\nTsMocapBone(Structure):\nRepresents skeleton bone data.\nAttributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.\n\n\n\nTsMocapSensor(Structure):\nRepresents raw IMU sensor data.\nAttributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.\n\n\n\nTsBone(Structure):\nRepresents a bone data in the mapping.\nAttributes: id (int): Bone ID.\nbone_index (int): Bone index.\nbone_side (int): Bone side.\nchannels (int): Bone channels.\n\n\n\nTsLayout(Structure):\nRepresents a layout data in the mapping.\nAttributes: id (int): Layout ID.\nlayout_type (int): Layout type.\nelement_type (int): Element type.\nlayout_index (int): Layout index.\nbone (POINTER(TsBone)): Pointer to a bone.\n\n\n\nTsMappingData(Structure):\nRepresents a set of device’s elements mapped on 2D space.\nAttributes: mapping_handle (void*): Mapping handle.\nlayouts (POINTER(TsLayout)): Pointer to an array of layouts.\n\n\n\nTsMapping2dVersion(Enum):\nEnumeration of mapping versions.\nValues: - Undefined: Undefined version.\n- Mapping_4_5_4: Version 4.5.4.\n- Mapping_4_5_5: Version 4.5.5.\n- Mapping_4_6_0: Version 4.6.0.\n- MappingLeftGlove_1_0_0: Left glove version 1.0.0.\n- MappingRightGlove_1_0_0: Right glove version 1.0.0.\n- Mapping_5_1_0_Men: Version 5.1.0 for men.\n- Mapping_5_1_0_Women: Version 5.1.0 for women.\n\n\n\nTsLayout2dType(Enum):\nEnumeration of layout types.\nValues: - Undefined: Undefined layout type.\n- Electric: Electric layout.\n- Temperature: Temperature layout.\n- Vibration: Vibration layout.\n- Emg: EMG layout.\n- Ecg: ECG layout.\n\n\n\nTsLayout2dElementType(Enum):\nEnumeration of layout element types.\nValues: - Undefined: Undefined element type.\n- Cell: Cell element.\n- Channel: Channel element.\n\n\n\nTsBone2dIndex(Enum):\nEnumeration of bone indices in the mapping.\nValues: - Hips: Hips bone.\n- LeftUpperLeg: Left upper leg bone.\n- RightUpperLeg: Right upper leg bone.\n- LeftLowerLeg: Left lower leg bone.\n- RightLowerLeg: Right lower leg bone.\n- LeftFoot: Left foot bone.\n- RightFoot: Right foot bone.\n- Spine: Spine bone.\n- Chest: Chest bone.\n- Head: Head bone.\n- LeftHand: Left hand bone.\n- RightHand: Right hand bone.\n\n\n\nTsBone2dSide(Enum):\nEnumeration of bone sides.\nValues: - Undefined: Undefined side.\n- Front: Front side.\n- Back: Back side.\n\n\n\nTsBiomechanicalIndex(Enum):\nEnumeration of biomechanical indices.\nValues: - PelvisTilt: Pelvis tilt.\n- PelvisList: Pelvis list.\n- PelvisRotation: Pelvis rotation.\n- HipFlexExtR: Right hip flexion/extension.\n- HipAddAbdR: Right hip adduction/abduction.\n- KneeFlexExtR: Right knee flexion/extension.\n- AnkleFlexExtR: Right ankle flexion/extension.\n- ElbowFlexExtR: Right elbow flexion/extension.\n- WristFlexExtR: Right wrist flexion/extension.\n- ShoulderAddAbdR: Right shoulder adduction/abduction.\n- ShoulderFlexExtR: Right shoulder flexion/extension.",
+    "text": "Mocap\n\nTsVec2f(Structure):\nRepresents a 2D vector with float coordinates.\nAttributes:\n\nx (float): X coordinate.\ny (float): Y coordinate.\n\n\n\n\nTsVec3f(Structure):\nRepresents a 3D vector with float coordinates.\nAttributes:\n\nx (float): X coordinate.\ny (float): Y coordinate.\nz (float): Z coordinate.\n\n\n\n\nTsQuat(Structure):\nRepresents a quaternion for 3D rotation.\nAttributes:\n\nw (float): Rotation component.\nx (float): X coordinate.\ny (float): Y coordinate.\nz (float): Z coordinate.\n\n\n\n\nTsMocapBone(Structure):\nRepresents skeleton bone data.\nAttributes:\n\nposition (TsVec3f): Position of the bone.\nrotation (TsQuat): Rotation of the bone.\n\n\n\n\nTsMocapSensor(Structure):\nRepresents raw IMU sensor data.\nAttributes:\n\nq6 (TsQuat): 6-axis Quaternion data (without magnetometer).\nq9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer).\naccel (TsVec3f): Accelerometer data.\ngyro (TsVec3f): Gyroscope data.\nmagn (TsVec3f): Magnetometer data.\nlinear_accel (TsVec3f): Linear acceleration data.\ntimestamp (uint64): Timestamp of the data.\n\n\n\n\nTsBone(Structure):\nRepresents a bone data in the mapping.\nAttributes:\n\nid (int): Bone ID.\n\nbone_index (int): Bone index.\n\nbone_side (int): Bone side.\n\nchannels (int): Bone channels.\n\n\n\n\nTsLayout(Structure):\nRepresents a layout data in the mapping.\nAttributes:\n\nid (int): Layout ID.\n\nlayout_type (int): Layout type.\n\nelement_type (int): Element type.\n\nlayout_index (int): Layout index.\n\nbone (POINTER(TsBone)): Pointer to a bone.\n\n\n\n\nTsMappingData(Structure):\nRepresents a set of device’s elements mapped on 2D space.\nAttributes:\n\nmapping_handle (void*): Mapping handle.\n\nlayouts (POINTER(TsLayout)): Pointer to an array of layouts.\n\n\n\n\nTsMapping2dVersion(Enum):\nEnumeration of mapping versions.\nValues:\n\nUndefined = 0,\nMapping_4_5_4 = 1,\nMapping_4_5_5 = 2,\nMapping_4_6_0 = 3,\nMappingLeftGlove_1_0_0 = 4,\nMappingRightGlove_1_0_0 = 5,\nMapping_4_5_4_Legacy = 6,\nMapping_4_5_5_Legacy = 7,\nMapping_5_0_0 = 8,\nMappingLeftGlove_1_2_0 = 9,\nMappingRightGlove_1_2_0 = 10,\nMapping_5_0_1 = 11,\nMapping_5_0_2 = 12,\nMapping_5_0_3 = 13,\nMapping_4_7_0 = 14,\nMappingLeftGlove_1_3_0 = 15,\nMappingRightGlove_1_3_0 = 16,\nMapping_4_X_Medical = 17,\nMapping_4_5_6 = 18\n\n\n\n\nTsLayout2dType(Enum):\nEnumeration of layout types.\nValues:\n\nUndefined: Undefined layout type.\n\nElectric: Electric layout.\n\nTemperature: Temperature layout.\n\nVibration: Vibration layout.\n\nEmg: EMG layout.\n\nEcg: ECG layout.\n\n\n\n\nTsLayout2dElementType(Enum):\nEnumeration of layout element types.\nValues:\n\nUndefined: Undefined element type.\n\nCell: Cell element.\n\nChannel: Channel element.\n\n\n\n\nTsBone2dIndex(IntEnum):\nEnumeration of bone indices in the mapping.\nValues:\n\nHips = 0,\nLeftUpperLeg = 1,\nRightUpperLeg = 2,\nLeftLowerLeg = 3,\nRightLowerLeg = 4,\nLeftFoot = 5,\nRightFoot = 6,\nSpine = 7,\nChest = 8,\nUpperChest = 9,\nNeck = 10,\nHead = 11,\nLeftShoulder = 12,\nRightShoulder = 13,\nLeftUpperArm = 14,\nRightUpperArm = 15,\nLeftLowerArm = 16,\nRightLowerArm = 17,\nLeftHand = 18,\nRightHand = 19,\nLeftThumbProximal = 20,\nLeftThumbIntermediate = 21,\nLeftThumbDistal = 22,\nLeftIndexProximal = 23,\nLeftIndexIntermediate = 24,\nLeftIndexDistal = 25,\nLeftMiddleProximal = 26,\nLeftMiddleIntermediate = 27,\nLeftMiddleDistal = 28,\nLeftRingProximal = 29,\nLeftRingIntermediate = 30,\nLeftRingDistal = 31,\nLeftLittleProximal = 32,\nLeftLittleIntermediate = 33,\nLeftLittleDistal = 34,\nRightThumbProximal = 35,\nRightThumbIntermediate = 36,\nRightThumbDistal = 37,\nRightIndexProximal = 38,\nRightIndexIntermediate = 39,\nRightIndexDistal = 40,\nRightMiddleProximal = 41,\nRightMiddleIntermediate = 42,\nRightMiddleDistal = 43,\nRightRingProximal = 44,\nRightRingIntermediate = 45,\nRightRingDistal = 46,\nRightLittleProximal = 47,\nRightLittleIntermediate = 48,\nRightLittleDistal = 49\n\n\n\n\nTsBone2dSide(Enum):\nEnumeration of bone sides.\nValues:\n\nUndefined: Undefined side.\n\nFront: Front side.\n\nBack: Back side.\n\n\n\n\nTsBiomechanicalIndex(Enum):\nEnumeration of biomechanical indices.\nValues:\n\nPelvisTilt: Pelvis tilt.\n\nPelvisList: Pelvis list.\n\nPelvisRotation: Pelvis rotation.\n\nHipFlexExtR: Right hip flexion/extension.\n\nHipAddAbdR: Right hip adduction/abduction.\n\nKneeFlexExtR: Right knee flexion/extension.\n\nAnkleFlexExtR: Right ankle flexion/extension.\n\nElbowFlexExtR: Right elbow flexion/extension.\n\nWristFlexExtR: Right wrist flexion/extension.\n\nShoulderAddAbdR: Right shoulder adduction/abduction.\n\nShoulderFlexExtR: Right shoulder flexion/extension.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -839,7 +875,7 @@
     "href": "API Reference/core/data_structures.html#emg",
     "title": "Data structures",
     "section": "EMG",
-    "text": "EMG\n\nTsEmgOptions(Structure):\nRepresents EMG filter options.\nAttributes: lower_bandwidth (int): Filter’s lower bandwidth.\nupper_bandwidth (int): Filter’s upper bandwidth.\nsampling_frequency (int): Sampling frequency.\nsample_size (int): Sample size.\n\n\n\nTsEmgChannelData(Structure):\nRepresents EMG channel data.\nAttributes: channel_index (int): Index of the channel.\nnumber_of_samples (int): Number of samples in the channel.\nsamples (list): List of samples.\n\n\n\nTsEmgNodeData(Structure):\nRepresents EMG node data.\nAttributes: node_index (int): Index of the node.\nnumber_of_channels (int): Number of channels in the node.\nchannels (list): List of TsEmgChannelData objects.\nnumber_of_timestamps (int): Number of timestamps.\ntimestamps (list): List of timestamps.\n\n\n\nTsEmgData(Structure):\nRepresents EMG data.\nAttributes: number_of_nodes (int): Number of nodes.\nnodes (list): List of TsEmgNodeData objects.\noptions (TsEmgOptions): EMG options.",
+    "text": "EMG\n\nTsEmgOptions(Structure):\nRepresents EMG filter options.\nAttributes:\n\nlower_bandwidth (int): Filter’s lower bandwidth.\n\nupper_bandwidth (int): Filter’s upper bandwidth.\n\nsampling_frequency (int): Sampling frequency.\n\nsample_size (int): Sample size.\n\n\n\n\nTsEmgChannelData(Structure):\nRepresents EMG channel data.\nAttributes:\n\nchannel_index (int): Index of the channel.\n\nnumber_of_samples (int): Number of samples in the channel.\n\nsamples (list): List of samples.\n\n\n\n\nTsEmgNodeData(Structure):\nRepresents EMG node data.\nAttributes:\n\nnode_index (int): Index of the node.\n\nnumber_of_channels (int): Number of channels in the node.\n\nchannels (list): List of TsEmgChannelData objects.\n\nnumber_of_timestamps (int): Number of timestamps.\n\ntimestamps (list): List of timestamps.\n\n\n\n\nTsEmgData(Structure):\nRepresents EMG data.\nAttributes:\n\nnumber_of_nodes (int): Number of nodes.\n\nnodes (list): List of TsEmgNodeData objects.\n\noptions ([TsEmgOptions](#tsemgoptions)): EMG options.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -851,7 +887,7 @@
     "href": "API Reference/core/data_structures.html#haptic",
     "title": "Data structures",
     "section": "Haptic",
-    "text": "Haptic\n\nTsHapticParam(Structure):\nRepresents a haptic parameter.\nAttributes: - type (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n- value (float): Value of the parameter.\n\n\n\nTsHapticParamMultiplier(Structure):\nRepresents a multiplier for haptic parameters.\nAttributes: - type (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n- value (float): Multiplier value (between 0 and 1).\n\n\n\nTsHapticParamType(Enum):\nEnumeration of haptic parameter types.\nValues: - Undefined: Undefined parameter type.\n- Period: Period parameter.\n- Amplitude: Amplitude parameter.\n- PulseWidth: Pulse width parameter.\n- Temperature: Temperature parameter.\n\n\n\nTsHapticPlayer(Structure):\nRepresents the Haptic Player for managing haptic feedback.\nAttributes: - playables (list): List of active haptic playables.\n- is_running (bool): Indicates if the player is running.\n- is_paused (bool): Indicates if the player is paused.\n- is_muted (bool): Indicates if the player is muted.",
+    "text": "Haptic\n\nTsHapticParam(Structure):\nRepresents a haptic parameter.\nAttributes:\n\ntype (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n\nvalue (float): Value of the parameter.\n\n\n\n\nTsHapticParamMultiplier(Structure):\nRepresents a multiplier for haptic parameters.\nAttributes:\n\ntype (TsHapticParamType): Type of the parameter (e.g., Period, Amplitude, PulseWidth).\n\nvalue (float): Multiplier value (between 0 and 1).\n\n\n\n\nTsHapticParamType(Enum):\nEnumeration of haptic parameter types.\nValues:\n\nUndefined: Undefined parameter type.\n\nPeriod: Period parameter.\n\nAmplitude: Amplitude parameter.\n\nPulseWidth: Pulse width parameter.\n\nTemperature: Temperature parameter.\n\n\n\n\nTsHapticPlayer(Structure):\nRepresents the Haptic Player for managing haptic feedback.\nAttributes:\n\nplayables (list): List of active haptic playables.\n\nis_running (bool): Indicates if the player is running.\n\nis_paused (bool): Indicates if the player is paused.\n\nis_muted (bool): Indicates if the player is muted.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -863,7 +899,7 @@
     "href": "API Reference/core/data_structures.html#magnetic-encoder",
     "title": "Data structures",
     "section": "Magnetic Encoder",
-    "text": "Magnetic Encoder\n\nTsMagneticEncoderConfig(Structure):\nRepresents the configuration for servomotor magnetic encoder.\nAttributes:\n- bone_index (int): Index of the bone.\n- angle (float): Angle for the magnetic encoder.\n- hardness_percent (int): Hardness percentage from 0 to 100.\n- lock_direction ([TsMagneticEncoderLockDirection](#tsmagneticencoderlockdirection)): Direction of the lock.\n\n\n\nTsMagneticEncoderLockDirection(Enum):\nEnumeration of magnetic encoder lock directions.\nValues:\n- Up: Lock movement upwards.\n- Down: Lock movement downwards.\n- Both: Lock movement in both directions.\n\n\n\nTsFingerMEPosition(Class):\nRepresents the position of a finger.\nAttributes:\n- flexion_angle (float): Flexion angle of the finger.\n- abduction_angle (float): Abduction angle of the finger.\n\n\n\nTsGloveMEPosition(Class):\nRepresents the magnetic encoder position structures for the fingers.\nAttributes:\n- side (TsDeviceSide): Side of the glove (left or right).\n- fingers (dict): Dictionary of bone indexes and their corresponding TsFingerMEPosition.",
+    "text": "Magnetic Encoder\n\nTsForceFeedbackConfig(Structure):\nRepresents the configuration for servomotor magnetic encoder.\nAttributes:\n\nbone_index (int): Index of the bone.\n\nangle (float): Angle for the magnetic encoder.\n\nhardness_percent (int): Hardness percentage from 0 to 100.\n\nlock_direction (TsMagneticEncoderLockDirection): Direction of the lock.\n\n\n\n\nTsMagneticEncoderLockDirection(Enum):\nEnumeration of magnetic encoder lock directions.\nValues:\n\nUp: Lock movement upwards.\n\nDown: Lock movement downwards.\n\nBoth: Lock movement in both directions.\n\n\n\n\nTsFingerMEPosition(Structure):\nRepresents the position of a finger.\nAttributes:\n\nflexion_angle (float): Flexion angle of the finger.\n\nabduction_angle (float): Abduction angle of the finger.\n\n\n\n\nTsGloveMEPosition(Structure):\nRepresents the magnetic encoder position structures for the fingers.\nAttributes:\n\nside (TsDeviceSide): Side of the glove (left or right).\n\nfingers (dict): Dictionary of bone indexes and their corresponding TsFingerMEPosition.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -875,7 +911,7 @@
     "href": "API Reference/core/data_structures.html#device",
     "title": "Data structures",
     "section": "Device",
-    "text": "Device\n\nTsDevice(Structure):\nRepresents a TESLASUIT device.\nAttributes: - uuid (bytes): A 16-byte UUID that uniquely identifies the device.\n\n\n\nTsVersion(Structure):\nRepresents the version of the TESLASUIT C API.\nAttributes: - major (int): Major version number.\n- minor (int): Minor version number.\n- patch (int): Patch version number.\n- build (int): Build version number.\n\n\n\nTsDeviceType(Enum):\nEnumeration of TESLASUIT device types.\nValues: - Undefined: Undefined device type.\n- Suit: TESLASUIT suit device type.\n- Glove: TESLASUIT glove device type.\n\n\n\nTsDeviceSide(Enum):\nEnumeration of TESLASUIT glove device sides.\nValues: - Undefined: Undefined device side.\n- Right: Right glove device side.\n- Left: Left glove device side.\n\n\n\nTsDeviceEventPolicy(Enum):\nEnumeration of policies for handling TESLASUIT device events.\nValues: - Enumerate: Enumerate all devices.\n- Attach: Attach a device.\n- Detach: Detach a device.\n\n\n\nTsDeviceEvent(Enum):\nEnumeration of events related to TESLASUIT devices.\nValues: - DeviceAttached: Device attached event.\n- DeviceDetached: Device detached event.",
+    "text": "Device\n\nTsDevice(Structure):\nRepresents a TESLASUIT device.\nAttributes:\n\nuuid (bytes): A 16-byte UUID that uniquely identifies the device.\n\n\n\n\nTsVersion(Structure):\nRepresents the version of the TESLASUIT C API.\nAttributes:\n\nmajor (int): Major version number.\n\nminor (int): Minor version number.\n\npatch (int): Patch version number.\n\nbuild (int): Build version number.\n\n\n\n\nTsDeviceType(Enum):\nEnumeration of TESLASUIT device types.\nValues:\n\nUndefined: Undefined device type.\n\nSuit: TESLASUIT suit device type.\n\nGlove: TESLASUIT glove device type.\n\n\n\n\nTsDeviceSide(Enum):\nEnumeration of TESLASUIT glove device sides.\nValues:\n\nUndefined: Undefined device side.\n\nRight: Right glove device side.\n\nLeft: Left glove device side.\n\n\n\n\nTsDeviceEventPolicy(Enum):\nEnumeration of policies for handling TESLASUIT device events.\nValues:\n\nEnumerate: Enumerate all devices.\n\nAttach: Attach a device.\n\nDetach: Detach a device.\n\n\n\n\nTsDeviceEvent(Enum):\nEnumeration of events related to TESLASUIT devices.\nValues:\n\nDeviceAttached: Device attached event.\n\nDeviceDetached: Device detached event.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -887,7 +923,7 @@
     "href": "API Reference/core/data_structures.html#asset-manager",
     "title": "Data structures",
     "section": "Asset Manager",
-    "text": "Asset Manager\n\nTsAssetType(Enum):\nEnumeration of TESLASUIT asset types.\nValues:\n- Undefined: Undefined asset type.\n- Spline: Spline asset.\n- HapticEffect: Haptic effect asset.\n- Material: Material asset.\n- TouchSequence: Touch sequence asset.\n- PresetAnimation: Preset animation asset.\n- SceneAnimation: Scene animation asset.",
+    "text": "Asset Manager\n\nTsAssetType(Enum):\nEnumeration of TESLASUIT asset types.\nValues:\n\nUndefined: Undefined asset type.\n\nSpline: Spline asset.\n\nHapticEffect: Haptic effect asset.\n\nMaterial: Material asset.\n\nTouchSequence: Touch sequence asset.\n\nPresetAnimation: Preset animation asset.\n\nSceneAnimation: Scene animation asset.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -899,7 +935,7 @@
     "href": "API Reference/core/data_structures.html#current-feedback",
     "title": "Data structures",
     "section": "Current Feedback",
-    "text": "Current Feedback\n\nTsCurrentFeedbackChannelData(Structure):\nRepresents a current feedback channel data.\nAttributes: - channel_index (int): Index of the channel. - value (int): Value of the channel.\n\n\n\nTsCurrentFeedbackNodeData(Structure):\nRepresents a current feedback node data.\nAttributes: - node_index (int): Index of the node. - number_of_channels (int): Number of channels in the node. - channels_data (list): List of TsCurrentFeedbackChannelData objects.\n\n\n\nTsCurrentFeedbackNodes(Structure):\nRepresents a collection of current feedback nodes.\nAttributes: - number_of_nodes (int): Number of nodes. - nodes (list): List of TsCurrentFeedbackNodeData objects.",
+    "text": "Current Feedback\n\nTsCurrentFeedbackChannelData(Structure):\nRepresents a current feedback channel data.\nAttributes:\n\nchannel_index (int): Index of the channel.\nvalue (int): Value of the channel.\n\n\n\n\nTsCurrentFeedbackNodeData(Structure):\nRepresents a current feedback node data.\nAttributes:\n\nnode_index (int): Index of the node.\nnumber_of_channels (int): Number of channels in the node.\nchannels_data (list): List of TsCurrentFeedbackChannelData objects.\n\n\n\n\nTsCurrentFeedbackNodes(Structure):\nRepresents a collection of current feedback nodes.\nAttributes:\n\nnumber_of_nodes (int): Number of nodes.\nnodes (list): List of TsCurrentFeedbackNodeData objects.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -911,7 +947,7 @@
     "href": "API Reference/subsystems/bia.html#quick-access",
     "title": "BIA (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nBIA Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nBIA data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -947,7 +983,7 @@
     "href": "API Reference/subsystems/bia.html#class-tsbia",
     "title": "BIA (experimental)",
     "section": "Class TsBia",
-    "text": "Class TsBia\nHandles BIA (Bioelectrical Impedance Analysis) data processing and streaming.\nThis class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of BIA data.\n\nstop_streaming(self)\nStop the streaming of BIA data.\n\nget_data_on_ready(self)\nBlocks execution until BIA data is ready and returns the latest data.\nReturns TsBiaChannels (struct): The latest BIA data.\n\nset_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)\nSet the streaming configuration for BIA data.\nParameters:\n- channels (list): List of channel indexes to stream.\n- start_frequency (int): Starting frequency for the BIA data.\n- number_of_steps (int): Number of frequency steps.\n- frequency_step (int): Frequency step size.",
+    "text": "Class TsBia\nHandles BIA (Bioelectrical Impedance Analysis) data processing and streaming.\nThis class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of BIA data.\n\nstop_streaming(self)\nStop the streaming of BIA data.\n\nget_data_on_ready(self)\nBlocks execution until BIA data is ready and returns the latest data.\nReturns: - TsBiaChannels (struct): The latest BIA data.\n\nset_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)\nSet the streaming configuration for BIA data.\nArgs:\n- channels (list): List of channel indexes to stream.\n- start_frequency (int): Starting frequency for the BIA data.\n- number_of_steps (int): Number of frequency steps.\n- frequency_step (int): Frequency step size.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -971,7 +1007,7 @@
     "href": "API Reference/subsystems/current_feedback.html#quick-access",
     "title": "Current Feedback (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nCurrent Feedback Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nCurrent feedback data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1007,7 +1043,7 @@
     "href": "API Reference/subsystems/current_feedback.html#class-tscurrentfeedback",
     "title": "Current Feedback (experimental)",
     "section": "Class TsCurrentFeedback",
-    "text": "Class TsCurrentFeedback\nHandles current feedback data processing and streaming.\nThis class manages the interaction with current feedback nodes, including data streaming and retrieval.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of current feedback data.\n\nstop_streaming(self)\nStop the streaming of current feedback data.\n\nget_data_on_ready(self)\nBlocks execution until current feedback data is ready and returns the latest data.\nReturns TsCurrentFeedbackNodes (struct): The latest current feedback data.",
+    "text": "Class TsCurrentFeedback\nHandles current feedback data processing and streaming.\nThis class manages the interaction with current feedback nodes, including data streaming and retrieval.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of current feedback data.\n\nstop_streaming(self)\nStop the streaming of current feedback data.\n\nget_data_on_ready(self)\nBlocks execution until current feedback data is ready and returns the latest data.\nReturns: - TsCurrentFeedbackNodes (struct): The latest current feedback data.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1067,7 +1103,7 @@
     "href": "API Reference/subsystems/ppg.html#class-tsppg",
     "title": "PPG",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
+    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns: - TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns: - TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns: - TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns: - TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1091,7 +1127,7 @@
     "href": "API Reference/subsystems/force_feedback.html#quick-access",
     "title": "Force feedback",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nExamples\nMagnetic Encoder Data structures",
+    "text": "Quick access\n\nMain concept\nExamples\nMagnetic encoder data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1127,7 +1163,7 @@
     "href": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
     "title": "Force feedback",
     "section": "Class TsMagneticEncoder",
-    "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers. Returns: dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nParameters:\n- me_configs (list): A list of TsMagneticEncoderConfig objects.\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nParameters:\n- bone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder. Returns: A TsForceFeedbackConfig structure.\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n- list: A list of bone indexes.",
+    "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers. Returns: - dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nArgs:\n- me_configs (list): A list of TsForceFeedbackConfig objects.\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nArgs:\n- bone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder. Returns: - TsForceFeedbackConfig: A TsForceFeedbackConfig structure.\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n- list: A list of bone indexes.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1139,7 +1175,7 @@
     "href": "API Reference/subsystems/force_feedback.html#utilities",
     "title": "Force feedback",
     "section": "Utilities",
-    "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nParameters:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsMagneticEncoderConfig structure for the given bone indexes.\nParameters:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsMagneticEncoderConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsMagneticEncoderConfig: Default magnetic encoder configuration.",
+    "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nArgs:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsForceFeedbackConfig structure for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsForceFeedbackConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1218,7 +1254,7 @@
     "href": "examples/emg_example.html#quick-access",
     "title": "EMG example (experimental)",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nEMG Subsystem\nEMG Data structures",
+    "text": "Quick access\n\nMain concept\nEMG Subsystem\nEMG data structures",
     "crumbs": [
       "Examples",
       "EMG example (experimental)"
@@ -1262,7 +1298,7 @@
     "href": "examples/mocap_example.html#quick-access",
     "title": "Mocap example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nMocap Subsystem\nMocap Data structures",
+    "text": "Quick access\n\nMain concept\nMocap Subsystem\nMocap data structures",
     "crumbs": [
       "Examples",
       "Mocap example"
@@ -1306,7 +1342,7 @@
     "href": "examples/ppg_example.html#quick-access",
     "title": "PPG example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nPPG Subsystem\nUsecase\nPPG Data structures",
+    "text": "Quick access\n\nMain concept\nPPG Subsystem\nUsecase\nPPG data structures",
     "crumbs": [
       "Examples",
       "PPG example"
@@ -1372,7 +1408,7 @@
     "href": "examples/haptic_example.html#quick-access",
     "title": "Haptic example",
     "section": "Quick access",
-    "text": "Quick access\n\nMain concept\nHaptic Subsystem\nHaptic Data structures",
+    "text": "Quick access\n\nMain concept\nHaptic Subsystem\nHaptic ata structures",
     "crumbs": [
       "Examples",
       "Haptic example"

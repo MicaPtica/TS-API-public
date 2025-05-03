@@ -687,7 +687,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -723,134 +723,110 @@ The <code>TsMapper</code> class is part of the device’s functionality and can 
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>get_mapping_by_device(<span class="va">self</span>, device)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the default mapping handler for a device.</p>
-<p><strong>Args:</strong><br>
-<code>device</code> (<a href="../../API Reference/core/data_structures.html#tsdevice">TsDevice</a>): Device handle.</p>
-<p><strong>Returns:</strong><br>
-<code>TsMapping2d</code>: Mapping handler.</p>
+<p>Args:<br>
+- <code>device class</code> (<a href="../../API Reference/core/data_structures.html#tsdevice"><code>TsDevice</code></a>): Device handle.</p>
+<p>Returns:<br>
+- <code>TsMapping2d</code>: Mapping handler.</p>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>get_mapping_by_version(<span class="va">self</span>, version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the mapping handler by the mapping version.</p>
-<p><strong>Args:</strong><br>
-<code>version</code> (<a href="../../API Reference/core/data_structures.html#tsmapping2dversion">TsMapping2dVersion</a>): Mapping version.</p>
-<p><strong>Returns:</strong><br>
-<code>TsMapping2d</code>: Mapping handler.</p>
+<p>Args:<br>
+- <code>version</code> (<a href="../../API Reference/core/data_structures.html#tsmapping2dversion">TsMapping2dVersion</a>): Mapping version.</p>
+<p>Returns: - <code>TsMapping2d</code>: Mapping handler.</p>
 <hr>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_number_of_layouts(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the number of layouts in the mapping.</p>
-<p><strong>Args:</strong><br>
-<code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Number of layouts.</p>
+<p>Args: - <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
+<p>Returns: - <code>int</code>: Number of layouts.</p>
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>get_layouts(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get all layouts in the mapping.</p>
-<p><strong>Args:</strong><br>
-<code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
-<p><strong>Returns:</strong><br>
-<code>list</code>: List of layouts.</p>
+<p>Args: - <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
+<p>Returns:<br>
+- <code>list</code>: List of layouts.</p>
 <hr>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>get_layout_index(<span class="va">self</span>, layout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the index of a layout.</p>
-<p><strong>Args:</strong><br>
-<code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Layout index.</p>
+<p>Args:<br>
+- <code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
+<p>Returns:<br>
+- <code>int</code>: Layout index.</p>
 <hr>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_layout_type(<span class="va">self</span>, layout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the type of a layout.</p>
-<p><strong>Args:</strong><br>
-<code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Layout type.</p>
+<p>Args: - <code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
+<p>Returns: - <code>int</code>: Layout type.</p>
 <hr>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_layout_element_type(<span class="va">self</span>, layout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the element type of a layout.</p>
-<p><strong>Args:</strong><br>
-<code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Layout element type.</p>
+<p>Args: - <code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
+<p>Returns: - <code>int</code>: Layout element type.</p>
 <hr>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>get_number_of_bones(<span class="va">self</span>, layout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the number of bones in a layout.</p>
-<p><strong>Args:</strong><br>
-<code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Number of bones.</p>
+<p>Args: - <code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
+<p>Returns: - <code>int</code>: Number of bones.</p>
 <hr>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>get_layout_bones(<span class="va">self</span>, layout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get all bones in a layout.</p>
-<p><strong>Args:</strong><br>
-<code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
-<p><strong>Returns:</strong><br>
-<code>list</code>: List of bones.</p>
+<p>Args: - <code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</p>
+<p>Returns:<br>
+- <code>list</code>: List of bones.</p>
 <hr>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>get_bone_index(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the index of a bone.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Bone index.</p>
+<p>Args:<br>
+-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns: -<code>int</code>: Bone index.</p>
 <hr>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>get_bone_side(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the side of a bone.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Bone side.</p>
+<p>Args: -<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns: -<code>int</code>: Bone side.</p>
 <hr>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>get_bone_number_of_contents(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the number of contents in a bone.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Number of contents.</p>
+<p>Args: - <code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns: -<code>int</code>: Number of contents.</p>
 <hr>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>get_bone_contents(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get all contents of a bone.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>list</code>: List of bone contents.</p>
+<p>Args: - <code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns:<br>
+- <code>list</code>: List of bone contents.</p>
 <hr>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>get_bone_number_of_points(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the number of points in a bone content.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>int</code>: Number of points.</p>
+<p>Args: - <code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns: - <code>int</code>: Number of points.</p>
 <hr>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_bone_points(<span class="va">self</span>, bone_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the points representing the shape of a bone content in 2D space.</p>
-<p><strong>Args:</strong><br>
-<code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
-<p><strong>Returns:</strong><br>
-<code>list</code>: List of points.</p>
+<p>Args: - <code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</p>
+<p>Returns:<br>
+- <code>list</code>: List of points.</p>
 <hr>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>get_haptic_electric_channel_layout(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the electric channel layout for haptic feedback.</p>
-<p><strong>Args:</strong><br>
-<code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
-<p><strong>Returns:</strong><br>
-<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</p>
+<p>Args: - <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
+<p>Returns:<br>
+- <a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</p>
 </section>
 <section id="mapping-utils" class="level3">
 <h3 class="anchored" data-anchor-id="mapping-utils">Mapping Utils:</h3>
 <hr>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>get_layout_by_type(<span class="va">self</span>, mapping, layout_type, layout_element_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get a layout by its type and element type.</p>
-<p><strong>Args:</strong><br>
-- <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.<br>
+<p>Args: - <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.<br>
 - <code>layout_type</code> (int): Layout type.<br>
 - <code>layout_element_type</code> (int): Layout element type.</p>
-<p><strong>Returns:</strong><br>
-<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Layout handle.</p>
+<p>Returns: - <a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Layout handle.</p>
 <hr>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>get_haptic_electric_channel_layout(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the electric channel layout for haptic feedback.</p>
-<p><strong>Args:</strong><br>
+<p>Args:<br>
 - <code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</p>
-<p><strong>Returns:</strong><br>
-<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</p>
+<p>Returns: - <a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</p>
 
 
 </section>

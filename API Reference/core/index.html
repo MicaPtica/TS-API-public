@@ -612,8 +612,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a>
+  <ul class="collapse">
+  <li><a href="#ts-api" id="toc-ts-api" class="nav-link" data-scroll-target="#ts-api">TS API</a></li>
+  <li><a href="#device-manager" id="toc-device-manager" class="nav-link" data-scroll-target="#device-manager">Device Manager</a></li>
+  <li><a href="#device" id="toc-device" class="nav-link" data-scroll-target="#device">Device</a></li>
+  <li><a href="#mapper" id="toc-mapper" class="nav-link" data-scroll-target="#mapper">Mapper</a></li>
+  <li><a href="#loader" id="toc-loader" class="nav-link" data-scroll-target="#loader">Loader</a></li>
+  <li><a href="#asset-manager" id="toc-asset-manager" class="nav-link" data-scroll-target="#asset-manager">Asset Manager</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a></li>
+  </ul></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -637,8 +654,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The Teslasuit SDK provides a comprehensive set of tools and APIs for interacting with Teslasuit devices. This documentation covers the core components of the SDK, including device management, mapping, asset handling, and subsystem access.</p>
+</section>
+<section id="core-components" class="level2">
+<h2 class="anchored" data-anchor-id="core-components">Core Components</h2>
+<section id="ts-api" class="level3">
+<h3 class="anchored" data-anchor-id="ts-api"><a href="../../API Reference/core/ts_api.html">TS API</a></h3>
+<p>The central interface for initializing and managing the Teslasuit API. It provides access to core functionalities such as device management, asset management, and mapping subsystems.</p>
+</section>
+<section id="device-manager" class="level3">
+<h3 class="anchored" data-anchor-id="device-manager"><a href="../../API Reference/core/device_manager.html">Device Manager</a></h3>
+<p>Handles the connection and disconnection of Teslasuit devices. It provides access to connected devices and their properties, enabling seamless interaction with the Teslasuit ecosystem.</p>
+</section>
+<section id="device" class="level3">
+<h3 class="anchored" data-anchor-id="device"><a href="../../API Reference/core/device.html">Device</a></h3>
+<p>Represents a Teslasuit device and provides access to its subsystems, such as motion capture, haptics, and biometry. It also allows retrieval of device-specific information.</p>
+</section>
+<section id="mapper" class="level3">
+<h3 class="anchored" data-anchor-id="mapper"><a href="../../API Reference/core/mapper.html">Mapper</a></h3>
+<p>Provides functionality for handling 2D mapping of device elements, including layouts, bones, and associated data. It supports operations like retrieving mappings and layouts.</p>
+</section>
+<section id="loader" class="level3">
+<h3 class="anchored" data-anchor-id="loader"><a href="../../API Reference/core/loader.html">Loader</a></h3>
+<p>Handles the dynamic loading of the Teslasuit C API library. It ensures the library is correctly loaded and accessible for API operations.</p>
+</section>
+<section id="asset-manager" class="level3">
+<h3 class="anchored" data-anchor-id="asset-manager"><a href="../../API Reference/core/asset_manager.html">Asset Manager</a></h3>
+<p>Manages Teslasuit assets, including loading, retrieving, and unloading assets. It supports operations with assets such as haptic effects and animations.</p>
+</section>
+<section id="data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="data-structures"><a href="../../API Reference/core/data_structures.html">Data Structures</a></h3>
+<p>Defines the data structures and enumerations used across the Teslasuit SDK, including mappings, layouts, bones, and subsystem-specific configurations.</p>
+</section>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li>Ensure the Teslasuit API is initialized before accessing any of its components.</li>
+<li>Refer to the respective component pages for detailed usage and examples.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -738,16 +738,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Returns <a href="../../API Reference/core/data_structures.html#tshrv">TsHrv</a> (struct): The latest HRV data.</p>
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>get_raw_data_on_ready(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Blocks execution until raw PPG data is ready and returns the latest raw data. Returns <a href="../../API Reference/core/data_structures.html#tsppgrawdata">TsPpgRawData</a> (struct): The latest raw PPG data.</p>
+<p>Blocks execution until raw PPG data is ready and returns the latest raw data. Returns: - <a href="../../API Reference/core/data_structures.html#tsppgrawdata"><code>TsPpgRawData</code></a> (struct): The latest raw PPG data.</p>
 <hr>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>get_hrv(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Retrieves the latest HRV data. Returns <a href="../../API Reference/core/data_structures.html#tshrv">TsHrv</a> (struct): The latest HRV data.</p>
+<p>Retrieves the latest HRV data. Returns: - <a href="../../API Reference/core/data_structures.html#tshrv"><code>TsHrv</code></a> (struct): The latest HRV data.</p>
 <hr>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_data_raw(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Retrieves the latest raw PPG data. Returns <a href="../../API Reference/core/data_structures.html#tsppgrawdata">TsPpgRawData</a> (struct): The latest raw PPG data.</p>
+<p>Retrieves the latest raw PPG data. Returns: - <a href="../../API Reference/core/data_structures.html#tsppgrawdata"><code>TsPpgRawData</code></a> (struct): The latest raw PPG data.</p>
 <hr>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_data(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Retrieves the latest processed PPG data. Returns <a href="../../API Reference/core/data_structures.html#tsppgdata">TsPpgData</a>: The latest processed PPG data.</p>
+<p>Retrieves the latest processed PPG data. Returns: - <a href="../../API Reference/core/data_structures.html#tsppgdata"><code>TsPpgData</code></a>: The latest processed PPG data.</p>
 <p><strong>NB!</strong> <a href="../../API Reference/core/data_structures.html#tsppgdata">TsPpgData</a> struct doesn’t provide any parameters such as “heart_rate”. The access is given through the <a href="../../API Reference/core/data_structures.html#tsppgnodedata">TsPpgNodeData</a> struct. Please see the <a href="../../examples/ppg_example.html#code-for-heart-rate-data">example</a>.</p>
 <hr>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>calibrate(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

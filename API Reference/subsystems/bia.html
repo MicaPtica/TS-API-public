@@ -699,7 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="../../Main concepts/bia_concept.html">Main concept</a></li>
 <li><a href="../../examples/bia_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#bia">BIA Data structures</a></li>
+<li><a href="../../API Reference/core/data_structures.html#bia">BIA data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
@@ -738,11 +738,11 @@ This class manages the interaction with BIA sensors, including data streaming co
 <hr>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_data_on_ready(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Blocks execution until BIA data is ready and returns the latest data.<br>
-Returns <a href="../../API Reference/core/data_structures.html#tsbiachannels">TsBiaChannels</a> (struct): The latest BIA data.</p>
+Returns: - <a href="../../API Reference/core/data_structures.html#tsbiachannels"><code>TsBiaChannels</code></a> (struct): The latest BIA data.</p>
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>set_streaming_config(<span class="va">self</span>, channels, start_frequency<span class="op">=</span><span class="dv">10000</span>, number_of_steps<span class="op">=</span><span class="dv">10</span>, frequency_step<span class="op">=</span><span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Set the streaming configuration for BIA data.<br>
-Parameters:<br>
+Args:<br>
 - <code>channels (list)</code>: List of channel indexes to stream.<br>
 - <code>start_frequency (int)</code>: Starting frequency for the BIA data.<br>
 - <code>number_of_steps (int)</code>: Number of frequency steps.<br>

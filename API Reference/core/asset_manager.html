@@ -686,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -724,30 +724,23 @@ The <code>TsAssetManager</code> class is part of the TESLASUIT SDK and can only 
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>load_asset_from_path(<span class="va">self</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Loads an asset from a specified file path.</p>
-<p><strong>Args:</strong><br>
-- <code>path (str)</code>: Path to the asset.</p>
-<p><strong>Returns:</strong><br>
-- <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
+<p>Args: - <code>path (str)</code>: Path to the asset.</p>
+<p>Returns - <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>load_asset_from_data(<span class="va">self</span>, data, size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Loads an asset from binary data.</p>
-<p><strong>Args:</strong><br>
-- <code>data (bytes)</code>: Binary data of the asset.<br>
+<p>Args: - <code>data (bytes)</code>: Binary data of the asset.<br>
 - <code>size (int)</code>: Size of the binary data.</p>
-<p><strong>Returns:</strong><br>
-- <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
+<p>Returns: - <code>TsAssetHandle</code>: Handle to the loaded asset.</p>
 <hr>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_asset_type(<span class="va">self</span>, asset_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Retrieves the type of a loaded asset.</p>
-<p><strong>Args:</strong><br>
-- <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
-<p><strong>Returns:</strong><br>
-- <a href="../../API Reference/core/data_structures.html#tsassettype"><code>TsAssetType</code></a>: Type of the asset.</p>
+<p>Args: - <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
+<p>Returns: - <a href="../../API Reference/core/data_structures.html#tsassettype"><code>TsAssetType</code></a>: Type of the asset.</p>
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>unload_asset(<span class="va">self</span>, asset_handle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Unloads a previously loaded asset.</p>
-<p><strong>Args:</strong><br>
-- <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
+<p>Args: - <code>asset_handle (TsAssetHandle)</code>: Handle to the asset.</p>
 
 
 </section>

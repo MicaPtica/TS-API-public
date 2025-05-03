@@ -700,7 +700,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="../../Main concepts/haptic_concept.html">Main concept</a></li>
 <li><a href="../../examples/haptic_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#haptic">PPG Data structures</a></li>
+<li><a href="../../API Reference/core/data_structures.html#haptic">Haptic data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
@@ -731,7 +731,7 @@ The <code>TsHapticPlayer</code> class is part of the device’s functionality an
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>is_player_running(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Checks if the haptic player is currently running.</p>
 <p>Returns:<br>
-<code>bool</code>: <code>True</code> if the player is running.</p>
+- <code>bool</code>: <code>True</code> if the player is running.</p>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>stop_player(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Stops the haptic player for the connected device.</p>
@@ -739,56 +739,56 @@ The <code>TsHapticPlayer</code> class is part of the device’s functionality an
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>is_player_paused(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Checks if the haptic player is in a paused state.</p>
 <p>Returns:<br>
-<code>bool</code>: <code>True</code> if the player is paused.</p>
+- <code>bool</code>: <code>True</code> if the player is paused.</p>
 <hr>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>set_player_paused(<span class="va">self</span>, is_paused)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Pauses or resumes the haptic player.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>is_paused (bool)</code>: <code>True</code> to pause, <code>False</code> to resume.</p>
 <hr>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>is_player_muted(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Checks if the haptic player is muted.</p>
 <p>Returns:<br>
-<code>bool</code>: <code>True</code> if the player is muted.</p>
+- <code>bool</code>: <code>True</code> if the player is muted.</p>
 <hr>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>set_player_muted(<span class="va">self</span>, is_muted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Mutes or unmutes the haptic player.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>is_muted (bool)</code>: <code>True</code> to mute, <code>False</code> to unmute.</p>
 <hr>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>get_player_time(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Retrieves the time elapsed since the haptic player started.</p>
 <p>Returns:<br>
-<code>int</code>: Time in milliseconds.</p>
+- <code>int</code>: Time in milliseconds.</p>
 <hr>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>create_playable(<span class="va">self</span>, asset, is_looped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates a playable from a haptic asset.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>asset</code>: The haptic asset.<br>
 - <code>is_looped (bool)</code>: Whether the playable should loop.</p>
 <p>Returns:<br>
-<code>int</code>: The ID of the created playable.</p>
+- <code>int</code>: The ID of the created playable.</p>
 <hr>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>play_playable(<span class="va">self</span>, playable_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Plays a haptic playable by its ID.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>playable_id (int)</code>: The ID of the playable.</p>
 <hr>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>play_touch(<span class="va">self</span>, params, channels, duration)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Plays an instant haptic touch with the specified parameters.</p>
-<p>Parameters:<br>
-- <code>params (list)</code>: List of <code>TsHapticParam</code> objects.<br>
+<p>Args:<br>
+- <code>params (list)</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparamstructure"><code>TsHapticParam</code></a> objects.<br>
 - <code>channels (list)</code>: List of channel IDs.<br>
 - <code>duration (int)</code>: Duration in milliseconds.</p>
 <hr>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stop_playable(<span class="va">self</span>, playable_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Stops a haptic playable by its ID.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>playable_id (int)</code>: The ID of the playable.</p>
 <hr>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>remove_playable(<span class="va">self</span>, playable_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Removes a haptic playable from the player.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>playable_id (int)</code>: The ID of the playable.</p>
 <hr>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>clear_all_playables(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -796,21 +796,21 @@ The <code>TsHapticPlayer</code> class is part of the device’s functionality an
 <hr>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>create_touch_parameters(<span class="va">self</span>, period_ms, amplitude, pulse_width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates parameters for an instant haptic touch.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>period_ms (float)</code>: Period in milliseconds.<br>
 - <code>amplitude (float)</code>: Amplitude value.<br>
 - <code>pulse_width (float)</code>: Pulse width value.</p>
 <p>Returns:<br>
-<code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparam(structure)"><code>TsHapticParam</code></a> objects.</p>
+- <code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparamstructure"><code>TsHapticParam</code></a> objects.</p>
 <hr>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>create_touch_multipliers(<span class="va">self</span>, period_ms_m, amplitude_m, pulse_width_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates multipliers for an instant haptic touch.</p>
-<p>Parameters:<br>
+<p>Args:<br>
 - <code>period_ms_m (float)</code>: Period multiplier.<br>
 - <code>amplitude_m (float)</code>: Amplitude multiplier.<br>
 - <code>pulse_width_m (float)</code>: Pulse width multiplier.</p>
 <p>Returns:<br>
-<code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparammultiplier(structure)"><code>TsHapticParamMultiplier</code></a> objects.</p>
+- <code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparammultiplierstructure"><code>TsHapticParamMultiplier</code></a> objects.</p>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">

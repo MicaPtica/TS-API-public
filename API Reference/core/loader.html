@@ -683,7 +683,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -717,12 +717,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>load(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Loads the Teslasuit C API library and returns the library object.</p>
+<p>Returns: - <code>ctypes.CDLL</code> or <code>ctypes.WinDLL</code>: The loaded library object. - <code>None</code>: If the library cannot be loaded.</p>
 <ul>
-<li><strong>Returns</strong>:
-<ul>
-<li><code>ctypes.CDLL</code> or <code>ctypes.WinDLL</code>: The loaded library object.</li>
-<li><code>None</code>: If the library cannot be loaded.</li>
-</ul></li>
 <li><strong>Note</strong>: If the library path is not provided or invalid, the system attempts to find the library using the default library name (<code>teslasuit_api</code>).</li>
 </ul>
 <p><strong>Notes</strong> Ensure the library path is valid and accessible.</p>

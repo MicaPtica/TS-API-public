@@ -646,7 +646,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tsmapping2dversionenum" id="toc-tsmapping2dversionenum" class="nav-link" data-scroll-target="#tsmapping2dversionenum">TsMapping2dVersion(Enum):</a></li>
   <li><a href="#tslayout2dtypeenum" id="toc-tslayout2dtypeenum" class="nav-link" data-scroll-target="#tslayout2dtypeenum">TsLayout2dType(Enum):</a></li>
   <li><a href="#tslayout2delementtypeenum" id="toc-tslayout2delementtypeenum" class="nav-link" data-scroll-target="#tslayout2delementtypeenum">TsLayout2dElementType(Enum):</a></li>
-  <li><a href="#tsbone2dindexenum" id="toc-tsbone2dindexenum" class="nav-link" data-scroll-target="#tsbone2dindexenum">TsBone2dIndex(Enum):</a></li>
+  <li><a href="#tsbone2dindexintenum" id="toc-tsbone2dindexintenum" class="nav-link" data-scroll-target="#tsbone2dindexintenum">TsBone2dIndex(IntEnum):</a></li>
   <li><a href="#tsbone2dsideenum" id="toc-tsbone2dsideenum" class="nav-link" data-scroll-target="#tsbone2dsideenum">TsBone2dSide(Enum):</a></li>
   <li><a href="#tsbiomechanicalindexenum" id="toc-tsbiomechanicalindexenum" class="nav-link" data-scroll-target="#tsbiomechanicalindexenum">TsBiomechanicalIndex(Enum):</a></li>
   </ul></li>
@@ -666,10 +666,10 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#magnetic-encoder" id="toc-magnetic-encoder" class="nav-link" data-scroll-target="#magnetic-encoder">Magnetic Encoder</a>
   <ul class="collapse">
-  <li><a href="#tsmagneticencoderconfigstructure" id="toc-tsmagneticencoderconfigstructure" class="nav-link" data-scroll-target="#tsmagneticencoderconfigstructure">TsMagneticEncoderConfig(Structure):</a></li>
+  <li><a href="#tsforcefeedbackconfigstructure" id="toc-tsforcefeedbackconfigstructure" class="nav-link" data-scroll-target="#tsforcefeedbackconfigstructure">TsForceFeedbackConfig(Structure):</a></li>
   <li><a href="#tsmagneticencoderlockdirectionenum" id="toc-tsmagneticencoderlockdirectionenum" class="nav-link" data-scroll-target="#tsmagneticencoderlockdirectionenum">TsMagneticEncoderLockDirection(Enum):</a></li>
-  <li><a href="#tsfingermepositionclass" id="toc-tsfingermepositionclass" class="nav-link" data-scroll-target="#tsfingermepositionclass">TsFingerMEPosition(Class):</a></li>
-  <li><a href="#tsglovemepositionclass" id="toc-tsglovemepositionclass" class="nav-link" data-scroll-target="#tsglovemepositionclass">TsGloveMEPosition(Class):</a></li>
+  <li><a href="#tsfingermepositionstructure" id="toc-tsfingermepositionstructure" class="nav-link" data-scroll-target="#tsfingermepositionstructure">TsFingerMEPosition(Structure):</a></li>
+  <li><a href="#tsglovemepositionstructure" id="toc-tsglovemepositionstructure" class="nav-link" data-scroll-target="#tsglovemepositionstructure">TsGloveMEPosition(Structure):</a></li>
   </ul></li>
   <li><a href="#device" id="toc-device" class="nav-link" data-scroll-target="#device">Device</a>
   <ul class="collapse">
@@ -726,38 +726,47 @@ ul.task-list li input[type="checkbox"] {
 <p>Represents Heart Rate Variability (HRV) metrics.</p>
 <p>This structure stores various HRV parameters, which are used to analyze fluctuations in heart rate over time. These metrics help assess autonomic nervous system activity and overall heart health.</p>
 <p>Attributes:</p>
-<pre><code>mean_rr (float): Mean RR interval (time between successive heartbeats) in milliseconds.
-
-sdnn (float): Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.
-
-sdsd (float): Standard deviation of successive RR interval differences.
-
-rmssd (float): Root Mean Square of Successive Differences between RR intervals, 
-                reflecting short-term HRV.
-
-sd1 (float): Poincaré plot standard deviation perpendicular to the line of identity 
-                (short-term HRV component).
-
-sd2 (float): Poincaré plot standard deviation along the line of identity 
-                (long-term HRV component).
-
-hlf (float): High-frequency component of HRV, associated with parasympathetic nervous activity.</code></pre>
+<ul>
+<li><code>mean_rr (float)</code>: Mean RR interval (time between successive heartbeats) in milliseconds.</li>
+<li><code>sdnn (float)</code>: Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.</li>
+<li><code>sdsd (float)</code>: Standard deviation of successive RR interval differences.</li>
+<li><code>rmssd (float)</code>: Root Mean Square of Successive Differences between RR intervals, reflecting short-term HRV.</li>
+<li><code>sd1 (float)</code>: Poincaré plot standard deviation perpendicular to the line of identity (short-term HRV component).</li>
+<li><code>sd2 (float)</code>: Poincaré plot standard deviation along the line of identity(long-term HRV component).</li>
+<li><code>hlf (float)</code>: High-frequency component of HRV, associated with parasympathetic nervous activity.</li>
+</ul>
+<hr>
 </section>
 <section id="tsppgrawdatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsppgrawdatastructure">TsPpgRawData(Structure):</h3>
 <p>Represents raw PPG (Photoplethysmography) data from multiple sensor nodes.</p>
 <p>This structure holds raw PPG data collected from multiple sensor nodes, each of which contains infrared, red, blue, and green sensor values, along with timestamps.</p>
-<p>Attributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgRawNodeData)): Pointer to an array of node data structures.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>number_of_nodes (int)</code>: The number of sensor nodes providing PPG data.</li>
+<li><code>nodes (POINTER(TsPpgRawNodeData))</code>: Pointer to an array of node data structures.</li>
+</ul>
+<hr>
 </section>
 <section id="tsppgdatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsppgdatastructure">TsPpgData(Structure):</h3>
 <p>Represents processed PPG (Photoplethysmography) data from multiple sensor nodes.</p>
 <p>This structure stores processed PPG data collected from multiple sensor nodes. Each node contains PPG-related metrics, including heart rate validation.</p>
-<p>Attributes: number_of_nodes (int): The number of sensor nodes providing PPG data. nodes (POINTER(TsPpgNodeData)): Pointer to an array of processed node data structures.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>number_of_nodes (int)</code>: The number of sensor nodes providing PPG data.</li>
+<li><code>nodes (POINTER(TsPpgNodeData))</code>: Pointer to an array of processed node data structures.</li>
+</ul>
+<hr>
 </section>
 <section id="tsppgnodedatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsppgnodedatastructure">TsPpgNodeData(Structure):</h3>
-<p>Represents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes: heart_rate (int): Heart rate calculated in BPM. oxygen_percent (int): The measured blood oxygen saturation (SpO2) percentage. is_heart_rate_valid (bool): Is calculated heart rate valid. is_oxygen_percent_valid (bool): Is blood oxygen value valid. timestamp (int): Time point that set when the last raw PPG data sample was processed.</p>
+<p>Represents processed PPG (Photoplethysmography) data for a single sensor node. This structure stores heart rate, blood oxygen level, and validity flags for a specific PPG sensor node, along with a timestamp indicating when the data was recorded. Attributes:</p>
+<ul>
+<li><code>heart_rate (int)</code>: Heart rate calculated in BPM.</li>
+<li><code>is_heart_rate_valid (bool)</code>: Is calculated heart rate valid.</li>
+<li><code>timestamp (int)</code>: Time point that set when the last raw PPG data sample was processed.</li>
+</ul>
 </section>
 </section>
 <section id="bia" class="level2">
@@ -765,31 +774,55 @@ hlf (float): High-frequency component of HRV, associated with parasympathetic ne
 <section id="tsbiaconfigstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsbiaconfigstructure">TsBiaConfig(Structure):</h3>
 <p>Represents the configuration for BIA (Bioelectrical Impedance Analysis) data streaming.</p>
-<p>Attributes: - <code>channels (list)</code>: List of channel indexes to stream. - <code>number_of_channels (int)</code>: Number of channels. - <code>start_frequency (int)</code>: Starting frequency for the BIA data streaming. - <code>frequency_step (int)</code>: Frequency step size. - <code>number_of_steps (int)</code>: Number of frequency steps.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>channels (list)</code>: List of channel indexes to stream.</li>
+<li><code>number_of_channels (int)</code>: Number of channels.</li>
+<li><code>start_frequency (int)</code>: Starting frequency for the BIA data streaming.</li>
+<li><code>frequency_step (int)</code>: Frequency step size.</li>
+<li><code>number_of_steps (int)</code>: Number of frequency steps.</li>
+</ul>
 <hr>
 </section>
 <section id="tscomplexnumberstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tscomplexnumberstructure">TsComplexNumber(Structure):</h3>
 <p>Represents a complex number.</p>
-<p>Attributes: - <code>real_value (int)</code>: Real part of the complex number. - <code>im_value (int)</code>: Imaginary part of the complex number.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>real_value (int)</code>: Real part of the complex number.</li>
+<li><code>im_value (int)</code>: Imaginary part of the complex number.</li>
+</ul>
 <hr>
 </section>
 <section id="tsbiafrequencydatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsbiafrequencydatastructure">TsBiaFrequencyData(Structure):</h3>
 <p>Represents frequency data for a BIA channel.</p>
-<p>Attributes: - <code>frequency (int)</code>: Frequency value. - <code>complex_number (TsComplexNumber)</code>: Complex number associated with the frequency.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>frequency (int)</code>: Frequency value.</li>
+<li><code>complex_number (TsComplexNumber)</code>: Complex number associated with the frequency.</li>
+</ul>
 <hr>
 </section>
 <section id="tsbiachanneldatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsbiachanneldatastructure">TsBiaChannelData(Structure):</h3>
 <p>Represents data for a single BIA channel.</p>
-<p>Attributes: - <code>channel_index (int)</code>: Index of the channel. - <code>number_of_frequencies (int)</code>: Number of frequencies in the channel. - <code>frequencies (list)</code>: List of <a href="#tsbiafrequencydata">TsBiaFrequencyData</a> objects.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>channel_index (int)</code>: Index of the channel.</li>
+<li><code>number_of_frequencies (int)</code>: Number of frequencies in the channel.</li>
+<li><code>frequencies (list)</code>: List of <a href="#tsbiafrequencydata">TsBiaFrequencyData</a> objects.</li>
+</ul>
 <hr>
 </section>
 <section id="tsbiachannelsstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsbiachannelsstructure">TsBiaChannels(Structure):</h3>
 <p>Represents data for all BIA channels.</p>
-<p>Attributes: - <code>number_of_channels (int)</code>: Number of channels. - <code>channels (list)</code>: List of <a href="#tsbiachanneldata">TsBiaChannelData</a> objects.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>number_of_channels (int)</code>: Number of channels.</li>
+<li><code>channels (list)</code>: List of <a href="#tsbiachanneldata">TsBiaChannelData</a> objects.</li>
+</ul>
 </section>
 </section>
 <section id="mocap" class="level2">
@@ -797,130 +830,261 @@ hlf (float): High-frequency component of HRV, associated with parasympathetic ne
 <section id="tsvec2fstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsvec2fstructure">TsVec2f(Structure):</h3>
 <p>Represents a 2D vector with float coordinates.</p>
-<p>Attributes: x (float): X coordinate. y (float): Y coordinate.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>x (float)</code>: X coordinate.</li>
+<li><code>y (float)</code>: Y coordinate.</li>
+</ul>
 <hr>
 </section>
 <section id="tsvec3fstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsvec3fstructure">TsVec3f(Structure):</h3>
 <p>Represents a 3D vector with float coordinates.</p>
-<p>Attributes: x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>x (float)</code>: X coordinate.</li>
+<li><code>y (float)</code>: Y coordinate.</li>
+<li><code>z (float)</code>: Z coordinate.</li>
+</ul>
 <hr>
 </section>
 <section id="tsquatstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsquatstructure">TsQuat(Structure):</h3>
 <p>Represents a quaternion for 3D rotation.</p>
-<p>Attributes: w (float): Rotation component. x (float): X coordinate. y (float): Y coordinate. z (float): Z coordinate.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>w (float)</code>: Rotation component.</li>
+<li><code>x (float)</code>: X coordinate.</li>
+<li><code>y (float)</code>: Y coordinate.</li>
+<li><code>z (float)</code>: Z coordinate.</li>
+</ul>
 <hr>
 </section>
 <section id="tsmocapbonestructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsmocapbonestructure">TsMocapBone(Structure):</h3>
 <p>Represents skeleton bone data.</p>
-<p>Attributes: position (TsVec3f): Position of the bone. rotation (TsQuat): Rotation of the bone.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>position (TsVec3f)</code>: Position of the bone.</li>
+<li><code>rotation (TsQuat)</code>: Rotation of the bone.</li>
+</ul>
 <hr>
 </section>
 <section id="tsmocapsensorstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsmocapsensorstructure">TsMocapSensor(Structure):</h3>
 <p>Represents raw IMU sensor data.</p>
-<p>Attributes: q6 (TsQuat): 6-axis Quaternion data (without magnetometer). q9 (TsQuat): 9-axis Quaternion data (q6 including magnetometer). accel (TsVec3f): Accelerometer data. gyro (TsVec3f): Gyroscope data. magn (TsVec3f): Magnetometer data. linear_accel (TsVec3f): Linear acceleration data. timestamp (uint64): Timestamp of the data.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>q6 (TsQuat)</code>: 6-axis Quaternion data (without magnetometer).</li>
+<li><code>q9 (TsQuat)</code>: 9-axis Quaternion data (q6 including magnetometer).</li>
+<li><code>accel (TsVec3f):</code> Accelerometer data.</li>
+<li><code>gyro (TsVec3f)</code>: Gyroscope data.</li>
+<li><code>magn (TsVec3f)</code>: Magnetometer data.</li>
+<li><code>linear_accel (TsVec3f)</code>: Linear acceleration data.</li>
+<li><code>timestamp (uint64)</code>: Timestamp of the data.</li>
+</ul>
 <hr>
 </section>
 <section id="tsbonestructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsbonestructure">TsBone(Structure):</h3>
 <p>Represents a bone data in the mapping.</p>
-<p>Attributes: id (int): Bone ID.<br>
-bone_index (int): Bone index.<br>
-bone_side (int): Bone side.<br>
-channels (int): Bone channels.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>id (int)</code>: Bone ID.<br>
+</li>
+<li><code>bone_index (int)</code>: Bone index.<br>
+</li>
+<li><code>bone_side (int)</code>: Bone side.<br>
+</li>
+<li><code>channels (int)</code>: Bone channels.</li>
+</ul>
 <hr>
 </section>
 <section id="tslayoutstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tslayoutstructure">TsLayout(Structure):</h3>
 <p>Represents a layout data in the mapping.</p>
-<p>Attributes: id (int): Layout ID.<br>
-layout_type (int): Layout type.<br>
-element_type (int): Element type.<br>
-layout_index (int): Layout index.<br>
-bone (POINTER(TsBone)): Pointer to a bone.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>id (int)</code>: Layout ID.<br>
+</li>
+<li><code>layout_type (int)</code>: Layout type.<br>
+</li>
+<li><code>element_type (int)</code>: Element type.<br>
+</li>
+<li><code>layout_index (int)</code>: Layout index.<br>
+</li>
+<li><code>bone (POINTER(TsBone))</code>: Pointer to a bone.</li>
+</ul>
 <hr>
 </section>
 <section id="tsmappingdatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsmappingdatastructure">TsMappingData(Structure):</h3>
 <p>Represents a set of device’s elements mapped on 2D space.</p>
-<p>Attributes: mapping_handle (void*): Mapping handle.<br>
-layouts (POINTER(TsLayout)): Pointer to an array of layouts.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>mapping_handle (void*)</code>: Mapping handle.<br>
+</li>
+<li><code>layouts (POINTER(TsLayout))</code>: Pointer to an array of layouts.</li>
+</ul>
 <hr>
 </section>
 <section id="tsmapping2dversionenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsmapping2dversionenum">TsMapping2dVersion(Enum):</h3>
 <p>Enumeration of mapping versions.</p>
-<p>Values: - <code>Undefined</code>: Undefined version.<br>
-- <code>Mapping_4_5_4</code>: Version 4.5.4.<br>
-- <code>Mapping_4_5_5</code>: Version 4.5.5.<br>
-- <code>Mapping_4_6_0</code>: Version 4.6.0.<br>
-- <code>MappingLeftGlove_1_0_0</code>: Left glove version 1.0.0.<br>
-- <code>MappingRightGlove_1_0_0</code>: Right glove version 1.0.0.<br>
-- <code>Mapping_5_1_0_Men</code>: Version 5.1.0 for men.<br>
-- <code>Mapping_5_1_0_Women</code>: Version 5.1.0 for women.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code> = 0,</li>
+<li><code>Mapping_4_5_4</code> = 1,</li>
+<li><code>Mapping_4_5_5</code> = 2,</li>
+<li><code>Mapping_4_6_0</code> = 3,</li>
+<li><code>MappingLeftGlove_1_0_0</code> = 4,</li>
+<li><code>MappingRightGlove_1_0_0</code> = 5,</li>
+<li><code>Mapping_4_5_4_Legacy</code> = 6,</li>
+<li><code>Mapping_4_5_5_Legacy</code> = 7,</li>
+<li><code>Mapping_5_0_0</code> = 8,</li>
+<li><code>MappingLeftGlove_1_2_0</code> = 9,</li>
+<li><code>MappingRightGlove_1_2_0</code> = 10,</li>
+<li><code>Mapping_5_0_1</code> = 11,</li>
+<li><code>Mapping_5_0_2</code> = 12,</li>
+<li><code>Mapping_5_0_3</code> = 13,</li>
+<li><code>Mapping_4_7_0</code> = 14,</li>
+<li><code>MappingLeftGlove_1_3_0</code> = 15,</li>
+<li><code>MappingRightGlove_1_3_0</code> = 16,</li>
+<li><code>Mapping_4_X_Medical</code> = 17,</li>
+<li><code>Mapping_4_5_6</code> = 18</li>
+</ul>
 <hr>
 </section>
 <section id="tslayout2dtypeenum" class="level3">
 <h3 class="anchored" data-anchor-id="tslayout2dtypeenum">TsLayout2dType(Enum):</h3>
 <p>Enumeration of layout types.</p>
-<p>Values: - <code>Undefined</code>: Undefined layout type.<br>
-- <code>Electric</code>: Electric layout.<br>
-- <code>Temperature</code>: Temperature layout.<br>
-- <code>Vibration</code>: Vibration layout.<br>
-- <code>Emg</code>: EMG layout.<br>
-- <code>Ecg</code>: ECG layout.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined layout type.<br>
+</li>
+<li><code>Electric</code>: Electric layout.<br>
+</li>
+<li><code>Temperature</code>: Temperature layout.<br>
+</li>
+<li><code>Vibration</code>: Vibration layout.<br>
+</li>
+<li><code>Emg</code>: EMG layout.<br>
+</li>
+<li><code>Ecg</code>: ECG layout.</li>
+</ul>
 <hr>
 </section>
 <section id="tslayout2delementtypeenum" class="level3">
 <h3 class="anchored" data-anchor-id="tslayout2delementtypeenum">TsLayout2dElementType(Enum):</h3>
 <p>Enumeration of layout element types.</p>
-<p>Values: - <code>Undefined</code>: Undefined element type.<br>
-- <code>Cell</code>: Cell element.<br>
-- <code>Channel</code>: Channel element.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined element type.<br>
+</li>
+<li><code>Cell</code>: Cell element.<br>
+</li>
+<li><code>Channel</code>: Channel element.</li>
+</ul>
 <hr>
 </section>
-<section id="tsbone2dindexenum" class="level3">
-<h3 class="anchored" data-anchor-id="tsbone2dindexenum">TsBone2dIndex(Enum):</h3>
+<section id="tsbone2dindexintenum" class="level3">
+<h3 class="anchored" data-anchor-id="tsbone2dindexintenum">TsBone2dIndex(IntEnum):</h3>
 <p>Enumeration of bone indices in the mapping.</p>
-<p>Values: - <code>Hips</code>: Hips bone.<br>
-- <code>LeftUpperLeg</code>: Left upper leg bone.<br>
-- <code>RightUpperLeg</code>: Right upper leg bone.<br>
-- <code>LeftLowerLeg</code>: Left lower leg bone.<br>
-- <code>RightLowerLeg</code>: Right lower leg bone.<br>
-- <code>LeftFoot</code>: Left foot bone.<br>
-- <code>RightFoot</code>: Right foot bone.<br>
-- <code>Spine</code>: Spine bone.<br>
-- <code>Chest</code>: Chest bone.<br>
-- <code>Head</code>: Head bone.<br>
-- <code>LeftHand</code>: Left hand bone.<br>
-- <code>RightHand</code>: Right hand bone.</p>
+<p>Values:</p>
+<ul>
+<li><code>Hips</code> = 0,</li>
+<li><code>LeftUpperLeg</code> = 1,</li>
+<li><code>RightUpperLeg</code> = 2,</li>
+<li><code>LeftLowerLeg</code> = 3,</li>
+<li><code>RightLowerLeg</code> = 4,</li>
+<li><code>LeftFoot</code> = 5,</li>
+<li><code>RightFoot</code> = 6,</li>
+<li><code>Spine</code> = 7,</li>
+<li><code>Chest</code> = 8,</li>
+<li><code>UpperChest</code> = 9,</li>
+<li><code>Neck</code> = 10,</li>
+<li><code>Head</code> = 11,</li>
+<li><code>LeftShoulder</code> = 12,</li>
+<li><code>RightShoulder</code> = 13,</li>
+<li><code>LeftUpperArm</code> = 14,</li>
+<li><code>RightUpperArm</code> = 15,</li>
+<li><code>LeftLowerArm</code> = 16,</li>
+<li><code>RightLowerArm</code> = 17,</li>
+<li><code>LeftHand</code> = 18,</li>
+<li><code>RightHand</code> = 19,</li>
+<li><code>LeftThumbProximal</code> = 20,</li>
+<li><code>LeftThumbIntermediate</code> = 21,</li>
+<li><code>LeftThumbDistal</code> = 22,</li>
+<li><code>LeftIndexProximal</code> = 23,</li>
+<li><code>LeftIndexIntermediate</code> = 24,</li>
+<li><code>LeftIndexDistal</code> = 25,</li>
+<li><code>LeftMiddleProximal</code> = 26,</li>
+<li><code>LeftMiddleIntermediate</code> = 27,</li>
+<li><code>LeftMiddleDistal</code> = 28,</li>
+<li><code>LeftRingProximal</code> = 29,</li>
+<li><code>LeftRingIntermediate</code> = 30,</li>
+<li><code>LeftRingDistal</code> = 31,</li>
+<li><code>LeftLittleProximal</code> = 32,</li>
+<li><code>LeftLittleIntermediate</code> = 33,</li>
+<li><code>LeftLittleDistal</code> = 34,</li>
+<li><code>RightThumbProximal</code> = 35,</li>
+<li><code>RightThumbIntermediate</code> = 36,</li>
+<li><code>RightThumbDistal</code> = 37,</li>
+<li><code>RightIndexProximal</code> = 38,</li>
+<li><code>RightIndexIntermediate</code> = 39,</li>
+<li><code>RightIndexDistal</code> = 40,</li>
+<li><code>RightMiddleProximal</code> = 41,</li>
+<li><code>RightMiddleIntermediate</code> = 42,</li>
+<li><code>RightMiddleDistal</code> = 43,</li>
+<li><code>RightRingProximal</code> = 44,</li>
+<li><code>RightRingIntermediate</code> = 45,</li>
+<li><code>RightRingDistal</code> = 46,</li>
+<li><code>RightLittleProximal</code> = 47,</li>
+<li><code>RightLittleIntermediate</code> = 48,</li>
+<li><code>RightLittleDistal</code> = 49</li>
+</ul>
 <hr>
 </section>
 <section id="tsbone2dsideenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsbone2dsideenum">TsBone2dSide(Enum):</h3>
 <p>Enumeration of bone sides.</p>
-<p>Values: - <code>Undefined</code>: Undefined side.<br>
-- <code>Front</code>: Front side.<br>
-- <code>Back</code>: Back side.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined side.<br>
+</li>
+<li><code>Front</code>: Front side.<br>
+</li>
+<li><code>Back</code>: Back side.</li>
+</ul>
 <hr>
 </section>
 <section id="tsbiomechanicalindexenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsbiomechanicalindexenum">TsBiomechanicalIndex(Enum):</h3>
 <p>Enumeration of biomechanical indices.</p>
-<p>Values: - <code>PelvisTilt</code>: Pelvis tilt.<br>
-- <code>PelvisList</code>: Pelvis list.<br>
-- <code>PelvisRotation</code>: Pelvis rotation.<br>
-- <code>HipFlexExtR</code>: Right hip flexion/extension.<br>
-- <code>HipAddAbdR</code>: Right hip adduction/abduction.<br>
-- <code>KneeFlexExtR</code>: Right knee flexion/extension.<br>
-- <code>AnkleFlexExtR</code>: Right ankle flexion/extension.<br>
-- <code>ElbowFlexExtR</code>: Right elbow flexion/extension.<br>
-- <code>WristFlexExtR</code>: Right wrist flexion/extension.<br>
-- <code>ShoulderAddAbdR</code>: Right shoulder adduction/abduction.<br>
-- <code>ShoulderFlexExtR</code>: Right shoulder flexion/extension.</p>
+<p>Values:</p>
+<ul>
+<li><code>PelvisTilt</code>: Pelvis tilt.<br>
+</li>
+<li><code>PelvisList</code>: Pelvis list.<br>
+</li>
+<li><code>PelvisRotation</code>: Pelvis rotation.<br>
+</li>
+<li><code>HipFlexExtR</code>: Right hip flexion/extension.<br>
+</li>
+<li><code>HipAddAbdR</code>: Right hip adduction/abduction.<br>
+</li>
+<li><code>KneeFlexExtR</code>: Right knee flexion/extension.<br>
+</li>
+<li><code>AnkleFlexExtR</code>: Right ankle flexion/extension.<br>
+</li>
+<li><code>ElbowFlexExtR</code>: Right elbow flexion/extension.<br>
+</li>
+<li><code>WristFlexExtR</code>: Right wrist flexion/extension.<br>
+</li>
+<li><code>ShoulderAddAbdR</code>: Right shoulder adduction/abduction.<br>
+</li>
+<li><code>ShoulderFlexExtR</code>: Right shoulder flexion/extension.</li>
+</ul>
 </section>
 </section>
 <section id="emg" class="level2">
@@ -928,36 +1092,59 @@ layouts (POINTER(TsLayout)): Pointer to an array of layouts.</p>
 <section id="tsemgoptionsstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsemgoptionsstructure">TsEmgOptions(Structure):</h3>
 <p>Represents EMG filter options.</p>
-<p>Attributes: lower_bandwidth (int): Filter’s lower bandwidth.<br>
-upper_bandwidth (int): Filter’s upper bandwidth.<br>
-sampling_frequency (int): Sampling frequency.<br>
-sample_size (int): Sample size.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>lower_bandwidth (int)</code>: Filter’s lower bandwidth.<br>
+</li>
+<li><code>upper_bandwidth (int)</code>: Filter’s upper bandwidth.<br>
+</li>
+<li><code>sampling_frequency (int)</code>: Sampling frequency.<br>
+</li>
+<li><code>sample_size (int)</code>: Sample size.</li>
+</ul>
 <hr>
 </section>
 <section id="tsemgchanneldatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsemgchanneldatastructure">TsEmgChannelData(Structure):</h3>
 <p>Represents EMG channel data.</p>
-<p>Attributes: channel_index (int): Index of the channel.<br>
-number_of_samples (int): Number of samples in the channel.<br>
-samples (list): List of samples.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>channel_index (int)</code>: Index of the channel.<br>
+</li>
+<li><code>number_of_samples (int)</code>: Number of samples in the channel.<br>
+</li>
+<li><code>samples (list)</code>: List of samples.</li>
+</ul>
 <hr>
 </section>
 <section id="tsemgnodedatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsemgnodedatastructure">TsEmgNodeData(Structure):</h3>
 <p>Represents EMG node data.</p>
-<p>Attributes: node_index (int): Index of the node.<br>
-number_of_channels (int): Number of channels in the node.<br>
-channels (list): List of <a href="#tsemgchanneldata">TsEmgChannelData</a> objects.<br>
-number_of_timestamps (int): Number of timestamps.<br>
-timestamps (list): List of timestamps.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>node_index (int)</code>: Index of the node.<br>
+</li>
+<li><code>number_of_channels (int)</code>: Number of channels in the node.<br>
+</li>
+<li><code>channels (list)</code>: List of <a href="#tsemgchanneldata">TsEmgChannelData</a> objects.<br>
+</li>
+<li><code>number_of_timestamps (int)</code>: Number of timestamps.<br>
+</li>
+<li><code>timestamps (list)</code>: List of timestamps.</li>
+</ul>
 <hr>
 </section>
 <section id="tsemgdatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsemgdatastructure">TsEmgData(Structure):</h3>
 <p>Represents EMG data.</p>
-<p>Attributes: number_of_nodes (int): Number of nodes.<br>
-nodes (list): List of <a href="#tsemgnodedata">TsEmgNodeData</a> objects.<br>
-options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>number_of_nodes (int)</code>: Number of nodes.<br>
+</li>
+<li><code>nodes (list)</code>: List of <a href="#tsemgnodedata">TsEmgNodeData</a> objects.<br>
+</li>
+<li><code>options ([TsEmgOptions](#tsemgoptions))</code>: EMG options.</li>
+</ul>
 </section>
 </section>
 <section id="haptic" class="level2">
@@ -965,72 +1152,108 @@ options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
 <section id="tshapticparamstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tshapticparamstructure">TsHapticParam(Structure):</h3>
 <p>Represents a haptic parameter.</p>
-<p>Attributes: - <code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
-- <code>value (float)</code>: Value of the parameter.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+</li>
+<li><code>value (float)</code>: Value of the parameter.</li>
+</ul>
 <hr>
 </section>
 <section id="tshapticparammultiplierstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tshapticparammultiplierstructure">TsHapticParamMultiplier(Structure):</h3>
 <p>Represents a multiplier for haptic parameters.</p>
-<p>Attributes: - <code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
-- <code>value (float)</code>: Multiplier value (between 0 and 1).</p>
+<p>Attributes:</p>
+<ul>
+<li><code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+</li>
+<li><code>value (float)</code>: Multiplier value (between 0 and 1).</li>
+</ul>
 <hr>
 </section>
 <section id="tshapticparamtypeenum" class="level3">
 <h3 class="anchored" data-anchor-id="tshapticparamtypeenum">TsHapticParamType(Enum):</h3>
 <p>Enumeration of haptic parameter types.</p>
-<p>Values: - <code>Undefined</code>: Undefined parameter type.<br>
-- <code>Period</code>: Period parameter.<br>
-- <code>Amplitude</code>: Amplitude parameter.<br>
-- <code>PulseWidth</code>: Pulse width parameter.<br>
-- <code>Temperature</code>: Temperature parameter.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined parameter type.<br>
+</li>
+<li><code>Period</code>: Period parameter.<br>
+</li>
+<li><code>Amplitude</code>: Amplitude parameter.<br>
+</li>
+<li><code>PulseWidth</code>: Pulse width parameter.<br>
+</li>
+<li><code>Temperature</code>: Temperature parameter.</li>
+</ul>
 <hr>
 </section>
 <section id="tshapticplayerstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tshapticplayerstructure">TsHapticPlayer(Structure):</h3>
 <p>Represents the Haptic Player for managing haptic feedback.</p>
-<p>Attributes: - <code>playables (list)</code>: List of active haptic playables.<br>
-- <code>is_running (bool)</code>: Indicates if the player is running.<br>
-- <code>is_paused (bool)</code>: Indicates if the player is paused.<br>
-- <code>is_muted (bool)</code>: Indicates if the player is muted.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>playables (list)</code>: List of active haptic playables.<br>
+</li>
+<li><code>is_running (bool)</code>: Indicates if the player is running.<br>
+</li>
+<li><code>is_paused (bool)</code>: Indicates if the player is paused.<br>
+</li>
+<li><code>is_muted (bool)</code>: Indicates if the player is muted.</li>
+</ul>
 <hr>
 </section>
 </section>
 <section id="magnetic-encoder" class="level2">
 <h2 class="anchored" data-anchor-id="magnetic-encoder">Magnetic Encoder</h2>
-<section id="tsmagneticencoderconfigstructure" class="level3">
-<h3 class="anchored" data-anchor-id="tsmagneticencoderconfigstructure">TsMagneticEncoderConfig(Structure):</h3>
+<section id="tsforcefeedbackconfigstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsforcefeedbackconfigstructure">TsForceFeedbackConfig(Structure):</h3>
 <p>Represents the configuration for servomotor magnetic encoder.</p>
-<p>Attributes:<br>
-- <code>bone_index (int)</code>: Index of the bone.<br>
-- <code>angle (float)</code>: Angle for the magnetic encoder.<br>
-- <code>hardness_percent (int)</code>: Hardness percentage from 0 to 100.<br>
-- <code>lock_direction ([TsMagneticEncoderLockDirection](#tsmagneticencoderlockdirection))</code>: Direction of the lock.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>bone_index (int)</code>: Index of the bone.<br>
+</li>
+<li><code>angle (float)</code>: Angle for the magnetic encoder.<br>
+</li>
+<li><code>hardness_percent (int)</code>: Hardness percentage from 0 to 100.<br>
+</li>
+<li><code>lock_direction</code> (<a href="#tsmagneticencoderlockdirection"><code>TsMagneticEncoderLockDirection</code></a>): Direction of the lock.</li>
+</ul>
 <hr>
 </section>
 <section id="tsmagneticencoderlockdirectionenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsmagneticencoderlockdirectionenum">TsMagneticEncoderLockDirection(Enum):</h3>
 <p>Enumeration of magnetic encoder lock directions.</p>
-<p>Values:<br>
-- <code>Up</code>: Lock movement upwards.<br>
-- <code>Down</code>: Lock movement downwards.<br>
-- <code>Both</code>: Lock movement in both directions.</p>
+<p>Values:</p>
+<ul>
+<li><code>Up</code>: Lock movement upwards.<br>
+</li>
+<li><code>Down</code>: Lock movement downwards.<br>
+</li>
+<li><code>Both</code>: Lock movement in both directions.</li>
+</ul>
 <hr>
 </section>
-<section id="tsfingermepositionclass" class="level3">
-<h3 class="anchored" data-anchor-id="tsfingermepositionclass">TsFingerMEPosition(Class):</h3>
+<section id="tsfingermepositionstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsfingermepositionstructure">TsFingerMEPosition(Structure):</h3>
 <p>Represents the position of a finger.</p>
-<p>Attributes:<br>
-- <code>flexion_angle (float)</code>: Flexion angle of the finger.<br>
-- <code>abduction_angle (float)</code>: Abduction angle of the finger.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>flexion_angle (float)</code>: Flexion angle of the finger.<br>
+</li>
+<li><code>abduction_angle (float)</code>: Abduction angle of the finger.</li>
+</ul>
 <hr>
 </section>
-<section id="tsglovemepositionclass" class="level3">
-<h3 class="anchored" data-anchor-id="tsglovemepositionclass">TsGloveMEPosition(Class):</h3>
+<section id="tsglovemepositionstructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsglovemepositionstructure">TsGloveMEPosition(Structure):</h3>
 <p>Represents the magnetic encoder position structures for the fingers.</p>
-<p>Attributes:<br>
-- <code>side (TsDeviceSide)</code>: Side of the glove (left or right).<br>
-- <code>fingers (dict)</code>: Dictionary of bone indexes and their corresponding <a href="#tsfingermeposition">TsFingerMEPosition</a>.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>side (TsDeviceSide)</code>: Side of the glove (left or right).<br>
+</li>
+<li><code>fingers (dict)</code>: Dictionary of bone indexes and their corresponding <a href="#tsfingermeposition">TsFingerMEPosition</a>.</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1039,47 +1262,75 @@ options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
 <section id="tsdevicestructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsdevicestructure">TsDevice(Structure):</h3>
 <p>Represents a TESLASUIT device.</p>
-<p>Attributes: - <code>uuid (bytes)</code>: A 16-byte UUID that uniquely identifies the device.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>uuid (bytes)</code>: A 16-byte UUID that uniquely identifies the device.</li>
+</ul>
 <hr>
 </section>
 <section id="tsversionstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tsversionstructure">TsVersion(Structure):</h3>
 <p>Represents the version of the TESLASUIT C API.</p>
-<p>Attributes: - <code>major (int)</code>: Major version number.<br>
-- <code>minor (int)</code>: Minor version number.<br>
-- <code>patch (int)</code>: Patch version number.<br>
-- <code>build (int)</code>: Build version number.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>major (int)</code>: Major version number.<br>
+</li>
+<li><code>minor (int)</code>: Minor version number.<br>
+</li>
+<li><code>patch (int)</code>: Patch version number.<br>
+</li>
+<li><code>build (int)</code>: Build version number.</li>
+</ul>
 <hr>
 </section>
 <section id="tsdevicetypeenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsdevicetypeenum">TsDeviceType(Enum):</h3>
 <p>Enumeration of TESLASUIT device types.</p>
-<p>Values: - <code>Undefined</code>: Undefined device type.<br>
-- <code>Suit</code>: TESLASUIT suit device type.<br>
-- <code>Glove</code>: TESLASUIT glove device type.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined device type.<br>
+</li>
+<li><code>Suit</code>: TESLASUIT suit device type.<br>
+</li>
+<li><code>Glove</code>: TESLASUIT glove device type.</li>
+</ul>
 <hr>
 </section>
 <section id="tsdevicesideenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsdevicesideenum">TsDeviceSide(Enum):</h3>
 <p>Enumeration of TESLASUIT glove device sides.</p>
-<p>Values: - <code>Undefined</code>: Undefined device side.<br>
-- <code>Right</code>: Right glove device side.<br>
-- <code>Left</code>: Left glove device side.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined device side.<br>
+</li>
+<li><code>Right</code>: Right glove device side.<br>
+</li>
+<li><code>Left</code>: Left glove device side.</li>
+</ul>
 <hr>
 </section>
 <section id="tsdeviceeventpolicyenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsdeviceeventpolicyenum">TsDeviceEventPolicy(Enum):</h3>
 <p>Enumeration of policies for handling TESLASUIT device events.</p>
-<p>Values: - <code>Enumerate</code>: Enumerate all devices.<br>
-- <code>Attach</code>: Attach a device.<br>
-- <code>Detach</code>: Detach a device.</p>
+<p>Values:</p>
+<ul>
+<li><code>Enumerate</code>: Enumerate all devices.<br>
+</li>
+<li><code>Attach</code>: Attach a device.<br>
+</li>
+<li><code>Detach</code>: Detach a device.</li>
+</ul>
 <hr>
 </section>
 <section id="tsdeviceeventenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsdeviceeventenum">TsDeviceEvent(Enum):</h3>
 <p>Enumeration of events related to TESLASUIT devices.</p>
-<p>Values: - <code>DeviceAttached</code>: Device attached event.<br>
-- <code>DeviceDetached</code>: Device detached event.</p>
+<p>Values:</p>
+<ul>
+<li><code>DeviceAttached</code>: Device attached event.<br>
+</li>
+<li><code>DeviceDetached</code>: Device detached event.</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1088,14 +1339,22 @@ options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
 <section id="tsassettypeenum" class="level3">
 <h3 class="anchored" data-anchor-id="tsassettypeenum">TsAssetType(Enum):</h3>
 <p>Enumeration of TESLASUIT asset types.</p>
-<p>Values:<br>
-- <code>Undefined</code>: Undefined asset type.<br>
-- <code>Spline</code>: Spline asset.<br>
-- <code>HapticEffect</code>: Haptic effect asset.<br>
-- <code>Material</code>: Material asset.<br>
-- <code>TouchSequence</code>: Touch sequence asset.<br>
-- <code>PresetAnimation</code>: Preset animation asset.<br>
-- <code>SceneAnimation</code>: Scene animation asset.</p>
+<p>Values:</p>
+<ul>
+<li><code>Undefined</code>: Undefined asset type.<br>
+</li>
+<li><code>Spline</code>: Spline asset.<br>
+</li>
+<li><code>HapticEffect</code>: Haptic effect asset.<br>
+</li>
+<li><code>Material</code>: Material asset.<br>
+</li>
+<li><code>TouchSequence</code>: Touch sequence asset.<br>
+</li>
+<li><code>PresetAnimation</code>: Preset animation asset.<br>
+</li>
+<li><code>SceneAnimation</code>: Scene animation asset.</li>
+</ul>
 <hr>
 </section>
 </section>
@@ -1104,19 +1363,32 @@ options (<a href="#tsemgoptions">TsEmgOptions</a>): EMG options.</p>
 <section id="tscurrentfeedbackchanneldatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tscurrentfeedbackchanneldatastructure">TsCurrentFeedbackChannelData(Structure):</h3>
 <p>Represents a current feedback channel data.</p>
-<p>Attributes: - <code>channel_index (int)</code>: Index of the channel. - <code>value (int)</code>: Value of the channel.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>channel_index (int)</code>: Index of the channel.</li>
+<li><code>value (int)</code>: Value of the channel.</li>
+</ul>
 <hr>
 </section>
 <section id="tscurrentfeedbacknodedatastructure" class="level3">
 <h3 class="anchored" data-anchor-id="tscurrentfeedbacknodedatastructure">TsCurrentFeedbackNodeData(Structure):</h3>
 <p>Represents a current feedback node data.</p>
-<p>Attributes: - <code>node_index (int)</code>: Index of the node. - <code>number_of_channels (int)</code>: Number of channels in the node. - <code>channels_data (list)</code>: List of <a href="#tscurrentfeedbackchanneldata">TsCurrentFeedbackChannelData</a> objects.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>node_index (int)</code>: Index of the node.</li>
+<li><code>number_of_channels (int)</code>: Number of channels in the node.</li>
+<li><code>channels_data (list)</code>: List of <a href="#tscurrentfeedbackchanneldata">TsCurrentFeedbackChannelData</a> objects.</li>
+</ul>
 <hr>
 </section>
 <section id="tscurrentfeedbacknodesstructure" class="level3">
 <h3 class="anchored" data-anchor-id="tscurrentfeedbacknodesstructure">TsCurrentFeedbackNodes(Structure):</h3>
 <p>Represents a collection of current feedback nodes.</p>
-<p>Attributes: - <code>number_of_nodes (int)</code>: Number of nodes. - <code>nodes (list)</code>: List of <a href="#tscurrentfeedbacknodedata">TsCurrentFeedbackNodeData</a> objects.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>number_of_nodes (int)</code>: Number of nodes.</li>
+<li><code>nodes (list)</code>: List of <a href="#tscurrentfeedbacknodedata">TsCurrentFeedbackNodeData</a> objects.</li>
+</ul>
 
 
 </section>

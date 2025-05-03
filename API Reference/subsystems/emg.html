@@ -700,7 +700,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><a href="../../Main concepts/emg_concept.html">Main concept</a></li>
 <li><a href="../../examples/emg_example.html">Examples</a></li>
-<li><a href="../../API Reference/core/data_structures.html#emg">EMG Data structures</a></li>
+<li><a href="../../API Reference/core/data_structures.html#emg">EMG data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
@@ -732,10 +732,10 @@ This class allows for streaming EMG data, setting filter options, and retrieving
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>set_options(<span class="va">self</span>, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Set options for EMG streaming, such as filter parameters.<br>
 Args:<br>
-lower_bandwidth (int): Filter’s lower bandwidth.<br>
-upper_bandwidth (int): Filter’s upper bandwidth.<br>
-sample_frequency (int): Sampling frequency.<br>
-sample_size (int): Sample size.</p>
+- <code>lower_bandwidth (int)</code>: Filter’s lower bandwidth.<br>
+- <code>upper_bandwidth (int)</code>: Filter’s upper bandwidth.<br>
+- <code>sample_frequency (int)</code>: Sampling frequency.<br>
+- <code>sample_size (int)</code>: Sample size.</p>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>start_streaming(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Start EMG streaming for a provided device handle.<br>
@@ -749,7 +749,7 @@ This method unsubscribes from the data update callbacks and stops the streaming 
 <p>Wait until EMG data is ready and retrieve it.<br>
 This method blocks until data is available or streaming is stopped.<br>
 Returns:<br>
-<a href="../../API Reference/core/data_structures.html#emgdata">TsEmgData</a>: The latest EMG data object containing information about nodes, channels, and timestamps.</p>
+- <a href="../../API Reference/core/data_structures.html#emgdata"><code>TsEmgData</code></a>: The latest EMG data object containing information about nodes, channels, and timestamps.</p>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">

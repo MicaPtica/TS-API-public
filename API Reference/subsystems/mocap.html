@@ -702,7 +702,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="../../Main concepts/mocap_concept.html">Main concept</a></li>
 <li><a href="../../examples/mocap_example.html">Examples</a></li>
 <li><a href="../../usecases/ppg_visualiser.html">Usecase</a></li>
-<li><a href="../../API Reference/core/data_structures.html#mocap">PPG Data structures</a></li>
+<li><a href="../../API Reference/core/data_structures.html#mocap">Mocap data structures</a></li>
 </ul>
 </section>
 <section id="intro" class="level2">
@@ -747,19 +747,19 @@ This method triggers the calibration process for the skeleton model to ensure ac
 <p>Wait until raw mocap data is ready and retrieve it.<br>
 This method blocks until raw data is available or streaming is stopped.<br>
 Returns:<br>
-dict: A dictionary containing raw sensor data for all bones in format of <a href="../../API Reference/core/data_structures.html#tsmocapsensor">TsMocapSensor</a> structure.</p>
+- <code>dict</code>: A dictionary containing raw sensor data for all bones in format of <a href="../../API Reference/core/data_structures.html#tsmocapsensor">TsMocapSensor</a> structure.</p>
 <hr>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>get_skeleton_data_on_ready(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wait until skeleton mocap data is ready and retrieve it.<br>
 This method blocks until skeleton data is available or streaming is stopped.<br>
 Returns:<br>
-dict: A dictionary containing skeleton data for all bones in format of <a href="../../API Reference/core/data_structures.html#tsmocapbone">TsMocapBone</a> structure.</p>
+- <code>dict</code>: A dictionary containing skeleton data for all bones in format of <a href="../../API Reference/core/data_structures.html#tsmocapbone">TsMocapBone</a> structure.</p>
 <hr>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>get_biomechanical_angles_on_ready(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wait until biomechanical angles data is ready and retrieve it.<br>
 This method blocks until biomechanical angles data is available or streaming is stopped.<br>
 Returns:<br>
-dict: A dictionary containing biomechanical angles for all bones in format <code>'TsBiomechanicalIndex'</code>: <code>angle value</code>.</p>
+- <code>dict</code>: A dictionary containing biomechanical angles for all bones in format <code>'TsBiomechanicalIndex'</code>: <code>angle value</code>.</p>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">

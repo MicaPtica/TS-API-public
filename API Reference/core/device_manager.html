@@ -685,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -723,22 +723,12 @@ The <code>TsDeviceManager</code> class is the entry point for managing devices. 
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>wait_for_device_to_connect(<span class="va">self</span>, number_of_devices_to_wait<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Waits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.</p>
-<section id="args" class="level4">
-<h4 class="anchored" data-anchor-id="args">Args:</h4>
-<ul>
-<li><code>number_of_devices_to_wait</code> (int): Number of devices to wait for. Defaults to 1.</li>
-</ul>
+<p>Args: - <code>number_of_devices_to_wait</code> (int): Number of devices to wait for. Defaults to 1.</p>
 <p>This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.</p>
 <hr>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_or_wait_last_device_attached(<span class="va">self</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Returns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the <code>wait_for_device_to_connect</code> method. Once a device is connected, it returns the most recently attached device.</p>
-</section>
-<section id="returns" class="level4">
-<h4 class="anchored" data-anchor-id="returns">Returns:</h4>
-<ul>
-<li><a href="../../API Reference/core/device.html#tsdevice">TsDevice</a>: The last device connected.</li>
-</ul>
-</section>
+<p>Returns: - <a href="../../API Reference/core/device.html#tsdevice">TsDevice</a>: The last device connected.</p>
 </section>
 <section id="notes" class="level3">
 <h3 class="anchored" data-anchor-id="notes">Notes:</h3>
