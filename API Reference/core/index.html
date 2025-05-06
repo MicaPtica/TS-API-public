@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -494,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force feedback</span></a>
+ <span class="menu-text">Force feedback (Teslaglove)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -618,6 +621,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components">Core Components</a>
   <ul class="collapse">
   <li><a href="#ts-api" id="toc-ts-api" class="nav-link" data-scroll-target="#ts-api">TS API</a></li>
@@ -628,6 +632,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#asset-manager" id="toc-asset-manager" class="nav-link" data-scroll-target="#asset-manager">Asset Manager</a></li>
   <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a></li>
   </ul></li>
+  <li><a href="#inheritance-scheme" id="toc-inheritance-scheme" class="nav-link" data-scroll-target="#inheritance-scheme">Inheritance scheme</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul>
 </nav>
@@ -657,7 +662,19 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>The Teslasuit SDK provides a comprehensive set of tools and APIs for interacting with Teslasuit devices. This documentation covers the core components of the SDK, including device management, mapping, asset handling, and subsystem access.</p>
+<p>The Teslasuit API provides a comprehensive set of tools for interacting with Teslasuit devices. This documentation covers the core components of the API, including device management, mapping, asset handling, and subsystem access.</p>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ol type="1">
+<li><strong>Teslasuit API Library</strong><br>
+Ensure the Teslasuit API library (<code>libteslasuit_api.dylib</code>) is available and correctly loaded.</li>
+<li><strong>Teslasuit API Library Path</strong> Ensure the Teslasuit API library path is correctly set in the environment variable <code>TESLASUIT_API_LIB_PATH</code>or provided explicitly.</li>
+<li><strong>Connected Teslasuit Device</strong><br>
+A Teslasuit device must be connected to access its features.</li>
+<li><strong>Python Environment</strong><br>
+Python 3.8+ is required to use the Teslasuit SDK.</li>
+</ol>
 </section>
 <section id="core-components" class="level2">
 <h2 class="anchored" data-anchor-id="core-components">Core Components</h2>
@@ -689,6 +706,36 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="data-structures"><a href="../../API Reference/core/data_structures.html">Data Structures</a></h3>
 <p>Defines the data structures and enumerations used across the Teslasuit SDK, including mappings, layouts, bones, and subsystem-specific configurations.</p>
 </section>
+</section>
+<section id="inheritance-scheme" class="level2">
+<h2 class="anchored" data-anchor-id="inheritance-scheme">Inheritance scheme</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([TsApi]) --&gt; |Handles mapping the device| B[[TsMapper]]
+    A --&gt; |Provides access to connected device| C[[TsDeviceManager]]
+    A --&gt; |Loads the Teslasuit C API library| D[[TsLoader]]
+    A --&gt; |Manages Teslasuit assets| E[[TsAssetManager]]
+
+    C --&gt; N[[TsDevice]]
+    N --&gt; F(Access to subsystems)
+    F --&gt; G[[PPG]]
+    F --&gt; H[[Mocap]]
+    F --&gt; I[[Haptic]]
+    F --&gt; J[[Current feedback]]
+    F --&gt; K[[BIA]]
+    F --&gt; L[[EMG]]
+    F --&gt; M[[Force feedback]]
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>

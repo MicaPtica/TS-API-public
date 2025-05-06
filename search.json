@@ -11,6 +11,105 @@
     ]
   },
   {
+    "objectID": "Main concepts/ppg_concept.html#what-is-ppg",
+    "href": "Main concepts/ppg_concept.html#what-is-ppg",
+    "title": "PPG",
+    "section": "What is PPG?",
+    "text": "What is PPG?\nPhotoplethysmography (PPG) is a non-invasive optical technique used to measure blood volume changes in the microvascular bed of tissue. It is widely used in medical and fitness devices to monitor heart rate, blood oxygen levels, and other physiological parameters. PPG sensors work by emitting light into the skin and measuring the amount of light absorbed or reflected by blood vessels.\nPPG is a cornerstone technology in wearable devices, enabling real-time monitoring of cardiovascular health. Its applications range from fitness tracking to clinical monitoring, making it a versatile tool in health monitoring systems.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#ppg-in-teslasuit",
+    "href": "Main concepts/ppg_concept.html#ppg-in-teslasuit",
+    "title": "PPG",
+    "section": "PPG in Teslasuit",
+    "text": "PPG in Teslasuit\nThe Teslasuit integrates PPG technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The PPG subsystem in the Teslasuit is designed to provide real-time data on heart rate, heart rate variability (HRV), and raw PPG signals. This data can be used for various applications, including fitness tracking and stress monitoring\nThe Teslasuit’s PPG functionality is accessible through the TsPPG class, which provides methods for streaming raw data, retrieving processed data, and performing calibration. The PPG subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate PPG data into their applications.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#key-features-of-the-teslasuit-ppg-subsystem",
+    "href": "Main concepts/ppg_concept.html#key-features-of-the-teslasuit-ppg-subsystem",
+    "title": "PPG",
+    "section": "Key Features of the Teslasuit PPG Subsystem",
+    "text": "Key Features of the Teslasuit PPG Subsystem\n\nRaw Data Streaming: The Teslasuit PPG subsystem allows developers to stream raw PPG data in real time. This data can be used for custom signal processing and analysis.\nHeart Rate Variability (HRV): The subsystem provides HRV data, which is a key indicator of autonomic nervous system activity and overall cardiovascular health.\nProcessed Data: In addition to raw data, the subsystem offers processed PPG data, including heart rate and validity check of retrieved data.\nCalibration: The PPG subsystem includes a calibration feature to ensure accurate measurements.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#how-the-teslasuit-api-implements-ppg",
+    "href": "Main concepts/ppg_concept.html#how-the-teslasuit-api-implements-ppg",
+    "title": "PPG",
+    "section": "How the Teslasuit API Implements PPG",
+    "text": "How the Teslasuit API Implements PPG\nThe Teslasuit API provides a structured approach to accessing and utilizing PPG data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the PPG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its PPG subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The PPG subsystem is accessed through the ppg property of the connected device. This property returns an instance of the TsPPG class.\nData Retrieval: The TsPPG class provides methods to retrieve raw and processed PPG data, as well as HRV metrics.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#description-of-ppg-data",
+    "href": "Main concepts/ppg_concept.html#description-of-ppg-data",
+    "title": "PPG",
+    "section": "Description of PPG data",
+    "text": "Description of PPG data\nBelow is a detailed description of the PPG data and data structures used in the Teslasuit API for the PPG subsystem.\n\nHRV\n\nWhat is Heart Rate Variability (HRV)?\nHeart Rate Variability (HRV) is a measure of the variation in time between consecutive heartbeats. These time intervals, typically measured in milliseconds, reflect how the autonomic nervous system regulates the heart. HRV is widely recognized as a non-invasive marker of physiological resilience, stress response, and overall autonomic balance.\n\n\nWhy HRV Matters\nHRV provides insights into the balance between the sympathetic (“fight or flight”) and parasympathetic (“rest and digest”) branches of the autonomic nervous system. Higher HRV generally indicates better adaptability, recovery capacity, and health, while lower HRV can signal stress, fatigue, or underlying health issues.\n\n\nHRV in Teslasuit\nTeslasuit provides HRV analysis using various statistical and mathematical methods, including time-domain, frequency-domain, and non-linear approaches. These metrics provide different perspectives on how the body is responding and adapting over time. As calculation of different HRV parameters requires multiple R-R intervals, base for HRV calculations, Teslasuit has to make sufficient amount of measurements. Therefore the time buffer was implemented which makes impossible to get HRV data right after turning on the PPG sensor.\n\n\nHRV parameters and explanation\n\nMean R-R: The average time interval between consecutive heartbeats, measured in milliseconds. It reflects the average heart period and is inversely related to heart rate.\nStandard Deviation of NN Intervals (SDNN): A measure of overall heart rate variability, calculated as the standard deviation of all normal-to-normal RR intervals. It reflects both sympathetic and parasympathetic activity and is influenced by total recording duration.\nStandard Deviation of Successive Differences (SDSD): The standard deviation of the differences between successive RR intervals. It reflects short-term variations in heart rate and is primarily influenced by parasympathetic activity.\nRoot Mean Square of Successive Differences (RMSSD): A time-domain index of short-term heart rate variability. It is calculated as the square root of the mean squared differences between adjacent RR intervals and serves as a reliable indicator of parasympathetic (vagal) activity.\nSD1: A non-linear HRV metric representing short-term variability, derived from the width of the Poincaré plot (a scatter plot of RR intervals against the next RR interval). It is mathematically related to RMSSD.\nSD2: A measure of both short- and long-term variability, reflecting the length of the Poincaré plot ellipse. It captures the overall magnitude of variability and complements SD1.\nHigh-to-Low Frequency Ratio (HLF): The ratio between high-frequency and low-frequency spectral power in frequency-domain analysis. It provides an index of autonomic balance, with higher values indicating parasympathetic dominance and lower values suggesting sympathetic predominance.\n\n\n\n\nHeart Rate\n\nWhat is Heart Rate?\nHeart rate refers to the number of times the heart beats per minute (bpm). It is a direct indicator of cardiac activity and is influenced by a wide range of physiological and environmental factors, including physical exertion, emotional state, body temperature, and cardiovascular health. Heart rate is one of the most fundamental vital signs used in health and performance monitoring.\n\n\nWhy Heart Rate Matters\nHeart rate reflects the immediate state of the cardiovascular system and the body’s response to internal and external stimuli. An elevated heart rate may indicate physical effort, stress, or cardiovascular strain, while a lower heart rate at rest is often associated with good cardiovascular fitness and efficient autonomic function. Tracking heart rate over time allows for monitoring of exercise intensity, recovery, fatigue, and overall wellness.\n\n\nHeart Rate in Teslasuit\nTeslasuit measures heart rate using a photoplethysmography (PPG) sensor, which detects changes in vessels blood volume with each heartbeat. This allows for continuous, non-invasive monitoring of heart rate in both active and resting states. Heart rate data is updated in real-time and can be used independently or in combination with HRV metrics to assess physical performance, recovery, and autonomic nervous system activity.\n\n\nHeart Rate parameter and explanation\n\nHeart Rate (HR): The number of heartbeats per minute. It is calculated for every interval between successive heartbeats (R-R intervals) and reflects current cardiovascular activity. Heart rate increases with physical exertion or stress and decreases during rest or relaxation.\nis_valid: During periods of movement, signal artifacts may cause temporary disruptions or inaccuracies in heart rate measurements. To address this, we developed an extrapolation algorithm that maintains data continuity by estimating heart rate values when direct measurement is unreliable. As a result, each data point is accompanied by a validity flag indicating whether the value is based on a reliable measurement or an extrapolated estimate.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#applications-of-ppg-in-teslasuit",
+    "href": "Main concepts/ppg_concept.html#applications-of-ppg-in-teslasuit",
+    "title": "PPG",
+    "section": "Applications of PPG in Teslasuit",
+    "text": "Applications of PPG in Teslasuit\nThe PPG subsystem in the Teslasuit has a wide range of applications, including:\n\nFitness and Wellness: Monitor heart rate and HRV to track fitness levels and recovery.\nStress Monitoring: Use HRV data to assess stress levels and provide biofeedback.\nRehabilitation: Integrate PPG data into rehabilitation programs to monitor cardiovascular responses.\nGaming and VR: Enhance immersive experiences by incorporating real-time physiological data into gameplay or virtual environments.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/ppg_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "PPG",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit PPG subsystem relies on a hierarchy of data structures to manage and process PPG data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsPpgRawNodeData:\n\nRepresents raw PPG data for a single sensor node.\nContains attributes like ir_data, red_data, blue_data, green_data, and timestamp.\n\nTsPpgRawData:\n\nRepresents raw PPG data from multiple sensor nodes.\nContains a list of TsPpgRawNodeData objects.\n\nTsPpgNodeData:\n\nRepresents processed PPG data for a single sensor node.\nContains attributes like heart_rate, is_heart_rate_valid, and timestamp.\n\nTsPpgData:\n\nRepresents processed PPG data from multiple sensor nodes.\nContains a list of TsPpgNodeData objects.\n\nTsHrv:\n\nRepresents HRV metrics derived from processed PPG data.\nContains attributes like mean_rr, sdnn, rmssd, and others.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:\n\n\n\n\n\nflowchart TD\n    A([PPG class]) --&gt; B[[TsHrv]]\n    A --&gt; C[[TsPpgRawData]]\n    C --&gt; D[[TsPpgRawNodeData]]\n    D --&gt; E((ir_data))\n    D --&gt; F((red_data))\n    D --&gt; G((blue_data))\n    D --&gt; H((green_data))\n    D --&gt; I((timestamp))\n    A --&gt; Q[[TsPpgData]]\n    Q --&gt; R[[TsPpgNodeData]]\n    R --&gt; S((heart_rate))\n    R --&gt; T((is_valid))\n    \n    B --&gt; J((mean_rr))\n    B --&gt; K((sdnn))\n    B --&gt; L((sdsd))\n    B --&gt; M((sd1))\n    B --&gt; N((sd2))\n    B --&gt; O((rmssd))\n    B --&gt; P((hlf))\n\n    class B,J,K,L,M,N,O,P hrv;\n    class C,D,E,F,G,H,I,Q,R,S,T ppg;",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#example-code",
+    "href": "Main concepts/ppg_concept.html#example-code",
+    "title": "PPG",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the PPG subsystem in the Teslasuit API, refer to the PPG Examples page. These examples demonstrate how to initialize the API, connect to a device, and retrieve PPG data.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/ppg_concept.html#conclusion",
+    "href": "Main concepts/ppg_concept.html#conclusion",
+    "title": "PPG",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe PPG subsystem in the Teslasuit represents a powerful tool for real-time physiological monitoring. By leveraging the Teslasuit API, developers can integrate PPG data into a wide range of applications, from fitness tracking to immersive VR experiences. The combination of advanced hardware and a robust API makes the Teslasuit a versatile platform for innovation in health and wellness.",
+    "crumbs": [
+      "Main concepts",
+      "PPG"
+    ]
+  },
+  {
     "objectID": "examples/bia_example.html#quick-access",
     "href": "examples/bia_example.html#quick-access",
     "title": "BIA example (experimental)",
@@ -238,7 +337,7 @@
     "href": "Getting_started.html#first-steps",
     "title": "Getting started",
     "section": "First steps",
-    "text": "First steps\n\nConnect the Suit\nAfter connecting your Teslasuit to your PC or laptop, you’re ready to explore its capabilities using Python.\nTo begin, you need to:\n\nAttach the device\nInitialize the API and Device\nCreate a haptic playable\n\n⚠️ Safety First!  Please calibrate your suit in Control Center in order to avoid unpleasant or painful experience\n\n\nRun Your First Touch\nBelow is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:\nimport time\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_haptic\nfrom teslasuit_sdk.ts_mapper import TsBone2dIndex\n\nTOUCH_DURATION_MS = 1000\n\ndef main():\n    print(\"Initialize API\")\n    api = ts_api.TsApi()\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n    player = device.haptic\n    mapper = api.mapper\n\n    print(\"Setup channels to play and touch parameters\")\n    layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n    bones = mapper.get_layout_bones(layout)\n    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n    params = player.create_touch_parameters(100, 40, 150)\n\n    print(\"Create touch and play\")\n    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n    player.play_playable(playable_id)\n\n    print(\"Wait until playback finished...\")\n    time.sleep(TOUCH_DURATION_MS / 1000)\n    print(\"Finished\")\n\n\nif __name__ == '__main__':\n    main()",
+    "text": "First steps\n\nConnect the Suit\nAfter connecting your Teslasuit to your PC or laptop, you’re ready to explore its capabilities using Python.\nTo begin, you need to:\n\nAttach the device\nInitialize the API and Device\nCreate a haptic playable\n\n ⚠️ Safety First! Please calibrate your suit in Control Center in order to avoid unpleasant or painful experience\n\n\nRun Your First Touch\nBelow is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:\nimport time\nfrom teslasuit_sdk import ts_api\nimport teslasuit_sdk.subsystems.ts_haptic\nfrom teslasuit_sdk.ts_mapper import TsBone2dIndex\n\nTOUCH_DURATION_MS = 1000\n\ndef main():\n    print(\"Initialize API\")\n    api = ts_api.TsApi()\n    device = api.get_device_manager().get_or_wait_last_device_attached()\n    player = device.haptic\n    mapper = api.mapper\n\n    print(\"Setup channels to play and touch parameters\")\n    layout = mapper.get_haptic_electric_channel_layout(device.get_mapping())\n    bones = mapper.get_layout_bones(layout)\n    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])\n    params = player.create_touch_parameters(100, 40, 150)\n\n    print(\"Create touch and play\")\n    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)\n    player.play_playable(playable_id)\n\n    print(\"Wait until playback finished...\")\n    time.sleep(TOUCH_DURATION_MS / 1000)\n    print(\"Finished\")\n\n\nif __name__ == '__main__':\n    main()",
     "crumbs": [
       "Home",
       "Getting started"
@@ -283,19 +382,7 @@
     "href": "API Reference/subsystems/emg.html#intro",
     "title": "EMG (experimental)",
     "section": "Intro",
-    "text": "Intro\nThe EMG subsystem provides functionality to access and process Electromyography (EMG) data from Teslasuit devices.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "EMG (experimental)"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/emg.html#prerequisites",
-    "href": "API Reference/subsystems/emg.html#prerequisites",
-    "title": "EMG (experimental)",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the EMG Subsystem\nThe TsEmg class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsEmg is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe EMG subsystem provides functionality to access and process Electromyography (EMG) data from Teslasuit devices.\n\nNote:\nSince TsEmg is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -351,11 +438,23 @@
     ]
   },
   {
+    "objectID": "API Reference/subsystems/index.html#prerequisites",
+    "href": "API Reference/subsystems/index.html#prerequisites",
+    "title": "Overview",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nBefore you have access to any subsystem, ensure the following steps are completed: 1) Teslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features. 2) Connected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n💡 Note: The availability of the system depends on the type and version of your product.",
+    "crumbs": [
+      "API Reference",
+      "Subsystems",
+      "Overview"
+    ]
+  },
+  {
     "objectID": "API Reference/subsystems/index.html#subsystems",
     "href": "API Reference/subsystems/index.html#subsystems",
     "title": "Overview",
     "section": "Subsystems",
-    "text": "Subsystems\n\nPPG (Photoplethysmography): Provides access to PPG sensor data, including raw data, HRV, and heart rate.\nHaptic: Enables control of haptic feedback, including instant touches and looped playables.\nForce Feedback: Manages servomotor control for haptic feedback and movement restriction.\nCurrent Feedback: Streams and processes current feedback data from Teslasuit devices.\nBIA (Bioelectrical Impedance Analysis): Handles BIA data streaming and configuration.\nEMG (Electromyography): Provides access to EMG data for muscle activity analysis.\nMocap (Motion Capture): Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.",
+    "text": "Subsystems\n\nPPG (Photoplethysmography): Provides access to PPG sensor data, including raw data, HRV, and heart rate.\nHaptic: Enables control of haptic feedback, including instant touches and looped playables.\nForce feedback: Manages servomotor control for haptic feedback and movement restriction.\nCurrent feedback: Streams and processes current feedback data from Teslasuit devices.\nBIA (Bioelectrical impedance analysis): Handles BIA data streaming and configuration.\nEMG (Electromyography): Provides access to EMG data for muscle activity analysis.\nMocap (Motion capture): Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -379,19 +478,7 @@
     "href": "API Reference/subsystems/haptic.html#intro",
     "title": "Haptic",
     "section": "Intro",
-    "text": "Intro\nThe Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "Haptic"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/haptic.html#prerequisites",
-    "href": "API Reference/subsystems/haptic.html#prerequisites",
-    "title": "Haptic",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Haptic Subsystem\nThe TsHapticPlayer class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsHapticPlayer is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.\n\nNote:\nSince TsHapticPlayer is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -439,19 +526,7 @@
     "href": "API Reference/subsystems/mocap.html#intro",
     "title": "Mocap",
     "section": "Intro",
-    "text": "Intro\nBiometry subsystem provides functions to access Mocap functionality.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "Mocap"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/mocap.html#prerequisites",
-    "href": "API Reference/subsystems/mocap.html#prerequisites",
-    "title": "Mocap",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem\nThe TsMocap class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsMocap is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nBiometry subsystem provides functions to access Mocap functionality.\n\nNote:\nSince TsMocap is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -511,7 +586,7 @@
     "href": "API Reference/core/device.html#prerequisites",
     "title": "Device",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to Device Subsystems\nThe TsDevice class provides access to various subsystems (e.g., motion capture, haptics, PPG, etc.) and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsDevice is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\n\nNote:\nSince TsDevice is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -547,19 +622,7 @@
     "href": "API Reference/core/mapper.html#intro",
     "title": "Mapper",
     "section": "Intro",
-    "text": "Intro\nThe Mapper subsystem provides functionality to handle 2D mapping of device elements, including layouts, bones, and their associated data.",
-    "crumbs": [
-      "API Reference",
-      "Core",
-      "Mapper"
-    ]
-  },
-  {
-    "objectID": "API Reference/core/mapper.html#prerequisites",
-    "href": "API Reference/core/mapper.html#prerequisites",
-    "title": "Mapper",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the Mapper Subsystem\nThe TsMapper class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsMapper interacts with device mappings, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe Mapper subsystem provides functionality to handle 2D mapping of device elements, including layouts, bones, and their associated data.\n\nNote:\nSince TsMapper interacts with device mappings, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -623,7 +686,7 @@
     "href": "API Reference/core/asset_manager.html#intro",
     "title": "Asset manager",
     "section": "Intro",
-    "text": "Intro\nThe Asset Manager subsystem provides functions to manage TESLASUIT assets, such as loading, retrieving, and unloading assets.",
+    "text": "Intro\nThe Asset Manager subsystem provides functions to manage Teslasuit assets, such as loading, retrieving, and unloading assets.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -635,7 +698,7 @@
     "href": "API Reference/core/asset_manager.html#prerequisites",
     "title": "Asset manager",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Asset Manager Subsystem\nThe TsAssetManager class is part of the TESLASUIT SDK and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsAssetManager is a member of the SDK, it cannot be used independently without an active Teslasuit device.",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\n\nNote:\nSince TsAssetManager is a member of the SDK, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -683,7 +746,7 @@
     "href": "API Reference/core/device_manager.html#prerequisites",
     "title": "Device manager",
     "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nAt least one Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to Device Manager\nThe TsDeviceManager class is the entry point for managing devices. Ensure that the Teslasuit SDK is properly configured and the required libraries are loaded.",
+    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nAt least one Teslasuit device must be connected. If no device is available, the system will wait until one is attached.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -695,7 +758,7 @@
     "href": "API Reference/core/device_manager.html#class-tsdevicemanager",
     "title": "Device manager",
     "section": "Class TsDeviceManager",
-    "text": "Class TsDeviceManager\nHandles the connection and disconnection of TESLASUIT devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\nArgs: - number_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\nReturns: - TsDevice: The last device connected.\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
+    "text": "Class TsDeviceManager\nHandles the connection and disconnection of Teslasuit devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\nArgs: - number_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\nReturns: - TsDevice: The last device connected.\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -707,7 +770,19 @@
     "href": "API Reference/core/index.html#introduction",
     "title": "Overview",
     "section": "Introduction",
-    "text": "Introduction\nThe Teslasuit SDK provides a comprehensive set of tools and APIs for interacting with Teslasuit devices. This documentation covers the core components of the SDK, including device management, mapping, asset handling, and subsystem access.",
+    "text": "Introduction\nThe Teslasuit API provides a comprehensive set of tools for interacting with Teslasuit devices. This documentation covers the core components of the API, including device management, mapping, asset handling, and subsystem access.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/index.html#prerequisites",
+    "href": "API Reference/core/index.html#prerequisites",
+    "title": "Overview",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nTeslasuit API Library\nEnsure the Teslasuit API library (libteslasuit_api.dylib) is available and correctly loaded.\nTeslasuit API Library Path Ensure the Teslasuit API library path is correctly set in the environment variable TESLASUIT_API_LIB_PATHor provided explicitly.\nConnected Teslasuit Device\nA Teslasuit device must be connected to access its features.\nPython Environment\nPython 3.8+ is required to use the Teslasuit SDK.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -720,6 +795,18 @@
     "title": "Overview",
     "section": "Core Components",
     "text": "Core Components\n\nTS API\nThe central interface for initializing and managing the Teslasuit API. It provides access to core functionalities such as device management, asset management, and mapping subsystems.\n\n\nDevice Manager\nHandles the connection and disconnection of Teslasuit devices. It provides access to connected devices and their properties, enabling seamless interaction with the Teslasuit ecosystem.\n\n\nDevice\nRepresents a Teslasuit device and provides access to its subsystems, such as motion capture, haptics, and biometry. It also allows retrieval of device-specific information.\n\n\nMapper\nProvides functionality for handling 2D mapping of device elements, including layouts, bones, and associated data. It supports operations like retrieving mappings and layouts.\n\n\nLoader\nHandles the dynamic loading of the Teslasuit C API library. It ensures the library is correctly loaded and accessible for API operations.\n\n\nAsset Manager\nManages Teslasuit assets, including loading, retrieving, and unloading assets. It supports operations with assets such as haptic effects and animations.\n\n\nData Structures\nDefines the data structures and enumerations used across the Teslasuit SDK, including mappings, layouts, bones, and subsystem-specific configurations.",
+    "crumbs": [
+      "API Reference",
+      "Core",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "API Reference/core/index.html#inheritance-scheme",
+    "href": "API Reference/core/index.html#inheritance-scheme",
+    "title": "Overview",
+    "section": "Inheritance scheme",
+    "text": "Inheritance scheme\n\n\n\n\n\nflowchart TD\n    A([TsApi]) --&gt; |Handles mapping the device| B[[TsMapper]]\n    A --&gt; |Provides access to connected device| C[[TsDeviceManager]]\n    A --&gt; |Loads the Teslasuit C API library| D[[TsLoader]]\n    A --&gt; |Manages Teslasuit assets| E[[TsAssetManager]]\n\n    C --&gt; N[[TsDevice]]\n    N --&gt; F(Access to subsystems)\n    F --&gt; G[[PPG]]\n    F --&gt; H[[Mocap]]\n    F --&gt; I[[Haptic]]\n    F --&gt; J[[Current feedback]]\n    F --&gt; K[[BIA]]\n    F --&gt; L[[EMG]]\n    F --&gt; M[[Force feedback]]",
     "crumbs": [
       "API Reference",
       "Core",
@@ -756,18 +843,6 @@
     "title": "TS API",
     "section": "Intro",
     "text": "Intro\nThe TsApi class serves as the central interface for interacting with the Teslasuit API. It provides access to core functionalities, including device management, asset management, and mapping subsystems. This class is essential for initializing and managing the Teslasuit API and its associated components.",
-    "crumbs": [
-      "API Reference",
-      "Core",
-      "TS API"
-    ]
-  },
-  {
-    "objectID": "API Reference/core/ts_api.html#prerequisites",
-    "href": "API Reference/core/ts_api.html#prerequisites",
-    "title": "TS API",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Library\nEnsure the Teslasuit API library (libteslasuit_api.dylib) is available and correctly loaded.\nConnected Teslasuit Device\nA Teslasuit device must be connected to access its features.\nPython Environment\nPython 3.8+ is required to use the Teslasuit SDK.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -959,19 +1034,7 @@
     "href": "API Reference/subsystems/bia.html#intro",
     "title": "BIA (experimental)",
     "section": "Intro",
-    "text": "Intro\nThe BIA (Bioelectrical Impedance Analysis) subsystem provides functions to access BIA functionality.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "BIA (experimental)"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/bia.html#prerequisites",
-    "href": "API Reference/subsystems/bia.html#prerequisites",
-    "title": "BIA (experimental)",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the BIA Subsystem\nThe TsBia class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsBia is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe BIA (Bioelectrical Impedance Analysis) subsystem provides functions to access BIA functionality.\n\nNote:\nSince TsBia is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1019,19 +1082,7 @@
     "href": "API Reference/subsystems/current_feedback.html#intro",
     "title": "Current Feedback (experimental)",
     "section": "Intro",
-    "text": "Intro\nThe Current Feedback subsystem provides functions to access and stream current feedback data from Teslasuit devices.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "Current Feedback (experimental)"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/current_feedback.html#prerequisites",
-    "href": "API Reference/subsystems/current_feedback.html#prerequisites",
-    "title": "Current Feedback (experimental)",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Current Feedback Subsystem\nThe TsCurrentFeedback class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsCurrentFeedback is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe Current Feedback subsystem provides functions to access and stream current feedback data from Teslasuit devices.\n\nNote:\nSince TsCurrentFeedback is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1079,19 +1130,7 @@
     "href": "API Reference/subsystems/ppg.html#intro",
     "title": "PPG",
     "section": "Intro",
-    "text": "Intro\nBiometry subsystem provides functions to access PPG functionality.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "PPG"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/ppg.html#prerequisites",
-    "href": "API Reference/subsystems/ppg.html#prerequisites",
-    "title": "PPG",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\nAccess to the PPG Subsystem The TsPPG class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nSince TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nBiometry subsystem provides functions to access PPG functionality.\n\nNote:\nSince TsPPG is a member of the device class, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1125,73 +1164,61 @@
   {
     "objectID": "API Reference/subsystems/force_feedback.html#quick-access",
     "href": "API Reference/subsystems/force_feedback.html#quick-access",
-    "title": "Force feedback",
+    "title": "Force feedback (Teslaglove)",
     "section": "Quick access",
     "text": "Quick access\n\nMain concept\nExamples\nMagnetic encoder data structures",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Force feedback"
+      "Force feedback (Teslaglove)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/force_feedback.html#intro",
     "href": "API Reference/subsystems/force_feedback.html#intro",
-    "title": "Force feedback",
+    "title": "Force feedback (Teslaglove)",
     "section": "Intro",
-    "text": "Intro\nThe Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.",
+    "text": "Intro\nThe Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.\n\nNote:\nsince TsMagneticEncoder is a member of the device class and cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Force feedback"
-    ]
-  },
-  {
-    "objectID": "API Reference/subsystems/force_feedback.html#prerequisites",
-    "href": "API Reference/subsystems/force_feedback.html#prerequisites",
-    "title": "Force feedback",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\nAccess to the Magnetic Encoder Subsystem\nThe Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.\n\n\nNote:\nsince TsMagneticEncoder is a member of the device class and cannot be used independently without an active Teslasuit device.",
-    "crumbs": [
-      "API Reference",
-      "Subsystems",
-      "Force feedback"
+      "Force feedback (Teslaglove)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
     "href": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
-    "title": "Force feedback",
+    "title": "Force feedback (Teslaglove)",
     "section": "Class TsMagneticEncoder",
     "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers. Returns: - dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nArgs:\n- me_configs (list): A list of TsForceFeedbackConfig objects.\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nArgs:\n- bone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder. Returns: - TsForceFeedbackConfig: A TsForceFeedbackConfig structure.\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n- list: A list of bone indexes.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Force feedback"
+      "Force feedback (Teslaglove)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/force_feedback.html#utilities",
     "href": "API Reference/subsystems/force_feedback.html#utilities",
-    "title": "Force feedback",
+    "title": "Force feedback (Teslaglove)",
     "section": "Utilities",
     "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nArgs:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsForceFeedbackConfig structure for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsForceFeedbackConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Force feedback"
+      "Force feedback (Teslaglove)"
     ]
   },
   {
     "objectID": "API Reference/subsystems/force_feedback.html#access-to-the-data",
     "href": "API Reference/subsystems/force_feedback.html#access-to-the-data",
-    "title": "Force feedback",
+    "title": "Force feedback (Teslaglove)",
     "section": "Access to the data",
     "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to finger positions\nTsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle\n\n\n\n\n\nflowchart TD\nA[TsFingerMEPosition] --&gt; B[flexion_angle]\nA --&gt; C[abduction_angle]\n\n\n\n\n\n\n\n\nAccess to force feedback configuration\nTsMagneticEncoder.get_default_ff_controls_struct().bone_index\n\n\n\n\n\nflowchart TD\nA[TsForceFeedbackConfig] --&gt; B[bone_index]\nA --&gt; C[angle]\nA --&gt; D[hardness_percent]\nA --&gt; E[lock_direction]",
     "crumbs": [
       "API Reference",
       "Subsystems",
-      "Force feedback"
+      "Force feedback (Teslaglove)"
     ]
   },
   {

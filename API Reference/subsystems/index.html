@@ -494,7 +494,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force feedback</span></a>
+ <span class="menu-text">Force feedback (Teslaglove)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -618,6 +618,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#subsystems" id="toc-subsystems" class="nav-link" data-scroll-target="#subsystems">Subsystems</a></li>
   </ul>
 </nav>
@@ -648,16 +649,21 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>In this section, you can find documentation for the API subsystems responsible for communication with various Teslasuit and Teslaglove functionalities.</p>
 </section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>Before you have access to any subsystem, ensure the following steps are completed: 1) Teslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features. 2) Connected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.</p>
+<p>💡 <span style="background-color: yellow;"><strong>Note: The availability of the system depends on the type and version of your product.</strong> </span></p>
+</section>
 <section id="subsystems" class="level2">
 <h2 class="anchored" data-anchor-id="subsystems">Subsystems</h2>
 <ul>
 <li><a href="../../API Reference/subsystems/ppg.html">PPG (Photoplethysmography)</a>: Provides access to PPG sensor data, including raw data, HRV, and heart rate.</li>
 <li><a href="../../API Reference/subsystems/haptic.html">Haptic</a>: Enables control of haptic feedback, including instant touches and looped playables.</li>
-<li><a href="../../API Reference/subsystems/force_feedback.html">Force Feedback</a>: Manages servomotor control for haptic feedback and movement restriction.</li>
-<li><a href="../../API Reference/subsystems/current_feedback.html">Current Feedback</a>: Streams and processes current feedback data from Teslasuit devices.</li>
-<li><a href="../../API Reference/subsystems/bia.html">BIA (Bioelectrical Impedance Analysis)</a>: Handles BIA data streaming and configuration.</li>
+<li><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a>: Manages servomotor control for haptic feedback and movement restriction.</li>
+<li><a href="../../API Reference/subsystems/current_feedback.html">Current feedback</a>: Streams and processes current feedback data from Teslasuit devices.</li>
+<li><a href="../../API Reference/subsystems/bia.html">BIA (Bioelectrical impedance analysis)</a>: Handles BIA data streaming and configuration.</li>
 <li><a href="../../API Reference/subsystems/emg.html">EMG (Electromyography)</a>: Provides access to EMG data for muscle activity analysis.</li>
-<li><a href="../../API Reference/subsystems/mocap.html">Mocap (Motion Capture)</a>: Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.</li>
+<li><a href="../../API Reference/subsystems/mocap.html">Mocap (Motion capture)</a>: Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.</li>
 </ul>
 
 

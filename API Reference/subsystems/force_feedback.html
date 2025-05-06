@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Force feedback – API Docs</title>
+<title>Force feedback (Teslaglove) – API Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback (Teslaglove)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -531,7 +531,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Force feedback</span></a>
+ <span class="menu-text">Force feedback (Teslaglove)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -655,8 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
-  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a>
   <ul class="collapse">
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
   </ul></li>
@@ -679,9 +678,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">API Reference</li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/index.html">Subsystems</a></li><li class="breadcrumb-item"><a href="../../API Reference/subsystems/force_feedback.html">Force feedback (Teslaglove)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Force feedback</h1>
+<h1 class="title">Force feedback (Teslaglove)</h1>
 </div>
 
 
@@ -710,19 +709,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>The Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.</p>
-</section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<ol type="1">
-<li>Teslasuit API Initialization<br>
-The Teslasuit API must be initialized before accessing any of its features.<br>
-</li>
-<li>Connected Teslasuit Device<br>
-A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.<br>
-</li>
-<li>Access to the Magnetic Encoder Subsystem<br>
-The Magnetic Encoder subsystem can only be used after obtaining access to a connected Teslasuit device.</li>
-</ol>
 <section id="note" class="level3">
 <h3 class="anchored" data-anchor-id="note">Note:</h3>
 <p>since <code>TsMagneticEncoder</code> is a member of the <a href="../../API Reference/core/device.html">device</a> class and cannot be used independently without an active Teslasuit device.</p>

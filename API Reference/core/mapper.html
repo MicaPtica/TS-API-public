@@ -528,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force feedback</span></a>
+ <span class="menu-text">Force feedback (Teslaglove)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -652,8 +652,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
-  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a>
   <ul class="collapse">
   <li><a href="#note" id="toc-note" class="nav-link" data-scroll-target="#note">Note:</a></li>
   </ul></li>
@@ -699,17 +698,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
 <p>The Mapper subsystem provides functionality to handle 2D mapping of device elements, including layouts, bones, and their associated data.</p>
-</section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<ol type="1">
-<li>Teslasuit API Initialization<br>
-The Teslasuit API must be initialized before accessing any of its features.</li>
-<li>Connected Teslasuit Device<br>
-A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.</li>
-<li>Access to the Mapper Subsystem<br>
-The <code>TsMapper</code> class is part of the device’s functionality and can only be used after obtaining access to a connected Teslasuit device.</li>
-</ol>
 <section id="note" class="level3">
 <h3 class="anchored" data-anchor-id="note">Note:</h3>
 <p>Since <code>TsMapper</code> interacts with device mappings, it cannot be used independently without an active Teslasuit device.</p>
