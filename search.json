@@ -48,7 +48,7 @@
     "href": "Main concepts/ppg_concept.html#how-the-teslasuit-api-implements-ppg",
     "title": "PPG",
     "section": "How the Teslasuit API Implements PPG",
-    "text": "How the Teslasuit API Implements PPG\nThe Teslasuit API provides a structured approach to accessing and utilizing PPG data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the PPG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its PPG subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The PPG subsystem is accessed through the ppg property of the connected device. This property returns an instance of the TsPPG class.\nData Retrieval: The TsPPG class provides methods to retrieve raw and processed PPG data, as well as HRV metrics.",
+    "text": "How the Teslasuit API Implements PPG\nThe Teslasuit API provides a structured approach to accessing and utilizing PPG data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the PPG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its PPG subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The PPG subsystem is accessed through the ppg property of the connected device. This property returns an instance of the TsPpg class.\nData Retrieval: The TsPpg class provides methods to retrieve raw and processed PPG data, as well as HRV metrics.",
     "crumbs": [
       "Main concepts",
       "PPG"
@@ -107,6 +107,116 @@
     "crumbs": [
       "Main concepts",
       "PPG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#quick-access",
+    "href": "Main concepts/mocap_concept.html#quick-access",
+    "title": "Mocap",
+    "section": "Quick access",
+    "text": "Quick access\n\nMocap Subsystem\nExamples\nUsecase\nMocap Data structures",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#what-is-mocap",
+    "href": "Main concepts/mocap_concept.html#what-is-mocap",
+    "title": "Mocap",
+    "section": "What is Mocap?",
+    "text": "What is Mocap?\nMotion capture (Mocap) is a technology used to record the movement of objects or people. It is widely used in fields such as animation, gaming, sports, and biomechanics to analyze and replicate motion. Mocap systems track the position and orientation of key points on a subject and translate them into digital data.\nMotion capture (Mocap) is a foundational technology in wearable devices, allowing for real-time monitoring of body movements. It serves a wide array of purposes, from entertainment to healthcare, making it a highly adaptable tool for motion analysis and simulation.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#mocap-in-teslasuit",
+    "href": "Main concepts/mocap_concept.html#mocap-in-teslasuit",
+    "title": "Mocap",
+    "section": "Mocap in Teslasuit",
+    "text": "Mocap in Teslasuit\nTeslasuit integrates Mocap technology as part of its motion capture subsystem, enabling advanced motion tracking capabilities. The Mocap subsystem in the Teslasuit is designed to provide real-time data on skeletal positions, orientations, and biomechanical angles. This data can be used for various applications, including animation, rehabilitation, and sports performance analysis.\nSystem relies on 14 strategically placed inertial measurement unit (IMU) sensors embedded throughout the suit. These sensors ensure high-resolution tracking of body movements, delivering precise and consistent motion data across all major joints and body segments.\nThe Teslasuit’s Mocap functionality is accessible through the TsMocap class, which provides methods for streaming raw data, retrieving skeleton data, and performing calibration. The Mocap subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate motion data into their applications.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#key-features-of-the-teslasuit-mocap-subsystem",
+    "href": "Main concepts/mocap_concept.html#key-features-of-the-teslasuit-mocap-subsystem",
+    "title": "Mocap",
+    "section": "Key Features of the Teslasuit Mocap Subsystem",
+    "text": "Key Features of the Teslasuit Mocap Subsystem\n\nRaw Data Streaming: The Teslasuit Mocap subsystem allows developers to stream raw motion data in real time. This data can be used for custom analysis and visualization.\nSkeleton Data: The subsystem provides detailed skeletal data, including bone positions and orientations, enabling precise motion tracking.\nBiomechanical Angles: The subsystem offers biomechanical angle data, which is useful for analyzing joint movements and posture.\nCalibration: The Mocap subsystem includes a calibration feature to ensure accurate motion tracking.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#how-the-teslasuit-api-implements-mocap",
+    "href": "Main concepts/mocap_concept.html#how-the-teslasuit-api-implements-mocap",
+    "title": "Mocap",
+    "section": "How the Teslasuit API Implements Mocap",
+    "text": "How the Teslasuit API Implements Mocap\nThe Teslasuit API provides a structured approach to accessing and utilizing Mocap data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the Mocap subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its Mocap subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The Mocap subsystem is accessed through the mocap property of the connected device. This property returns an instance of the TsMocap class.\nData Retrieval: The TsMocap class provides methods to retrieve raw sensor data, skeleton data, and biomechanical angles.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#description-of-mocap-data",
+    "href": "Main concepts/mocap_concept.html#description-of-mocap-data",
+    "title": "Mocap",
+    "section": "Description of Mocap Data",
+    "text": "Description of Mocap Data\nBelow is a detailed description of the Mocap data and data structures used in the Teslasuit API for the Mocap subsystem.\n\nSkeleton Data\n\nWhat is Skeleton Data?\nThe “Skeleton” refers to a skeletal model—a digital representation of the human body composed of interconnected bones or segments—that mirrors the subject’s posture and motion in real time. Skeleton data represents the positions and orientations of bones in a 3D space. It is used to track the movement of a subject’s body and is a fundamental component of motion capture systems.\n\n\nWhy Skeleton Data Matters\nSkeleton data provides insights into body posture, joint movements, and overall motion patterns. It is widely used in animation, sports analysis, and rehabilitation to study and replicate human motion.\n\n\nSkeleton Data in Teslasuit\nThe Teslasuit provides detailed skeleton data using its integrated motion capture sensors. This data includes the position and rotation of each bone in the body, enabling precise motion tracking and analysis.\n\n\nSkeleton Data Parameters and Explanation\n\nPosition: The 3D coordinates (x, y, z) of a bone in space.\nRotation: The orientation of a bone represented as a quaternion (w, x, y, z).\n\n\nWhat is a Quaternion?\nA quaternion is a mathematical representation used to describe rotations in 3D space. It consists of four components: one real part (w) and three imaginary parts (x, y, z). Quaternions are widely used in computer graphics, robotics, and motion capture because they avoid issues like gimbal lock and provide smooth interpolation for rotations.\n\n\n\n\nBiomechanical Angles\n\nWhat are Biomechanical Angles?\nBiomechanical angles represent the relative angles between bones at joints. These angles are used to analyze joint movements and body mechanics.\n\n\nWhy Biomechanical Angles Matter\nBiomechanical angles provide valuable information about joint flexibility, posture, and movement efficiency. They are essential for applications in sports performance, rehabilitation, and ergonomics.\n\n\nBiomechanical Angles in Teslasuit\nTeslasuit calculates biomechanical angles using its motion capture data. These angles are available for key joints in the body and can be used to analyze motion patterns and detect abnormalities.\n\n\nBiomechanical Angle Parameters and Explanation\n\nJoint Angle: The angles between two connected bones at a joint. Angles are typically measured in degrees or radians and represent the relative orientation of the bones.\n\nFlexion/Extension: These angles describe the bending (flexion) or straightening (extension) of a joint. For example, the knee joint’s flexion angle increases as the leg bends.\nAbduction/Adduction: These angles describe the movement of a limb away from (abduction) or toward (adduction) the body’s midline. For example, raising an arm sideways involves abduction of the shoulder joint.\nInternal/External Rotation: These angles describe the rotation of a bone around its longitudinal axis. For example, rotating the forearm inward or outward involves internal or external rotation of the shoulder joint.\nPlane of Movement: The biomechanical angles are often categorized based on the anatomical planes of movement:\n\nSagittal Plane: Flexion and extension.\nFrontal Plane: Abduction and adduction.\nTransverse Plane: Internal and external rotation.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#applications-of-mocap-in-teslasuit",
+    "href": "Main concepts/mocap_concept.html#applications-of-mocap-in-teslasuit",
+    "title": "Mocap",
+    "section": "Applications of Mocap in Teslasuit",
+    "text": "Applications of Mocap in Teslasuit\nThe Mocap subsystem in the Teslasuit has a wide range of applications, including:\n\nAnimation and Gaming: Capture realistic human movements for use in animation and virtual environments.\nSports Performance: Analyze motion patterns to improve athletic performance and reduce injury risk.\nRehabilitation: Monitor body movements during rehabilitation exercises to track progress and ensure proper technique.\nVirtual Reality: Enhance immersive experiences by incorporating real-time motion data into VR applications.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/mocap_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "Mocap",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit Mocap subsystem relies on a hierarchy of data structures to manage and process motion data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsMocapBone:\n\nRepresents the position and rotation of a single bone.\nContains attributes like position and rotation.\n\nTsMocapSensor:\n\nRepresents raw IMU sensor data for a single bone.\nContains attributes like gyro, accel, timestamp and others.\n\n**TsBiomechanicalIndex**:\n\nRepresents biomechanical angles for specific joints.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:\n\n\n\n\n\nflowchart TD\n    A([Mocap class]) --&gt; B[[TsMocapBone]]\n    A --&gt; C[[TsMocapSensor]]\n    C --&gt; D[[gyro]]\n    C --&gt; E[[accel]]\n    C --&gt; F[[timestamp]]\n    A --&gt; G[[TsBiomechanicalIndex]]\n    G --&gt; H((angle_value))\n\n    class B,C,D,E,F,G,H mocap;",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#example-code",
+    "href": "Main concepts/mocap_concept.html#example-code",
+    "title": "Mocap",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the Mocap subsystem in the Teslasuit API, refer to the Mocap Examples page. These examples demonstrate how to initialize the API, connect to a device, and retrieve Mocap data.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/mocap_concept.html#conclusion",
+    "href": "Main concepts/mocap_concept.html#conclusion",
+    "title": "Mocap",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe Mocap subsystem in the Teslasuit represents a powerful tool for real-time motion tracking. By leveraging the Teslasuit API, developers can integrate Mocap data into a wide range of applications, from animation to rehabilitation. The combination of advanced hardware and a robust API makes the Teslasuit a versatile platform for innovation in motion analysis.",
+    "crumbs": [
+      "Main concepts",
+      "Mocap"
     ]
   },
   {
@@ -394,7 +504,7 @@
     "href": "API Reference/subsystems/emg.html#class-tsemg",
     "title": "EMG (experimental)",
     "section": "Class TsEmg",
-    "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\n- lower_bandwidth (int): Filter’s lower bandwidth.\n- upper_bandwidth (int): Filter’s upper bandwidth.\n- sample_frequency (int): Sampling frequency.\n- sample_size (int): Sample size.\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\n- TsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
+    "text": "Class TsEmg\nProvides an interface for interacting with the Teslasuit EMG subsystem.\nThis class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.\n\nClass methods:\n\nset_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)\nSet options for EMG streaming, such as filter parameters.\nArgs:\n\nlower_bandwidth (int): Filter’s lower bandwidth.\n\nupper_bandwidth (int): Filter’s upper bandwidth.\n\nsample_frequency (int): Sampling frequency.\n\nsample_size (int): Sample size.\n\n\nstart_streaming(self)\nStart EMG streaming for a provided device handle.\nThis method subscribes to the data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop EMG streaming for a provided device handle.\nThis method unsubscribes from the data update callbacks and stops the streaming process.\n\nget_data_on_ready(self)\nWait until EMG data is ready and retrieve it.\nThis method blocks until data is available or streaming is stopped.\nReturns:\n\nTsEmgData: The latest EMG data object containing information about nodes, channels, and timestamps.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -442,7 +552,7 @@
     "href": "API Reference/subsystems/index.html#prerequisites",
     "title": "Overview",
     "section": "Prerequisites",
-    "text": "Prerequisites\nBefore you have access to any subsystem, ensure the following steps are completed: 1) Teslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features. 2) Connected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n💡 Note: The availability of the system depends on the type and version of your product.",
+    "text": "Prerequisites\nBefore you have access to any subsystem, ensure the following steps are completed:\n\nTeslasuit API Initialization The Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\n💡 Note: The availability of the system depends on the type and version of your product.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -490,7 +600,7 @@
     "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
     "title": "Haptic",
     "section": "Class TsHapticPlayer",
-    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\n- bool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\n- bool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nArgs:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\n- bool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nArgs:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\n- int: Time in milliseconds.\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nArgs:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\n- int: The ID of the created playable.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nArgs:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nArgs:\n- playable_id (int): The ID of the playable.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nArgs:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\n- list: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nArgs:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\n- list: List of TsHapticParamMultiplier objects.",
+    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\n\nbool: True if the player is running.\n\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\n\nbool: True if the player is paused.\n\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nArgs:\n\nis_paused (bool): True to pause, False to resume.\n\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\n\nbool: True if the player is muted.\n\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nArgs:\n\nis_muted (bool): True to mute, False to unmute.\n\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\n\nint: Time in milliseconds.\n\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nArgs:\n\nasset: The haptic asset.\n\nis_looped (bool): Whether the playable should loop.\n\nReturns:\n\nint: The ID of the created playable.\n\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nArgs:\n\nparams (list): List of TsHapticParam objects.\n\nchannels (list): List of channel IDs.\n\nduration (int): Duration in milliseconds.\n\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nArgs:\n\nperiod_ms (float): Period in milliseconds.\n\namplitude (float): Amplitude value.\n\npulse_width (float): Pulse width value.\n\nReturns:\n\nlist: List of TsHapticParam objects.\n\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nArgs:\n\nperiod_ms_m (float): Period multiplier.\n\namplitude_m (float): Amplitude multiplier.\n\npulse_width_m (float): Pulse width multiplier.\n\nReturns:\n\nlist: List of TsHapticParamMultiplier objects.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -534,11 +644,11 @@
     ]
   },
   {
-    "objectID": "API Reference/subsystems/mocap.html#class-tsppg",
-    "href": "API Reference/subsystems/mocap.html#class-tsppg",
+    "objectID": "API Reference/subsystems/mocap.html#class-tsmocap",
+    "href": "API Reference/subsystems/mocap.html#class-tsmocap",
     "title": "Mocap",
-    "section": "Class TsPpg",
-    "text": "Class TsPpg\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\n- dict: A dictionary containing biomechanical angles for all bones in format 'TsBiomechanicalIndex': angle value.",
+    "section": "Class TsMocap",
+    "text": "Class TsMocap\nProvides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.\nThis class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.\n\nClass methods:\n\nstart_streaming(self)\nStart mocap streaming for a provided device handle.\nThis method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.\n\nstop_streaming(self)\nStop mocap streaming for a provided device handle.\nThis method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.\n\ncalibrate_skeleton(self)\nCalibrate mocap skeleton model.\nThis method triggers the calibration process for the skeleton model to ensure accurate motion capture data.\n\nget_raw_data_on_ready(self)\nWait until raw mocap data is ready and retrieve it.\nThis method blocks until raw data is available or streaming is stopped.\nReturns:\n\ndict: A dictionary containing raw sensor data for all bones in format of TsMocapSensor structure.\n\n\nget_skeleton_data_on_ready(self)\nWait until skeleton mocap data is ready and retrieve it.\nThis method blocks until skeleton data is available or streaming is stopped.\nReturns:\n\ndict: A dictionary containing skeleton data for all bones in format of TsMocapBone structure.\n\n\nget_biomechanical_angles_on_ready(self)\nWait until biomechanical angles data is ready and retrieve it.\nThis method blocks until biomechanical angles data is available or streaming is stopped.\nReturns:\n\ndict: A dictionary containing biomechanical angles for all bones in format 'TsBiomechanicalIndex': angle value.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -574,19 +684,7 @@
     "href": "API Reference/core/device.html#intro",
     "title": "Device",
     "section": "Intro",
-    "text": "Intro\nThe Device module provides functions for connecting to TESLASUIT devices, subscribing to connections and disconnections of TESLASUIT devices, retrieving device information, and controlling the device.",
-    "crumbs": [
-      "API Reference",
-      "Core",
-      "Device"
-    ]
-  },
-  {
-    "objectID": "API Reference/core/device.html#prerequisites",
-    "href": "API Reference/core/device.html#prerequisites",
-    "title": "Device",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\n\nNote:\nSince TsDevice is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.",
+    "text": "Intro\nThe Device module provides functions for connecting to TESLASUIT devices, subscribing to connections and disconnections of TESLASUIT devices, retrieving device information, and controlling the device.\n\nNote:\nSince TsDevice is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -598,7 +696,7 @@
     "href": "API Reference/core/device.html#class-tsdevice",
     "title": "Device",
     "section": "Class TsDevice",
-    "text": "Class TsDevice\nHandles the connection, control, and information retrieval for a Teslasuit device. This class also provides access to various subsystems such as motion capture, haptics, and biometry.\n\nAttributes:\n\ndevice_uuid: UUID of the device.\n\ndevice_handle: TsDeviceHandle of the device.\nmocap: TsMocap class that provides access to the motion capture subsystem.\n\nemg: TsEmg class that provides access to the EMG subsystem.\n\nppg: TsPpg class that provides access to the PPG subsystem.\n\ncurrent_feedback: TsCurrentFeedback class that provides access to the current feedback subsystem.\n\nmagnetic_encoder: TsMagneticEncoder class that provides access to the magnetic encoder subsystem.\n\nhaptic: TsHapticPlayer class that provides access to the haptic subsystem.\n\nbia: TsBia class that provides access to the BIA subsystem.\n\n\n\nClass methods:\n\nget_device_ssid(self)\nRetrieves the SSID of the device.\nReturns:\n- list: SSID of the device.\n\nget_device_serial(self)\nRetrieves the serial number of the device.\nReturns:\n- str: Serial number of the device.\n\nget_product_type(self)\nRetrieves the product type of the device.\nReturns:\n- TsDeviceType: Product type of the device.\n\nget_mapping(self)\nRetrieves the mapping according to the device type and version.\nReturns:\n- TsMapping2D: Mapping of the device.\n\n\nSubsystems:\nThe TsDevice class provides access to the following subsystems: - Motion Capture (TsMocap)\n- EMG (TsEmg)\n- PPG (TsPpg)\n- Current Feedback (TsCurrentFeedback)\n- Magnetic Encoder (TsMagneticEncoder)\n- Haptics (TsHapticPlayer)\n- BIA (TsBia)\nNotes Each subsystem requires an active connection to a Teslasuit device. Refer to the respective subsystem documentation for more details.",
+    "text": "Class TsDevice\nHandles the connection, control, and information retrieval for a Teslasuit device. This class also provides access to various subsystems such as motion capture, haptics, and biometry.\n\nAttributes:\n\ndevice_uuid: UUID of the device.\nmocap: TsMocap class that provides access to the motion capture subsystem.\n\nemg: TsEmg class that provides access to the EMG subsystem.\n\nppg: TsPpg class that provides access to the PPG subsystem.\n\ncurrent_feedback: TsCurrentFeedback class that provides access to the current feedback subsystem.\n\nmagnetic_encoder: TsMagneticEncoder class that provides access to the magnetic encoder subsystem.\n\nhaptic: TsHapticPlayer class that provides access to the haptic subsystem.\n\nbia: TsBia class that provides access to the BIA subsystem.\n\n\n\nClass methods:\n\nget_device_ssid(self)\nRetrieves the SSID of the device.\nReturns:\n\nlist: SSID of the device.\n\n\nget_device_serial(self)\nRetrieves the serial number of the device.\nReturns:\n\nstr: Serial number of the device.\n\n\nget_product_type(self)\nRetrieves the product type of the device.\nReturns:\n\nTsDeviceType: Product type of the device.\n\n\nget_mapping(self)\nRetrieves the mapping according to the device type and version.\nReturns:\n\nTsMapping2D: Mapping of the device.\n\n\n\nSubsystems:\nThe TsDevice class provides access to the following subsystems:\n\nMotion Capture (TsMocap)\n\nEMG (TsEmg)\n\nPPG (TsPpg)\n\nCurrent Feedback (TsCurrentFeedback)\n\nMagnetic Encoder (TsMagneticEncoder)\n\nHaptics (TsHapticPlayer)\n\nBIA (TsBia)\n\nNotes Each subsystem requires an active connection to a Teslasuit device. Refer to the respective subsystem documentation for more details.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -634,7 +732,7 @@
     "href": "API Reference/core/mapper.html#class-tsmapper",
     "title": "Mapper",
     "section": "Class TsMapper",
-    "text": "Class TsMapper\nMapping represents a set of device’s elements mapped on 2d space. Elements are described by the 2D Polygon - an array of points. Elements are bound to bones, a full set of bones is included in a layout, multiple layouts with the same element types are contained in an array, an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType. Mappings might have different versions. Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.\n\nClass methods:\n\nget_mapping_by_device(self, device)\nGet the default mapping handler for a device.\nArgs:\n- device class (TsDevice): Device handle.\nReturns:\n- TsMapping2d: Mapping handler.\n\nget_mapping_by_version(self, version)\nGet the mapping handler by the mapping version.\nArgs:\n- version (TsMapping2dVersion): Mapping version.\nReturns: - TsMapping2d: Mapping handler.\n\nget_number_of_layouts(self, mapping)\nGet the number of layouts in the mapping.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns: - int: Number of layouts.\n\nget_layouts(self, mapping)\nGet all layouts in the mapping.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns:\n- list: List of layouts.\n\nget_layout_index(self, layout)\nGet the index of a layout.\nArgs:\n- layout (TsLayout): Layout handle.\nReturns:\n- int: Layout index.\n\nget_layout_type(self, layout)\nGet the type of a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Layout type.\n\nget_layout_element_type(self, layout)\nGet the element type of a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Layout element type.\n\nget_number_of_bones(self, layout)\nGet the number of bones in a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns: - int: Number of bones.\n\nget_layout_bones(self, layout)\nGet all bones in a layout.\nArgs: - layout (TsLayout): Layout handle.\nReturns:\n- list: List of bones.\n\nget_bone_index(self, bone_handle)\nGet the index of a bone.\nArgs:\n-bone_handle (TsBone): Bone handle.\nReturns: -int: Bone index.\n\nget_bone_side(self, bone_handle)\nGet the side of a bone.\nArgs: -bone_handle (TsBone): Bone handle.\nReturns: -int: Bone side.\n\nget_bone_number_of_contents(self, bone_handle)\nGet the number of contents in a bone.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns: -int: Number of contents.\n\nget_bone_contents(self, bone_handle)\nGet all contents of a bone.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns:\n- list: List of bone contents.\n\nget_bone_number_of_points(self, bone_handle)\nGet the number of points in a bone content.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns: - int: Number of points.\n\nget_bone_points(self, bone_handle)\nGet the points representing the shape of a bone content in 2D space.\nArgs: - bone_handle (TsBone): Bone handle.\nReturns:\n- list: List of points.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs: - mapping (TsMapping2d): Mapping handler.\nReturns:\n- TsLayout: Electric channel layout handle.\n\n\nMapping Utils:\n\nget_layout_by_type(self, mapping, layout_type, layout_element_type)\nGet a layout by its type and element type.\nArgs: - mapping (TsMapping2d): Mapping handler.\n- layout_type (int): Layout type.\n- layout_element_type (int): Layout element type.\nReturns: - TsLayout: Layout handle.\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n- mapping (TsMapping2d): Mapping handler.\nReturns: - TsLayout: Electric channel layout handle.",
+    "text": "Class TsMapper\nMapping represents a set of device’s elements mapped on 2d space. Elements are described by the 2D Polygon - an array of points. Elements are bound to bones, a full set of bones is included in a layout, multiple layouts with the same element types are contained in an array, an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType. Mappings might have different versions. Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.\n\nClass methods:\n\nget_mapping_by_device(self, device)\nGet the default mapping handler for a device.\nArgs:\n\ndevice class (TsDevice): Device handle.\n\nReturns:\n\nTsMapping2d: Mapping handler.\n\n\nget_mapping_by_version(self, version)\nGet the mapping handler by the mapping version.\nArgs:\n\nversion (TsMapping2dVersion): Mapping version.\n\nReturns:\n\nTsMapping2d: Mapping handler.\n\n\nget_number_of_layouts(self, mapping)\nGet the number of layouts in the mapping.\nArgs:\n\nmapping (TsMapping2d): Mapping handler.\n\nReturns:\n\nint: Number of layouts.\n\n\nget_layouts(self, mapping)\nGet all layouts in the mapping.\nArgs:\n\nmapping (TsMapping2d): Mapping handler.\n\nReturns:\n\nlist: List of layouts.\n\n\nget_layout_index(self, layout)\nGet the index of a layout.\nArgs:\n\nlayout (TsLayout): Layout handle.\n\nReturns:\n\nint: Layout index.\n\n\nget_layout_type(self, layout)\nGet the type of a layout.\nArgs:\n\nlayout (TsLayout): Layout handle.\n\nReturns:\n\nint: Layout type.\n\n\nget_layout_element_type(self, layout)\nGet the element type of a layout.\nArgs:\n\nlayout (TsLayout): Layout handle.\n\nReturns:\n\nint: Layout element type.\n\n\nget_number_of_bones(self, layout)\nGet the number of bones in a layout.\nArgs:\n\nlayout (TsLayout): Layout handle.\n\nReturns:\n\nint: Number of bones.\n\n\nget_layout_bones(self, layout)\nGet all bones in a layout.\nArgs:\n\nlayout (TsLayout): Layout handle.\n\nReturns:\n\nlist: List of bones.\n\n\nget_bone_index(self, bone_handle)\nGet the index of a bone.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nint: Bone index.\n\n\nget_bone_side(self, bone_handle)\nGet the side of a bone.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nint: Bone side.\n\n\nget_bone_number_of_contents(self, bone_handle)\nGet the number of contents in a bone.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nint: Number of contents.\n\n\nget_bone_contents(self, bone_handle)\nGet all contents of a bone.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nlist: List of bone contents.\n\n\nget_bone_number_of_points(self, bone_handle)\nGet the number of points in a bone content.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nint: Number of points.\n\n\nget_bone_points(self, bone_handle)\nGet the points representing the shape of a bone content in 2D space.\nArgs:\n\nbone_handle (TsBone): Bone handle.\n\nReturns:\n\nlist: List of points.\n\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n\nmapping (TsMapping2d): Mapping handler.\n\nReturns:\n\nTsLayout: Electric channel layout handle.\n\n\n\nMapping Utils:\n\nget_layout_by_type(self, mapping, layout_type, layout_element_type)\nGet a layout by its type and element type.\nArgs:\n\nmapping (TsMapping2d): Mapping handler.\n\nlayout_type (int): Layout type.\n\nlayout_element_type (int): Layout element type.\n\nReturns:\n\nTsLayout: Layout handle.\n\n\nget_haptic_electric_channel_layout(self, mapping)\nGet the electric channel layout for haptic feedback.\nArgs:\n\nmapping (TsMapping2d): Mapping handler.\n\nReturns:\n\nTsLayout: Electric channel layout handle.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -656,18 +754,11 @@
     "text": "Intro\nThe Loader subsystem provides functionality to load the Teslasuit C API library dynamically."
   },
   {
-    "objectID": "API Reference/core/loader.html#prerequisites",
-    "href": "API Reference/core/loader.html#prerequisites",
-    "title": "Loader",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Library Path Ensure the Teslasuit API library path is correctly set in the environment variable TESLASUIT_API_LIB_PATH or provided explicitly.\n64-bit System The Teslasuit API supports only 64-bit systems."
-  },
-  {
     "objectID": "API Reference/core/loader.html#class-tsloader",
     "href": "API Reference/core/loader.html#class-tsloader",
     "title": "Loader",
     "section": "Class TsLoader",
-    "text": "Class TsLoader\nHandles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.\n\nInitialization Parameters:\n\nlib_path (str, optional): Path to the Teslasuit API library. If not provided, the environment variable TESLASUIT_API_LIB_PATH is used.\n\n\n\nClass methods:\n\nload(self)\nLoads the Teslasuit C API library and returns the library object.\nReturns: - ctypes.CDLL or ctypes.WinDLL: The loaded library object. - None: If the library cannot be loaded.\n\nNote: If the library path is not provided or invalid, the system attempts to find the library using the default library name (teslasuit_api).\n\nNotes Ensure the library path is valid and accessible."
+    "text": "Class TsLoader\nHandles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.\n\nInitialization Parameters:\n\nlib_path (str, optional): Path to the Teslasuit API library. If not provided, the environment variable TESLASUIT_API_LIB_PATH is used.\n\n\n\nClass methods:\n\nload(self)\nLoads the Teslasuit C API library and returns the library object.\nReturns:\n\nctypes.CDLL or ctypes.WinDLL: The loaded library object.\nNone: If the library cannot be loaded.\nNote: If the library path is not provided or invalid, the system attempts to find the library using the default library name (teslasuit_api).\n\nNotes Ensure the library path is valid and accessible."
   },
   {
     "objectID": "API Reference/core/asset_manager.html#quick-access",
@@ -686,19 +777,7 @@
     "href": "API Reference/core/asset_manager.html#intro",
     "title": "Asset manager",
     "section": "Intro",
-    "text": "Intro\nThe Asset Manager subsystem provides functions to manage Teslasuit assets, such as loading, retrieving, and unloading assets.",
-    "crumbs": [
-      "API Reference",
-      "Core",
-      "Asset manager"
-    ]
-  },
-  {
-    "objectID": "API Reference/core/asset_manager.html#prerequisites",
-    "href": "API Reference/core/asset_manager.html#prerequisites",
-    "title": "Asset manager",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\n\nConnected Teslasuit Device\nA Teslasuit device must be connected. If no device is available, the system will wait until one is attached.\n\n\nNote:\nSince TsAssetManager is a member of the SDK, it cannot be used independently without an active Teslasuit device.",
+    "text": "Intro\nThe Asset Manager subsystem provides functions to manage Teslasuit assets, such as loading, retrieving, and unloading assets.\n\nNote:\nSince TsAssetManager is a member of the SDK, it cannot be used independently without an active Teslasuit device.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -710,7 +789,7 @@
     "href": "API Reference/core/asset_manager.html#class-tsassetmanager",
     "title": "Asset manager",
     "section": "Class TsAssetManager",
-    "text": "Class TsAssetManager\nHandles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.\n\nClass methods:\n\nload_asset_from_path(self, path)\nLoads an asset from a specified file path.\nArgs: - path (str): Path to the asset.\nReturns - TsAssetHandle: Handle to the loaded asset.\n\nload_asset_from_data(self, data, size)\nLoads an asset from binary data.\nArgs: - data (bytes): Binary data of the asset.\n- size (int): Size of the binary data.\nReturns: - TsAssetHandle: Handle to the loaded asset.\n\nget_asset_type(self, asset_handle)\nRetrieves the type of a loaded asset.\nArgs: - asset_handle (TsAssetHandle): Handle to the asset.\nReturns: - TsAssetType: Type of the asset.\n\nunload_asset(self, asset_handle)\nUnloads a previously loaded asset.\nArgs: - asset_handle (TsAssetHandle): Handle to the asset.",
+    "text": "Class TsAssetManager\nHandles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.\n\nClass methods:\n\nload_asset_from_path(self, path)\nLoads an asset from a specified file path.\nArgs:\n\npath (str): Path to the asset.\n\nReturns:\n\nTsAssetHandle: Handle to the loaded asset.\n\n\nload_asset_from_data(self, data, size)\nLoads an asset from binary data.\nArgs:\n\ndata (bytes): Binary data of the asset.\n\nsize (int): Size of the binary data.\n\nReturns:\n\nTsAssetHandle: Handle to the loaded asset.\n\n\nget_asset_type(self, asset_handle)\nRetrieves the type of a loaded asset.\nArgs:\n\nasset_handle (TsAssetHandle): Handle to the asset.\n\nReturns:\n\nTsAssetType: Type of the asset.\n\n\nunload_asset(self, asset_handle)\nUnloads a previously loaded asset.\nArgs:\n\nasset_handle (TsAssetHandle): Handle to the asset.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -742,23 +821,11 @@
     ]
   },
   {
-    "objectID": "API Reference/core/device_manager.html#prerequisites",
-    "href": "API Reference/core/device_manager.html#prerequisites",
-    "title": "Device manager",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n\nTeslasuit API Initialization\nThe Teslasuit API must be initialized before accessing any of its features.\nConnected Teslasuit Device\nAt least one Teslasuit device must be connected. If no device is available, the system will wait until one is attached.",
-    "crumbs": [
-      "API Reference",
-      "Core",
-      "Device manager"
-    ]
-  },
-  {
     "objectID": "API Reference/core/device_manager.html#class-tsdevicemanager",
     "href": "API Reference/core/device_manager.html#class-tsdevicemanager",
     "title": "Device manager",
     "section": "Class TsDeviceManager",
-    "text": "Class TsDeviceManager\nHandles the connection and disconnection of Teslasuit devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\nArgs: - number_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\nThis method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting. This is useful in scenarios where the application requires a minimum number of devices to proceed.\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\nReturns: - TsDevice: The last device connected.\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
+    "text": "Class TsDeviceManager\nHandles the connection and disconnection of Teslasuit devices. Provides access to connected devices and their properties.\n\nClass attributes:\n\ndevices: list\nA list of connected devices. Each device is an instance of the TsDevice class. The devices attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the TsDevice class, which provides access to device-specific functionality.\n\n\nClass methods:\n\nwait_for_device_to_connect(self, number_of_devices_to_wait=1)\nWaits for a specified number of devices to connect. This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.\nArgs:\n\nnumber_of_devices_to_wait (int): Number of devices to wait for. Defaults to 1.\n\n\nget_or_wait_last_device_attached(self)\nReturns the last connected device or waits for a device to connect if none are available. If no devices are currently connected, this method waits for a device to connect using the wait_for_device_to_connect method. Once a device is connected, it returns the most recently attached device.\nReturns:\n\nTsDevice: The last device connected.\n\n\n\nNotes:\n\nThe TsDeviceManager class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the devices list dynamically.\nEnsure that the Teslasuit SDK is properly initialized before using this class to avoid errors.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -854,7 +921,7 @@
     "href": "API Reference/core/ts_api.html#class-tsapi",
     "title": "TS API",
     "section": "Class TsApi",
-    "text": "Class TsApi\nThe TsApi class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.\n\nClass methods:\n\nget_device_manager(self)\nReturns the TsDeviceManager instance, which provides access to connected Teslasuit devices.\nReturns: - TsDeviceManager: The device manager instance.",
+    "text": "Class TsApi\nThe TsApi class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.\n\nClass methods:\n\nget_device_manager(self)\nReturns the TsDeviceManager instance, which provides access to connected Teslasuit devices.\nReturns:\n\nTsDeviceManager: The device manager instance.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -878,7 +945,7 @@
     "href": "API Reference/core/ts_api.html#notes",
     "title": "TS API",
     "section": "Notes",
-    "text": "Notes\n\nThe TsApi class must be initialized before accessing any Teslasuit functionalities.\nEnsure proper cleanup by deleting the TsApi instance to release resources.",
+    "text": "Notes\n\nThe TsApi class must be initialized before accessing any Teslasuit functionalities.",
     "crumbs": [
       "API Reference",
       "Core",
@@ -1046,7 +1113,7 @@
     "href": "API Reference/subsystems/bia.html#class-tsbia",
     "title": "BIA (experimental)",
     "section": "Class TsBia",
-    "text": "Class TsBia\nHandles BIA (Bioelectrical Impedance Analysis) data processing and streaming.\nThis class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of BIA data.\n\nstop_streaming(self)\nStop the streaming of BIA data.\n\nget_data_on_ready(self)\nBlocks execution until BIA data is ready and returns the latest data.\nReturns: - TsBiaChannels (struct): The latest BIA data.\n\nset_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)\nSet the streaming configuration for BIA data.\nArgs:\n- channels (list): List of channel indexes to stream.\n- start_frequency (int): Starting frequency for the BIA data.\n- number_of_steps (int): Number of frequency steps.\n- frequency_step (int): Frequency step size.",
+    "text": "Class TsBia\nHandles BIA (Bioelectrical Impedance Analysis) data processing and streaming.\nThis class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of BIA data.\n\nstop_streaming(self)\nStop the streaming of BIA data.\n\nget_data_on_ready(self)\nBlocks execution until BIA data is ready and returns the latest data.\nReturns:\n\nTsBiaChannels (struct): The latest BIA data.\n\n\nset_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)\nSet the streaming configuration for BIA data.\nArgs:\n\nchannels (list): List of channel indexes to stream.\n\nstart_frequency (int): Starting frequency for the BIA data.\n\nnumber_of_steps (int): Number of frequency steps.\n\nfrequency_step (int): Frequency step size.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1094,7 +1161,7 @@
     "href": "API Reference/subsystems/current_feedback.html#class-tscurrentfeedback",
     "title": "Current Feedback (experimental)",
     "section": "Class TsCurrentFeedback",
-    "text": "Class TsCurrentFeedback\nHandles current feedback data processing and streaming.\nThis class manages the interaction with current feedback nodes, including data streaming and retrieval.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of current feedback data.\n\nstop_streaming(self)\nStop the streaming of current feedback data.\n\nget_data_on_ready(self)\nBlocks execution until current feedback data is ready and returns the latest data.\nReturns: - TsCurrentFeedbackNodes (struct): The latest current feedback data.",
+    "text": "Class TsCurrentFeedback\nHandles current feedback data processing and streaming.\nThis class manages the interaction with current feedback nodes, including data streaming and retrieval.\n\nClass methods:\n\nstart_streaming(self)\nStart the streaming of current feedback data.\n\nstop_streaming(self)\nStop the streaming of current feedback data.\n\nget_data_on_ready(self)\nBlocks execution until current feedback data is ready and returns the latest data.\nReturns:\n\nTsCurrentFeedbackNodes (struct): The latest current feedback data.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1142,7 +1209,7 @@
     "href": "API Reference/subsystems/ppg.html#class-tsppg",
     "title": "PPG",
     "section": "Class TsPpg",
-    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns TsHrv (struct): The latest HRV data.\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data. Returns: - TsPpgRawData (struct): The latest raw PPG data.\n\nget_hrv(self)\nRetrieves the latest HRV data. Returns: - TsHrv (struct): The latest HRV data.\n\nget_data_raw(self)\nRetrieves the latest raw PPG data. Returns: - TsPpgRawData (struct): The latest raw PPG data.\n\nget_data(self)\nRetrieves the latest processed PPG data. Returns: - TsPpgData: The latest processed PPG data.\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
+    "text": "Class TsPpg\nHandles PPG (Photoplethysmography) sensor data processing and streaming. This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.\n\nClass methods:\n\nstart_raw_streaming(self)\nStart the streaming of a PPG raw data\n\nstop_raw_streaming(self)\nStop the streaming of a PPG raw data\n\nget_hrv_data_on_ready(self)\nBlocks execution until HRV data is ready and returns the latest HRV data.\nReturns:\n\nTsHrv (struct) The latest HRV data.\n\n\nget_raw_data_on_ready(self)\nBlocks execution until raw PPG data is ready and returns the latest raw data.\nReturns:\n\nTsPpgRawData (struct): The latest raw PPG data.\n\n\nget_hrv(self)\nRetrieves the latest HRV data.\nReturns:\n\nTsHrv (struct): The latest HRV data.\n\n\nget_data_raw(self)\nRetrieves the latest raw PPG data.\nReturns:\n\nTsPpgRawData (struct): The latest raw PPG data.\n\n\nget_data(self)\nRetrieves the latest processed PPG data.\nReturns:\n\nTsPpgData: The latest processed PPG data.\n\nNB! TsPpgData struct doesn’t provide any parameters such as “heart_rate”. The access is given through the TsPpgNodeData struct. Please see the example.\n\ncalibrate(self)\nCalibrates PPG processor. The calibration procedure is capturing interval of the raw data during 3 seconds. The captured interval will be used in calculation of all ppg parameters. By default, calibration procedure starts on starting PPG processor. In case on bad start, the calibration procedure might be restarted using this function.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1190,7 +1257,7 @@
     "href": "API Reference/subsystems/force_feedback.html#class-tsmagneticencoder",
     "title": "Force feedback (Teslaglove)",
     "section": "Class TsMagneticEncoder",
-    "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers. Returns: - dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nArgs:\n- me_configs (list): A list of TsForceFeedbackConfig objects.\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nArgs:\n- bone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder. Returns: - TsForceFeedbackConfig: A TsForceFeedbackConfig structure.\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n- list: A list of bone indexes.",
+    "text": "Class TsMagneticEncoder\nHandles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.\n\nClass methods:\n\nget_positions(self)\nGet the current positions of the fingers.\nReturns:\n\ndict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\n\nstart_me_streaming(self)\nStarts magnetic encoder data streaming. This method subscribes to the data update callback and starts streaming.\n\nstop_me_streaming(self)\nStops magnetic encoder data streaming. This method stops the streaming and unsubscribes from the data update callback.\n\nts_magnetic_encoder_enable(self, me_configs)\nEnable magnetic encoder for the specified bone indexes.\nArgs:\n\nme_configs (list): A list of TsForceFeedbackConfig objects.\n\n\nts_magnetic_encoder_disable(self, bone_indexes)\nDisable magnetic encoder for the specified bone indexes.\nArgs:\n\nbone_indexes (list): A list of bone indexes to disable magnetic encoder for.\n\n\nget_default_me_controls_struct(self)\nGet the default magnetic encoder controls structure.\nReturns:\n\nTsForceFeedbackConfig: Default magnetic encoder configuration.\n\n\nget_default_ff_controls_struct(self)\nGet the default force feedback controls structure for the magnetic encoder.\nReturns:\n\nTsForceFeedbackConfig: A TsForceFeedbackConfig structure.\n\n\nget_bone_indexes(self)\nGet the bone indexes for the magnetic encoder.\nReturns:\n\nlist: A list of bone indexes.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1202,7 +1269,7 @@
     "href": "API Reference/subsystems/force_feedback.html#utilities",
     "title": "Force feedback (Teslaglove)",
     "section": "Utilities",
-    "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n- dict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nArgs:\n- bone_index: Bone index to be mirrored.\nReturns:\n- int: Mirrored bone index.\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsForceFeedbackConfig structure for the given bone indexes.\nArgs:\n- bone_indexes (list): List of bone indexes.\nReturns:\n- TsForceFeedbackConfig: Magnetic encoder configuration structure.\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n- TsForceFeedbackConfig: Default magnetic encoder configuration.",
+    "text": "Utilities\n\nUtility functions:\n\nget_position_struct_for_bones(bone_indexes)\nCreate a dictionary of TsFingerMEPosition for the given bone indexes.\nArgs:\n\nbone_indexes (list): List of bone indexes.\n\nReturns:\n\ndict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\n\nget_left_default_position_struct()\nCreate a default position struct for the left hand.\nReturns:\n\ndict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\n\nget_right_default_position_struct()\nCreate a default position struct for the right hand.\nReturns:\n\ndict: A dictionary of bone indexes and their corresponding TsFingerMEPosition.\n\n\nmirror_bone_index(bone_index)\nMirror the bone index for the opposite hand.\nArgs:\n\nbone_index: Bone index to be mirrored.\n\nReturns:\n\nint: Mirrored bone index.\n\n\nget_me_controls_struct_for_bones(bone_indexes)\nCreate a TsForceFeedbackConfig structure for the given bone indexes.\nArgs:\n\nbone_indexes (list): List of bone indexes.\n\nReturns:\n\nTsForceFeedbackConfig: Magnetic encoder configuration structure.\n\n\nget_left_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the left hand.\nReturns:\n\nTsForceFeedbackConfig: Default magnetic encoder configuration.\n\n\nget_right_default_me_controls_struct()\nCreate a default magnetic encoder controls struct for the right hand.\nReturns:\n\nTsForceFeedbackConfig: Default magnetic encoder configuration.",
     "crumbs": [
       "API Reference",
       "Subsystems",
