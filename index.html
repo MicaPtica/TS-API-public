@@ -619,13 +619,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#core-capabilities" id="toc-core-capabilities" class="nav-link" data-scroll-target="#core-capabilities">Core Capabilities</a>
+  <li><a href="#documentation-structure" id="toc-documentation-structure" class="nav-link" data-scroll-target="#documentation-structure">Documentation Structure</a></li>
+  <li><a href="#main-capabilities" id="toc-main-capabilities" class="nav-link" data-scroll-target="#main-capabilities">Main Capabilities</a>
   <ul class="collapse">
   <li><a href="#haptics" id="toc-haptics" class="nav-link" data-scroll-target="#haptics">Haptics</a></li>
   <li><a href="#motion-capture" id="toc-motion-capture" class="nav-link" data-scroll-target="#motion-capture">Motion Capture</a></li>
   <li><a href="#biometry" id="toc-biometry" class="nav-link" data-scroll-target="#biometry">Biometry</a></li>
   </ul></li>
-  <li><a href="#documentation-structure" id="toc-documentation-structure" class="nav-link" data-scroll-target="#documentation-structure">Documentation Structure</a></li>
   <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
   <li><a href="#support-and-contact" id="toc-support-and-contact" class="nav-link" data-scroll-target="#support-and-contact">Support and Contact</a></li>
   </ul></li>
@@ -643,8 +643,28 @@ ul.task-list li input[type="checkbox"] {
 <p>The <strong>Teslasuit SDK</strong> is a developer toolkit for integrating the Teslasuit — a full-body haptic suit with motion capture and biometric sensors — into immersive applications. With this SDK, developers can control the suit’s haptic feedback system, stream and record motion data, and monitor biometric signals in real time.</p>
 <p>The <strong>Teslasuit SDK Python API</strong> provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit’s haptic, motion capture, and biometric capabilities through an efficient and extensible API.</p>
 <hr>
-<section id="core-capabilities" class="level2">
-<h2 class="anchored" data-anchor-id="core-capabilities">Core Capabilities</h2>
+<section id="documentation-structure" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-structure">Documentation Structure</h2>
+<p>The API documentation is organized into the following sections:</p>
+<ul>
+<li><a href="./Getting_started.html">Getting Started</a> – Fast setup for quick first steps</li>
+<li><a href="./Main concepts/index.html">Main Concepts</a> – Theory and architecture of Teslasuit systems<br>
+</li>
+<li><strong>API Reference</strong>
+<ul>
+<li><a href="API Reference/core/">Core</a> – Initialization, connection, session control<br>
+</li>
+<li><a href="API Reference/subsystems/">Subsystems</a> – Haptics, Mocap, Biometry, Mapping, etc.<br>
+</li>
+</ul></li>
+<li><a href="examples/">Examples</a> – Step-by-step usage scripts<br>
+</li>
+<li><a href="usecases/">Use Cases</a> – Practical applications and integration flows</li>
+</ul>
+<hr>
+</section>
+<section id="main-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="main-capabilities">Main Capabilities</h2>
 <section id="haptics" class="level3">
 <h3 class="anchored" data-anchor-id="haptics">Haptics</h3>
 <p>The Haptics module allows you to control the suit’s network of electrical stimulators to create realistic tactile feedback or stimulate major muscle groups to elicit contractions. Developers can configure custom stimulation patterns, adjust intensity levels, and trigger feedback events in sync with application logic.</p>
@@ -669,26 +689,6 @@ ul.task-list li input[type="checkbox"] {
 🔍 Learn more about Teslasuit’s biometric system and HRV metrics <a href="./Main concepts/ppg_concept.html"><strong>here</strong></a>.</p>
 <hr>
 </section>
-</section>
-<section id="documentation-structure" class="level2">
-<h2 class="anchored" data-anchor-id="documentation-structure">Documentation Structure</h2>
-<p>The API documentation is organized into the following sections:</p>
-<ul>
-<li><a href="./Getting_started.html">Getting Started</a> – Fast setup for quick first steps</li>
-<li><a href="./Main concepts/index.html">Main Concepts</a> – Theory and architecture of Teslasuit systems<br>
-</li>
-<li><strong>API Reference</strong>
-<ul>
-<li><a href="API Reference/core/">Core</a> – Initialization, connection, session control<br>
-</li>
-<li><a href="API Reference/subsystems/">Subsystems</a> – Haptics, Mocap, Biometry, Mapping, etc.<br>
-</li>
-</ul></li>
-<li><a href="examples/">Examples</a> – Step-by-step usage scripts<br>
-</li>
-<li><a href="usecases/">Use Cases</a> – Practical applications and integration flows</li>
-</ul>
-<hr>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
