@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -112,10 +115,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
@@ -130,6 +129,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Main concepts/current_feedback_concept.html">
@@ -186,14 +189,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
- <span class="dropdown-text">PPG</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
@@ -202,8 +197,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
+ <span class="dropdown-text">PPG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../API Reference/subsystems/current_feedback.html">
@@ -229,10 +232,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">PPG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/emg_example.html">
- <span class="dropdown-text">EMG Example</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../examples/haptic_example.html">
  <span class="dropdown-text">Haptic Example</span></a>
   </li>  
@@ -243,6 +242,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/emg_example.html">
+ <span class="dropdown-text">EMG Example</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../examples/current_feedback_example.html">
@@ -348,18 +351,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -372,8 +363,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -469,18 +472,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -493,8 +484,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Force feedback</span></a>
+ <span class="menu-text">Force feedback (Teslaglove)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -536,12 +539,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic example</span></a>
   </div>
@@ -556,6 +553,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -618,6 +621,23 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-ppg" id="toc-what-is-ppg" class="nav-link" data-scroll-target="#what-is-ppg">What is PPG?</a></li>
+  <li><a href="#ppg-in-teslasuit" id="toc-ppg-in-teslasuit" class="nav-link" data-scroll-target="#ppg-in-teslasuit">PPG in Teslasuit</a></li>
+  <li><a href="#key-features-of-the-teslasuit-ppg-subsystem" id="toc-key-features-of-the-teslasuit-ppg-subsystem" class="nav-link" data-scroll-target="#key-features-of-the-teslasuit-ppg-subsystem">Key Features of the Teslasuit PPG Subsystem</a></li>
+  <li><a href="#how-the-teslasuit-api-implements-ppg" id="toc-how-the-teslasuit-api-implements-ppg" class="nav-link" data-scroll-target="#how-the-teslasuit-api-implements-ppg">How the Teslasuit API Implements PPG</a></li>
+  <li><a href="#description-of-ppg-data" id="toc-description-of-ppg-data" class="nav-link" data-scroll-target="#description-of-ppg-data">Description of PPG data</a>
+  <ul class="collapse">
+  <li><a href="#hrv" id="toc-hrv" class="nav-link" data-scroll-target="#hrv">HRV</a></li>
+  <li><a href="#heart-rate" id="toc-heart-rate" class="nav-link" data-scroll-target="#heart-rate">Heart Rate</a></li>
+  </ul></li>
+  <li><a href="#applications-of-ppg-in-teslasuit" id="toc-applications-of-ppg-in-teslasuit" class="nav-link" data-scroll-target="#applications-of-ppg-in-teslasuit">Applications of PPG in Teslasuit</a></li>
+  <li><a href="#dependencies-in-data-structures-and-accessing-data" id="toc-dependencies-in-data-structures-and-accessing-data" class="nav-link" data-scroll-target="#dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</a>
+  <ul class="collapse">
+  <li><a href="#data-structure-dependencies" id="toc-data-structure-dependencies" class="nav-link" data-scroll-target="#data-structure-dependencies">Data Structure Dependencies</a></li>
+  <li><a href="#block-scheme-for-accessing-data" id="toc-block-scheme-for-accessing-data" class="nav-link" data-scroll-target="#block-scheme-for-accessing-data">Block Scheme for Accessing Data</a></li>
+  </ul></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example Code</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -643,7 +663,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7,%204.8-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7,%204.8-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
 <section id="quick-access" class="level2">
 <h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
 <ul>
@@ -652,6 +672,179 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="../usecases/ppg_visualiser.html">Usecase</a></li>
 <li><a href="../API Reference/core/data_structures.html#PPG">PPG Data structures</a></li>
 </ul>
+</section>
+<section id="what-is-ppg" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-ppg">What is PPG?</h2>
+<p>Photoplethysmography (PPG) is a non-invasive optical technique used to measure blood volume changes in the microvascular bed of tissue. It is widely used in medical and fitness devices to monitor heart rate, blood oxygen levels, and other physiological parameters. PPG sensors work by emitting light into the skin and measuring the amount of light absorbed or reflected by blood vessels.</p>
+<p>PPG is a cornerstone technology in wearable devices, enabling real-time monitoring of cardiovascular health. Its applications range from fitness tracking to clinical monitoring, making it a versatile tool in health monitoring systems.</p>
+</section>
+<section id="ppg-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="ppg-in-teslasuit">PPG in Teslasuit</h2>
+<p>The Teslasuit integrates PPG technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The PPG subsystem in the Teslasuit is designed to provide real-time data on heart rate, heart rate variability (HRV), and raw PPG signals. This data can be used for various applications, including fitness tracking and stress monitoring</p>
+<p>The Teslasuit’s PPG functionality is accessible through the <a href="../API Reference/subsystems/ppg.html"><code>TsPPG</code></a> class, which provides methods for streaming raw data, retrieving processed data, and performing calibration. The PPG subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate PPG data into their applications.</p>
+</section>
+<section id="key-features-of-the-teslasuit-ppg-subsystem" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-of-the-teslasuit-ppg-subsystem">Key Features of the Teslasuit PPG Subsystem</h2>
+<ol type="1">
+<li><strong>Raw Data Streaming</strong>: The Teslasuit PPG subsystem allows developers to stream raw PPG data in real time. This data can be used for custom signal processing and analysis.</li>
+<li><strong>Heart Rate Variability (HRV)</strong>: The subsystem provides HRV data, which is a key indicator of autonomic nervous system activity and overall cardiovascular health.</li>
+<li><strong>Processed Data</strong>: In addition to raw data, the subsystem offers processed PPG data, including heart rate and validity check of retrieved data.</li>
+<li><strong>Calibration</strong>: The PPG subsystem includes a calibration feature to ensure accurate measurements.</li>
+</ol>
+</section>
+<section id="how-the-teslasuit-api-implements-ppg" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-teslasuit-api-implements-ppg">How the Teslasuit API Implements PPG</h2>
+<p>The Teslasuit API provides a structured approach to accessing and utilizing PPG data. Below are the key steps involved:</p>
+<ol type="1">
+<li><strong>Initialization</strong>: The Teslasuit API must be initialized before accessing the PPG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.</li>
+<li><strong>Device Connection</strong>: A Teslasuit device must be connected to access its PPG subsystem. The API provides methods to wait for and retrieve connected devices.</li>
+<li><strong>Subsystem Access</strong>: The PPG subsystem is accessed through the <code>ppg</code> property of the connected device. This property returns an instance of the <a href="../API Reference/subsystems/ppg.html"><code>TsPpg</code></a> class.</li>
+<li><strong>Data Retrieval</strong>: The <a href="../API Reference/subsystems/ppg.html"><code>TsPpg</code></a> class provides methods to retrieve raw and processed PPG data, as well as HRV metrics.</li>
+</ol>
+</section>
+<section id="description-of-ppg-data" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-ppg-data">Description of PPG data</h2>
+<p>Below is a detailed description of the PPG data and data structures used in the Teslasuit API for the PPG subsystem.</p>
+<section id="hrv" class="level3">
+<h3 class="anchored" data-anchor-id="hrv">HRV</h3>
+<section id="what-is-heart-rate-variability-hrv" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-heart-rate-variability-hrv">What is Heart Rate Variability (HRV)?</h4>
+<p>Heart Rate Variability (HRV) is a measure of the variation in time between consecutive heartbeats. These time intervals, typically measured in milliseconds, reflect how the autonomic nervous system regulates the heart. HRV is widely recognized as a non-invasive marker of physiological resilience, stress response, and overall autonomic balance.</p>
+</section>
+<section id="why-hrv-matters" class="level4">
+<h4 class="anchored" data-anchor-id="why-hrv-matters">Why HRV Matters</h4>
+<p>HRV provides insights into the balance between the sympathetic (“fight or flight”) and parasympathetic (“rest and digest”) branches of the autonomic nervous system. Higher HRV generally indicates better adaptability, recovery capacity, and health, while lower HRV can signal stress, fatigue, or underlying health issues.</p>
+</section>
+<section id="hrv-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="hrv-in-teslasuit">HRV in Teslasuit</h4>
+<p>Teslasuit provides HRV analysis using various statistical and mathematical methods, including time-domain, frequency-domain, and non-linear approaches. These metrics provide different perspectives on how the body is responding and adapting over time. As calculation of different HRV parameters requires multiple R-R intervals, base for HRV calculations, Teslasuit has to make sufficient amount of measurements. Therefore the time buffer was implemented which makes impossible to get HRV data right after turning on the PPG sensor.</p>
+</section>
+<section id="hrv-parameters-and-explanation" class="level4">
+<h4 class="anchored" data-anchor-id="hrv-parameters-and-explanation">HRV parameters and explanation</h4>
+<ol type="1">
+<li><p><strong>Mean R-R</strong>: The average time interval between consecutive heartbeats, measured in milliseconds. It reflects the average heart period and is inversely related to heart rate.</p></li>
+<li><p><strong>Standard Deviation of NN Intervals (SDNN)</strong>: A measure of overall heart rate variability, calculated as the standard deviation of all normal-to-normal RR intervals. It reflects both sympathetic and parasympathetic activity and is influenced by total recording duration.</p></li>
+<li><p><strong>Standard Deviation of Successive Differences (SDSD)</strong>: The standard deviation of the differences between successive RR intervals. It reflects short-term variations in heart rate and is primarily influenced by parasympathetic activity.</p></li>
+<li><p><strong>Root Mean Square of Successive Differences (RMSSD)</strong>: A time-domain index of short-term heart rate variability. It is calculated as the square root of the mean squared differences between adjacent RR intervals and serves as a reliable indicator of parasympathetic (vagal) activity.</p></li>
+<li><p><strong>SD1</strong>: A non-linear HRV metric representing short-term variability, derived from the width of the Poincaré plot (a scatter plot of RR intervals against the next RR interval). It is mathematically related to RMSSD.</p></li>
+<li><p><strong>SD2</strong>: A measure of both short- and long-term variability, reflecting the length of the Poincaré plot ellipse. It captures the overall magnitude of variability and complements SD1.</p></li>
+<li><p><strong>High-to-Low Frequency Ratio (HLF)</strong>: The ratio between high-frequency and low-frequency spectral power in frequency-domain analysis. It provides an index of autonomic balance, with higher values indicating parasympathetic dominance and lower values suggesting sympathetic predominance.</p></li>
+</ol>
+</section>
+</section>
+<section id="heart-rate" class="level3">
+<h3 class="anchored" data-anchor-id="heart-rate">Heart Rate</h3>
+<section id="what-is-heart-rate" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-heart-rate">What is Heart Rate?</h4>
+<p>Heart rate refers to the number of times the heart beats per minute (bpm). It is a direct indicator of cardiac activity and is influenced by a wide range of physiological and environmental factors, including physical exertion, emotional state, body temperature, and cardiovascular health. Heart rate is one of the most fundamental vital signs used in health and performance monitoring.</p>
+</section>
+<section id="why-heart-rate-matters" class="level4">
+<h4 class="anchored" data-anchor-id="why-heart-rate-matters">Why Heart Rate Matters</h4>
+<p>Heart rate reflects the immediate state of the cardiovascular system and the body’s response to internal and external stimuli. An elevated heart rate may indicate physical effort, stress, or cardiovascular strain, while a lower heart rate at rest is often associated with good cardiovascular fitness and efficient autonomic function. Tracking heart rate over time allows for monitoring of exercise intensity, recovery, fatigue, and overall wellness.</p>
+</section>
+<section id="heart-rate-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="heart-rate-in-teslasuit">Heart Rate in Teslasuit</h4>
+<p>Teslasuit measures heart rate using a photoplethysmography (PPG) sensor, which detects changes in vessels blood volume with each heartbeat. This allows for continuous, non-invasive monitoring of heart rate in both active and resting states. Heart rate data is updated in real-time and can be used independently or in combination with HRV metrics to assess physical performance, recovery, and autonomic nervous system activity.</p>
+</section>
+<section id="heart-rate-parameter-and-explanation" class="level4">
+<h4 class="anchored" data-anchor-id="heart-rate-parameter-and-explanation">Heart Rate parameter and explanation</h4>
+<ol type="1">
+<li><p><strong>Heart Rate (HR)</strong>: The number of heartbeats per minute. It is calculated for every interval between successive heartbeats (R-R intervals) and reflects current cardiovascular activity. Heart rate increases with physical exertion or stress and decreases during rest or relaxation.</p></li>
+<li><p><strong>is_valid</strong>: During periods of movement, signal artifacts may cause temporary disruptions or inaccuracies in heart rate measurements. To address this, we developed an extrapolation algorithm that maintains data continuity by estimating heart rate values when direct measurement is unreliable. As a result, each data point is accompanied by a validity flag indicating whether the value is based on a reliable measurement or an extrapolated estimate.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="applications-of-ppg-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-ppg-in-teslasuit">Applications of PPG in Teslasuit</h2>
+<p>The PPG subsystem in the Teslasuit has a wide range of applications, including:</p>
+<ul>
+<li><strong>Fitness and Wellness</strong>: Monitor heart rate and HRV to track fitness levels and recovery.</li>
+<li><strong>Stress Monitoring</strong>: Use HRV data to assess stress levels and provide biofeedback.</li>
+<li><strong>Rehabilitation</strong>: Integrate PPG data into rehabilitation programs to monitor cardiovascular responses.</li>
+<li><strong>Gaming and VR</strong>: Enhance immersive experiences by incorporating real-time physiological data into gameplay or virtual environments.</li>
+</ul>
+</section>
+<section id="dependencies-in-data-structures-and-accessing-data" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</h2>
+<p>The Teslasuit PPG subsystem relies on a hierarchy of data structures to manage and process PPG data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.</p>
+<section id="data-structure-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="data-structure-dependencies">Data Structure Dependencies</h3>
+<ol type="1">
+<li><strong><code>TsPpgRawNodeData</code></strong>:
+<ul>
+<li>Represents raw PPG data for a single sensor node.</li>
+<li>Contains attributes like <code>ir_data</code>, <code>red_data</code>, <code>blue_data</code>, <code>green_data</code>, and <code>timestamp</code>.</li>
+</ul></li>
+<li><strong><code>TsPpgRawData</code></strong>:
+<ul>
+<li>Represents raw PPG data from multiple sensor nodes.</li>
+<li>Contains a list of <code>TsPpgRawNodeData</code> objects.</li>
+</ul></li>
+<li><strong><code>TsPpgNodeData</code></strong>:
+<ul>
+<li>Represents processed PPG data for a single sensor node.</li>
+<li>Contains attributes like <code>heart_rate</code>, <code>is_heart_rate_valid</code>, and <code>timestamp</code>.</li>
+</ul></li>
+<li><strong><code>TsPpgData</code></strong>:
+<ul>
+<li>Represents processed PPG data from multiple sensor nodes.</li>
+<li>Contains a list of <code>TsPpgNodeData</code> objects.</li>
+</ul></li>
+<li><strong><code>TsHrv</code></strong>:
+<ul>
+<li>Represents HRV metrics derived from processed PPG data.</li>
+<li>Contains attributes like <code>mean_rr</code>, <code>sdnn</code>, <code>rmssd</code>, and others.</li>
+</ul></li>
+</ol>
+</section>
+<section id="block-scheme-for-accessing-data" class="level3">
+<h3 class="anchored" data-anchor-id="block-scheme-for-accessing-data">Block Scheme for Accessing Data</h3>
+<p>Below is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([PPG class]) --&gt; B[[TsHrv]]
+    A --&gt; C[[TsPpgRawData]]
+    C --&gt; D[[TsPpgRawNodeData]]
+    D --&gt; E((ir_data))
+    D --&gt; F((red_data))
+    D --&gt; G((blue_data))
+    D --&gt; H((green_data))
+    D --&gt; I((timestamp))
+    A --&gt; Q[[TsPpgData]]
+    Q --&gt; R[[TsPpgNodeData]]
+    R --&gt; S((heart_rate))
+    R --&gt; T((is_valid))
+    
+    B --&gt; J((mean_rr))
+    B --&gt; K((sdnn))
+    B --&gt; L((sdsd))
+    B --&gt; M((sd1))
+    B --&gt; N((sd2))
+    B --&gt; O((rmssd))
+    B --&gt; P((hlf))
+
+    class B,J,K,L,M,N,O,P hrv;
+    class C,D,E,F,G,H,I,Q,R,S,T ppg;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example Code</h2>
+<p>For detailed examples of how to use the PPG subsystem in the Teslasuit API, refer to the <a href="../examples/ppg_example.html">PPG Examples</a> page. These examples demonstrate how to initialize the API, connect to a device, and retrieve PPG data.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The PPG subsystem in the Teslasuit represents a powerful tool for real-time physiological monitoring. By leveraging the Teslasuit API, developers can integrate PPG data into a wide range of applications, from fitness tracking to immersive VR experiences.</p>
 
 
 </section>

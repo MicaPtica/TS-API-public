@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -112,10 +115,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
@@ -130,6 +129,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Main concepts/current_feedback_concept.html">
@@ -186,14 +189,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
- <span class="dropdown-text">PPG</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
@@ -202,8 +197,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
+ <span class="dropdown-text">PPG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../API Reference/subsystems/current_feedback.html">
@@ -229,10 +232,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">PPG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/emg_example.html">
- <span class="dropdown-text">EMG Example</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../examples/haptic_example.html">
  <span class="dropdown-text">Haptic Example</span></a>
   </li>  
@@ -243,6 +242,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/emg_example.html">
+ <span class="dropdown-text">EMG Example</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../examples/current_feedback_example.html">
@@ -348,18 +351,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -372,8 +363,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -469,18 +472,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -493,8 +484,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback (Teslaglove)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -536,12 +539,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic example</span></a>
   </div>
@@ -556,6 +553,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -612,8 +615,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-bia" id="toc-what-is-bia" class="nav-link" data-scroll-target="#what-is-bia">What is BIA?</a></li>
+  <li><a href="#bia-in-teslasuit" id="toc-bia-in-teslasuit" class="nav-link" data-scroll-target="#bia-in-teslasuit">BIA in Teslasuit</a></li>
+  <li><a href="#key-features-of-the-teslasuit-bia-subsystem" id="toc-key-features-of-the-teslasuit-bia-subsystem" class="nav-link" data-scroll-target="#key-features-of-the-teslasuit-bia-subsystem">Key Features of the Teslasuit BIA Subsystem</a></li>
+  <li><a href="#how-the-teslasuit-api-implements-bia" id="toc-how-the-teslasuit-api-implements-bia" class="nav-link" data-scroll-target="#how-the-teslasuit-api-implements-bia">How the Teslasuit API Implements BIA</a></li>
+  <li><a href="#description-of-bia-data" id="toc-description-of-bia-data" class="nav-link" data-scroll-target="#description-of-bia-data">Description of BIA Data</a>
+  <ul class="collapse">
+  <li><a href="#bia-data-structures" id="toc-bia-data-structures" class="nav-link" data-scroll-target="#bia-data-structures">BIA Data Structures</a></li>
+  <li><a href="#bia-parameters-and-explanation" id="toc-bia-parameters-and-explanation" class="nav-link" data-scroll-target="#bia-parameters-and-explanation">BIA Parameters and Explanation</a></li>
+  </ul></li>
+  <li><a href="#applications-of-bia-in-teslasuit" id="toc-applications-of-bia-in-teslasuit" class="nav-link" data-scroll-target="#applications-of-bia-in-teslasuit">Applications of BIA in Teslasuit</a></li>
+  <li><a href="#dependencies-in-data-structures-and-accessing-data" id="toc-dependencies-in-data-structures-and-accessing-data" class="nav-link" data-scroll-target="#dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</a>
+  <ul class="collapse">
+  <li><a href="#data-structure-dependencies" id="toc-data-structure-dependencies" class="nav-link" data-scroll-target="#data-structure-dependencies">Data Structure Dependencies</a></li>
+  <li><a href="#block-scheme-for-accessing-data" id="toc-block-scheme-for-accessing-data" class="nav-link" data-scroll-target="#block-scheme-for-accessing-data">Block Scheme for Accessing Data</a></li>
+  </ul></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example Code</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -637,8 +663,141 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-5.0+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../API Reference/subsystems/bia.html">BIA Subsystem</a></li>
+<li><a href="../examples/bia_example.html">Examples</a></li>
+<li><a href="../API Reference/core/data_structures.html#bia">BIA Data structures</a></li>
+</ul>
+</section>
+<section id="what-is-bia" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-bia">What is BIA?</h2>
+<p>Bioelectrical Impedance Analysis (BIA) is a non-invasive technique used to measure the electrical impedance of body tissues. By applying a small alternating current and measuring the resulting voltage, BIA provides information about body composition, such as total body water, fat-free mass, and fat mass. The impedance varies with tissue type and hydration, making BIA a valuable tool in health, fitness, and medical diagnostics.</p>
+<p>BIA is widely used in wearable devices and clinical settings for body composition analysis, hydration monitoring, and physiological research. Its applications range from sports science and wellness tracking to clinical assessment of fluid balance and nutrition.</p>
+</section>
+<section id="bia-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="bia-in-teslasuit">BIA in Teslasuit</h2>
+<p>The Teslasuit integrates BIA technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The BIA subsystem in the Teslasuit is designed to provide real-time data on tissue impedance across multiple channels and frequencies. This data can be used for applications such as hydration monitoring, body composition analysis, and research into physiological responses.</p>
+<p>The Teslasuit’s BIA functionality is accessible through the <a href="../API Reference/subsystems/bia.html"><code>TsBia</code></a> class, which provides methods for configuring streaming, starting and stopping data acquisition, and retrieving BIA data. The BIA subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate BIA data into their applications.</p>
+</section>
+<section id="key-features-of-the-teslasuit-bia-subsystem" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-of-the-teslasuit-bia-subsystem">Key Features of the Teslasuit BIA Subsystem</h2>
+<ol type="1">
+<li><strong>Multi-Channel Support</strong>: The Teslasuit BIA subsystem allows developers to stream impedance data from multiple channels (electrode pairs) simultaneously.</li>
+<li><strong>Multi-Frequency Analysis</strong>: The subsystem supports impedance measurements across a range of frequencies, enabling detailed tissue characterization.</li>
+<li><strong>Complex Impedance Data</strong>: BIA data includes both real and imaginary components, providing insight into resistive and reactive properties of tissues.</li>
+<li><strong>Configurable Streaming</strong>: Developers can configure which channels and frequencies to stream, optimizing data collection for specific applications.</li>
+</ol>
+</section>
+<section id="how-the-teslasuit-api-implements-bia" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-teslasuit-api-implements-bia">How the Teslasuit API Implements BIA</h2>
+<p>The Teslasuit API provides a structured approach to accessing and utilizing BIA data. Below are the key steps involved:</p>
+<ol type="1">
+<li><strong>Initialization</strong>: The Teslasuit API must be initialized before accessing the BIA subsystem. This ensures that the API is ready to communicate with the Teslasuit device.</li>
+<li><strong>Device Connection</strong>: A Teslasuit device must be connected to access its BIA subsystem. The API provides methods to wait for and retrieve connected devices.</li>
+<li><strong>Subsystem Access</strong>: The BIA subsystem is accessed through the <code>bia</code> property of the connected device. This property returns an instance of the <a href="../API Reference/subsystems/bia.html"><code>TsBia</code></a> class.</li>
+<li><strong>Data Streaming and Retrieval</strong>: The <a href="../API Reference/subsystems/bia.html"><code>TsBia</code></a> class provides methods to configure streaming, start/stop data acquisition, and retrieve BIA data.</li>
+</ol>
+</section>
+<section id="description-of-bia-data" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-bia-data">Description of BIA Data</h2>
+<p>Below is a detailed description of the BIA data and data structures used in the Teslasuit API for the BIA subsystem.</p>
+<section id="bia-data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="bia-data-structures">BIA Data Structures</h3>
+<ul>
+<li><strong>TsBiaConfig</strong>: Represents the configuration for BIA data streaming, including channels, frequency range, and step size.</li>
+<li><strong>TsComplexNumber</strong>: Represents a complex number with real and imaginary parts, used for impedance data.</li>
+<li><strong>TsBiaFrequencyData</strong>: Represents impedance data for a specific frequency, including the frequency value and associated complex impedance.</li>
+<li><strong>TsBiaChannelData</strong>: Represents data for a single BIA channel, including channel index and a list of frequency data.</li>
+<li><strong>TsBiaChannels</strong>: Represents all BIA channel data collected in a streaming session.</li>
+</ul>
+</section>
+<section id="bia-parameters-and-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="bia-parameters-and-explanation">BIA Parameters and Explanation</h3>
+<ol type="1">
+<li><strong>Channels</strong>: Electrode pairs or sensor locations from which impedance is measured. Multiple channels allow for spatial mapping of tissue properties.</li>
+<li><strong>Frequency</strong>: The frequency of the applied current. Different frequencies probe different tissue characteristics (e.g., cell membranes, extracellular fluid).</li>
+<li><strong>Complex Impedance</strong>: Each measurement consists of a real part (resistance) and an imaginary part (reactance), providing a complete picture of tissue electrical properties.</li>
+</ol>
+<section id="why-bia-parameters-matter" class="level4">
+<h4 class="anchored" data-anchor-id="why-bia-parameters-matter">Why BIA Parameters Matter</h4>
+<p>By analyzing impedance across multiple channels and frequencies, developers and researchers can gain insights into body composition, hydration status, and physiological changes. The real and imaginary components help distinguish between different tissue types and fluid compartments.</p>
+</section>
+<section id="bia-parameters-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="bia-parameters-in-teslasuit">BIA Parameters in Teslasuit</h4>
+<p>Teslasuit exposes BIA parameters through the <a href="../API Reference/core/data_structures.html#tsbiaconfig"><code>TsBiaConfig</code></a> and related data structures. These parameters can be set and retrieved using the <code>TsBia</code> class methods.</p>
+</section>
+</section>
+</section>
+<section id="applications-of-bia-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-bia-in-teslasuit">Applications of BIA in Teslasuit</h2>
+<p>The BIA subsystem in the Teslasuit has a wide range of applications, including:</p>
+<ul>
+<li><strong>Body Composition Analysis</strong>: Estimate fat-free mass, fat mass, and total body water.</li>
+<li><strong>Hydration Monitoring</strong>: Track changes in body water content for wellness and performance.</li>
+<li><strong>Clinical Assessment</strong>: Support diagnosis and monitoring of fluid balance in medical settings.</li>
+<li><strong>Sports Science</strong>: Monitor physiological changes during training, recovery, and competition.</li>
+<li><strong>Research</strong>: Enable advanced studies of tissue properties and physiological responses.</li>
+</ul>
+</section>
+<section id="dependencies-in-data-structures-and-accessing-data" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</h2>
+<p>The Teslasuit BIA subsystem relies on a hierarchy of data structures to manage and process impedance data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.</p>
+<section id="data-structure-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="data-structure-dependencies">Data Structure Dependencies</h3>
+<ol type="1">
+<li><strong><code>TsBiaChannels</code></strong>:
+<ul>
+<li>Represents all BIA channel data.</li>
+</ul></li>
+<li><strong><code>TsBiaChannelData</code></strong>:
+<ul>
+<li>Represents data for a single channel, including frequency data.</li>
+</ul></li>
+<li><strong><code>TsBiaFrequencyData</code></strong>:
+<ul>
+<li>Represents impedance data for a specific frequency.</li>
+</ul></li>
+<li><strong><code>TsComplexNumber</code></strong>:
+<ul>
+<li>Represents the real and imaginary parts of impedance.</li>
+</ul></li>
+</ol>
+</section>
+<section id="block-scheme-for-accessing-data" class="level3">
+<h3 class="anchored" data-anchor-id="block-scheme-for-accessing-data">Block Scheme for Accessing Data</h3>
+<p>Below is a simplified block scheme illustrating the flow of data from channels to frequency-specific impedance values:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([TsBiaChannels]) --&gt; B[[TsBiaChannelData]]
+    B --&gt; C[[TsBiaFrequencyData]]
+    C --&gt; D[[TsComplexNumber]]
+    D --&gt; E((real_value))
+    D --&gt; F((im_value))
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example Code</h2>
+<p>For detailed examples of how to use the BIA subsystem in the Teslasuit API, refer to the <a href="../examples/bia_example.html">BIA Examples</a> page. These examples demonstrate how to initialize the API, connect to a device, configure streaming, and retrieve BIA data.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The BIA subsystem in the Teslasuit represents a powerful tool for real-time physiological and body composition monitoring. By leveraging the Teslasuit API, developers can integrate BIA data into a wide range of applications, from wellness and sports science to clinical research.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

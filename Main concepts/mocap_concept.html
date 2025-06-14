@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -112,10 +115,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
@@ -130,6 +129,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Main concepts/current_feedback_concept.html">
@@ -186,14 +189,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
- <span class="dropdown-text">PPG</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
@@ -202,8 +197,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
+ <span class="dropdown-text">PPG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../API Reference/subsystems/current_feedback.html">
@@ -229,10 +232,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">PPG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/emg_example.html">
- <span class="dropdown-text">EMG Example</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../examples/haptic_example.html">
  <span class="dropdown-text">Haptic Example</span></a>
   </li>  
@@ -243,6 +242,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/emg_example.html">
+ <span class="dropdown-text">EMG Example</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../examples/current_feedback_example.html">
@@ -348,18 +351,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -372,8 +363,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -469,18 +472,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -493,8 +484,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback (Teslaglove)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -536,12 +539,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic example</span></a>
   </div>
@@ -556,6 +553,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -612,8 +615,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-mocap" id="toc-what-is-mocap" class="nav-link" data-scroll-target="#what-is-mocap">What is Mocap?</a></li>
+  <li><a href="#mocap-in-teslasuit" id="toc-mocap-in-teslasuit" class="nav-link" data-scroll-target="#mocap-in-teslasuit">Mocap in Teslasuit</a></li>
+  <li><a href="#key-features-of-the-teslasuit-mocap-subsystem" id="toc-key-features-of-the-teslasuit-mocap-subsystem" class="nav-link" data-scroll-target="#key-features-of-the-teslasuit-mocap-subsystem">Key Features of the Teslasuit Mocap Subsystem</a></li>
+  <li><a href="#how-the-teslasuit-api-implements-mocap" id="toc-how-the-teslasuit-api-implements-mocap" class="nav-link" data-scroll-target="#how-the-teslasuit-api-implements-mocap">How the Teslasuit API Implements Mocap</a></li>
+  <li><a href="#description-of-mocap-data" id="toc-description-of-mocap-data" class="nav-link" data-scroll-target="#description-of-mocap-data">Description of Mocap Data</a>
+  <ul class="collapse">
+  <li><a href="#skeleton-data" id="toc-skeleton-data" class="nav-link" data-scroll-target="#skeleton-data">Skeleton Data</a></li>
+  <li><a href="#biomechanical-angles" id="toc-biomechanical-angles" class="nav-link" data-scroll-target="#biomechanical-angles">Biomechanical Angles</a></li>
+  </ul></li>
+  <li><a href="#applications-of-mocap-in-teslasuit" id="toc-applications-of-mocap-in-teslasuit" class="nav-link" data-scroll-target="#applications-of-mocap-in-teslasuit">Applications of Mocap in Teslasuit</a></li>
+  <li><a href="#dependencies-in-data-structures-and-accessing-data" id="toc-dependencies-in-data-structures-and-accessing-data" class="nav-link" data-scroll-target="#dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</a>
+  <ul class="collapse">
+  <li><a href="#data-structure-dependencies" id="toc-data-structure-dependencies" class="nav-link" data-scroll-target="#data-structure-dependencies">Data Structure Dependencies</a></li>
+  <li><a href="#block-scheme-for-accessing-data" id="toc-block-scheme-for-accessing-data" class="nav-link" data-scroll-target="#block-scheme-for-accessing-data">Block Scheme for Accessing Data</a></li>
+  </ul></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example Code</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -637,8 +663,176 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.5+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../API Reference/subsystems/mocap.html">Mocap Subsystem</a></li>
+<li><a href="../examples/mocap_example.html">Examples</a></li>
+<li><a href="../usecases/index.html">Usecase</a></li>
+<li><a href="../API Reference/core/data_structures.html#mocap">Mocap Data structures</a></li>
+</ul>
+</section>
+<section id="what-is-mocap" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-mocap">What is Mocap?</h2>
+<p>Motion capture (Mocap) is a technology used to record the movement of objects or people. It is widely used in fields such as animation, gaming, sports, and biomechanics to analyze and replicate motion. Mocap systems track the position and orientation of key points on a subject and translate them into digital data.</p>
+<p>Motion capture (Mocap) is a foundational technology in wearable devices, allowing for real-time monitoring of body movements. It serves a wide array of purposes, from entertainment to healthcare, making it a highly adaptable tool for motion analysis and simulation.</p>
+</section>
+<section id="mocap-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="mocap-in-teslasuit">Mocap in Teslasuit</h2>
+<p>Teslasuit integrates Mocap technology as part of its motion capture subsystem, enabling advanced motion tracking capabilities. The Mocap subsystem in the Teslasuit is designed to provide real-time data on skeletal positions, orientations, and biomechanical angles. This data can be used for various applications, including animation, rehabilitation, and sports performance analysis.</p>
+<p>System relies on 14 strategically placed inertial measurement unit (IMU) sensors embedded throughout the suit. These sensors ensure high-resolution tracking of body movements, delivering precise and consistent motion data across all major joints and body segments.</p>
+<p>The Teslasuit’s Mocap functionality is accessible through the <a href="../API Reference/subsystems/mocap.html"><code>TsMocap</code></a> class, which provides methods for streaming raw data, retrieving skeleton data, and performing calibration. The Mocap subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate motion data into their applications.</p>
+</section>
+<section id="key-features-of-the-teslasuit-mocap-subsystem" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-of-the-teslasuit-mocap-subsystem">Key Features of the Teslasuit Mocap Subsystem</h2>
+<ol type="1">
+<li><strong>Raw Data Streaming</strong>: The Teslasuit Mocap subsystem allows developers to stream raw motion data in real time. This data can be used for custom analysis and visualization.</li>
+<li><strong>Skeleton Data</strong>: The subsystem provides detailed skeletal data, including bone positions and orientations, enabling precise motion tracking.</li>
+<li><strong>Biomechanical Angles</strong>: The subsystem offers biomechanical angle data, which is useful for analyzing joint movements and posture.</li>
+<li><strong>Calibration</strong>: The Mocap subsystem includes a calibration feature to ensure accurate motion tracking.</li>
+</ol>
+</section>
+<section id="how-the-teslasuit-api-implements-mocap" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-teslasuit-api-implements-mocap">How the Teslasuit API Implements Mocap</h2>
+<p>The Teslasuit API provides a structured approach to accessing and utilizing Mocap data. Below are the key steps involved:</p>
+<ol type="1">
+<li><strong>Initialization</strong>: The Teslasuit API must be initialized before accessing the Mocap subsystem. This ensures that the API is ready to communicate with the Teslasuit device.</li>
+<li><strong>Device Connection</strong>: A Teslasuit device must be connected to access its Mocap subsystem. The API provides methods to wait for and retrieve connected devices.</li>
+<li><strong>Subsystem Access</strong>: The Mocap subsystem is accessed through the <code>mocap</code> property of the connected device. This property returns an instance of the <a href="../API Reference/subsystems/mocap.html"><code>TsMocap</code></a> class.</li>
+<li><strong>Data Retrieval</strong>: The <a href="../API Reference/subsystems/mocap.html"><code>TsMocap</code></a> class provides methods to retrieve raw sensor data, skeleton data, and biomechanical angles.</li>
+</ol>
+</section>
+<section id="description-of-mocap-data" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-mocap-data">Description of Mocap Data</h2>
+<p>Below is a detailed description of the Mocap data and data structures used in the Teslasuit API for the Mocap subsystem.</p>
+<section id="skeleton-data" class="level3">
+<h3 class="anchored" data-anchor-id="skeleton-data">Skeleton Data</h3>
+<section id="what-is-skeleton-data" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-skeleton-data">What is Skeleton Data?</h4>
+<p>The “Skeleton” refers to a skeletal model—a digital representation of the human body composed of interconnected bones or segments—that mirrors the subject’s posture and motion in real time. Skeleton data represents the positions and orientations of bones in a 3D space. It is used to track the movement of a subject’s body and is a fundamental component of motion capture systems.</p>
+</section>
+<section id="why-skeleton-data-matters" class="level4">
+<h4 class="anchored" data-anchor-id="why-skeleton-data-matters">Why Skeleton Data Matters</h4>
+<p>Skeleton data provides insights into body posture, joint movements, and overall motion patterns. It is widely used in animation, sports analysis, and rehabilitation to study and replicate human motion.</p>
+</section>
+<section id="skeleton-data-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="skeleton-data-in-teslasuit">Skeleton Data in Teslasuit</h4>
+<p>The Teslasuit provides detailed skeleton data using its integrated motion capture sensors. This data includes the position and rotation of each bone in the body, enabling precise motion tracking and analysis.</p>
+</section>
+<section id="skeleton-data-parameters-and-explanation" class="level4">
+<h4 class="anchored" data-anchor-id="skeleton-data-parameters-and-explanation">Skeleton Data Parameters and Explanation</h4>
+<ol type="1">
+<li><strong>Position</strong>: The 3D coordinates (x, y, z) of a bone in space.</li>
+<li><strong>Rotation</strong>: The orientation of a bone represented as a quaternion (w, x, y, z).</li>
+</ol>
+<section id="what-is-a-quaternion" class="level5">
+<h5 class="anchored" data-anchor-id="what-is-a-quaternion">What is a Quaternion?</h5>
+<p>A quaternion is a mathematical representation used to describe rotations in 3D space. It consists of four components: one real part (w) and three imaginary parts (x, y, z). Quaternions are widely used in computer graphics, robotics, and motion capture because they avoid issues like gimbal lock and provide smooth interpolation for rotations.</p>
+</section>
+</section>
+</section>
+<section id="biomechanical-angles" class="level3">
+<h3 class="anchored" data-anchor-id="biomechanical-angles">Biomechanical Angles</h3>
+<section id="what-are-biomechanical-angles" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-biomechanical-angles">What are Biomechanical Angles?</h4>
+<p>Biomechanical angles represent the relative angles between bones at joints. These angles are used to analyze joint movements and body mechanics.</p>
+</section>
+<section id="why-biomechanical-angles-matter" class="level4">
+<h4 class="anchored" data-anchor-id="why-biomechanical-angles-matter">Why Biomechanical Angles Matter</h4>
+<p>Biomechanical angles provide valuable information about joint flexibility, posture, and movement efficiency. They are essential for applications in sports performance, rehabilitation, and ergonomics.</p>
+</section>
+<section id="biomechanical-angles-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="biomechanical-angles-in-teslasuit">Biomechanical Angles in Teslasuit</h4>
+<p>Teslasuit calculates biomechanical angles using its motion capture data. These angles are available for key joints in the body and can be used to analyze motion patterns and detect abnormalities.</p>
+</section>
+<section id="biomechanical-angle-parameters-and-explanation" class="level4">
+<h4 class="anchored" data-anchor-id="biomechanical-angle-parameters-and-explanation">Biomechanical Angle Parameters and Explanation</h4>
+<ol type="1">
+<li><p><strong>Joint Angle</strong>: The angles between two connected bones at a joint. Angles are typically measured in degrees or radians and represent the relative orientation of the bones.</p>
+<ul>
+<li><p><strong>Flexion/Extension</strong>: These angles describe the bending (flexion) or straightening (extension) of a joint. For example, the knee joint’s flexion angle increases as the leg bends.</p></li>
+<li><p><strong>Abduction/Adduction</strong>: These angles describe the movement of a limb away from (abduction) or toward (adduction) the body’s midline. For example, raising an arm sideways involves abduction of the shoulder joint.</p></li>
+<li><p><strong>Internal/External Rotation</strong>: These angles describe the rotation of a bone around its longitudinal axis. For example, rotating the forearm inward or outward involves internal or external rotation of the shoulder joint.</p></li>
+<li><p><strong>Plane of Movement</strong>: The biomechanical angles are often categorized based on the anatomical planes of movement:</p>
+<ul>
+<li><strong>Sagittal Plane</strong>: Flexion and extension.</li>
+<li><strong>Frontal Plane</strong>: Abduction and adduction.</li>
+<li><strong>Transverse Plane</strong>: Internal and external rotation.</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="applications-of-mocap-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-mocap-in-teslasuit">Applications of Mocap in Teslasuit</h2>
+<p>The Mocap subsystem in the Teslasuit has a wide range of applications, including:</p>
+<ul>
+<li><strong>Animation and Gaming</strong>: Capture realistic human movements for use in animation and virtual environments.</li>
+<li><strong>Sports Performance</strong>: Analyze motion patterns to improve athletic performance and reduce injury risk.</li>
+<li><strong>Rehabilitation</strong>: Monitor body movements during rehabilitation exercises to track progress and ensure proper technique.</li>
+<li><strong>Virtual Reality</strong>: Enhance immersive experiences by incorporating real-time motion data into VR applications.</li>
+</ul>
+</section>
+<section id="dependencies-in-data-structures-and-accessing-data" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</h2>
+<p>The Teslasuit Mocap subsystem relies on a hierarchy of data structures to manage and process motion data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.</p>
+<section id="data-structure-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="data-structure-dependencies">Data Structure Dependencies</h3>
+<ol type="1">
+<li><a href="../API Reference/core/data_structures.html#tsmocapbonestructure"><strong><code>TsMocapBone</code></strong></a>:
+<ul>
+<li>Represents the position and rotation of a single bone.</li>
+<li>Contains attributes like <a href="../API Reference/core/data_structures.html#tsvec3fstructure"><code>position</code></a> and <a href="../API Reference/core/data_structures.html#tsquatstructure"><code>rotation</code></a>.</li>
+</ul></li>
+<li><a href="../API Reference/core/data_structures.html#tsmocapsensorstructure"><strong><code>TsMocapSensor</code></strong></a>:
+<ul>
+<li>Represents raw IMU sensor data for a single bone.</li>
+<li>Contains attributes like <a href="../API Reference/core/data_structures.html#tsvec3fstructure"><code>gyro</code></a>, <a href="../API Reference/core/data_structures.html#tsvec3fstructure"><code>accel</code></a>, <code>timestamp</code> and others.</li>
+</ul></li>
+<li><a href="../API Reference/core/data_structures.html#tsbiomechanicalindex">**<code>TsBiomechanicalIndex</code></a>**:
+<ul>
+<li>Represents biomechanical angles for specific joints.</li>
+</ul></li>
+</ol>
+</section>
+<section id="block-scheme-for-accessing-data" class="level3">
+<h3 class="anchored" data-anchor-id="block-scheme-for-accessing-data">Block Scheme for Accessing Data</h3>
+<p>Below is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([Mocap class]) --&gt; B[[TsMocapBone]]
+    A --&gt; C[[TsMocapSensor]]
+    C --&gt; D[[gyro]]
+    C --&gt; E[[accel]]
+    C --&gt; F[[timestamp]]
+    A --&gt; G[[TsBiomechanicalIndex]]
+    G --&gt; H((angle_value))
+
+    class B,C,D,E,F,G,H mocap;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example Code</h2>
+<p>For detailed examples of how to use the Mocap subsystem in the Teslasuit API, refer to the <a href="../examples/mocap_example.html">Mocap Examples</a> page. These examples demonstrate how to initialize the API, connect to a device, and retrieve Mocap data.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The Mocap subsystem in the Teslasuit represents a powerful tool for real-time motion tracking. By leveraging the Teslasuit API, developers can integrate Mocap data into a wide range of applications, from animation to rehabilitation.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

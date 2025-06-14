@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -112,10 +115,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../Main concepts/ppg_concept.html">
  <span class="dropdown-text">PPG</span></a>
   </li>  
@@ -130,6 +129,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../Main concepts/force_feedback_concept.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Main concepts/emg_concept.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Main concepts/current_feedback_concept.html">
@@ -186,14 +189,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
- <span class="dropdown-text">PPG</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
- <span class="dropdown-text">EMG</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/haptic.html">
  <span class="dropdown-text">Haptic</span></a>
   </li>  
@@ -202,8 +197,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mocap</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/ppg.html">
+ <span class="dropdown-text">PPG</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../API Reference/subsystems/force_feedback.html">
  <span class="dropdown-text">Force Feedback</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../API Reference/subsystems/emg.html">
+ <span class="dropdown-text">EMG</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../API Reference/subsystems/current_feedback.html">
@@ -229,10 +232,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">PPG Example</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/emg_example.html">
- <span class="dropdown-text">EMG Example</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../examples/haptic_example.html">
  <span class="dropdown-text">Haptic Example</span></a>
   </li>  
@@ -243,6 +242,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../examples/force_feedback_example.html">
  <span class="dropdown-text">Force Feedback Example</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/emg_example.html">
+ <span class="dropdown-text">EMG Example</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../examples/current_feedback_example.html">
@@ -348,18 +351,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../Main concepts/haptic_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -372,8 +363,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Main concepts/ppg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Main concepts/force_feedback_concept.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Main concepts/emg_concept.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -469,18 +472,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PPG</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/haptic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic</span></a>
   </div>
@@ -493,8 +484,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/ppg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PPG</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../API Reference/subsystems/force_feedback.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force feedback (Teslaglove)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../API Reference/subsystems/emg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -536,12 +539,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMG example (experimental)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../examples/haptic_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haptic example</span></a>
   </div>
@@ -556,6 +553,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../examples/force_feedback_example.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Force Feedback example</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../examples/emg_example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMG example (experimental)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -612,8 +615,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-current-feedback" id="toc-what-is-current-feedback" class="nav-link" data-scroll-target="#what-is-current-feedback">What is Current Feedback?</a></li>
+  <li><a href="#current-feedback-in-teslasuit" id="toc-current-feedback-in-teslasuit" class="nav-link" data-scroll-target="#current-feedback-in-teslasuit">Current Feedback in Teslasuit</a></li>
+  <li><a href="#key-features-of-the-teslasuit-current-feedback-subsystem" id="toc-key-features-of-the-teslasuit-current-feedback-subsystem" class="nav-link" data-scroll-target="#key-features-of-the-teslasuit-current-feedback-subsystem">Key Features of the Teslasuit Current Feedback Subsystem</a></li>
+  <li><a href="#how-the-teslasuit-api-implements-current-feedback" id="toc-how-the-teslasuit-api-implements-current-feedback" class="nav-link" data-scroll-target="#how-the-teslasuit-api-implements-current-feedback">How the Teslasuit API Implements Current Feedback</a></li>
+  <li><a href="#description-of-current-feedback-data" id="toc-description-of-current-feedback-data" class="nav-link" data-scroll-target="#description-of-current-feedback-data">Description of Current Feedback Data</a>
+  <ul class="collapse">
+  <li><a href="#current-feedback-data-structures" id="toc-current-feedback-data-structures" class="nav-link" data-scroll-target="#current-feedback-data-structures">Current Feedback Data Structures</a></li>
+  </ul></li>
+  <li><a href="#applications-of-current-feedback-in-teslasuit" id="toc-applications-of-current-feedback-in-teslasuit" class="nav-link" data-scroll-target="#applications-of-current-feedback-in-teslasuit">Applications of Current Feedback in Teslasuit</a></li>
+  <li><a href="#dependencies-in-data-structures-and-accessing-data" id="toc-dependencies-in-data-structures-and-accessing-data" class="nav-link" data-scroll-target="#dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</a>
+  <ul class="collapse">
+  <li><a href="#data-structure-dependencies" id="toc-data-structure-dependencies" class="nav-link" data-scroll-target="#data-structure-dependencies">Data Structure Dependencies</a></li>
+  <li><a href="#block-scheme-for-accessing-data" id="toc-block-scheme-for-accessing-data" class="nav-link" data-scroll-target="#block-scheme-for-accessing-data">Block Scheme for Accessing Data</a></li>
+  </ul></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example Code</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -637,8 +662,130 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><img src="https://img.shields.io/badge/Teslasuit_v.-4.7+-red" class="img-fluid" alt="Teslasuit v."> <img src="https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue" class="img-fluid" alt="Teslasuit SDK"> <img src="https://img.shields.io/badge/Python-3.8+-green" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="../API Reference/subsystems/current_feedback.html">Current feedback Subsystem</a></li>
+<li><a href="../examples/current_feedback_example.html">Examples</a></li>
+<li><a href="../API Reference/core/data_structures.html#current-feedback">Current feedback Data structures</a></li>
+</ul>
+</section>
+<section id="what-is-current-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-current-feedback">What is Current Feedback?</h2>
+<p>Current feedback refers to the real-time measurement and monitoring of electrical current delivered to electrodes in wearable devices. In the context of Teslasuit, current feedback enables precise tracking of the actual current supplied to haptic, stimulation, or sensor channels, ensuring safety, device integrity, and accurate feedback for closed-loop control.</p>
+<p>Current feedback is essential for verifying that the intended electrical stimulation is being delivered as expected. It helps detect anomalies, prevent overcurrent conditions, and provide diagnostic information for both developers and end users.</p>
+</section>
+<section id="current-feedback-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="current-feedback-in-teslasuit">Current Feedback in Teslasuit</h2>
+<p>The Teslasuit integrates current feedback technology as part of its hardware monitoring and safety subsystem. The current feedback subsystem provides real-time data on the current values for each node and channel in the suit. This allows developers to monitor electrical delivery, validate stimulation protocols, and implement safety checks in their applications.</p>
+<p>The Teslasuit’s current feedback functionality is accessible through the <a href="../API Reference/subsystems/current_feedback.html"><code>TsCurrentFeedback</code></a> class, which provides methods for starting and stopping data streaming, as well as retrieving current feedback data for all nodes and channels. The subsystem is tightly integrated with the Teslasuit API, enabling seamless access to current measurements during operation.</p>
+</section>
+<section id="key-features-of-the-teslasuit-current-feedback-subsystem" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-of-the-teslasuit-current-feedback-subsystem">Key Features of the Teslasuit Current Feedback Subsystem</h2>
+<ol type="1">
+<li><strong>Real-Time Data Streaming</strong>: Stream current feedback data from all nodes and channels in real time.</li>
+<li><strong>Multi-Node, Multi-Channel Support</strong>: Monitor current values across multiple hardware nodes and channels simultaneously.</li>
+<li><strong>Safety and Diagnostics</strong>: Use current feedback to detect abnormal conditions, verify stimulation delivery, and ensure device safety.</li>
+<li><strong>Integration with Other Subsystems</strong>: Combine current feedback data with haptic, EMG, or other sensor data for advanced closed-loop applications.</li>
+</ol>
+</section>
+<section id="how-the-teslasuit-api-implements-current-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-teslasuit-api-implements-current-feedback">How the Teslasuit API Implements Current Feedback</h2>
+<p>The Teslasuit API provides a structured approach to accessing and utilizing current feedback data. Below are the key steps involved:</p>
+<ol type="1">
+<li><strong>Initialization</strong>: The Teslasuit API must be initialized before accessing the current feedback subsystem.</li>
+<li><strong>Device Connection</strong>: A Teslasuit device must be connected to access its current feedback subsystem.</li>
+<li><strong>Subsystem Access</strong>: The current feedback subsystem is accessed through the <code>current_feedback</code> property of the connected device, returning an instance of the <a href="../API Reference/subsystems/current_feedback.html"><code>TsCurrentFeedback</code></a> class.</li>
+<li><strong>Data Streaming and Retrieval</strong>: The <a href="../API Reference/subsystems/current_feedback.html"><code>TsCurrentFeedback</code></a> class provides methods to start/stop streaming and retrieve current feedback data.</li>
+</ol>
+</section>
+<section id="description-of-current-feedback-data" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-current-feedback-data">Description of Current Feedback Data</h2>
+<p>Below is a detailed description of the current feedback data and data structures used in the Teslasuit API for the current feedback subsystem.</p>
+<section id="current-feedback-data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="current-feedback-data-structures">Current Feedback Data Structures</h3>
+<ul>
+<li><strong>TsCurrentFeedbackChannelData</strong>: Represents current feedback data for a single channel, including channel index and measured value.</li>
+<li><strong>TsCurrentFeedbackNodeData</strong>: Represents current feedback data for a single node, including node index and a list of channel data.</li>
+<li><strong>TsCurrentFeedbackNodes</strong>: Represents the collection of all current feedback nodes and their associated channel data.</li>
+</ul>
+<section id="why-current-feedback-data-matters" class="level4">
+<h4 class="anchored" data-anchor-id="why-current-feedback-data-matters">Why Current Feedback Data Matters</h4>
+<p>Current feedback data allows developers and researchers to:</p>
+<ul>
+<li>Verify that electrical stimulation or actuation is being delivered as intended.</li>
+<li>Detect hardware faults, overcurrent, or undercurrent conditions.</li>
+<li>Implement closed-loop control algorithms that adjust stimulation based on real-time measurements.</li>
+<li>Ensure user safety and device reliability.</li>
+</ul>
+</section>
+<section id="current-feedback-parameters-in-teslasuit" class="level4">
+<h4 class="anchored" data-anchor-id="current-feedback-parameters-in-teslasuit">Current Feedback Parameters in Teslasuit</h4>
+<p>Teslasuit exposes current feedback parameters through the <a href="../API Reference/core/data_structures.html#tscurrentfeedbacknodes"><code>TsCurrentFeedbackNodes</code></a> and related structures. These can be accessed using the <code>TsCurrentFeedback</code> class methods.</p>
+</section>
+</section>
+</section>
+<section id="applications-of-current-feedback-in-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-current-feedback-in-teslasuit">Applications of Current Feedback in Teslasuit</h2>
+<p>The current feedback subsystem in the Teslasuit has a wide range of applications, including:</p>
+<ul>
+<li><strong>Safety Monitoring</strong>: Detect and respond to abnormal current delivery in real time.</li>
+<li><strong>Diagnostics and Maintenance</strong>: Identify hardware issues or degradation over time.</li>
+<li><strong>Closed-Loop Control</strong>: Adjust stimulation or actuation parameters based on measured current.</li>
+<li><strong>Research and Development</strong>: Analyze current delivery patterns for optimization and validation.</li>
+</ul>
+</section>
+<section id="dependencies-in-data-structures-and-accessing-data" class="level2">
+<h2 class="anchored" data-anchor-id="dependencies-in-data-structures-and-accessing-data">Dependencies in Data Structures and Accessing Data</h2>
+<p>The Teslasuit current feedback subsystem relies on a hierarchy of data structures to manage and process current feedback data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.</p>
+<section id="data-structure-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="data-structure-dependencies">Data Structure Dependencies</h3>
+<ol type="1">
+<li><strong><code>TsCurrentFeedbackNodes</code></strong>:
+<ul>
+<li>Represents all current feedback nodes.</li>
+</ul></li>
+<li><strong><code>TsCurrentFeedbackNodeData</code></strong>:
+<ul>
+<li>Represents data for a single node, including channel data.</li>
+</ul></li>
+<li><strong><code>TsCurrentFeedbackChannelData</code></strong>:
+<ul>
+<li>Represents data for a single channel, including the measured value.</li>
+</ul></li>
+</ol>
+</section>
+<section id="block-scheme-for-accessing-data" class="level3">
+<h3 class="anchored" data-anchor-id="block-scheme-for-accessing-data">Block Scheme for Accessing Data</h3>
+<p>Below is a simplified block scheme illustrating the flow of data from nodes to channel values:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([TsCurrentFeedbackNodes]) --&gt; B[[TsCurrentFeedbackNodeData]]
+    B --&gt; C[[TsCurrentFeedbackChannelData]]
+    C --&gt; D((value))
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example Code</h2>
+<p>For detailed examples of how to use the current feedback subsystem in the Teslasuit API, refer to the <a href="../examples/current_feedback_example.html">Current Feedback Examples</a> page. These examples demonstrate how to initialize the API, connect to a device, and retrieve current feedback data.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>The current feedback subsystem in the Teslasuit provides a robust and flexible platform for real-time monitoring of electrical current delivery. By leveraging the Teslasuit API, developers can ensure safety, optimize stimulation protocols, and enable advanced closed-loop applications.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
