@@ -103,7 +103,7 @@
     "href": "Main concepts/ppg_concept.html#conclusion",
     "title": "PPG",
     "section": "Conclusion",
-    "text": "Conclusion\nThe PPG subsystem in the Teslasuit represents a powerful tool for real-time physiological monitoring. By leveraging the Teslasuit API, developers can integrate PPG data into a wide range of applications, from fitness tracking to immersive VR experiences. The combination of advanced hardware and a robust API makes the Teslasuit a versatile platform for innovation in health and wellness.",
+    "text": "Conclusion\nThe PPG subsystem in the Teslasuit represents a powerful tool for real-time physiological monitoring. By leveraging the Teslasuit API, developers can integrate PPG data into a wide range of applications, from fitness tracking to immersive VR experiences.",
     "crumbs": [
       "Main concepts",
       "PPG"
@@ -191,7 +191,7 @@
     "href": "Main concepts/mocap_concept.html#dependencies-in-data-structures-and-accessing-data",
     "title": "Mocap",
     "section": "Dependencies in Data Structures and Accessing Data",
-    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit Mocap subsystem relies on a hierarchy of data structures to manage and process motion data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsMocapBone:\n\nRepresents the position and rotation of a single bone.\nContains attributes like position and rotation.\n\nTsMocapSensor:\n\nRepresents raw IMU sensor data for a single bone.\nContains attributes like gyro, accel, timestamp and others.\n\n**TsBiomechanicalIndex**:\n\nRepresents biomechanical angles for specific joints.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:\n\n\n\n\n\nflowchart TD\n    A([Mocap class]) --&gt; B[[TsMocapBone]]\n    A --&gt; C[[TsMocapSensor]]\n    C --&gt; D[[gyro]]\n    C --&gt; E[[accel]]\n    C --&gt; F[[timestamp]]\n    A --&gt; G[[TsBiomechanicalIndex]]\n    G --&gt; H((angle_value))\n\n    class B,C,D,E,F,G,H mocap;",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit Mocap subsystem relies on a hierarchy of data structures to manage and process motion data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsMocapBone:\n\nRepresents the position and rotation of a single bone.\nContains attributes like position and rotation.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo get position and rotation for specified bone, we need:\n\nChoose bone we need\n\n\n\nTsBone2dIndex structure all possible options are shown. Specify one you need.\n\n\nCall function correctly\n\n\n\nIn order to get position and rotation correctly, we can proceed with next code example:\n\n   biomech_data = mocap.get_skeleton_data_on_ready()\n   print(\"Position and rotation \", biomech_data[TsBone2dIndex.LeftUpperArmLeftUpperArm].position, biomech_data[TsBone2dIndex.LeftUpperArmLeftUpperArm].rotation)\n\n\n\nTsMocapSensor:\n\nRepresents raw IMU sensor data for a single bone.\nContains attributes like gyro, accel, timestamp and others.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo get raw data for specified bone, we need:\n\nChoose bone we need\n\n\n\nTsBone2dIndex structure all possible options are shown. Specify one you need.\n\n\nCall function correctly\n\n\n\nIn order to get raw data correctly, we can proceed with next code example:\n\n   biomech_data = mocap.mocap.get_raw_data_on_ready()\n   print(\"Bone data:\", data[TsBone2dIndex.RightUpperArm])\n\n\n\nTsBiomechanicalIndex:\n\nRepresents biomechanical angles for specific joints.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nTo get specified angle, we need:\n\nChoose angle we need\n\n\n\nIn the TsBiomechanicalIndex structure all possible options are shown. Specify one you need.\n\n\nCall function correctly\n\n\n\nIn order to get angles correctly, we can proceed with next code example:\n\n   biomech_data = mocap.get_biomechanical_angles_on_ready()\n   print(\"Biomech Pelvis Tilt: \", biomech_data[TsBiomechanicalIndex.PelvisTilt])\n\n\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:\n\n\n\n\n\nflowchart TD\n    A([Mocap class]) --&gt; B[[TsMocapBone]]\n    A --&gt; C[[TsMocapSensor]]\n    B --&gt; N[[position]]\n    B --&gt; O[[rotation]]\n    C --&gt; D[[gyro]]\n    C --&gt; E[[accel]]\n    C --&gt; F[[timestamp]]\n    C --&gt; I[[q6]]\n    C --&gt; K[[q9]]\n    C --&gt; L[[magn]]\n    C --&gt; M[[linear_accel]]\n    A --&gt; G[[TsBiomechanicalIndex]]\n    G --&gt; H((angle_value))\n\n    class B,C,D,E,F,G,H mocap;",
     "crumbs": [
       "Main concepts",
       "Mocap"
@@ -213,10 +213,164 @@
     "href": "Main concepts/mocap_concept.html#conclusion",
     "title": "Mocap",
     "section": "Conclusion",
-    "text": "Conclusion\nThe Mocap subsystem in the Teslasuit represents a powerful tool for real-time motion tracking. By leveraging the Teslasuit API, developers can integrate Mocap data into a wide range of applications, from animation to rehabilitation. The combination of advanced hardware and a robust API makes the Teslasuit a versatile platform for innovation in motion analysis.",
+    "text": "Conclusion\nThe Mocap subsystem in the Teslasuit represents a powerful tool for real-time motion tracking. By leveraging the Teslasuit API, developers can integrate Mocap data into a wide range of applications, from animation to rehabilitation.",
     "crumbs": [
       "Main concepts",
       "Mocap"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#quick-access",
+    "href": "Main concepts/haptic_concept.html#quick-access",
+    "title": "Haptic",
+    "section": "Quick access",
+    "text": "Quick access\n\nHaptic Subsystem\nExamples\nHaptic Data structures",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#what-is-haptic-feedback",
+    "href": "Main concepts/haptic_concept.html#what-is-haptic-feedback",
+    "title": "Haptic",
+    "section": "What is Haptic Feedback?",
+    "text": "What is Haptic Feedback?\nHaptic feedback refers to the use of tactile sensations to communicate information to the user through touch. In wearable technology, haptic feedback is typically delivered via electrical stimulation, vibration, or temperature changes, allowing users to feel virtual objects, receive notifications, or experience immersive effects in virtual environments.\nHaptic technology is widely used in gaming, VR/AR, rehabilitation, and training applications to enhance realism and interactivity. By stimulating the skin and muscles, haptic feedback can simulate textures, impacts, or environmental cues, providing a richer and more engaging user experience.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#haptic-in-teslasuit",
+    "href": "Main concepts/haptic_concept.html#haptic-in-teslasuit",
+    "title": "Haptic",
+    "section": "Haptic in Teslasuit",
+    "text": "Haptic in Teslasuit\nThe Teslasuit integrates advanced haptic feedback technology, enabling precise and programmable tactile sensations across the body. The haptic subsystem in the Teslasuit allows developers to create, manage, and play haptic effects, including instant touches and looped playables, using a flexible API.\nThe Teslasuit’s haptic functionality is accessible through the TsHapticPlayer class, which provides methods for creating haptic effects, controlling playback, and customizing parameters such as amplitude, period, and pulse width. The haptic subsystem is tightly integrated with the Teslasuit API, allowing seamless incorporation of tactile feedback into applications.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#key-features-of-the-teslasuit-haptic-subsystem",
+    "href": "Main concepts/haptic_concept.html#key-features-of-the-teslasuit-haptic-subsystem",
+    "title": "Haptic",
+    "section": "Key Features of the Teslasuit Haptic Subsystem",
+    "text": "Key Features of the Teslasuit Haptic Subsystem\n\nProgrammable Haptic Effects: Developers can create custom haptic effects by specifying parameters such as amplitude, period, and pulse width, or by using pre-defined haptic assets.\nInstant Touches and Playables: The subsystem supports both instant haptic touches (short, parameterized effects) and playables (longer, asset-based effects that can be looped or sequenced).\nChannel Mapping: Haptic feedback can be targeted to specific body areas or channels, enabling localized sensations and complex patterns.\nReal-Time Control: The API allows real-time control over haptic playback, including pausing, muting, and adjusting multipliers for global effect scaling.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#how-the-teslasuit-api-implements-haptic-feedback",
+    "href": "Main concepts/haptic_concept.html#how-the-teslasuit-api-implements-haptic-feedback",
+    "title": "Haptic",
+    "section": "How the Teslasuit API Implements Haptic Feedback",
+    "text": "How the Teslasuit API Implements Haptic Feedback\nThe Teslasuit API provides a structured approach to accessing and utilizing haptic feedback. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the haptic subsystem.\nDevice Connection: A Teslasuit device must be connected to access its haptic subsystem.\nSubsystem Access: The haptic subsystem is accessed through the haptic property of the connected device, returning an instance of the TsHapticPlayer class.\nEffect Creation and Playback: The TsHapticPlayer class provides methods to create haptic effects, play or stop them, and adjust parameters in real time.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#description-of-haptic-data",
+    "href": "Main concepts/haptic_concept.html#description-of-haptic-data",
+    "title": "Haptic",
+    "section": "Description of Haptic Data",
+    "text": "Description of Haptic Data\nBelow is a detailed description of the haptic data and data structures used in the Teslasuit API for the haptic subsystem.\n\nHaptic Parameters\n\nWhat are Haptic Parameters?\nHaptic parameters define the characteristics of a haptic effect, such as how strong it feels, how long it lasts, and what pattern it follows. The main parameters include:\n\nPeriod: The duration of one cycle of the haptic signal, typically in milliseconds. It is inversely proportional to frequency, meaning a shorter period corresponds to a higher frequency.\nAmplitude: The strength or intensity of the haptic effect.\nPulse Width: The duration of each pulse within a period, affecting the sharpness of the sensation.\n\n\n\nWhy Haptic Parameters Matter\nBy adjusting these parameters, developers can create a wide range of tactile sensations, from gentle vibrations to sharp pulses or even temperature changes. This flexibility allows for realistic simulation of touch, impact, or environmental effects.\n\n\nHaptic Parameters in Teslasuit\nTeslasuit exposes haptic parameters through the TsHapticParam structure. Parameters can be grouped and passed to the haptic player to define instant touches or modify playables.\n\n\n\nHaptic Playables and Touches\n\nPlayable: A haptic effect created from an asset, which can be played, looped, paused, or stopped.\nTouch: An instant, parameterized haptic effect, typically short and targeted.\n\n\n\nHaptic Multipliers\n\nMaster multiplier\nMaster multiplier changes aﬀect all playable items. There can be numerous multipliers, each corresponding to a specific haptic parameter type (such as amplitude, period, or pulse width). This allows you to globally adjust the intensity or characteristics of all haptic effects at once by modifying the relevant multiplier. For example, increasing the amplitude multiplier will make all haptic sensations stronger, while adjusting the period multiplier can change the frequency of all effects system-wide.\n\n\nPlayable multiplier\nPlayable multiplier affects a specific playable item, allowing fine-tuned control over its haptic parameters independently of the global (master) settings. There can be multiple multipliers, each corresponding to a different haptic parameter type (such as amplitude, period, or pulse width) for a given playable. This enables developers to dynamically adjust the intensity or characteristics of individual haptic effects during playback without altering the overall system behavior.\n\n\nTouch multiplier\nTouch multipliers allow you to adjust the intensity or characteristics of individual instant touches. By applying a multiplier to a touch, you can control parameters such as amplitude, period, or pulse width for that specific effect, without affecting other touches or playables. This enables precise, real-time customization of haptic sensations for each instant touch event.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#applications-of-haptic-feedback-in-teslasuit",
+    "href": "Main concepts/haptic_concept.html#applications-of-haptic-feedback-in-teslasuit",
+    "title": "Haptic",
+    "section": "Applications of Haptic Feedback in Teslasuit",
+    "text": "Applications of Haptic Feedback in Teslasuit\nThe haptic subsystem in the Teslasuit has a wide range of applications, including:\n\nImmersive VR/AR: Simulate touch, impact, or environmental effects for enhanced immersion.\nTraining and Simulation: Provide realistic feedback for muscle memory and skill acquisition.\nRehabilitation: Deliver targeted stimulation for therapy and recovery.\nGaming: Enhance gameplay with tactile cues and effects.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/haptic_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "Haptic",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit haptic subsystem relies on a hierarchy of data structures to manage and process haptic effects. Below is a description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsHapticParam:\n\nRepresents a single haptic parameter (type and value).\n\nTsHapticParamMultiplier:\n\nRepresents a multiplier for a haptic parameter.\n\nTsHapticPlayer:\n\nManages haptic playables, touches, and playback state.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from parameter creation to playback:\n\n\n\n\n\nflowchart TD\n    A([TsHapticPlayer]) --&gt; B[[TsHapticParam]]\n    A --&gt; C[[TsHapticParamMultiplier]]\n    B --&gt; D((type))\n    B --&gt; E((value))\n    C --&gt; F((type))\n    C --&gt; G((value))",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#example-code",
+    "href": "Main concepts/haptic_concept.html#example-code",
+    "title": "Haptic",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the haptic subsystem in the Teslasuit API, refer to the Haptic Examples page. These examples demonstrate how to initialize the API, connect to a device, and play haptic effects.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/haptic_concept.html#conclusion",
+    "href": "Main concepts/haptic_concept.html#conclusion",
+    "title": "Haptic",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe haptic subsystem in the Teslasuit provides a powerful and flexible platform for delivering tactile feedback. By leveraging the Teslasuit API, developers can create immersive, interactive, and responsive experiences across a wide range of applications.",
+    "crumbs": [
+      "Main concepts",
+      "Haptic"
+    ]
+  },
+  {
+    "objectID": "Main concepts/index.html",
+    "href": "Main concepts/index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "TESLASUIT is a smart full-body suit designed as an advanced interface between the user and digital environments. The suit combines motion capture, haptic feedback, and biometric sensing to create a seamless and immersive connection with virtual worlds.\n\n\n\nMotion Capture (Mocap):\nTESLASUIT features 14 mocap sensors distributed across the jacket and trousers, including magnetometers, gyroscopes, and accelerometers. These sensors track the user’s movements in real time, enabling accurate avatar representation and interaction in VR and AR applications.\nHaptic Feedback:\nThe suit delivers precise tactile sensations using 80 haptic channels of shaped electrodes mapped to anatomically suitable locations. These electrodes stimulate skin and muscle nerves with electrical impulses, simulating touch and interaction with digital objects.\nBiometric Monitoring:\nTESLASUIT integrates a PPG (photoplethysmography) sensor on the right shoulder to monitor heart activity, enabling real-time tracking of heart rate and heart rate variability.\n\n\n\n\nTESLASUIT consists of two garments: the jacket and trousers. Each garment contains its own set of sensors and electrodes, managed by distributed nodes. The jacket houses the main control unit, which processes data from all nodes and coordinates the suit’s functions.\n\n\n\nThe suit is powered by a dedicated power bank located in a special pocket on the back of the jacket. Connectivity between the jacket and trousers, as well as to the power bank, is provided by USB Type-C cables. The modular design allows for flexible use, including",
+    "crumbs": [
+      "Main concepts",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "Main concepts/index.html#integrated-systems",
+    "href": "Main concepts/index.html#integrated-systems",
+    "title": "Overview",
+    "section": "",
+    "text": "Motion Capture (Mocap):\nTESLASUIT features 14 mocap sensors distributed across the jacket and trousers, including magnetometers, gyroscopes, and accelerometers. These sensors track the user’s movements in real time, enabling accurate avatar representation and interaction in VR and AR applications.\nHaptic Feedback:\nThe suit delivers precise tactile sensations using 80 haptic channels of shaped electrodes mapped to anatomically suitable locations. These electrodes stimulate skin and muscle nerves with electrical impulses, simulating touch and interaction with digital objects.\nBiometric Monitoring:\nTESLASUIT integrates a PPG (photoplethysmography) sensor on the right shoulder to monitor heart activity, enabling real-time tracking of heart rate and heart rate variability.",
+    "crumbs": [
+      "Main concepts",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "Main concepts/index.html#hardware-architecture",
+    "href": "Main concepts/index.html#hardware-architecture",
+    "title": "Overview",
+    "section": "",
+    "text": "TESLASUIT consists of two garments: the jacket and trousers. Each garment contains its own set of sensors and electrodes, managed by distributed nodes. The jacket houses the main control unit, which processes data from all nodes and coordinates the suit’s functions.",
+    "crumbs": [
+      "Main concepts",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "Main concepts/index.html#connectivity-and-power",
+    "href": "Main concepts/index.html#connectivity-and-power",
+    "title": "Overview",
+    "section": "",
+    "text": "The suit is powered by a dedicated power bank located in a special pocket on the back of the jacket. Connectivity between the jacket and trousers, as well as to the power bank, is provided by USB Type-C cables. The modular design allows for flexible use, including",
+    "crumbs": [
+      "Main concepts",
+      "Overview"
     ]
   },
   {
@@ -600,7 +754,7 @@
     "href": "API Reference/subsystems/haptic.html#class-tshapticplayer",
     "title": "Haptic",
     "section": "Class TsHapticPlayer",
-    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\n\nbool: True if the player is running.\n\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\n\nbool: True if the player is paused.\n\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nArgs:\n\nis_paused (bool): True to pause, False to resume.\n\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\n\nbool: True if the player is muted.\n\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nArgs:\n\nis_muted (bool): True to mute, False to unmute.\n\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\n\nint: Time in milliseconds.\n\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nArgs:\n\nasset: The haptic asset.\n\nis_looped (bool): Whether the playable should loop.\n\nReturns:\n\nint: The ID of the created playable.\n\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nArgs:\n\nparams (list): List of TsHapticParam objects.\n\nchannels (list): List of channel IDs.\n\nduration (int): Duration in milliseconds.\n\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nArgs:\n\nplayable_id (int): The ID of the playable.\n\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nArgs:\n\nperiod_ms (float): Period in milliseconds.\n\namplitude (float): Amplitude value.\n\npulse_width (float): Pulse width value.\n\nReturns:\n\nlist: List of TsHapticParam objects.\n\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nArgs:\n\nperiod_ms_m (float): Period multiplier.\n\namplitude_m (float): Amplitude multiplier.\n\npulse_width_m (float): Pulse width multiplier.\n\nReturns:\n\nlist: List of TsHapticParamMultiplier objects.",
+    "text": "Class TsHapticPlayer\nHandles haptic feedback management, including creating and controlling haptic playables and instant touches.\n\nClass methods:\n\nis_player_running(self)\nChecks if the haptic player is currently running.\nReturns:\n- bool: True if the player is running.\n\nstop_player(self)\nStops the haptic player for the connected device.\n\nis_player_paused(self)\nChecks if the haptic player is in a paused state.\nReturns:\n- bool: True if the player is paused.\n\nset_player_paused(self, is_paused)\nPauses or resumes the haptic player.\nArgs:\n- is_paused (bool): True to pause, False to resume.\n\nis_player_muted(self)\nChecks if the haptic player is muted.\nReturns:\n- bool: True if the player is muted.\n\nset_player_muted(self, is_muted)\nMutes or unmutes the haptic player.\nArgs:\n- is_muted (bool): True to mute, False to unmute.\n\nget_player_time(self)\nRetrieves the time elapsed since the haptic player started.\nReturns:\n- int: Time in milliseconds.\n\nget_number_of_master_multipliers(self)\nGets the number of master multipliers for the haptic player.\nReturns:\n- int: Number of multipliers.\n\nget_master_multipliers(self)\nGets the list of master multipliers for the haptic player.\nReturns:\n- list: List of TsHapticParamMultiplier.\n\nset_master_multipliers(self, multipliers)\nSets the master multipliers for the haptic player.\nArgs:\n- multipliers (list): List of TsHapticParamMultiplier.\n\nget_master_multiplier(self, type)\nGets a specific master multiplier by type.\nArgs:\n- type (TsHapticParamType): Type of the parameter.\nReturns:\n- TsHapticParamMultiplier\n\nset_master_multiplier(self, multiplier)\nSets a specific master multiplier.\nArgs:\n- multiplier (TsHapticParamMultiplier)\n\ncreate_playable(self, asset, is_looped)\nCreates a playable from a haptic asset.\nArgs:\n- asset: The haptic asset.\n- is_looped (bool): Whether the playable should loop.\nReturns:\n- int: The ID of the created playable.\n\nis_playable_exists(self, playable_id)\nChecks if a haptic playable exists.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- bool: True if the playable exists.\n\nplay_playable(self, playable_id)\nPlays a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nplay_touch(self, params, channels, duration)\nPlays an instant haptic touch with the specified parameters.\nArgs:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\n\ncreate_touch(self, params, channels, duration)\nCreates a haptic touch with the specified parameters.\nArgs:\n- params (list): List of TsHapticParam objects.\n- channels (list): List of channel IDs.\n- duration (int): Duration in milliseconds.\nReturns:\n- int: The ID of the created touch (playable).\n\nis_playable_playing(self, playable_id)\nChecks if a haptic playable is currently playing.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- bool: True if the playable is playing.\n\nstop_playable(self, playable_id)\nStops a haptic playable by its ID.\nArgs:\n- playable_id (int): The ID of the playable.\n\nremove_playable(self, playable_id)\nRemoves a haptic playable from the player.\nArgs:\n- playable_id (int): The ID of the playable.\n\nget_playable_paused(self, playable_id)\nChecks if a haptic playable is paused.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- bool: True if the playable is paused.\n\nset_playable_paused(self, playable_id, is_paused)\nPauses or resumes a haptic playable.\nArgs:\n- playable_id (int): The ID of the playable.\n- is_paused (bool): True to pause, False to resume.\n\nget_playable_muted(self, playable_id)\nChecks if a haptic playable is muted.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- bool: True if the playable is muted.\n\nset_playable_muted(self, playable_id, is_muted)\nMutes or unmutes a haptic playable.\nArgs:\n- playable_id (int): The ID of the playable.\n- is_muted (bool): True to mute, False to unmute.\n\nget_playable_looped(self, playable_id)\nChecks if a haptic playable is looped.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- bool: True if the playable is looped.\n\nset_playable_looped(self, playable_id, is_looped)\nSets a haptic playable to loop or not.\nArgs:\n- playable_id (int): The ID of the playable.\n- is_looped (bool): True to loop, False otherwise.\n\nget_number_of_playable_multipliers(self, playable_id)\nGets the number of multipliers for a playable.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- int: Number of multipliers.\n\nget_playable_multipliers(self, playable_id)\nGets the multipliers for a playable.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- list: List of TsHapticParamMultiplier.\n\nset_playable_multipliers(self, playable_id, multipliers)\nSets the multipliers for a playable.\nArgs:\n- playable_id (int): The ID of the playable.\n- multipliers (list): List of TsHapticParamMultiplier.\n\nget_playable_local_time(self, playable_id)\nGets the local playback time of a playable.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- int: Local time in milliseconds.\n\nset_playable_local_time(self, playable_id, local_time)\nSets the local playback time of a playable.\nArgs:\n- playable_id (int): The ID of the playable.\n- local_time (int): Local time in milliseconds.\n\nget_playable_duration(self, playable_id)\nGets the duration of a playable.\nArgs:\n- playable_id (int): The ID of the playable.\nReturns:\n- int: Duration in milliseconds.\n\nclear_all_playables(self)\nRemoves all haptic playables from the haptic player.\n\nadd_channel_to_dynamic_playable(self, channel_id, playable_id)\nAdds a channel to a dynamic haptic playable.\nArgs:\n- channel_id: Channel ID.\n- playable_id (int): The ID of the playable.\n\nremove_channel_from_dynamic_playable(self, channel_id, playable_id)\nRemoves a channel from a dynamic haptic playable.\nArgs:\n- channel_id: Channel ID.\n- playable_id (int): The ID of the playable.\n\nset_material_channel_impact(self, channel_id, impact, playable_id)\nSets the channel impact for a haptic material.\nArgs:\n- channel_id: Channel ID.\n- impact (float): Impact value.\n- playable_id (int): The ID of the playable.\n\ncreate_touch_parameters(self, period_ms, amplitude, pulse_width)\nCreates parameters for an instant haptic touch.\nArgs:\n- period_ms (float): Period in milliseconds.\n- amplitude (float): Amplitude value.\n- pulse_width (float): Pulse width value.\nReturns:\n- list: List of TsHapticParam objects.\n\ncreate_touch_multipliers(self, period_ms_m, amplitude_m, pulse_width_m)\nCreates multipliers for an instant haptic touch.\nArgs:\n- period_ms_m (float): Period multiplier.\n- amplitude_m (float): Amplitude multiplier.\n- pulse_width_m (float): Pulse width multiplier.\nReturns:\n- list: List of TsHapticParamMultiplier objects.",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -612,7 +766,7 @@
     "href": "API Reference/subsystems/haptic.html#access-to-the-data",
     "title": "Haptic",
     "section": "Access to the data",
-    "text": "Access to the data\nThese code snippets and charts are just an example of how is the data flow looks like. to know more, please visit data structures page.\n\nAccess to haptic player multipliers\nTsHapticPlayer.get_master_multipliers()[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParamMultiplier] --&gt; B[type]\nA --&gt; C[value]\n\n\n\n\n\n\n\n\nAccess to haptic touch parameters\nTsHapticPlayer.create_touch_parameters(10, 0.5, 0.2)[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParam] --&gt; B[type]\nA --&gt; C[value]",
+    "text": "Access to the data\nThese code snippets and charts are just an example of how the data flow looks like. To know more, please visit data structures page.\n\nAccess to haptic player multipliers\nTsHapticPlayer.get_master_multipliers()[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParamMultiplier] --&gt; B[type]\nA --&gt; C[value]\n\n\n\n\n\n\n\n\nAccess to haptic touch parameters\nTsHapticPlayer.create_touch_parameters(10, 0.5, 0.2)[0].value\n\n\n\n\n\nflowchart TD\nA[TsHapticParam] --&gt; B[type]\nA --&gt; C[value]",
     "crumbs": [
       "API Reference",
       "Subsystems",
@@ -1539,6 +1693,446 @@
     "crumbs": [
       "Examples",
       "Haptic example"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#quick-access",
+    "href": "Main concepts/emg_concept.html#quick-access",
+    "title": "EMG",
+    "section": "Quick access",
+    "text": "Quick access\n\nEMG Subsystem\nExamples\nEMG Data structures",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#what-is-emg",
+    "href": "Main concepts/emg_concept.html#what-is-emg",
+    "title": "EMG",
+    "section": "What is EMG?",
+    "text": "What is EMG?\nElectromyography (EMG) is a technique for evaluating and recording the electrical activity produced by skeletal muscles. EMG sensors detect electrical signals generated by muscle fibers during contraction and relaxation. This data is widely used in medical diagnostics, rehabilitation, biomechanics, and human-computer interaction to assess muscle function, fatigue, and neuromuscular health.\nEMG is a key technology in wearable devices, enabling real-time monitoring of muscle activity. Its applications range from gesture recognition and prosthetics control to sports science and rehabilitation.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#emg-in-teslasuit",
+    "href": "Main concepts/emg_concept.html#emg-in-teslasuit",
+    "title": "EMG",
+    "section": "EMG in Teslasuit",
+    "text": "EMG in Teslasuit\nThe Teslasuit integrates EMG technology as part of its biometry subsystem, enabling advanced muscle activity monitoring. The EMG subsystem in the Teslasuit is designed to provide real-time data on muscle activation, raw EMG signals, and configurable filtering options. This data can be used for various applications, including gesture recognition, fatigue monitoring, and biofeedback.\nThe Teslasuit’s EMG functionality is accessible through the TsEmg class, which provides methods for streaming raw data, setting filter options, and retrieving processed EMG data. The EMG subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate EMG data into their applications.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#key-features-of-the-teslasuit-emg-subsystem",
+    "href": "Main concepts/emg_concept.html#key-features-of-the-teslasuit-emg-subsystem",
+    "title": "EMG",
+    "section": "Key Features of the Teslasuit EMG Subsystem",
+    "text": "Key Features of the Teslasuit EMG Subsystem\n\nRaw Data Streaming: The Teslasuit EMG subsystem allows developers to stream raw EMG data in real time for custom signal processing and analysis.\nConfigurable Filtering: The subsystem provides options to set filter parameters such as bandwidth, sampling frequency, and sample size for optimal signal quality.\nMulti-Node and Multi-Channel Support: The EMG subsystem supports multiple sensor nodes and channels, enabling comprehensive muscle activity monitoring across different body areas.\nTimestamps and Synchronization: Each EMG data sample is timestamped, allowing for precise synchronization with other sensor data.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#how-the-teslasuit-api-implements-emg",
+    "href": "Main concepts/emg_concept.html#how-the-teslasuit-api-implements-emg",
+    "title": "EMG",
+    "section": "How the Teslasuit API Implements EMG",
+    "text": "How the Teslasuit API Implements EMG\nThe Teslasuit API provides a structured approach to accessing and utilizing EMG data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the EMG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its EMG subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The EMG subsystem is accessed through the emg property of the connected device. This property returns an instance of the TsEmg class.\nData Streaming and Retrieval: The TsEmg class provides methods to start/stop streaming and retrieve EMG data with the desired configuration.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#description-of-emg-data",
+    "href": "Main concepts/emg_concept.html#description-of-emg-data",
+    "title": "EMG",
+    "section": "Description of EMG Data",
+    "text": "Description of EMG Data\nBelow is a detailed description of the EMG data and data structures used in the Teslasuit API for the EMG subsystem.\n\nEMG Options\n\nWhat are EMG Options?\nEMG options define the filtering and sampling parameters for EMG data acquisition. The main options include:\n\nLower Bandwidth: The lower cutoff frequency for the EMG signal filter.\nUpper Bandwidth: The upper cutoff frequency for the EMG signal filter.\nSampling Frequency: The rate at which EMG samples are collected.\nSample Size: The number of samples per data packet.\n\n\n\nWhy EMG Options Matter\nBy configuring these options, developers can optimize EMG signal quality for different applications, reduce noise, and tailor data acquisition to specific muscle activity patterns.\n\n\nEMG Options in Teslasuit\nTeslasuit exposes EMG options through the TsEmgOptions structure. These options can be set using the set_options() method of the TsEmg class.\n\n\n\nEMG Data Structures\n\nTsEmgChannelData: Represents EMG data for a single channel, including channel index, number of samples, and the sample values.\nTsEmgNodeData: Represents EMG data for a single node, including node index, channels, and timestamps.\nTsEmgData: Represents the complete EMG data set, including all nodes, channels, and options.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#applications-of-emg-in-teslasuit",
+    "href": "Main concepts/emg_concept.html#applications-of-emg-in-teslasuit",
+    "title": "EMG",
+    "section": "Applications of EMG in Teslasuit",
+    "text": "Applications of EMG in Teslasuit\nThe EMG subsystem in the Teslasuit has a wide range of applications, including:\n\nGesture Recognition: Detect and classify hand or body gestures based on muscle activity patterns.\nRehabilitation: Monitor muscle activation and fatigue during therapy and recovery exercises.\nSports Science: Analyze muscle performance, coordination, and fatigue in athletes.\nHuman-Computer Interaction: Enable intuitive control of devices and virtual environments using muscle signals.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/emg_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "EMG",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit EMG subsystem relies on a hierarchy of data structures to manage and process EMG data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsEmgOptions:\n\nRepresents EMG filter and sampling options.\n\nTsEmgChannelData:\n\nRepresents EMG data for a single channel (samples, channel index).\n\nTsEmgNodeData:\n\nRepresents EMG data for a single node (channels, timestamps).\n\nTsEmgData:\n\nRepresents the complete EMG data set (nodes, options).\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from options and nodes to channel samples:\n\n\n\n\n\nflowchart TD\n    A([TsEmgData]) --&gt; B[[TsEmgNodeData]]\n    B --&gt; C[[TsEmgChannelData]]\n    C --&gt; D((samples))\n    A --&gt; E[[TsEmgOptions]]\n    E --&gt; F((lower_bandwidth))\n    E --&gt; G((upper_bandwidth))\n    E --&gt; H((sampling_frequency))\n    E --&gt; I((sample_size))",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#example-code",
+    "href": "Main concepts/emg_concept.html#example-code",
+    "title": "EMG",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the EMG subsystem in the Teslasuit API, refer to the EMG Examples page. These examples demonstrate how to initialize the API, connect to a device, and retrieve EMG data.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/emg_concept.html#conclusion",
+    "href": "Main concepts/emg_concept.html#conclusion",
+    "title": "EMG",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe EMG subsystem in the Teslasuit represents a powerful tool for real-time muscle activity monitoring. By leveraging the Teslasuit API, developers can integrate EMG data into a wide range of applications, from gesture recognition to rehabilitation and sports science.",
+    "crumbs": [
+      "Main concepts",
+      "EMG"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#quick-access",
+    "href": "Main concepts/current_feedback_concept.html#quick-access",
+    "title": "Current feedback",
+    "section": "Quick access",
+    "text": "Quick access\n\nCurrent feedback Subsystem\nExamples\nCurrent feedback Data structures",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#what-is-current-feedback",
+    "href": "Main concepts/current_feedback_concept.html#what-is-current-feedback",
+    "title": "Current feedback",
+    "section": "What is Current Feedback?",
+    "text": "What is Current Feedback?\nCurrent feedback refers to the real-time measurement and monitoring of electrical current delivered to electrodes in wearable devices. In the context of Teslasuit, current feedback enables precise tracking of the actual current supplied to haptic, stimulation, or sensor channels, ensuring safety, device integrity, and accurate feedback for closed-loop control.\nCurrent feedback is essential for verifying that the intended electrical stimulation is being delivered as expected. It helps detect anomalies, prevent overcurrent conditions, and provide diagnostic information for both developers and end users.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#current-feedback-in-teslasuit",
+    "href": "Main concepts/current_feedback_concept.html#current-feedback-in-teslasuit",
+    "title": "Current feedback",
+    "section": "Current Feedback in Teslasuit",
+    "text": "Current Feedback in Teslasuit\nThe Teslasuit integrates current feedback technology as part of its hardware monitoring and safety subsystem. The current feedback subsystem provides real-time data on the current values for each node and channel in the suit. This allows developers to monitor electrical delivery, validate stimulation protocols, and implement safety checks in their applications.\nThe Teslasuit’s current feedback functionality is accessible through the TsCurrentFeedback class, which provides methods for starting and stopping data streaming, as well as retrieving current feedback data for all nodes and channels. The subsystem is tightly integrated with the Teslasuit API, enabling seamless access to current measurements during operation.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#key-features-of-the-teslasuit-current-feedback-subsystem",
+    "href": "Main concepts/current_feedback_concept.html#key-features-of-the-teslasuit-current-feedback-subsystem",
+    "title": "Current feedback",
+    "section": "Key Features of the Teslasuit Current Feedback Subsystem",
+    "text": "Key Features of the Teslasuit Current Feedback Subsystem\n\nReal-Time Data Streaming: Stream current feedback data from all nodes and channels in real time.\nMulti-Node, Multi-Channel Support: Monitor current values across multiple hardware nodes and channels simultaneously.\nSafety and Diagnostics: Use current feedback to detect abnormal conditions, verify stimulation delivery, and ensure device safety.\nIntegration with Other Subsystems: Combine current feedback data with haptic, EMG, or other sensor data for advanced closed-loop applications.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#how-the-teslasuit-api-implements-current-feedback",
+    "href": "Main concepts/current_feedback_concept.html#how-the-teslasuit-api-implements-current-feedback",
+    "title": "Current feedback",
+    "section": "How the Teslasuit API Implements Current Feedback",
+    "text": "How the Teslasuit API Implements Current Feedback\nThe Teslasuit API provides a structured approach to accessing and utilizing current feedback data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the current feedback subsystem.\nDevice Connection: A Teslasuit device must be connected to access its current feedback subsystem.\nSubsystem Access: The current feedback subsystem is accessed through the current_feedback property of the connected device, returning an instance of the TsCurrentFeedback class.\nData Streaming and Retrieval: The TsCurrentFeedback class provides methods to start/stop streaming and retrieve current feedback data.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#description-of-current-feedback-data",
+    "href": "Main concepts/current_feedback_concept.html#description-of-current-feedback-data",
+    "title": "Current feedback",
+    "section": "Description of Current Feedback Data",
+    "text": "Description of Current Feedback Data\nBelow is a detailed description of the current feedback data and data structures used in the Teslasuit API for the current feedback subsystem.\n\nCurrent Feedback Data Structures\n\nTsCurrentFeedbackChannelData: Represents current feedback data for a single channel, including channel index and measured value.\nTsCurrentFeedbackNodeData: Represents current feedback data for a single node, including node index and a list of channel data.\nTsCurrentFeedbackNodes: Represents the collection of all current feedback nodes and their associated channel data.\n\n\nWhy Current Feedback Data Matters\nCurrent feedback data allows developers and researchers to:\n\nVerify that electrical stimulation or actuation is being delivered as intended.\nDetect hardware faults, overcurrent, or undercurrent conditions.\nImplement closed-loop control algorithms that adjust stimulation based on real-time measurements.\nEnsure user safety and device reliability.\n\n\n\nCurrent Feedback Parameters in Teslasuit\nTeslasuit exposes current feedback parameters through the TsCurrentFeedbackNodes and related structures. These can be accessed using the TsCurrentFeedback class methods.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#applications-of-current-feedback-in-teslasuit",
+    "href": "Main concepts/current_feedback_concept.html#applications-of-current-feedback-in-teslasuit",
+    "title": "Current feedback",
+    "section": "Applications of Current Feedback in Teslasuit",
+    "text": "Applications of Current Feedback in Teslasuit\nThe current feedback subsystem in the Teslasuit has a wide range of applications, including:\n\nSafety Monitoring: Detect and respond to abnormal current delivery in real time.\nDiagnostics and Maintenance: Identify hardware issues or degradation over time.\nClosed-Loop Control: Adjust stimulation or actuation parameters based on measured current.\nResearch and Development: Analyze current delivery patterns for optimization and validation.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/current_feedback_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "Current feedback",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit current feedback subsystem relies on a hierarchy of data structures to manage and process current feedback data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsCurrentFeedbackNodes:\n\nRepresents all current feedback nodes.\n\nTsCurrentFeedbackNodeData:\n\nRepresents data for a single node, including channel data.\n\nTsCurrentFeedbackChannelData:\n\nRepresents data for a single channel, including the measured value.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from nodes to channel values:\n\n\n\n\n\nflowchart TD\n    A([TsCurrentFeedbackNodes]) --&gt; B[[TsCurrentFeedbackNodeData]]\n    B --&gt; C[[TsCurrentFeedbackChannelData]]\n    C --&gt; D((value))",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#example-code",
+    "href": "Main concepts/current_feedback_concept.html#example-code",
+    "title": "Current feedback",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the current feedback subsystem in the Teslasuit API, refer to the Current Feedback Examples page. These examples demonstrate how to initialize the API, connect to a device, and retrieve current feedback data.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/current_feedback_concept.html#conclusion",
+    "href": "Main concepts/current_feedback_concept.html#conclusion",
+    "title": "Current feedback",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe current feedback subsystem in the Teslasuit provides a robust and flexible platform for real-time monitoring of electrical current delivery. By leveraging the Teslasuit API, developers can ensure safety, optimize stimulation protocols, and enable advanced closed-loop applications.",
+    "crumbs": [
+      "Main concepts",
+      "Current feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#quick-access",
+    "href": "Main concepts/bia_concept.html#quick-access",
+    "title": "BIA",
+    "section": "Quick access",
+    "text": "Quick access\n\nBIA Subsystem\nExamples\nBIA Data structures",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#what-is-bia",
+    "href": "Main concepts/bia_concept.html#what-is-bia",
+    "title": "BIA",
+    "section": "What is BIA?",
+    "text": "What is BIA?\nBioelectrical Impedance Analysis (BIA) is a non-invasive technique used to measure the electrical impedance of body tissues. By applying a small alternating current and measuring the resulting voltage, BIA provides information about body composition, such as total body water, fat-free mass, and fat mass. The impedance varies with tissue type and hydration, making BIA a valuable tool in health, fitness, and medical diagnostics.\nBIA is widely used in wearable devices and clinical settings for body composition analysis, hydration monitoring, and physiological research. Its applications range from sports science and wellness tracking to clinical assessment of fluid balance and nutrition.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#bia-in-teslasuit",
+    "href": "Main concepts/bia_concept.html#bia-in-teslasuit",
+    "title": "BIA",
+    "section": "BIA in Teslasuit",
+    "text": "BIA in Teslasuit\nThe Teslasuit integrates BIA technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The BIA subsystem in the Teslasuit is designed to provide real-time data on tissue impedance across multiple channels and frequencies. This data can be used for applications such as hydration monitoring, body composition analysis, and research into physiological responses.\nThe Teslasuit’s BIA functionality is accessible through the TsBia class, which provides methods for configuring streaming, starting and stopping data acquisition, and retrieving BIA data. The BIA subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate BIA data into their applications.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#key-features-of-the-teslasuit-bia-subsystem",
+    "href": "Main concepts/bia_concept.html#key-features-of-the-teslasuit-bia-subsystem",
+    "title": "BIA",
+    "section": "Key Features of the Teslasuit BIA Subsystem",
+    "text": "Key Features of the Teslasuit BIA Subsystem\n\nMulti-Channel Support: The Teslasuit BIA subsystem allows developers to stream impedance data from multiple channels (electrode pairs) simultaneously.\nMulti-Frequency Analysis: The subsystem supports impedance measurements across a range of frequencies, enabling detailed tissue characterization.\nComplex Impedance Data: BIA data includes both real and imaginary components, providing insight into resistive and reactive properties of tissues.\nConfigurable Streaming: Developers can configure which channels and frequencies to stream, optimizing data collection for specific applications.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#how-the-teslasuit-api-implements-bia",
+    "href": "Main concepts/bia_concept.html#how-the-teslasuit-api-implements-bia",
+    "title": "BIA",
+    "section": "How the Teslasuit API Implements BIA",
+    "text": "How the Teslasuit API Implements BIA\nThe Teslasuit API provides a structured approach to accessing and utilizing BIA data. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the BIA subsystem. This ensures that the API is ready to communicate with the Teslasuit device.\nDevice Connection: A Teslasuit device must be connected to access its BIA subsystem. The API provides methods to wait for and retrieve connected devices.\nSubsystem Access: The BIA subsystem is accessed through the bia property of the connected device. This property returns an instance of the TsBia class.\nData Streaming and Retrieval: The TsBia class provides methods to configure streaming, start/stop data acquisition, and retrieve BIA data.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#description-of-bia-data",
+    "href": "Main concepts/bia_concept.html#description-of-bia-data",
+    "title": "BIA",
+    "section": "Description of BIA Data",
+    "text": "Description of BIA Data\nBelow is a detailed description of the BIA data and data structures used in the Teslasuit API for the BIA subsystem.\n\nBIA Data Structures\n\nTsBiaConfig: Represents the configuration for BIA data streaming, including channels, frequency range, and step size.\nTsComplexNumber: Represents a complex number with real and imaginary parts, used for impedance data.\nTsBiaFrequencyData: Represents impedance data for a specific frequency, including the frequency value and associated complex impedance.\nTsBiaChannelData: Represents data for a single BIA channel, including channel index and a list of frequency data.\nTsBiaChannels: Represents all BIA channel data collected in a streaming session.\n\n\n\nBIA Parameters and Explanation\n\nChannels: Electrode pairs or sensor locations from which impedance is measured. Multiple channels allow for spatial mapping of tissue properties.\nFrequency: The frequency of the applied current. Different frequencies probe different tissue characteristics (e.g., cell membranes, extracellular fluid).\nComplex Impedance: Each measurement consists of a real part (resistance) and an imaginary part (reactance), providing a complete picture of tissue electrical properties.\n\n\nWhy BIA Parameters Matter\nBy analyzing impedance across multiple channels and frequencies, developers and researchers can gain insights into body composition, hydration status, and physiological changes. The real and imaginary components help distinguish between different tissue types and fluid compartments.\n\n\nBIA Parameters in Teslasuit\nTeslasuit exposes BIA parameters through the TsBiaConfig and related data structures. These parameters can be set and retrieved using the TsBia class methods.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#applications-of-bia-in-teslasuit",
+    "href": "Main concepts/bia_concept.html#applications-of-bia-in-teslasuit",
+    "title": "BIA",
+    "section": "Applications of BIA in Teslasuit",
+    "text": "Applications of BIA in Teslasuit\nThe BIA subsystem in the Teslasuit has a wide range of applications, including:\n\nBody Composition Analysis: Estimate fat-free mass, fat mass, and total body water.\nHydration Monitoring: Track changes in body water content for wellness and performance.\nClinical Assessment: Support diagnosis and monitoring of fluid balance in medical settings.\nSports Science: Monitor physiological changes during training, recovery, and competition.\nResearch: Enable advanced studies of tissue properties and physiological responses.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/bia_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "BIA",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslasuit BIA subsystem relies on a hierarchy of data structures to manage and process impedance data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsBiaChannels:\n\nRepresents all BIA channel data.\n\nTsBiaChannelData:\n\nRepresents data for a single channel, including frequency data.\n\nTsBiaFrequencyData:\n\nRepresents impedance data for a specific frequency.\n\nTsComplexNumber:\n\nRepresents the real and imaginary parts of impedance.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from channels to frequency-specific impedance values:\n\n\n\n\n\nflowchart TD\n    A([TsBiaChannels]) --&gt; B[[TsBiaChannelData]]\n    B --&gt; C[[TsBiaFrequencyData]]\n    C --&gt; D[[TsComplexNumber]]\n    D --&gt; E((real_value))\n    D --&gt; F((im_value))",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#example-code",
+    "href": "Main concepts/bia_concept.html#example-code",
+    "title": "BIA",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the BIA subsystem in the Teslasuit API, refer to the BIA Examples page. These examples demonstrate how to initialize the API, connect to a device, configure streaming, and retrieve BIA data.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/bia_concept.html#conclusion",
+    "href": "Main concepts/bia_concept.html#conclusion",
+    "title": "BIA",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe BIA subsystem in the Teslasuit represents a powerful tool for real-time physiological and body composition monitoring. By leveraging the Teslasuit API, developers can integrate BIA data into a wide range of applications, from wellness and sports science to clinical research.",
+    "crumbs": [
+      "Main concepts",
+      "BIA"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#quick-access",
+    "href": "Main concepts/force_feedback_concept.html#quick-access",
+    "title": "Force Feedback",
+    "section": "Quick access",
+    "text": "Quick access\n\nForce Feedback Subsystem\nExamples\nMagnetic Encoder Data structures",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#what-is-force-feedback",
+    "href": "Main concepts/force_feedback_concept.html#what-is-force-feedback",
+    "title": "Force Feedback",
+    "section": "What is Force Feedback?",
+    "text": "What is Force Feedback?\nForce feedback is a technology that provides physical sensations to the user by applying force or resistance through motors. In wearable devices like Teslaglove, force feedback is typically implemented using servomotors or similar mechanisms to restrict or guide movement, simulate resistance, or provide tactile cues.\nForce feedback enhances immersion and realism in virtual and augmented reality, training, and simulation by allowing users to physically feel virtual objects, boundaries, or forces. It is widely used in robotics, gaming, rehabilitation, and haptics research.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#force-feedback-in-teslaglove",
+    "href": "Main concepts/force_feedback_concept.html#force-feedback-in-teslaglove",
+    "title": "Force Feedback",
+    "section": "Force Feedback in Teslaglove",
+    "text": "Force Feedback in Teslaglove\nTeslaglove integrates force feedback technology using magnetic encoders and servomotors to deliver programmable resistance and movement restriction to the fingers. The force feedback subsystem allows developers to configure the angle, hardness, and lock direction for each finger joint, enabling a wide range of interaction scenarios.\nThe force feedback functionality is accessible through the TsMagneticEncoder class, which provides methods for enabling/disabling force feedback, configuring parameters, and streaming finger position data. The subsystem is tightly integrated with the Teslasuit API, allowing seamless control and feedback in real time.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#key-features-of-the-teslaglove-force-feedback-subsystem",
+    "href": "Main concepts/force_feedback_concept.html#key-features-of-the-teslaglove-force-feedback-subsystem",
+    "title": "Force Feedback",
+    "section": "Key Features of the Teslaglove Force Feedback Subsystem",
+    "text": "Key Features of the Teslaglove Force Feedback Subsystem\n\nProgrammable Resistance: Developers can set the angle and hardness (resistance) for each finger joint, simulating the feel of virtual objects or barriers.\nLock Direction Control: The subsystem supports locking movement in specific directions (up, down, or both), enabling complex interaction patterns.\nReal-Time Position Streaming: The API provides access to real-time finger position data for precise feedback and control.\nFlexible Configuration: Multiple fingers and joints can be controlled independently, allowing for highly customizable force feedback experiences.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#how-the-teslasuit-api-implements-force-feedback",
+    "href": "Main concepts/force_feedback_concept.html#how-the-teslasuit-api-implements-force-feedback",
+    "title": "Force Feedback",
+    "section": "How the Teslasuit API Implements Force Feedback",
+    "text": "How the Teslasuit API Implements Force Feedback\nThe Teslasuit API provides a structured approach to accessing and utilizing force feedback. Below are the key steps involved:\n\nInitialization: The Teslasuit API must be initialized before accessing the force feedback subsystem.\nDevice Connection: A Teslaglove device must be connected to access its magnetic encoder subsystem.\nSubsystem Access: The force feedback subsystem is accessed through the magnetic_encoder property of the connected device, returning an instance of the TsMagneticEncoder class.\nConfiguration and Control: The TsMagneticEncoder class provides methods to enable/disable force feedback, set parameters, and stream finger positions.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#description-of-force-feedback-data",
+    "href": "Main concepts/force_feedback_concept.html#description-of-force-feedback-data",
+    "title": "Force Feedback",
+    "section": "Description of Force Feedback Data",
+    "text": "Description of Force Feedback Data\nBelow is a detailed description of the force feedback data and data structures used in the Teslasuit API for the Teslaglove force feedback subsystem.\n\nForce Feedback Parameters\n\nWhat are Force Feedback Parameters?\nForce feedback parameters define how the servomotors restrict or guide finger movement. The main parameters include:\n\nBone Index: Specifies which finger joint the feedback is applied to.\nAngle: The target angle for the joint, in degrees.\nHardness Percent: The resistance level, from 0 (no resistance) to 100 (maximum resistance).\nLock Direction: The direction(s) in which movement is restricted (up, down, or both).\n\n\n\nWhy Force Feedback Parameters Matter\nBy adjusting these parameters, developers can simulate the feel of grasping objects, encountering barriers, or experiencing dynamic resistance. This enables realistic and interactive virtual experiences, as well as applications in rehabilitation and training.\n\n\nForce Feedback Parameters in Teslaglove\nTeslaglove exposes force feedback parameters through the TsForceFeedbackConfig structure. These parameters are passed to the magnetic encoder subsystem to configure force feedback for each finger joint.\n\n\n\nFinger Position Data\n\nTsFingerMEPosition: Represents the flexion and abduction angles of a finger.\nTsGloveMEPosition: Represents the positions of all fingers on a glove.\n\n\n\nLock Direction\n\nTsMagneticEncoderLockDirection: Enum specifying lock direction (Up, Down, or Both).",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#applications-of-force-feedback-in-teslaglove",
+    "href": "Main concepts/force_feedback_concept.html#applications-of-force-feedback-in-teslaglove",
+    "title": "Force Feedback",
+    "section": "Applications of Force Feedback in Teslaglove",
+    "text": "Applications of Force Feedback in Teslaglove\nThe force feedback subsystem in the Teslaglove has a wide range of applications, including:\n\nImmersive VR/AR: Simulate the feel of virtual objects, textures, and boundaries for enhanced immersion.\nTraining and Simulation: Provide realistic resistance and guidance for skill acquisition and muscle memory.\nRehabilitation: Deliver programmable resistance for therapy and recovery exercises.\nGaming: Enhance gameplay with tactile cues and physical interaction.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "href": "Main concepts/force_feedback_concept.html#dependencies-in-data-structures-and-accessing-data",
+    "title": "Force Feedback",
+    "section": "Dependencies in Data Structures and Accessing Data",
+    "text": "Dependencies in Data Structures and Accessing Data\nThe Teslaglove force feedback subsystem relies on a hierarchy of data structures to manage and process force feedback effects. Below is a description of the dependencies between these structures and a block scheme illustrating how data is accessed.\n\nData Structure Dependencies\n\nTsForceFeedbackConfig:\n\nRepresents the configuration for force feedback (bone index, angle, hardness, lock direction).\n\nTsFingerMEPosition:\n\nRepresents the position (flexion and abduction angles) of a finger.\n\nTsGloveMEPosition:\n\nRepresents the positions of all fingers on a glove.\n\n\n\n\nBlock Scheme for Accessing Data\nBelow is a simplified block scheme illustrating the flow of data from configuration to feedback and position monitoring:\n\n\n\n\n\nflowchart TD\n    A([TsMagneticEncoder]) --&gt; B[[TsForceFeedbackConfig]]\n    A --&gt; C[[TsGloveMEPosition]]\n    C --&gt; D[[TsFingerMEPosition]]\n    D --&gt; E((flexion_angle))\n    D --&gt; F((abduction_angle))\n    B --&gt; G((bone_index))\n    B --&gt; H((angle))\n    B --&gt; I((hardness_percent))\n    B --&gt; J((lock_direction))",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#example-code",
+    "href": "Main concepts/force_feedback_concept.html#example-code",
+    "title": "Force Feedback",
+    "section": "Example Code",
+    "text": "Example Code\nFor detailed examples of how to use the force feedback subsystem in the Teslasuit API, refer to the Force Feedback Examples page. These examples demonstrate how to initialize the API, connect to a device, and configure force feedback.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
+    ]
+  },
+  {
+    "objectID": "Main concepts/force_feedback_concept.html#conclusion",
+    "href": "Main concepts/force_feedback_concept.html#conclusion",
+    "title": "Force Feedback",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe force feedback subsystem in the Teslaglove provides a powerful and flexible platform for delivering programmable resistance and tactile feedback. By leveraging the Teslasuit API, developers can create immersive, interactive, and responsive experiences across a wide range of applications.",
+    "crumbs": [
+      "Main concepts",
+      "Force Feedback"
     ]
   },
   {

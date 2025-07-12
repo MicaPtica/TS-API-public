@@ -811,34 +811,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <hr>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>get_me_controls_struct_for_bones(bone_indexes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Create a <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfig">TsForceFeedbackConfig</a> structure for the given bone indexes.</p>
+<p>Create a <a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a> structure for the given bone indexes.</p>
 <p>Args:</p>
 <ul>
 <li><code>bone_indexes (list)</code>: List of bone indexes.</li>
 </ul>
 <p>Returns:</p>
 <ul>
-<li><a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Magnetic encoder configuration structure.</li>
+<li><a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a>: Magnetic encoder configuration structure.</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>get_left_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a default magnetic encoder controls struct for the left hand.</p>
 <p>Returns:</p>
 <ul>
-<li><a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</li>
+<li><a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>get_right_default_me_controls_struct()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Create a default magnetic encoder controls struct for the right hand.</p>
 <p>Returns:</p>
 <ul>
-<li><a href="./core/data_structures.qmd#tsforcefeedbackconfig">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</li>
+<li><a href="../../API Reference/core/data_structures.html#tsforcefeedbackconfigstructure">TsForceFeedbackConfig</a>: Default magnetic encoder configuration.</li>
 </ul>
 </section>
 </section>
 <section id="access-to-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="access-to-the-data">Access to the data</h2>
-<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#magnetic-encoder">data structures</a> page.</p>
+<p>These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit <a href="../../API Reference/core/data_structures.html#magnetic_encoder">data structures</a> page.</p>
 <section id="access-to-finger-positions" class="level3">
 <h3 class="anchored" data-anchor-id="access-to-finger-positions">Access to finger positions</h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>TsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
