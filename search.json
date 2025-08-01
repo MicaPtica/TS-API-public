@@ -2167,5 +2167,71 @@
       "Usecases",
       "Real-time heart rate visualiser"
     ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#quick-access",
+    "href": "usecases/elbow_FES.html#quick-access",
+    "title": "Elbow FES",
+    "section": "Quick access",
+    "text": "Quick access\n\nProject Github\nAPI Subsystems Reference\nMain Concepts",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#what-is-elbow-fes",
+    "href": "usecases/elbow_FES.html#what-is-elbow-fes",
+    "title": "Elbow FES",
+    "section": "What is Elbow FES?",
+    "text": "What is Elbow FES?\nElbow FES (Functional Electrical Stimulation) is a use case demonstrating the application of the Teslasuit for controlling elbow flexion using electrical stimulation. The project integrates Teslasuit’s haptic and motion capture systems to deliver targeted muscle stimulation and monitor joint movement, enabling research and development in rehabilitation, assistive technology, and biomechanics.\nThis use case showcases how the Teslasuit can be used to both sense and actuate the human body in a closed-loop manner. By leveraging the suit’s motion capture (mocap) sensors, the system can continuously monitor the biomechanical angle of the elbow joint in real time. At the same time, the haptic subsystem is used to deliver functional electrical stimulation (FES) to specific muscle groups, such as the biceps, to induce or assist elbow flexion.\nThe project demonstrates a closed-loop control approach, where the measured joint angle is compared to a desired target angle, and the stimulation parameters are automatically adjusted to achieve and maintain the desired movement. This enables applications in rehabilitation, assistive robotics where precise and adaptive muscle activation is required.",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#project-overview",
+    "href": "usecases/elbow_FES.html#project-overview",
+    "title": "Elbow FES",
+    "section": "Project Overview",
+    "text": "Project Overview\nThe FES for Elbow flexion control project provides a Python-based implementation for controlling elbow flexion via the Teslasuit. It leverages the suit’s APIs for:\n\nMotion Capture: Tracking elbow joint angles in real time using the suit’s mocap sensors.\nHaptic Feedback / FES: Delivering electrical stimulation to the relevant muscle groups to induce or assist elbow flexion.\nClosed-loop Control: Implementing feedback mechanisms to adjust stimulation parameters based on sensor data.\n\n\nMotion Capture Example\nfrom teslasuit_sdk import ts_api\n\nclass Teslasuit():\n    def __init__(self):\n        self.api = ts_api.TsApi()\n\n    def connect_suit(self):\n        device_manager = self.api.get_device_manager()\n        suit = device_manager.get_or_wait_last_device_attached()\n        self.streamer = suit.mocap\n        # ...other initialization...\n\n    def start_mocap_streaming(self):\n        self.streamer.start_streaming()\n\n    def get_q6(self, index):\n        last_imu_data = self.streamer.get_raw_data_on_ready()\n        q6_data = [\n            last_imu_data[index].q6.x,\n            last_imu_data[index].q6.y,\n            last_imu_data[index].q6.z,\n            last_imu_data[index].q6.w]\n        return q6_data\n\n# Example of calculating elbow angle using SkeletalModelUpdater\nfrom scipy.spatial.transform import Rotation as R\nimport numpy as np\n\n# Assume suit and model are already initialized and calibrated\nq_proximal = suit.get_q6(joint.proximal_bone)  # e.g., upper arm\nq_distal = suit.get_q6(joint.distal_bone)      # e.g., lower arm\n\n# Initial heading rotation from calibration\ninitial_heading_rot = R.from_quat(joint.initial_proximal_bone_quat) * R.from_quat(joint.initial_distal_bone_quat).inv()\nini_saggital_vec = np.array([0, 1, 0])\n\nvec1 = R.from_quat(q_proximal).apply(ini_saggital_vec)\nvec2 = (initial_heading_rot * R.from_quat(q_distal)).apply(ini_saggital_vec)\nelbow_angle = np.arccos(vec1.dot(vec2)) * 180 / np.pi\nprint(\"Elbow flexion angle:\", elbow_angle)\nExplanation:\nThis code defines a Teslasuit class that wraps the Teslasuit API for easier use. The connect_suit method connects to the suit and initializes the motion capture (mocap) subsystem. The start_mocap_streaming method begins streaming mocap data, and get_q6 retrieves the quaternion data from a specific IMU sensor.\nTo calculate the elbow angle, the code uses the SkeletalModelUpdater approach:\n- It retrieves the calibrated (initial) and current quaternions for the upper and lower arm. - It computes the relative rotation and applies it to a reference vector (e.g., the saggital plane). - The angle between the vectors gives the current elbow flexion angle in degrees.\nThis approach allows for accurate and real-time calculation of the elbow angle, which is crucial for closed-loop control in the Elbow FES project.\n\n\nHaptic Feedback / FES Example\n    def haptic_play_touch(\n            self,\n            channel_id,\n            ampl=100,\n            period=20000,\n            pw=100,\n            duration=100):\n        params = self.haptic.create_touch_parameters(period, ampl, pw)\n        playable_id = self.haptic.create_touch(params, channel_id, duration)\n        self.haptic.play_playable(playable_id)\nExplanation:\nThis method sends an electrical stimulation (FES) command to a specific haptic channel on the Teslasuit. The parameters control the stimulation waveform:\n- channel_id: which electrode channel to activate\n- ampl: amplitude of the stimulation\n- period: period of the waveform\n- pw: pulse width\n- duration: how long the stimulation lasts (ms)\nThis function is used to trigger muscle contractions for elbow flexion.\n\n\nClosed-loop Control Example\nclass App(PIDMainWindow):\n    def __init__(self, parent=None):\n        super(App, self).__init__(parent)\n        self.suit = Teslasuit()\n        self.suit.connect_suit()\n        self.model = SkeletalModel()\n        self.model_updater = SkeletalModelUpdater(self.suit, self.model)\n        self.model_updater.calibrate()\n        self.controller = PIDSkeletalModelController(self.suit, self.model)\n        # ...timers and UI setup...\n\n    def update_pid(self):\n        # Called periodically by timer\n        self.controlled_joint.controller.saggital_plane_controller.agonist_controller.parameters_list = self.pid_parameters_list\n        self.controlled_joint.controller.saggital_plane_controller.agonist_controller.change_parameters()\n        self.controlled_joint.controller.update_haptic_output()\nExplanation:\nThis code shows how the application integrates a PID (Proportional-Integral-Derivative) control loop for closed-loop FES. The App class initializes the Teslasuit, sets up the skeletal model, and calibrates the system. The update_pid method is called periodically (e.g., by a timer) to update the PID controller parameters and send new stimulation commands based on the current joint angle error. This enables adaptive and precise control of elbow flexion.",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#key-components",
+    "href": "usecases/elbow_FES.html#key-components",
+    "title": "Elbow FES",
+    "section": "Key Components",
+    "text": "Key Components\n\nMotion Capture Sensors:\nUsed to measure the biomechanical angle of the elbow joint, providing feedback for control algorithms.\nHaptic Channels:\nSpecific electrode channels are activated to stimulate the muscles responsible for elbow flexion.\nControl System:\nThe project includes a control system that processes mocap data and adjusts stimulation in real time.\nUser Interface:\nThe application provides a user interface for configuring stimulation parameters and monitoring joint movement.",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#how-the-key-components-work-together",
+    "href": "usecases/elbow_FES.html#how-the-key-components-work-together",
+    "title": "Elbow FES",
+    "section": "How the Key Components Work Together",
+    "text": "How the Key Components Work Together\nThe Elbow FES project demonstrates a closed-loop system where motion capture, haptic feedback (FES), and the control system are tightly integrated to achieve precise, adaptive muscle stimulation for elbow flexion. Here’s how these components interact:\n\n1. Motion Capture Sensors\nThe Teslasuit’s mocap subsystem streams real-time data from IMUs (inertial measurement units) embedded in the suit. This data is processed to extract biomechanical joint angles, such as the elbow flexion angle. The SkeletalModelUpdater class (see control_system.py) uses quaternion data from the suit (via suit_handler.py) to compute the current angle of the elbow joint.\n\nRole: Provides accurate, real-time feedback on the user’s joint position, which is essential for closed-loop control.\n\n\n\n2. Haptic feedback (FES Output)\nThe haptic subsystem of the Teslasuit delivers electrical stimulation to specific muscle groups through mapped electrode channels. The Teslasuit class (in suit_handler.py) exposes methods to trigger stimulation on selected channels, such as the biceps or triceps, with configurable parameters (amplitude, pulse width, duration).\n\nRole: Acts as the actuator, generating muscle contractions to move the elbow joint toward the desired angle.\n\n\n\n3. Control System\nThe control system, implemented in control_system.py and orchestrated by the main application (app.py), uses a PID (Proportional-Integral-Derivative) controller to compare the current elbow angle (from mocap) with the target angle (set by the user or another limb). The PID controller calculates the error and dynamically adjusts the stimulation parameters sent to the haptic subsystem.\n\nRole: Closes the feedback loop by continuously adjusting stimulation based on real-time joint angle feedback, ensuring smooth and accurate movement.\n\n\n\nHow They Interact\n\nInitialization:\nThe user connects the Teslasuit, calibrates the mocap system, and sets a desired elbow angle via the GUI.\nSensing:\nThe mocap subsystem streams joint angles to the control system.\nControl:\nThe PID controller computes the difference between the current and desired angles and determines the optimal stimulation parameters.\nActuation:\nThe haptic subsystem delivers FES to the appropriate muscle group, causing the elbow to flex or extend.\nFeedback:\nThe new joint angle is sensed by the mocap system, and the loop repeats, allowing for real-time, adaptive control.\n\nThis integration enables the Teslasuit to both sense and actuate the human body in a coordinated, automated fashion, making it a powerful platform for rehabilitation, assistive technology, and biomechanics research.",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
+  },
+  {
+    "objectID": "usecases/elbow_FES.html#example-workflow",
+    "href": "usecases/elbow_FES.html#example-workflow",
+    "title": "Elbow FES",
+    "section": "Example Workflow",
+    "text": "Example Workflow\n\nSetup:\nConnect the Teslasuit and ensure all sensors and electrodes are properly positioned.\nCalibration:\nCalibrate the mocap sensors for accurate joint angle measurement.\nStimulation:\nUse the application to deliver FES to the elbow flexor muscles, adjusting parameters as needed.\nMonitoring:\nObserve real-time feedback on joint angle and muscle stimulation, making adjustments to optimize performance.\nData Collection:\nCollect data on joint angles, stimulation parameters, and muscle responses for analysis.\nAnalysis and Iteration:\nAnalyze the collected data to refine control algorithms and improve stimulation strategies. Iterate on the design and implementation based on experimental findings.\n\n\nNote: This use case demonstrates how Teslasuit’s integrated systems can be used for advanced rehabilitation and research scenarios, combining precise motion tracking with programmable electrical stimulation for enhanced therapeutic outcomes.",
+    "crumbs": [
+      "Usecases",
+      "Elbow FES"
+    ]
   }
 ]

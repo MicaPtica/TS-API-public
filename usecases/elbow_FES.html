@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -5253,8 +5287,30 @@ vertical-align: -.125em;
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-elbow-fes" id="toc-what-is-elbow-fes" class="nav-link" data-scroll-target="#what-is-elbow-fes">What is Elbow FES?</a></li>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link" data-scroll-target="#project-overview">Project Overview</a>
+  <ul class="collapse">
+  <li><a href="#motion-capture-example" id="toc-motion-capture-example" class="nav-link" data-scroll-target="#motion-capture-example">Motion Capture Example</a></li>
+  <li><a href="#haptic-feedback-fes-example" id="toc-haptic-feedback-fes-example" class="nav-link" data-scroll-target="#haptic-feedback-fes-example">Haptic Feedback / FES Example</a></li>
+  <li><a href="#closed-loop-control-example" id="toc-closed-loop-control-example" class="nav-link" data-scroll-target="#closed-loop-control-example">Closed-loop Control Example</a></li>
+  </ul></li>
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#how-the-key-components-work-together" id="toc-how-the-key-components-work-together" class="nav-link" data-scroll-target="#how-the-key-components-work-together">How the Key Components Work Together</a>
+  <ul class="collapse">
+  <li><a href="#motion-capture-sensors" id="toc-motion-capture-sensors" class="nav-link" data-scroll-target="#motion-capture-sensors">1. Motion Capture Sensors</a></li>
+  <li><a href="#haptic-feedback-fes-output" id="toc-haptic-feedback-fes-output" class="nav-link" data-scroll-target="#haptic-feedback-fes-output">2. Haptic feedback (FES Output)</a></li>
+  <li><a href="#control-system" id="toc-control-system" class="nav-link" data-scroll-target="#control-system">3. Control System</a></li>
+  <li><a href="#how-they-interact" id="toc-how-they-interact" class="nav-link" data-scroll-target="#how-they-interact">How They Interact</a></li>
+  </ul></li>
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -5278,8 +5334,195 @@ vertical-align: -.125em;
 </header>
 
 
+<p><img role="img" aria-label="Teslasuit v." src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjYiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iVGVzbGFzdWl0IHYuOiA0LjcsIDQuOCI+PHRpdGxlPlRlc2xhc3VpdCB2LjogNC43LCA0Ljg8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9IjEyNiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjczIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iNzMiIHdpZHRoPSI1MyIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UwNWQ0NCIvPjxyZWN0IHdpZHRoPSIxMjYiIGhlaWdodD0iMjAiIGZpbGw9InVybCgjcykiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEsR2VuZXZhLERlamFWdSBTYW5zLHNhbnMtc2VyaWYiIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIGZvbnQtc2l6ZT0iMTEwIj48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iMzc1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSI2MzAiPlRlc2xhc3VpdCB2LjwvdGV4dD48dGV4dCB4PSIzNzUiIHk9IjE0MCIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIGZpbGw9IiNmZmYiIHRleHRMZW5ndGg9IjYzMCI+VGVzbGFzdWl0IHYuPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSI5ODUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjQzMCI+NC43LCA0Ljg8L3RleHQ+PHRleHQgeD0iOTg1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSI0MzAiPjQuNywgNC44PC90ZXh0PjwvZz48L3N2Zz4=" class="img-fluid" alt="Teslasuit v."> <img role="img" aria-label="Teslasuit SDK" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzQiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iVGVzbGFzdWl0IFNESzogMi41LjErIj48dGl0bGU+VGVzbGFzdWl0IFNESzogMi41LjErPC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSIxMzQiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjcikiPjxyZWN0IHdpZHRoPSI4NyIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHg9Ijg3IiB3aWR0aD0iNDciIGhlaWdodD0iMjAiIGZpbGw9IiMwMDdlYzYiLz48cmVjdCB3aWR0aD0iMTM0IiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjQ0NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNzcwIj5UZXNsYXN1aXQgU0RLPC90ZXh0Pjx0ZXh0IHg9IjQ0NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNzcwIj5UZXNsYXN1aXQgU0RLPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxMDk1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIzNzAiPjIuNS4xKzwvdGV4dD48dGV4dCB4PSIxMDk1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIzNzAiPjIuNS4xKzwvdGV4dD48L2c+PC9zdmc+" class="img-fluid" alt="Teslasuit SDK"> <img role="img" aria-label="Python" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4NiIgaGVpZ2h0PSIyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJQeXRob246IDMuOCsiPjx0aXRsZT5QeXRob246IDMuOCs8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9Ijg2IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPjwvY2xpcFBhdGg+PGcgY2xpcC1wYXRoPSJ1cmwoI3IpIj48cmVjdCB3aWR0aD0iNDkiIGhlaWdodD0iMjAiIGZpbGw9IiM1NTUiLz48cmVjdCB4PSI0OSIgd2lkdGg9IjM3IiBoZWlnaHQ9IjIwIiBmaWxsPSIjOTdjYTAwIi8+PHJlY3Qgd2lkdGg9Ijg2IiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjI1NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzkwIj5QeXRob248L3RleHQ+PHRleHQgeD0iMjU1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIzOTAiPlB5dGhvbjwvdGV4dD48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iNjY1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIyNzAiPjMuOCs8L3RleHQ+PHRleHQgeD0iNjY1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIyNzAiPjMuOCs8L3RleHQ+PC9nPjwvc3ZnPg==" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="https://github.com/teslasuit/FES-Elbow-flexion-control">Project Github</a></li>
+<li><a href="../API Reference/subsystems/">API Subsystems Reference</a></li>
+<li><a href="../Main concepts/index.html">Main Concepts</a></li>
+</ul>
+</section>
+<section id="what-is-elbow-fes" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-elbow-fes">What is Elbow FES?</h2>
+<p><strong>Elbow FES</strong> (Functional Electrical Stimulation) is a use case demonstrating the application of the Teslasuit for controlling elbow flexion using electrical stimulation. The project integrates Teslasuit’s haptic and motion capture systems to deliver targeted muscle stimulation and monitor joint movement, enabling research and development in rehabilitation, assistive technology, and biomechanics.</p>
+<p>This use case showcases how the Teslasuit can be used to both sense and actuate the human body in a closed-loop manner. By leveraging the suit’s motion capture (mocap) sensors, the system can continuously monitor the biomechanical angle of the elbow joint in real time. At the same time, the haptic subsystem is used to deliver functional electrical stimulation (FES) to specific muscle groups, such as the biceps, to induce or assist elbow flexion.</p>
+<p>The project demonstrates a closed-loop control approach, where the measured joint angle is compared to a desired target angle, and the stimulation parameters are automatically adjusted to achieve and maintain the desired movement. This enables applications in rehabilitation, assistive robotics where precise and adaptive muscle activation is required.</p>
+</section>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p>The <a href="https://github.com/teslasuit/FES-Elbow-flexion-control">FES for Elbow flexion control</a> project provides a Python-based implementation for controlling elbow flexion via the Teslasuit. It leverages the suit’s APIs for:</p>
+<ul>
+<li><strong>Motion Capture:</strong> Tracking elbow joint angles in real time using the suit’s mocap sensors.</li>
+<li><strong>Haptic Feedback / FES:</strong> Delivering electrical stimulation to the relevant muscle groups to induce or assist elbow flexion.</li>
+<li><strong>Closed-loop Control:</strong> Implementing feedback mechanisms to adjust stimulation parameters based on sensor data.</li>
+</ul>
+<section id="motion-capture-example" class="level3">
+<h3 class="anchored" data-anchor-id="motion-capture-example">Motion Capture Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk <span class="im">import</span> ts_api</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Teslasuit():</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.api <span class="op">=</span> ts_api.TsApi()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> connect_suit(<span class="va">self</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        device_manager <span class="op">=</span> <span class="va">self</span>.api.get_device_manager()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        suit <span class="op">=</span> device_manager.get_or_wait_last_device_attached()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.streamer <span class="op">=</span> suit.mocap</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ...other initialization...</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> start_mocap_streaming(<span class="va">self</span>):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.streamer.start_streaming()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_q6(<span class="va">self</span>, index):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        last_imu_data <span class="op">=</span> <span class="va">self</span>.streamer.get_raw_data_on_ready()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        q6_data <span class="op">=</span> [</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            last_imu_data[index].q6.x,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            last_imu_data[index].q6.y,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>            last_imu_data[index].q6.z,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            last_imu_data[index].q6.w]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> q6_data</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of calculating elbow angle using SkeletalModelUpdater</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.transform <span class="im">import</span> Rotation <span class="im">as</span> R</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume suit and model are already initialized and calibrated</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>q_proximal <span class="op">=</span> suit.get_q6(joint.proximal_bone)  <span class="co"># e.g., upper arm</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>q_distal <span class="op">=</span> suit.get_q6(joint.distal_bone)      <span class="co"># e.g., lower arm</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial heading rotation from calibration</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>initial_heading_rot <span class="op">=</span> R.from_quat(joint.initial_proximal_bone_quat) <span class="op">*</span> R.from_quat(joint.initial_distal_bone_quat).inv()</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ini_saggital_vec <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>vec1 <span class="op">=</span> R.from_quat(q_proximal).<span class="bu">apply</span>(ini_saggital_vec)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>vec2 <span class="op">=</span> (initial_heading_rot <span class="op">*</span> R.from_quat(q_distal)).<span class="bu">apply</span>(ini_saggital_vec)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>elbow_angle <span class="op">=</span> np.arccos(vec1.dot(vec2)) <span class="op">*</span> <span class="dv">180</span> <span class="op">/</span> np.pi</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Elbow flexion angle:&quot;</span>, elbow_angle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+This code defines a <code>Teslasuit</code> class that wraps the Teslasuit API for easier use. The <code>connect_suit</code> method connects to the suit and initializes the motion capture (mocap) subsystem. The <code>start_mocap_streaming</code> method begins streaming mocap data, and <code>get_q6</code> retrieves the quaternion data from a specific IMU sensor.</p>
+<p>To calculate the elbow angle, the code uses the <code>SkeletalModelUpdater</code> approach:<br>
+- It retrieves the calibrated (initial) and current quaternions for the upper and lower arm. - It computes the relative rotation and applies it to a reference vector (e.g., the saggital plane). - The angle between the vectors gives the current elbow flexion angle in degrees.</p>
+<p>This approach allows for accurate and real-time calculation of the elbow angle, which is crucial for closed-loop control in the Elbow FES project.</p>
+</section>
+<section id="haptic-feedback-fes-example" class="level3">
+<h3 class="anchored" data-anchor-id="haptic-feedback-fes-example">Haptic Feedback / FES Example</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> haptic_play_touch(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            channel_id,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            ampl<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            period<span class="op">=</span><span class="dv">20000</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            pw<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            duration<span class="op">=</span><span class="dv">100</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        params <span class="op">=</span> <span class="va">self</span>.haptic.create_touch_parameters(period, ampl, pw)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        playable_id <span class="op">=</span> <span class="va">self</span>.haptic.create_touch(params, channel_id, duration)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.haptic.play_playable(playable_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+This method sends an electrical stimulation (FES) command to a specific haptic channel on the Teslasuit. The parameters control the stimulation waveform:<br>
+- <code>channel_id</code>: which electrode channel to activate<br>
+- <code>ampl</code>: amplitude of the stimulation<br>
+- <code>period</code>: period of the waveform<br>
+- <code>pw</code>: pulse width<br>
+- <code>duration</code>: how long the stimulation lasts (ms)<br>
+This function is used to trigger muscle contractions for elbow flexion.</p>
+</section>
+<section id="closed-loop-control-example" class="level3">
+<h3 class="anchored" data-anchor-id="closed-loop-control-example">Closed-loop Control Example</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> App(PIDMainWindow):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parent<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(App, <span class="va">self</span>).<span class="fu">__init__</span>(parent)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.suit <span class="op">=</span> Teslasuit()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.suit.connect_suit()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> SkeletalModel()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model_updater <span class="op">=</span> SkeletalModelUpdater(<span class="va">self</span>.suit, <span class="va">self</span>.model)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model_updater.calibrate()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.controller <span class="op">=</span> PIDSkeletalModelController(<span class="va">self</span>.suit, <span class="va">self</span>.model)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ...timers and UI setup...</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> update_pid(<span class="va">self</span>):</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Called periodically by timer</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.controlled_joint.controller.saggital_plane_controller.agonist_controller.parameters_list <span class="op">=</span> <span class="va">self</span>.pid_parameters_list</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.controlled_joint.controller.saggital_plane_controller.agonist_controller.change_parameters()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.controlled_joint.controller.update_haptic_output()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+This code shows how the application integrates a PID (Proportional-Integral-Derivative) control loop for closed-loop FES. The <code>App</code> class initializes the Teslasuit, sets up the skeletal model, and calibrates the system. The <code>update_pid</code> method is called periodically (e.g., by a timer) to update the PID controller parameters and send new stimulation commands based on the current joint angle error. This enables adaptive and precise control of elbow flexion.</p>
+</section>
+</section>
+<section id="key-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-components">Key Components</h2>
+<ul>
+<li><p><strong>Motion Capture Sensors:</strong><br>
+Used to measure the biomechanical angle of the elbow joint, providing feedback for control algorithms.</p></li>
+<li><p><strong>Haptic Channels:</strong><br>
+Specific electrode channels are activated to stimulate the muscles responsible for elbow flexion.</p></li>
+<li><p><strong>Control System:</strong><br>
+The project includes a control system that processes mocap data and adjusts stimulation in real time.</p></li>
+<li><p><strong>User Interface:</strong><br>
+The application provides a user interface for configuring stimulation parameters and monitoring joint movement.</p></li>
+</ul>
+</section>
+<section id="how-the-key-components-work-together" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-key-components-work-together">How the Key Components Work Together</h2>
+<p>The Elbow FES project demonstrates a closed-loop system where <strong>motion capture</strong>, <strong>haptic feedback (FES)</strong>, and the <strong>control system</strong> are tightly integrated to achieve precise, adaptive muscle stimulation for elbow flexion. Here’s how these components interact:</p>
+<section id="motion-capture-sensors" class="level3">
+<h3 class="anchored" data-anchor-id="motion-capture-sensors">1. Motion Capture Sensors</h3>
+<p>The Teslasuit’s mocap subsystem streams real-time data from IMUs (inertial measurement units) embedded in the suit. This data is processed to extract biomechanical joint angles, such as the elbow flexion angle. The <code>SkeletalModelUpdater</code> class (see <code>control_system.py</code>) uses quaternion data from the suit (via <code>suit_handler.py</code>) to compute the current angle of the elbow joint.</p>
+<ul>
+<li><strong>Role:</strong> Provides accurate, real-time feedback on the user’s joint position, which is essential for closed-loop control.</li>
+</ul>
+</section>
+<section id="haptic-feedback-fes-output" class="level3">
+<h3 class="anchored" data-anchor-id="haptic-feedback-fes-output">2. Haptic feedback (FES Output)</h3>
+<p>The haptic subsystem of the Teslasuit delivers electrical stimulation to specific muscle groups through mapped electrode channels. The <code>Teslasuit</code> class (in <code>suit_handler.py</code>) exposes methods to trigger stimulation on selected channels, such as the biceps or triceps, with configurable parameters (amplitude, pulse width, duration).</p>
+<ul>
+<li><strong>Role:</strong> Acts as the actuator, generating muscle contractions to move the elbow joint toward the desired angle.</li>
+</ul>
+</section>
+<section id="control-system" class="level3">
+<h3 class="anchored" data-anchor-id="control-system">3. Control System</h3>
+<p>The control system, implemented in <code>control_system.py</code> and orchestrated by the main application (<code>app.py</code>), uses a PID (Proportional-Integral-Derivative) controller to compare the current elbow angle (from mocap) with the target angle (set by the user or another limb). The PID controller calculates the error and dynamically adjusts the stimulation parameters sent to the haptic subsystem.</p>
+<ul>
+<li><strong>Role:</strong> Closes the feedback loop by continuously adjusting stimulation based on real-time joint angle feedback, ensuring smooth and accurate movement.</li>
+</ul>
+</section>
+<section id="how-they-interact" class="level3">
+<h3 class="anchored" data-anchor-id="how-they-interact">How They Interact</h3>
+<ol type="1">
+<li><p><strong>Initialization:</strong><br>
+The user connects the Teslasuit, calibrates the mocap system, and sets a desired elbow angle via the GUI.</p></li>
+<li><p><strong>Sensing:</strong><br>
+The mocap subsystem streams joint angles to the control system.</p></li>
+<li><p><strong>Control:</strong><br>
+The PID controller computes the difference between the current and desired angles and determines the optimal stimulation parameters.</p></li>
+<li><p><strong>Actuation:</strong><br>
+The haptic subsystem delivers FES to the appropriate muscle group, causing the elbow to flex or extend.</p></li>
+<li><p><strong>Feedback:</strong><br>
+The new joint angle is sensed by the mocap system, and the loop repeats, allowing for real-time, adaptive control.</p></li>
+</ol>
+<p>This integration enables the Teslasuit to both sense and actuate the human body in a coordinated, automated fashion, making it a powerful platform for rehabilitation, assistive technology, and biomechanics research.</p>
+</section>
+</section>
+<section id="example-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-workflow">Example Workflow</h2>
+<ol type="1">
+<li><strong>Setup:</strong><br>
+Connect the Teslasuit and ensure all sensors and electrodes are properly positioned.</li>
+<li><strong>Calibration:</strong><br>
+Calibrate the mocap sensors for accurate joint angle measurement.</li>
+<li><strong>Stimulation:</strong><br>
+Use the application to deliver FES to the elbow flexor muscles, adjusting parameters as needed.</li>
+<li><strong>Monitoring:</strong><br>
+Observe real-time feedback on joint angle and muscle stimulation, making adjustments to optimize performance.</li>
+<li><strong>Data Collection:</strong><br>
+Collect data on joint angles, stimulation parameters, and muscle responses for analysis.</li>
+<li><strong>Analysis and Iteration:</strong><br>
+Analyze the collected data to refine control algorithms and improve stimulation strategies. Iterate on the design and implementation based on experimental findings.</li>
+</ol>
+<hr>
+<p><strong>Note:</strong> This use case demonstrates how Teslasuit’s integrated systems can be used for advanced rehabilitation and research scenarios, combining precise motion tracking with programmable electrical stimulation for enhanced therapeutic outcomes.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
