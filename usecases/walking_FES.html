@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -4916,6 +4950,10 @@ vertical-align: -.125em;
     <a class="dropdown-item" href="../usecases/ppg_visualiser.html">
  <span class="dropdown-text">PPG visualiser</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../usecases/combined_haptic_gaze.html">
+ <span class="dropdown-text">Gaze tracking</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -5241,11 +5279,8 @@ vertical-align: -.125em;
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../usecases/ppg_visualiser.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Real-time heart rate visualiser</span></a>
-  </div>
-</li>
+ <span class="menu-text">usecases/ppg_visualiser.qmd - usecases/combined_haptic_gaze.qmd</span>
+  </li>
       </ul>
   </li>
     </ul>
@@ -5253,8 +5288,23 @@ vertical-align: -.125em;
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
+  <li><a href="#what-is-walking-fes" id="toc-what-is-walking-fes" class="nav-link" data-scroll-target="#what-is-walking-fes">What is Walking FES?</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How It Works</a>
+  <ul class="collapse">
+  <li><a href="#motion-capture-example" id="toc-motion-capture-example" class="nav-link" data-scroll-target="#motion-capture-example">Motion Capture Example</a></li>
+  <li><a href="#haptic-feedback-fes-example" id="toc-haptic-feedback-fes-example" class="nav-link" data-scroll-target="#haptic-feedback-fes-example">Haptic Feedback / FES Example</a></li>
+  <li><a href="#open-loop-finite-state-control-example" id="toc-open-loop-finite-state-control-example" class="nav-link" data-scroll-target="#open-loop-finite-state-control-example">Open-loop Finite-State Control Example</a></li>
+  </ul></li>
+  <li><a href="#key-components" id="toc-key-components" class="nav-link" data-scroll-target="#key-components">Key Components</a></li>
+  <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -5278,8 +5328,133 @@ vertical-align: -.125em;
 </header>
 
 
+<p><img role="img" aria-label="Teslasuit v." src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjYiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iVGVzbGFzdWl0IHYuOiA0LjcsIDQuOCI+PHRpdGxlPlRlc2xhc3VpdCB2LjogNC43LCA0Ljg8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9IjEyNiIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L2NsaXBQYXRoPjxnIGNsaXAtcGF0aD0idXJsKCNyKSI+PHJlY3Qgd2lkdGg9IjczIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNTU1Ii8+PHJlY3QgeD0iNzMiIHdpZHRoPSI1MyIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UwNWQ0NCIvPjxyZWN0IHdpZHRoPSIxMjYiIGhlaWdodD0iMjAiIGZpbGw9InVybCgjcykiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEsR2VuZXZhLERlamFWdSBTYW5zLHNhbnMtc2VyaWYiIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIGZvbnQtc2l6ZT0iMTEwIj48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iMzc1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSI2MzAiPlRlc2xhc3VpdCB2LjwvdGV4dD48dGV4dCB4PSIzNzUiIHk9IjE0MCIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIGZpbGw9IiNmZmYiIHRleHRMZW5ndGg9IjYzMCI+VGVzbGFzdWl0IHYuPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSI5ODUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjQzMCI+NC43LCA0Ljg8L3RleHQ+PHRleHQgeD0iOTg1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSI0MzAiPjQuNywgNC44PC90ZXh0PjwvZz48L3N2Zz4=" class="img-fluid" alt="Teslasuit v."> <img role="img" aria-label="Teslasuit SDK" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzQiIGhlaWdodD0iMjAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iVGVzbGFzdWl0IFNESzogMi41LjErIj48dGl0bGU+VGVzbGFzdWl0IFNESzogMi41LjErPC90aXRsZT48bGluZWFyR3JhZGllbnQgaWQ9InMiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9InIiPjxyZWN0IHdpZHRoPSIxMzQiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjcikiPjxyZWN0IHdpZHRoPSI4NyIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHg9Ijg3IiB3aWR0aD0iNDciIGhlaWdodD0iMjAiIGZpbGw9IiMwMDdlYzYiLz48cmVjdCB3aWR0aD0iMTM0IiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjQ0NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iNzcwIj5UZXNsYXN1aXQgU0RLPC90ZXh0Pjx0ZXh0IHg9IjQ0NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgZmlsbD0iI2ZmZiIgdGV4dExlbmd0aD0iNzcwIj5UZXNsYXN1aXQgU0RLPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSIxMDk1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIzNzAiPjIuNS4xKzwvdGV4dD48dGV4dCB4PSIxMDk1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIzNzAiPjIuNS4xKzwvdGV4dD48L2c+PC9zdmc+" class="img-fluid" alt="Teslasuit SDK"> <img role="img" aria-label="Python" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4NiIgaGVpZ2h0PSIyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJQeXRob246IDMuOCsiPjx0aXRsZT5QeXRob246IDMuOCs8L3RpdGxlPjxsaW5lYXJHcmFkaWVudCBpZD0icyIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iciI+PHJlY3Qgd2lkdGg9Ijg2IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPjwvY2xpcFBhdGg+PGcgY2xpcC1wYXRoPSJ1cmwoI3IpIj48cmVjdCB3aWR0aD0iNDkiIGhlaWdodD0iMjAiIGZpbGw9IiM1NTUiLz48cmVjdCB4PSI0OSIgd2lkdGg9IjM3IiBoZWlnaHQ9IjIwIiBmaWxsPSIjOTdjYTAwIi8+PHJlY3Qgd2lkdGg9Ijg2IiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI3MpIi8+PC9nPjxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJWZXJkYW5hLEdlbmV2YSxEZWphVnUgU2FucyxzYW5zLXNlcmlmIiB0ZXh0LXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIiBmb250LXNpemU9IjExMCI+PHRleHQgYXJpYS1oaWRkZW49InRydWUiIHg9IjI1NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzkwIj5QeXRob248L3RleHQ+PHRleHQgeD0iMjU1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIzOTAiPlB5dGhvbjwvdGV4dD48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iNjY1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIyNzAiPjMuOCs8L3RleHQ+PHRleHQgeD0iNjY1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIyNzAiPjMuOCs8L3RleHQ+PC9nPjwvc3ZnPg==" class="img-fluid" alt="Python"></p>
+<section id="quick-access" class="level2">
+<h2 class="anchored" data-anchor-id="quick-access">Quick access</h2>
+<ul>
+<li><a href="https://github.com/teslasuit/walking-FES">Project Source</a></li>
+<li><a href="../API Reference/subsystems/">API Subsystems Reference</a></li>
+<li><a href="../Main concepts/index.html">Main Concepts</a></li>
+</ul>
+</section>
+<section id="what-is-walking-fes" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-walking-fes">What is Walking FES?</h2>
+<p><strong>Walking FES</strong> (Functional Electrical Stimulation) is a use case demonstrating the application of the Teslasuit as a finite-state FES device. The project integrates Teslasuit’s motion capture and haptic systems to deliver targeted muscle stimulation during different phases of the gait cycle. This enables research and development in rehabilitation, assistive technology, and biomechanics.</p>
+<p>The <strong>Walking FES</strong> system uses a motion capture interface with an applied data processing solution called the <strong>Step Detector</strong>. The Step Detector is an SLTM neural network model trained on pre-gathered IMU data (accelerometer and gyroscope) from both legs and the back of six healthy subjects during walking. The model achieved over 90% accuracy on the validation dataset, making it highly reliable for detecting gait phases.</p>
+<p>The Step Detector provides time-series data about foot-floor contact for each foot separately. This data is sufficient to detect four simplified walking phases:</p>
+<ol type="1">
+<li><strong>Initial Stance</strong></li>
+<li><strong>Terminal Stance</strong></li>
+<li><strong>Initial Swing</strong></li>
+<li><strong>Terminal Swing</strong></li>
+</ol>
+<p>Simplified electrical stimulation patterns are assigned to these phases to assist walking. The system operates as an <strong>open-loop finite-state machine</strong>, where stimulation patterns are triggered based on detected gait phases without real-time feedback adjustment.</p>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How It Works</h2>
+<p>The <strong>Walking FES</strong> system uses the following workflow: 1. <strong>Predefined Haptic Assets:</strong><br>
+Predefined haptic patterns are loaded from external assets (e.g., JSON files). These patterns define stimulation parameters such as amplitude, duration, and pulse width for each muscle group. 2. <strong>Step Detection:</strong><br>
+The Step Detector processes IMU data to detect foot-floor contact and classify the current gait phase. 3. <strong>Haptic Animation Playback:</strong><br>
+Based on the detected gait phase, the system plays the corresponding haptic animation for the muscle group responsible for that phase. This is done in an <strong>open-loop manner</strong>, where the operator can regulate the duration and delay of the haptic animation through the GUI interface.</p>
+<section id="motion-capture-example" class="level3">
+<h3 class="anchored" data-anchor-id="motion-capture-example">Motion Capture Example</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> suit_handler <span class="im">import</span> Teslasuit</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mocap_processor <span class="im">import</span> MocapStreamer</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize Teslasuit and connect</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>suit <span class="op">=</span> Teslasuit()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>suit.connect_suit()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Start mocap streaming</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>streamer <span class="op">=</span> MocapStreamer(suit)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>streamer.update()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Retrieve quaternion data for a specific node</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>q6_data <span class="op">=</span> streamer.get_q6(index<span class="op">=</span><span class="dv">1</span>)  <span class="co"># Replace &#39;1&#39; with the desired node index</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Quaternion data:&quot;</span>, q6_data)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Process gait features</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>streamer.get_features()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>gait_phase <span class="op">=</span> streamer.run_model()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Detected gait phase:&quot;</span>, gait_phase)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+The <code>MocapStreamer</code> class processes raw mocap data from the Teslasuit to extract features such as accelerometer and gyroscope readings. These features are fed into the Step Detector model to classify the current gait phase. The detected gait phase is then used to trigger predefined stimulation patterns.</p>
+<p>Key functions in <code>mocap_processor.py</code>: - <strong><code>update()</code></strong>: Updates the mocap data buffer for all nodes. - <strong><code>get_q6(index)</code></strong>: Retrieves quaternion data for a specific node. - <strong><code>get_features()</code></strong>: Extracts normalized features (e.g., accelerometer and gyroscope magnitudes) for gait phase detection. - <strong><code>run_model()</code></strong>: Runs the Step Detector model to classify the current gait phase.</p>
+</section>
+<section id="haptic-feedback-fes-example" class="level3">
+<h3 class="anchored" data-anchor-id="haptic-feedback-fes-example">Haptic Feedback / FES Example</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fes <span class="im">import</span> Fes_streamer</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize FES streamer with preloaded assets and suit haptic player</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fes <span class="op">=</span> Fes_streamer(assets<span class="op">=</span>suit.asset_id_list, haptic<span class="op">=</span>suit.haptic)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable muscles (operator toggles)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fes.ChangeHapticChecked(<span class="st">&#39;left&#39;</span>, <span class="st">&#39;Left_quadriceps&#39;</span>, <span class="dv">1</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fes.ChangeHapticChecked(<span class="st">&#39;left&#39;</span>, <span class="st">&#39;Left_tibialis&#39;</span>, <span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Trigger a Left Swing pattern (quad/tib/ham if enabled)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>fes.play_L_Sw()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Each frame or timer tick: update which assets should play and push to device</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>fes._update_playing_assets()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fes._update_playing(suit.haptic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+The <code>Fes_streamer</code> manages prebuilt haptic animations (assets) per muscle, provided as a mapping <code>asset_id_list</code> at startup. Operator controls enable/disable specific muscles via <code>ChangeHapticChecked</code>. Phase helpers like <code>play_L_Sw</code>, <code>play_L_St</code>, <code>play_R_Sw</code>, <code>play_R_St</code> start timers. <code>_update_playing_assets()</code> applies per‑muscle delay/length windows, and <code>_update_playing(haptic)</code> calls <code>haptic.play_playable(asset_id)</code> for active muscles.</p>
+<p>Default per‑muscle timing (seconds): delays — gastrocnemius 0.1, hamstring 0.4, quadriceps 0.1, tibialis 0.0; lengths — gastrocnemius 0.3, hamstring 0.2, quadriceps 0.4, tibialis 1.0 (left/right symmetric).</p>
+</section>
+<section id="open-loop-finite-state-control-example" class="level3">
+<h3 class="anchored" data-anchor-id="open-loop-finite-state-control-example">Open-loop Finite-State Control Example</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detector result per frame:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># result[1] -&gt; Left foot contact (0: Swing, 1: Stance)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># result[3] -&gt; Right foot contact (0: Swing, 1: Stance)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Map detector output to muscle patterns and schedule playback</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>fes.run_walking_fes(result)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply timing windows and play active assets</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>fes._update_playing_assets()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>fes._update_playing(suit.haptic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong><br>
+The controller is an event‑driven open‑loop finite‑state machine. For each frame, the Step Detector provides contact states; <code>run_walking_fes(result)</code> maps states to muscle groups and sets timers: - Swing: quadriceps, tibialis, hamstring on the swinging leg - Stance: gastrocnemius on the stance leg</p>
+<p>Operator controls gate which assets are eligible. Playback timing is governed by per‑muscle delay and length; the system does not adapt stimulation based on real‑time feedback.</p>
+</section>
+</section>
+<section id="key-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-components">Key Components</h2>
+<ul>
+<li><p><strong>Motion Capture Sensors:</strong><br>
+Used to detect gait phases in real time, providing input for the finite-state control system.</p></li>
+<li><p><strong>Haptic Channels:</strong><br>
+Specific electrode channels are activated to stimulate the muscles responsible for walking, such as the quadriceps, hamstrings, gastrocnemius, and tibialis anterior.</p></li>
+<li><p><strong>Finite-State Control System:</strong><br>
+The project includes an open-loop finite-state control system that processes mocap data and applies stimulation based on predefined patterns.</p></li>
+<li><p><strong>Step Detector Model:</strong><br>
+A neural network trained on IMU data to classify gait phases with over 90% accuracy.</p></li>
+<li><p><strong>GUI Interface:</strong><br>
+The application provides a graphical interface for controlling stimulation parameters such as duration and delay for each muscle group.</p></li>
+</ul>
+</section>
+<section id="example-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="example-workflow">Example Workflow</h2>
+<ol type="1">
+<li><strong>Setup:</strong><br>
+Connect the Teslasuit and ensure all sensors and electrodes are properly positioned.</li>
+<li><strong>Calibration:</strong><br>
+Calibrate the motion capture system and EMS stimulation parameters.</li>
+<li><strong>Stimulation:</strong><br>
+Use the application to deliver FES to the appropriate muscle groups, adjusting parameters as needed.</li>
+<li><strong>Monitoring:</strong><br>
+Observe real-time feedback on gait phases and muscle stimulation, making adjustments to optimize performance.</li>
+<li><strong>Data Collection:</strong><br>
+Collect data on gait phases, stimulation parameters, and muscle responses for analysis.</li>
+<li><strong>Analysis and Iteration:</strong><br>
+Analyze the collected data to refine stimulation strategies. Iterate on the design and implementation based on experimental findings.</li>
+</ol>
+<hr>
+<p><strong>Note:</strong> This use case demonstrates how Teslasuit’s integrated systems can be used for advanced rehabilitation and research scenarios. The system operates as an <strong>open-loop finite-state machine</strong>, meaning it does not dynamically adjust stimulation based on real-time feedback but instead relies on predefined stimulation patterns triggered by detected gait phases.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
