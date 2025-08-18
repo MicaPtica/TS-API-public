@@ -5273,6 +5273,7 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#tshrvstructure" id="toc-tshrvstructure" class="nav-link" data-scroll-target="#tshrvstructure">TsHrv(Structure):</a></li>
   <li><a href="#tsppgrawdatastructure" id="toc-tsppgrawdatastructure" class="nav-link" data-scroll-target="#tsppgrawdatastructure">TsPpgRawData(Structure):</a></li>
+  <li><a href="#tsppgrawnodedatastructure" id="toc-tsppgrawnodedatastructure" class="nav-link" data-scroll-target="#tsppgrawnodedatastructure">TsPpgRawNodeData(Structure):</a></li>
   <li><a href="#tsppgdatastructure" id="toc-tsppgdatastructure" class="nav-link" data-scroll-target="#tsppgdatastructure">TsPpgData(Structure):</a></li>
   <li><a href="#tsppgnodedatastructure" id="toc-tsppgnodedatastructure" class="nav-link" data-scroll-target="#tsppgnodedatastructure">TsPpgNodeData(Structure):</a></li>
   </ul></li>
@@ -5394,7 +5395,22 @@ vertical-align: -.125em;
 <p>Attributes:</p>
 <ul>
 <li><code>number_of_nodes (int)</code>: The number of sensor nodes providing PPG data.</li>
-<li><code>nodes (POINTER(TsPpgRawNodeData))</code>: Pointer to an array of node data structures.</li>
+<li><code>nodes (POINTER(</code><a href="#tsppgrawnodedatastructure"><code>TsPpgRawNodeData</code></a><code>))</code>: Pointer to an array of node data structures.</li>
+</ul>
+<hr>
+</section>
+<section id="tsppgrawnodedatastructure" class="level3">
+<h3 class="anchored" data-anchor-id="tsppgrawnodedatastructure">TsPpgRawNodeData(Structure):</h3>
+<p>Represents raw PPG (Photoplethysmography) sensor data.</p>
+<p>This structure stores raw PPG sensor data, including infrared, red, blue, and green sensor values, along with a timestamp indicating when the last sample was captured.</p>
+<p>Attributes:</p>
+<ul>
+<li><code>sample_size (int)</code>: Number of samples in the data arrays.</li>
+<li><code>ir_data (POINTER(c_uint64))</code>: Infrared sensor values sample.</li>
+<li><code>red_data (POINTER(c_uint64))</code>: Red sensor values sample.</li>
+<li><code>blue_data (POINTER(c_uint64))</code>: Blue sensor values sample.</li>
+<li><code>green_data (POINTER(c_uint64))</code>: Green sensor values sample.</li>
+<li><code>timestamp (int)</code>: Time point when the last value from the sample was captured.</li>
 </ul>
 <hr>
 </section>
@@ -5405,7 +5421,7 @@ vertical-align: -.125em;
 <p>Attributes:</p>
 <ul>
 <li><code>number_of_nodes (int)</code>: The number of sensor nodes providing PPG data.</li>
-<li><code>nodes (POINTER(TsPpgNodeData))</code>: Pointer to an array of processed node data structures.</li>
+<li><code>nodes (POINTER(</code><a href="#tsppgnodedata%60"><code>TsPpgNodeData</code></a>)`: Pointer to an array of processed node data structures.</li>
 </ul>
 <hr>
 </section>
@@ -5450,7 +5466,7 @@ vertical-align: -.125em;
 <p>Attributes:</p>
 <ul>
 <li><code>frequency (int)</code>: Frequency value.</li>
-<li><code>complex_number (TsComplexNumber)</code>: Complex number associated with the frequency.</li>
+<li><code>complex_number</code> <a href="#tscomplexnumber"><code>TsComplexNumber</code></a>: Complex number associated with the frequency.</li>
 </ul>
 <hr>
 </section>
@@ -5461,7 +5477,7 @@ vertical-align: -.125em;
 <ul>
 <li><code>channel_index (int)</code>: Index of the channel.</li>
 <li><code>number_of_frequencies (int)</code>: Number of frequencies in the channel.</li>
-<li><code>frequencies (list)</code>: List of <a href="#tsbiafrequencydata">TsBiaFrequencyData</a> objects.</li>
+<li><code>frequencies (list)</code>: List of <a href="#tsbiafrequencydatastructure">TsBiaFrequencyData</a> objects.</li>
 </ul>
 <hr>
 </section>
@@ -5471,7 +5487,7 @@ vertical-align: -.125em;
 <p>Attributes:</p>
 <ul>
 <li><code>number_of_channels (int)</code>: Number of channels.</li>
-<li><code>channels (list)</code>: List of <a href="#tsbiachanneldata">TsBiaChannelData</a> objects.</li>
+<li><code>channels (list)</code>: List of <a href="#tsbiachanneldatastructure">TsBiaChannelData</a> objects.</li>
 </ul>
 </section>
 </section>
@@ -5515,8 +5531,8 @@ vertical-align: -.125em;
 <p>Represents skeleton bone data.</p>
 <p>Attributes:</p>
 <ul>
-<li><code>position (TsVec3f)</code>: Position of the bone.</li>
-<li><code>rotation (TsQuat)</code>: Rotation of the bone.</li>
+<li><code>position</code> <a href="#tsvec3fstructure"><code>TsVec3f</code></a>: Position of the bone.</li>
+<li><code>rotation</code> <a href="#tsquatstructure"><code>TsQuat</code></a>: Rotation of the bone.</li>
 </ul>
 <hr>
 </section>
@@ -5525,12 +5541,12 @@ vertical-align: -.125em;
 <p>Represents raw IMU sensor data.</p>
 <p>Attributes:</p>
 <ul>
-<li><code>q6 (TsQuat)</code>: 6-axis Quaternion data (without magnetometer).</li>
-<li><code>q9 (TsQuat)</code>: 9-axis Quaternion data (q6 including magnetometer).</li>
-<li><code>accel (TsVec3f):</code> Accelerometer data.</li>
-<li><code>gyro (TsVec3f)</code>: Gyroscope data.</li>
-<li><code>magn (TsVec3f)</code>: Magnetometer data.</li>
-<li><code>linear_accel (TsVec3f)</code>: Linear acceleration data.</li>
+<li><code>q6</code> <a href="#tsquatstructure"><code>TsQuat</code></a>: 6-axis Quaternion data (without magnetometer).</li>
+<li><code>q9</code> <a href="#tsquatstructure"><code>TsQuat</code></a>: 9-axis Quaternion data (q6 including magnetometer).</li>
+<li><code>accel</code> <a href="#tsvec3fstructure"><code>TsVec3f</code></a>: Accelerometer data.</li>
+<li><code>gyro</code> <a href="#tsvec3fstructure"><code>TsVec3f</code></a>: Gyroscope data.</li>
+<li><code>magn</code> <a href="#tsvec3fstructure"><code>TsVec3f</code></a>: Magnetometer data.</li>
+<li><code>linear_accel</code> <a href="#tsvec3fstructure"><code>TsVec3f</code></a>: Linear acceleration data.</li>
 <li><code>timestamp (uint64)</code>: Timestamp of the data.</li>
 </ul>
 <hr>
@@ -5776,7 +5792,7 @@ vertical-align: -.125em;
 </li>
 <li><code>number_of_channels (int)</code>: Number of channels in the node.<br>
 </li>
-<li><code>channels (list)</code>: List of <a href="#tsemgchanneldata">TsEmgChannelData</a> objects.<br>
+<li><code>channels (list)</code>: List of <a href="#tsemgchanneldatastructure">TsEmgChannelData</a> objects.<br>
 </li>
 <li><code>number_of_timestamps (int)</code>: Number of timestamps.<br>
 </li>
@@ -5791,9 +5807,9 @@ vertical-align: -.125em;
 <ul>
 <li><code>number_of_nodes (int)</code>: Number of nodes.<br>
 </li>
-<li><code>nodes (list)</code>: List of <a href="#tsemgnodedata">TsEmgNodeData</a> objects.<br>
+<li><code>nodes (list)</code>: List of <a href="#tsemgnodedatastructure">TsEmgNodeData</a> objects.<br>
 </li>
-<li><code>options ([TsEmgOptions](#tsemgoptions))</code>: EMG options.</li>
+<li><code>options</code> <a href="#tsemgoptionsstucture">TsEmgOptions</a>`: EMG options.</li>
 </ul>
 </section>
 </section>
@@ -5804,7 +5820,7 @@ vertical-align: -.125em;
 <p>Represents a haptic parameter.</p>
 <p>Attributes:</p>
 <ul>
-<li><code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+<li><code>type</code> <a href="#tshapticparamstructure"><code>TsHapticParamType</code></a>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
 </li>
 <li><code>value (float)</code>: Value of the parameter.</li>
 </ul>
@@ -5815,7 +5831,7 @@ vertical-align: -.125em;
 <p>Represents a multiplier for haptic parameters.</p>
 <p>Attributes:</p>
 <ul>
-<li><code>type (TsHapticParamType)</code>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
+<li><code>type</code> <a href="#tshapticparamtypeenum"><code>TsHapticParamType</code></a>: Type of the parameter (e.g., Period, Amplitude, PulseWidth).<br>
 </li>
 <li><code>value (float)</code>: Multiplier value (between 0 and 1).</li>
 </ul>
@@ -5852,7 +5868,7 @@ vertical-align: -.125em;
 </li>
 <li><code>hardness_percent (int)</code>: Hardness percentage from 0 to 100.<br>
 </li>
-<li><code>lock_direction</code> (<a href="#tsmagneticencoderlockdirection"><code>TsMagneticEncoderLockDirection</code></a>): Direction of the lock.</li>
+<li><code>lock_direction</code> <a href="#tsmagneticencoderlockdirectionenum"><code>TsMagneticEncoderLockDirection</code></a>: Direction of the lock.</li>
 </ul>
 <hr>
 </section>
@@ -5887,7 +5903,7 @@ vertical-align: -.125em;
 <ul>
 <li><code>side (TsDeviceSide)</code>: Side of the glove (left or right).<br>
 </li>
-<li><code>fingers (dict)</code>: Dictionary of bone indexes and their corresponding <a href="#tsfingermeposition">TsFingerMEPosition</a>.</li>
+<li><code>fingers (dict)</code>: Dictionary of bone indexes and their corresponding <a href="#tsfingermepositionstructure"><code>TsFingerMEPosition</code></a>.</li>
 </ul>
 <hr>
 </section>
@@ -6012,7 +6028,7 @@ vertical-align: -.125em;
 <ul>
 <li><code>node_index (int)</code>: Index of the node.</li>
 <li><code>number_of_channels (int)</code>: Number of channels in the node.</li>
-<li><code>channels_data (list)</code>: List of <a href="#tscurrentfeedbackchanneldata">TsCurrentFeedbackChannelData</a> objects.</li>
+<li><code>channels_data (list)</code>: List of <a href="#tscurrentfeedbackchanneldatastructure"><code>TsCurrentFeedbackChannelData</code></a> objects.</li>
 </ul>
 <hr>
 </section>
@@ -6022,7 +6038,7 @@ vertical-align: -.125em;
 <p>Attributes:</p>
 <ul>
 <li><code>number_of_nodes (int)</code>: Number of nodes.</li>
-<li><code>nodes (list)</code>: List of <a href="#tscurrentfeedbacknodedata">TsCurrentFeedbackNodeData</a> objects.</li>
+<li><code>nodes (list)</code>: List of <a href="#tscurrentfeedbacknodedatastructure"><code>TsCurrentFeedbackNodeData</code></a> objects.</li>
 </ul>
 
 

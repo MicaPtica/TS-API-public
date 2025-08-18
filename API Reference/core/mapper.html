@@ -5364,29 +5364,29 @@ vertical-align: -.125em;
 <p>Get the default mapping handler for a device.</p>
 <p>Args:</p>
 <ul>
-<li><code>device class</code> (<a href="../../API Reference/core/data_structures.html#tsdevice"><code>TsDevice</code></a>): Device handle.</li>
+<li><code>device class</code> (<a href="../../API Reference/core/device.html"><code>TsDevice</code></a>): Device handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
-<li><code>TsMapping2d</code>: Mapping handler.</li>
+<li><a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>get_mapping_by_version(<span class="va">self</span>, version)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the mapping handler by the mapping version.</p>
 <p>Args:</p>
 <ul>
-<li><code>version</code> (<a href="../../API Reference/core/data_structures.html#tsmapping2dversion">TsMapping2dVersion</a>): Mapping version.</li>
+<li><code>version</code> (<a href="../../API Reference/core/data_structures.html#tsmapping2dversionenum">TsMapping2dVersion</a>): Mapping version.</li>
 </ul>
 <p>Returns:</p>
 <ul>
-<li><code>TsMapping2d</code>: Mapping handler.</li>
+<li><a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>get_number_of_layouts(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the number of layouts in the mapping.</p>
 <p>Args:</p>
 <ul>
-<li><code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</li>
+<li><code>mapping</code> <a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5397,7 +5397,7 @@ vertical-align: -.125em;
 <p>Get all layouts in the mapping.</p>
 <p>Args:</p>
 <ul>
-<li><code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</li>
+<li><code>mapping</code> <a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5408,7 +5408,7 @@ vertical-align: -.125em;
 <p>Get the index of a layout.</p>
 <p>Args:</p>
 <ul>
-<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</li>
+<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>): Layout handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5419,7 +5419,7 @@ vertical-align: -.125em;
 <p>Get the type of a layout.</p>
 <p>Args:</p>
 <ul>
-<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</li>
+<li><code>layout</code> <a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Layout handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5430,7 +5430,7 @@ vertical-align: -.125em;
 <p>Get the element type of a layout.</p>
 <p>Args:</p>
 <ul>
-<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</li>
+<li><code>layout</code> <a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Layout handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5441,7 +5441,7 @@ vertical-align: -.125em;
 <p>Get the number of bones in a layout.</p>
 <p>Args:</p>
 <ul>
-<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</li>
+<li><code>layout</code> <a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Layout handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5452,7 +5452,7 @@ vertical-align: -.125em;
 <p>Get all bones in a layout.</p>
 <p>Args:</p>
 <ul>
-<li><code>layout</code> (<a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>): Layout handle.</li>
+<li><code>layout</code> <a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Layout handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5463,7 +5463,7 @@ vertical-align: -.125em;
 <p>Get the index of a bone.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5474,7 +5474,7 @@ vertical-align: -.125em;
 <p>Get the side of a bone.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5485,7 +5485,7 @@ vertical-align: -.125em;
 <p>Get the number of contents in a bone.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5496,7 +5496,7 @@ vertical-align: -.125em;
 <p>Get all contents of a bone.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5507,7 +5507,7 @@ vertical-align: -.125em;
 <p>Get the number of points in a bone content.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5518,7 +5518,7 @@ vertical-align: -.125em;
 <p>Get the points representing the shape of a bone content in 2D space.</p>
 <p>Args:</p>
 <ul>
-<li><code>bone_handle</code> (<a href="../../API Reference/core/data_structures.html#tsbone">TsBone</a>): Bone handle.</li>
+<li><code>bone_handle</code> <a href="../../API Reference/core/data_structures.html#tsbonestructure">TsBone</a>: Bone handle.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -5529,11 +5529,11 @@ vertical-align: -.125em;
 <p>Get the electric channel layout for haptic feedback.</p>
 <p>Args:</p>
 <ul>
-<li><code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</li>
+<li><code>mapping</code> <a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.</li>
 </ul>
 <p>Returns:</p>
 <ul>
-<li><a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</li>
+<li><a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Electric channel layout handle.</li>
 </ul>
 </section>
 <section id="mapping-utils" class="level3">
@@ -5543,7 +5543,7 @@ vertical-align: -.125em;
 <p>Get a layout by its type and element type.</p>
 <p>Args:</p>
 <ul>
-<li><code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.<br>
+<li><code>mapping</code> <a href="../../API Reference/core/data_structures.html#tsmappingdatastructure"><code>TsMapping2d</code></a>: Mapping handler.<br>
 </li>
 <li><code>layout_type</code> (int): Layout type.<br>
 </li>
@@ -5551,18 +5551,18 @@ vertical-align: -.125em;
 </ul>
 <p>Returns:</p>
 <ul>
-<li><a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Layout handle.</li>
+<li><a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Layout handle.</li>
 </ul>
 <hr>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>get_haptic_electric_channel_layout(<span class="va">self</span>, mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Get the electric channel layout for haptic feedback.</p>
 <p>Args:</p>
 <ul>
-<li><code>mapping</code> (<a href="../../API Reference/core/data_structures.html#tsmappingdata">TsMapping2d</a>): Mapping handler.</li>
+<li><code>mapping</code> <a href="../../API Reference/core/data_structures.html#tsmappingdatastructure">TsMapping2d</a>: Mapping handler.</li>
 </ul>
 <p>Returns:</p>
 <ul>
-<li><a href="../../API Reference/core/data_structures.html#tslayout">TsLayout</a>: Electric channel layout handle.</li>
+<li><a href="../../API Reference/core/data_structures.html#tslayoutstructure">TsLayout</a>: Electric channel layout handle.</li>
 </ul>
 
 
