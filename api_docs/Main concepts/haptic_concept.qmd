@@ -27,6 +27,37 @@ Haptic feedback electrodes are located as shown on the picture below:
 
 ![Haptic electrode scheme](../images/pic2.png)
 
+## Haptic, TENS, and EMS — stimulation modes of the Teslasuit
+
+The Teslasuit electrodes deliver electrical stimulation, but the *effect* of that stimulation depends on how much current is applied. The same hardware supports two fundamentally different use cases:
+
+### Haptic — sensory stimulation
+
+At low amplitude settings the stimulation activates sensory nerve fibres just below the skin, producing a tactile sensation without causing muscle movement. In the context of the Teslasuit this is what the haptic subsystem delivers: a felt sensation that conveys information to the wearer.
+
+**All 80 haptic channels across the suit can be used for haptic stimulation**
+
+### EMS — motor stimulation
+
+At higher amplitude settings the stimulation is strong enough to reach motor nerve fibres and cause an involuntary muscle contraction. This regime is called **EMS** (Electrical Muscle Stimulation) and is the basis of Functional Electrical Stimulation (FES) applications such as the [Elbow FES](../usecases/elbow_FES.qmd) and [Walking FES](../usecases/walking_FES.qmd) use cases.
+
+**EMS can only be applied through channels that are positioned over a muscle projection** — i.e. channels whose electrodes sit directly above the muscle belly or its motor point. Channels located over bones or other non-muscular tissue will not produce a useful contraction even at high amplitude, and stimulation there at EMS-level power should be avoided.
+
+### Key difference: stimulation power
+
+| | Haptic / TENS | EMS |
+|---|---|---|
+| Amplitude | Low | High |
+| Target tissue | Sensory nerves | Motor nerves / muscles |
+| Effect | Felt sensation (touch, buzz, tingle) | Muscle contraction |
+| Channel restriction | All 80 channels | Muscle-projection channels only |
+| Typical use | Immersive feedback, notifications, VR/AR | Rehabilitation, FES, assisted movement |
+
+::: {.callout-warning}
+⚠️ When using EMS-level amplitudes, always start low and increase gradually. Only activate channels that are confirmed to be over the target muscle.
+Refer to the device safety documentation before running any EMS protocol.
+:::
+
 ## Key features of the Teslasuit haptic subsystem
 
 1. **Programmable Haptic Effects**: Developers can create custom haptic effects by specifying parameters such as amplitude, period, and pulse width, or by using pre-defined haptic assets.
