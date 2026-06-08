@@ -757,18 +757,18 @@ A target quad is formed from four markers (indices 7-10). The gaze origin and a 
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>layout <span class="op">=</span> api.mapper.get_haptic_electric_channel_layout(device.get_mapping())</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>bones <span class="op">=</span> api.mapper.get_layout_bones(layout)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>channels <span class="op">=</span> api.mapper.get_bone_contents(bones[TsBone2dIndex.Chest.value])</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> device.haptic.create_touch_parameters(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">150</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>playable <span class="op">=</span> device.haptic.create_touch(params, channels, <span class="dv">250</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>device.haptic.play_playable(playable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Explanation:</strong><br>
-Channels are derived from the suit mapping (example uses the chest region). Touch parameters are period (ms), amplitude, pulse width, and playable duration (ms).</p>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># period_us = 1000000 / 100 Hz = 10000 µs</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> device.haptic.create_touch_parameters(<span class="dv">10000</span>, <span class="dv">40</span>, <span class="dv">150</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>playable <span class="op">=</span> device.haptic.create_touch(params, channels, <span class="dv">250</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>device.haptic.play_playable(playable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong> Channels are derived from the suit mapping (example uses the chest region). Touch parameters are period (<strong>in µs</strong>, use <code>1000000 / frequency_hz</code>), amplitude, pulse width, and playable duration (ms).</p>
 </section>
 <section id="closed-loop-control-example" class="level3">
 <h3 class="anchored" data-anchor-id="closed-loop-control-example">Closed-loop Control Example</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Event-triggered actuation in the frame callback</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>hit <span class="op">=</span> gaze_processor.on_packet(packet)  <span class="co"># True if gaze ray hits the quad</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> hit:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    haptics.create_haptic_touch(period_ms<span class="op">=</span>period, amplitude<span class="op">=</span>amp, pulse_width<span class="op">=</span>pw)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    haptics.create_haptic_touch(period_us<span class="op">=</span>period, amplitude<span class="op">=</span>amp, pulse_width<span class="op">=</span>pw)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    haptics.play_touch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Explanation:</strong><br>
 On each frame, the app checks gaze-quad intersection. If true, it (re)creates a touch with current operator parameters and plays it. This is open-loop, event-driven control.</p>

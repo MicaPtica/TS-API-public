@@ -688,155 +688,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="../API Reference/subsystems/haptic.html">Haptic Subsystem</a></li>
 <li><a href="../API Reference/core/data_structures.html#Haptic">Haptic data structures</a></li>
 </ul>
-</section>
-<section id="intro" class="level2">
-<h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>This web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.</p>
-</section>
-<section id="code-for-haptic-touch" class="level2">
-<h2 class="anchored" data-anchor-id="code-for-haptic-touch">Code for Haptic Touch</h2>
-<div class="sourceCode" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> _setup_sys_path</span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk <span class="im">import</span> ts_api</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> teslasuit_sdk.subsystems.ts_haptic</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk.ts_mapper <span class="im">import</span> TsBone2dIndex</span>
-<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="4">4</button><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>TOUCH_DURATION_MS <span class="op">=</span> <span class="dv">3000</span></span>
-<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="5">5</button><span id="annotated-cell-1-12" class="code-annotation-target"><a href="#annotated-cell-1-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Initialize API"</span>)</span>
-<span id="annotated-cell-1-13"><a href="#annotated-cell-1-13" aria-hidden="true" tabindex="-1"></a>        api <span class="op">=</span> ts_api.TsApi()</span>
-<span id="annotated-cell-1-14"><a href="#annotated-cell-1-14" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="6">6</button><span id="annotated-cell-1-15" class="code-annotation-target"><a href="#annotated-cell-1-15" aria-hidden="true" tabindex="-1"></a>        device <span class="op">=</span> api.get_device_manager().get_or_wait_last_device_attached()</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="7">7</button><span id="annotated-cell-1-16" class="code-annotation-target"><a href="#annotated-cell-1-16" aria-hidden="true" tabindex="-1"></a>        player <span class="op">=</span> device.haptic</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="8">8</button><span id="annotated-cell-1-17" class="code-annotation-target"><a href="#annotated-cell-1-17" aria-hidden="true" tabindex="-1"></a>        mapper <span class="op">=</span> api.mapper</span>
-<span id="annotated-cell-1-18"><a href="#annotated-cell-1-18" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="9">9</button><span id="annotated-cell-1-19" class="code-annotation-target"><a href="#annotated-cell-1-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Setup channels to play and touch parameters"</span>)</span>
-<span id="annotated-cell-1-20"><a href="#annotated-cell-1-20" aria-hidden="true" tabindex="-1"></a>        layout <span class="op">=</span> mapper.get_haptic_electric_channel_layout(device.get_mapping())</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="10">10</button><span id="annotated-cell-1-21" class="code-annotation-target"><a href="#annotated-cell-1-21" aria-hidden="true" tabindex="-1"></a>        bones <span class="op">=</span> mapper.get_layout_bones(layout)</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="11">11</button><span id="annotated-cell-1-22" class="code-annotation-target"><a href="#annotated-cell-1-22" aria-hidden="true" tabindex="-1"></a>        channels <span class="op">=</span> mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="12">12</button><span id="annotated-cell-1-23" class="code-annotation-target"><a href="#annotated-cell-1-23" aria-hidden="true" tabindex="-1"></a>        params <span class="op">=</span> player.create_touch_parameters(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">150</span>)</span>
-<span id="annotated-cell-1-24"><a href="#annotated-cell-1-24" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="13">13</button><span id="annotated-cell-1-25" class="code-annotation-target"><a href="#annotated-cell-1-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Create touch and play"</span>)</span>
-<span id="annotated-cell-1-26"><a href="#annotated-cell-1-26" aria-hidden="true" tabindex="-1"></a>        playable_id <span class="op">=</span> player.create_touch(params, channels, TOUCH_DURATION_MS)</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="14">14</button><span id="annotated-cell-1-27" class="code-annotation-target"><a href="#annotated-cell-1-27" aria-hidden="true" tabindex="-1"></a>        player.play_playable(playable_id)</span>
-<span id="annotated-cell-1-28"><a href="#annotated-cell-1-28" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="15">15</button><span id="annotated-cell-1-29" class="code-annotation-target"><a href="#annotated-cell-1-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Wait until playback finished..."</span>)</span>
-<span id="annotated-cell-1-30"><a href="#annotated-cell-1-30" aria-hidden="true" tabindex="-1"></a>        time.sleep(TOUCH_DURATION_MS <span class="op">/</span> <span class="dv">1000</span>)</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="16">16</button><span id="annotated-cell-1-31" class="code-annotation-target"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Finished"</span>)</span>
-<span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="17">17</button><span id="annotated-cell-1-33" class="code-annotation-target"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> (<span class="pp">KeyboardInterrupt</span>, <span class="pp">SystemExit</span>):</span>
-<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">! Received keyboard interrupt, quitting haptic touch play</span><span class="ch">\n</span><span class="st">'</span>)</span>
-<span id="annotated-cell-1-35"><a href="#annotated-cell-1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-36"><a href="#annotated-cell-1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-1-37"><a href="#annotated-cell-1-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="18">18</button><span id="annotated-cell-1-38" class="code-annotation-target"><a href="#annotated-cell-1-38" aria-hidden="true" tabindex="-1"></a>    main()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="4" data-code-annotation="1">Import the main Teslasuit API module.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="5" data-code-annotation="2">Import the Haptic subsystem from the SDK.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="3">Import the <a href="../API Reference/core/data_structures.html#tsbone2dindexintenum"><code>TsBone2dIndex</code></a> for mapping bones.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="4">Define the duration of the haptic touch in milliseconds.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="12,13" data-code-annotation="5">Initialize the Teslasuit API.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="15" data-code-annotation="6">Wait for a Teslasuit device to connect and get it.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="16" data-code-annotation="7">Access the Haptic subsystem from the device.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="17" data-code-annotation="8">Access the mapper for haptic channel mapping.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="19,20" data-code-annotation="9">Retrieve the haptic channel layout for the device.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="10">10</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="21" data-code-annotation="10">Get the bones from the layout.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="11">11</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="22" data-code-annotation="11">Retrieve the haptic channels for the right upper arm.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="12">12</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="23" data-code-annotation="12">Create touch parameters with period, amplitude, and pulse width.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="13">13</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="25,26" data-code-annotation="13">Create a haptic touch and play it.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="14">14</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="27" data-code-annotation="14">Play the created haptic touch.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="15">15</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="29,30" data-code-annotation="15">Wait for the playback to finish.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="16">16</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="31" data-code-annotation="16">Print “Finished” after playback ends.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="17">17</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="33,34" data-code-annotation="17">Handle keyboard interrupts gracefully.</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="18">18</dt>
-<dd>
-<span data-code-cell="annotated-cell-1" data-code-lines="38" data-code-annotation="18">Start the program using the main function.</span>
-</dd>
-</dl>
-</section>
-<section id="expected-output" class="level2">
-<h2 class="anchored" data-anchor-id="expected-output">Expected output</h2>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>Initialize API</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>Setup channels to play <span class="kw">and</span> touch parameters</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3">3</button><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>Create touch <span class="kw">and</span> play</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4">4</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>Wait until playback finished...</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="5">5</button><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>Finished</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">The API is initialized via <code>api = ts_api.TsApi()</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="2">Channels and touch parameters are set up using the mapper and haptic subsystem.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="3">A haptic touch is created and played using <code>player.create_touch()</code> and <code>player.play_playable()</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="4">The program waits for the playback to finish using <code>time.sleep()</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="5" data-code-annotation="5">The program prints “Finished” after the playback ends.</span>
-</dd>
-</dl>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -850,6 +701,72 @@ Warning
 <p>⚠️ Safety: Make sure the Teslasuit device is connected and calibrated before running the script. Start with conservative touch settings (low amplitude and short duration), check channel/electrode placement, and stop if anything feels wrong.</p>
 </div>
 </div>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p>This web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.</p>
+</section>
+<section id="code-for-haptic-touch" class="level2">
+<h2 class="anchored" data-anchor-id="code-for-haptic-touch">Code for Haptic Touch</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> _setup_sys_path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk <span class="im">import</span> ts_api</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> teslasuit_sdk.subsystems.ts_haptic</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> teslasuit_sdk.ts_mapper <span class="im">import</span> TsBone2dIndex</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Touch parameters — adjust these to change the haptic sensation</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>TOUCH_FREQ_HZ     <span class="op">=</span> <span class="dv">100</span>                           <span class="co"># stimulation frequency in Hz (valid range: 1–150)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>TOUCH_PERIOD_US   <span class="op">=</span> <span class="dv">1000000</span> <span class="op">//</span> TOUCH_FREQ_HZ    <span class="co"># period in µs; formula: 1000000 / frequency_hz</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>TOUCH_AMPLITUDE   <span class="op">=</span> <span class="dv">40</span>    <span class="co"># signal amplitude as a percentage (valid range: 1–100)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>TOUCH_PULSE_WIDTH <span class="op">=</span> <span class="dv">150</span>   <span class="co"># electrical pulse width in microseconds</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>TOUCH_DURATION_MS <span class="op">=</span> <span class="dv">3000</span>  <span class="co"># how long the touch plays, in milliseconds</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Initialize API"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        api <span class="op">=</span> ts_api.TsApi()  <span class="co"># create the central API object</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Wait until the suit is connected, then get a reference to it</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        device <span class="op">=</span> api.get_device_manager().get_or_wait_last_device_attached()</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        player <span class="op">=</span> device.haptic  <span class="co"># haptic subsystem for creating and playing touches</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        mapper <span class="op">=</span> api.mapper     <span class="co"># mapper translates body-area names into channel lists</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Setup channels to play and touch parameters"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Build the full layout of haptic electric channels for this device version</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        layout   <span class="op">=</span> mapper.get_haptic_electric_channel_layout(device.get_mapping())</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        bones    <span class="op">=</span> mapper.get_layout_bones(layout)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Select only the channels that cover the right upper arm</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        channels <span class="op">=</span> mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        params   <span class="op">=</span> player.create_touch_parameters(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            period<span class="op">=</span>TOUCH_PERIOD_US,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>            amplitude<span class="op">=</span>TOUCH_AMPLITUDE,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>            pulse_width<span class="op">=</span>TOUCH_PULSE_WIDTH,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Create touch and play"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># create_touch returns a playable ID that can be scheduled with play_playable</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        playable_id <span class="op">=</span> player.create_touch(params, channels, TOUCH_DURATION_MS)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        player.play_playable(playable_id)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Wait until playback finished..."</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        time.sleep(TOUCH_DURATION_MS <span class="op">/</span> <span class="dv">1000</span>)  <span class="co"># convert ms → seconds</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Finished"</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> (<span class="pp">KeyboardInterrupt</span>, <span class="pp">SystemExit</span>):</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">! Received keyboard interrupt, quitting haptic touch play</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    main()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="expected-output" class="level2">
+<h2 class="anchored" data-anchor-id="expected-output">Expected output</h2>
+<pre><code>Initialize API
+Setup channels to play and touch parameters
+Create touch and play
+Wait until playback finished...
+Finished</code></pre>
 
 
 </section>
@@ -1213,64 +1130,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
-      for (let i=0; i<annoteTargets.length; i++) {
-        const annoteTarget = annoteTargets[i];
-        const targetCell = annoteTarget.getAttribute("data-target-cell");
-        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
-        const contentFn = () => {
-          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          if (content) {
-            const tipContent = content.cloneNode(true);
-            tipContent.classList.add("code-annotation-tip-content");
-            return tipContent.outerHTML;
-          }
-        }
-        const config = {
-          allowHTML: true,
-          content: contentFn,
-          onShow: (instance) => {
-            selectCodeLines(instance.reference);
-            instance.reference.classList.add('code-annotation-active');
-            window.tippy.hideAll();
-          },
-          onHide: (instance) => {
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
             unselectCodeLines();
-            instance.reference.classList.remove('code-annotation-active');
-          },
-          maxWidth: 300,
-          delay: [50, 0],
-          duration: [200, 0],
-          offset: [5, 10],
-          arrow: true,
-          appendTo: function(el) {
-            return el.parentElement.parentElement.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'quarto',
-          placement: 'right',
-          popperOptions: {
-            modifiers: [
-            {
-              name: 'flip',
-              options: {
-                flipVariations: false, // true by default
-                allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
-              },
-            },
-            {
-              name: 'preventOverflow',
-              options: {
-                mainAxis: false,
-                altAxis: false
-              }
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
             }
-            ]        
-          }      
-        };
-        window.tippy(annoteTarget, config); 
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;

@@ -27,7 +27,7 @@ Haptic feedback electrodes are located as shown on the picture below:
 
 ![Haptic electrode scheme](../images/pic2.png)
 
-## Haptic, TENS, and EMS — stimulation modes of the Teslasuit
+## Haptic and EMS — stimulation modes of the Teslasuit
 
 The Teslasuit electrodes deliver electrical stimulation, but the *effect* of that stimulation depends on how much current is applied. The same hardware supports two fundamentally different use cases:
 
@@ -45,17 +45,17 @@ At higher amplitude settings the stimulation is strong enough to reach motor ner
 
 ### Key difference: stimulation power
 
-| | Haptic / TENS | EMS |
+| | Haptic | EMS |
 |---|---|---|
 | Amplitude | Low | High |
 | Target tissue | Sensory nerves | Motor nerves / muscles |
 | Effect | Felt sensation (touch, buzz, tingle) | Muscle contraction |
 | Channel restriction | All 80 channels | Muscle-projection channels only |
-| Typical use | Immersive feedback, notifications, VR/AR | Rehabilitation, FES, assisted movement |
+| Typical use | Immersive feedback, VR/AR | Rehabilitation, FES, assisted movement |
 
 ::: {.callout-warning}
 ⚠️ When using EMS-level amplitudes, always start low and increase gradually. Only activate channels that are confirmed to be over the target muscle.
-Refer to the device safety documentation before running any EMS protocol.
+Refer to the device safety documentation before running any EMS.
 :::
 
 ## Key features of the Teslasuit haptic subsystem

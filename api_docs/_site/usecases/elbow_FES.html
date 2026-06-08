@@ -770,20 +770,13 @@ This code defines a <code>Teslasuit</code> class that wraps the Teslasuit API fo
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            channel_id,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            ampl<span class="op">=</span><span class="dv">100</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            period<span class="op">=</span><span class="dv">20000</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            period<span class="op">=</span><span class="dv">20000</span>,   <span class="co"># period in µs; 20000 µs = 50 Hz (1000000 / frequency_hz)</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            pw<span class="op">=</span><span class="dv">100</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            duration<span class="op">=</span><span class="dv">100</span>):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            duration<span class="op">=</span><span class="dv">100</span>):  <span class="co"># touch duration in milliseconds</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        params <span class="op">=</span> <span class="va">self</span>.haptic.create_touch_parameters(period, ampl, pw)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        playable_id <span class="op">=</span> <span class="va">self</span>.haptic.create_touch(params, channel_id, duration)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.haptic.play_playable(playable_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Explanation:</strong><br>
-This method sends an electrical stimulation (FES) command to a specific haptic channel on the Teslasuit. The parameters control the stimulation waveform:<br>
-- <code>channel_id</code>: which electrode channel to activate<br>
-- <code>ampl</code>: amplitude of the stimulation<br>
-- <code>period</code>: period of the waveform<br>
-- <code>pw</code>: pulse width<br>
-- <code>duration</code>: how long the stimulation lasts (ms)<br>
-This function is used to trigger muscle contractions for elbow flexion.</p>
+<p><strong>Explanation:</strong> This method sends an electrical stimulation (FES) command to a specific haptic channel on the Teslasuit. The parameters control the stimulation waveform: - <code>channel_id</code>: which electrode channel to activate - <code>ampl</code>: amplitude of the stimulation - <code>period</code>: period of the waveform <strong>in microseconds (µs)</strong>; use <code>1000000 / frequency_hz</code> to convert (e.g.&nbsp;20,000 µs = 50 Hz) - <code>pw</code>: pulse width - <code>duration</code>: how long the stimulation lasts (ms) This function is used to trigger muscle contractions for elbow flexion.</p>
 </section>
 <section id="closed-loop-control-example" class="level3">
 <h3 class="anchored" data-anchor-id="closed-loop-control-example">Closed-loop Control Example</h3>

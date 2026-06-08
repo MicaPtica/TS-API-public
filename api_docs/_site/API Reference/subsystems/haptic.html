@@ -1036,14 +1036,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>playable_id (int)</code>: The ID of the playable.</li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>create_touch_parameters(<span class="va">self</span>, period_ms, amplitude, pulse_width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>create_touch_parameters(<span class="va">self</span>, period_us, amplitude, pulse_width)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates parameters for an instant haptic touch.</p>
 <p>Args:</p>
 <ul>
-<li><code>period_ms (float)</code>: Period in milliseconds.<br>
-</li>
-<li><code>amplitude (float)</code>: Amplitude value.<br>
-</li>
+<li><code>period_us (float)</code>: Period in microseconds (µs). Use <code>1000000 / frequency_hz</code> to convert from a desired frequency.</li>
+<li><code>amplitude (float)</code>: Amplitude value.</li>
 <li><code>pulse_width (float)</code>: Pulse width value.</li>
 </ul>
 <p>Returns:</p>
@@ -1051,14 +1049,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>list</code>: List of <a href="../../API Reference/core/data_structures.html#tshapticparamstructure"><code>TsHapticParam</code></a> objects.</li>
 </ul>
 <hr>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>create_touch_multipliers(<span class="va">self</span>, period_ms_m, amplitude_m, pulse_width_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>create_touch_multipliers(<span class="va">self</span>, period_us_m, amplitude_m, pulse_width_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Creates multipliers for an instant haptic touch.</p>
 <p>Args:</p>
 <ul>
-<li><code>period_ms_m (float)</code>: Period multiplier.<br>
-</li>
-<li><code>amplitude_m (float)</code>: Amplitude multiplier.<br>
-</li>
+<li><code>period_us_m (float)</code>: Period multiplier.</li>
+<li><code>amplitude_m (float)</code>: Amplitude multiplier.</li>
 <li><code>pulse_width_m (float)</code>: Pulse width multiplier.</li>
 </ul>
 <p>Returns:</p>
@@ -1090,7 +1086,8 @@ A --&gt; C[value]
 </section>
 <section id="access-to-haptic-touch-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="access-to-haptic-touch-parameters">Access to haptic touch parameters</h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>TsHapticPlayer.create_touch_parameters(<span class="dv">10</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>)[<span class="dv">0</span>].value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># period_us = 1000000 / 100 Hz = 10000 µs</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>TsHapticPlayer.create_touch_parameters(<span class="dv">10000</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>)[<span class="dv">0</span>].value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>

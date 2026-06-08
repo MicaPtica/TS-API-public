@@ -657,11 +657,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#quick-access" id="toc-quick-access" class="nav-link active" data-scroll-target="#quick-access">Quick access</a></li>
   <li><a href="#what-is-haptic-feedback" id="toc-what-is-haptic-feedback" class="nav-link" data-scroll-target="#what-is-haptic-feedback">What is haptic feedback?</a></li>
   <li><a href="#haptic-in-teslasuit" id="toc-haptic-in-teslasuit" class="nav-link" data-scroll-target="#haptic-in-teslasuit">Haptic in Teslasuit</a></li>
+  <li><a href="#haptic-and-ems-stimulation-modes-of-the-teslasuit" id="toc-haptic-and-ems-stimulation-modes-of-the-teslasuit" class="nav-link" data-scroll-target="#haptic-and-ems-stimulation-modes-of-the-teslasuit">Haptic and EMS — stimulation modes of the Teslasuit</a>
+  <ul class="collapse">
+  <li><a href="#haptic-sensory-stimulation" id="toc-haptic-sensory-stimulation" class="nav-link" data-scroll-target="#haptic-sensory-stimulation">Haptic — sensory stimulation</a></li>
+  <li><a href="#ems-motor-stimulation" id="toc-ems-motor-stimulation" class="nav-link" data-scroll-target="#ems-motor-stimulation">EMS — motor stimulation</a></li>
+  <li><a href="#key-difference-stimulation-power" id="toc-key-difference-stimulation-power" class="nav-link" data-scroll-target="#key-difference-stimulation-power">Key difference: stimulation power</a></li>
+  </ul></li>
   <li><a href="#key-features-of-the-teslasuit-haptic-subsystem" id="toc-key-features-of-the-teslasuit-haptic-subsystem" class="nav-link" data-scroll-target="#key-features-of-the-teslasuit-haptic-subsystem">Key features of the Teslasuit haptic subsystem</a></li>
   <li><a href="#how-the-teslasuit-api-implements-haptic-feedback" id="toc-how-the-teslasuit-api-implements-haptic-feedback" class="nav-link" data-scroll-target="#how-the-teslasuit-api-implements-haptic-feedback">How the Teslasuit API implements haptic feedback</a></li>
   <li><a href="#description-of-haptic-data" id="toc-description-of-haptic-data" class="nav-link" data-scroll-target="#description-of-haptic-data">Description of haptic data</a>
   <ul class="collapse">
   <li><a href="#haptic-parameters" id="toc-haptic-parameters" class="nav-link" data-scroll-target="#haptic-parameters">Haptic parameters</a></li>
+  <li><a href="#calibration-and-amplitude-scaling" id="toc-calibration-and-amplitude-scaling" class="nav-link" data-scroll-target="#calibration-and-amplitude-scaling">Calibration and amplitude scaling</a></li>
   <li><a href="#haptic-playables" id="toc-haptic-playables" class="nav-link" data-scroll-target="#haptic-playables">Haptic playables</a></li>
   <li><a href="#haptic-multipliers" id="toc-haptic-multipliers" class="nav-link" data-scroll-target="#haptic-multipliers">Haptic multipliers</a></li>
   </ul></li>
@@ -728,6 +735,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
+<section id="haptic-and-ems-stimulation-modes-of-the-teslasuit" class="level2">
+<h2 class="anchored" data-anchor-id="haptic-and-ems-stimulation-modes-of-the-teslasuit">Haptic and EMS — stimulation modes of the Teslasuit</h2>
+<p>The Teslasuit electrodes deliver electrical stimulation, but the <em>effect</em> of that stimulation depends on how much current is applied. The same hardware supports two fundamentally different use cases:</p>
+<section id="haptic-sensory-stimulation" class="level3">
+<h3 class="anchored" data-anchor-id="haptic-sensory-stimulation">Haptic — sensory stimulation</h3>
+<p>At low amplitude settings the stimulation activates sensory nerve fibres just below the skin, producing a tactile sensation without causing muscle movement. In the context of the Teslasuit this is what the haptic subsystem delivers: a felt sensation that conveys information to the wearer.</p>
+<p><strong>All 80 haptic channels across the suit can be used for haptic stimulation</strong></p>
+</section>
+<section id="ems-motor-stimulation" class="level3">
+<h3 class="anchored" data-anchor-id="ems-motor-stimulation">EMS — motor stimulation</h3>
+<p>At higher amplitude settings the stimulation is strong enough to reach motor nerve fibres and cause an involuntary muscle contraction. This regime is called <strong>EMS</strong> (Electrical Muscle Stimulation) and is the basis of Functional Electrical Stimulation (FES) applications such as the <a href="../usecases/elbow_FES.html">Elbow FES</a> and <a href="../usecases/walking_FES.html">Walking FES</a> use cases.</p>
+<p><strong>EMS can only be applied through channels that are positioned over a muscle projection</strong> — i.e.&nbsp;channels whose electrodes sit directly above the muscle belly or its motor point. Channels located over bones or other non-muscular tissue will not produce a useful contraction even at high amplitude, and stimulation there at EMS-level power should be avoided.</p>
+</section>
+<section id="key-difference-stimulation-power" class="level3">
+<h3 class="anchored" data-anchor-id="key-difference-stimulation-power">Key difference: stimulation power</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Haptic</th>
+<th>EMS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Amplitude</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr class="even">
+<td>Target tissue</td>
+<td>Sensory nerves</td>
+<td>Motor nerves / muscles</td>
+</tr>
+<tr class="odd">
+<td>Effect</td>
+<td>Felt sensation (touch, buzz, tingle)</td>
+<td>Muscle contraction</td>
+</tr>
+<tr class="even">
+<td>Channel restriction</td>
+<td>All 80 channels</td>
+<td>Muscle-projection channels only</td>
+</tr>
+<tr class="odd">
+<td>Typical use</td>
+<td>Immersive feedback, VR/AR</td>
+<td>Rehabilitation, FES, assisted movement</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>⚠️ When using EMS-level amplitudes, always start low and increase gradually. Only activate channels that are confirmed to be over the target muscle. Refer to the device safety documentation before running any EMS.</p>
+</div>
+</div>
+</section>
+</section>
 <section id="key-features-of-the-teslasuit-haptic-subsystem" class="level2">
 <h2 class="anchored" data-anchor-id="key-features-of-the-teslasuit-haptic-subsystem">Key features of the Teslasuit haptic subsystem</h2>
 <ol type="1">
@@ -756,7 +834,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="what-are-haptic-parameters">What are haptic parameters?</h4>
 <p>Haptic parameters define the characteristics of a haptic effect, such as how strong it feels, how long it lasts, and what pattern it follows. The main parameters include:</p>
 <ul>
-<li><strong>Period</strong>: The duration of one cycle of the haptic signal, typically in milliseconds. It is inversely proportional to frequency, meaning a shorter period corresponds to a higher frequency.</li>
+<li><strong>Period</strong>: The duration of one cycle of the haptic signal, in microseconds (µs). It is inversely proportional to frequency — a shorter period corresponds to a higher frequency.</li>
 <li><strong>Amplitude</strong>: The strength or intensity of the haptic effect.</li>
 <li><strong>Pulse Width</strong>: The duration of each pulse within a period, affecting the sharpness of the sensation.</li>
 </ul>
@@ -771,12 +849,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Main haptic parameters are:</p>
 <ol type="1">
 <li><strong>Amplitude</strong>: Controls the strength or intensity of the haptic effect. Higher amplitude results in a stronger sensation. Amplitude is a value in percent, where 1% is the minimal value in Control Center calibration and 100% is maximal.</li>
-<li><strong>Period</strong>: Specifies the duration of a single cycle of the haptic signal, measured in milliseconds. The period is inversely proportional to frequency and can be calculated using the formula: <code>period (ms) = 1 / frequency (Hz) * 1000</code>. The supported frequency range is from 1 Hz to 150 Hz.</li>
+<li><strong>Period</strong>: Specifies the duration of a single cycle of the haptic signal, measured in <strong>microseconds (µs)</strong>. The period is inversely proportional to frequency and is calculated using the formula: <code>period (µs) = 1000000 / frequency (Hz)</code>. The supported frequency range is from 1 Hz to 150 Hz, corresponding to periods of 1,000,000 µs down to ~6,667 µs.</li>
 <li><strong>Pulse Width</strong>: Specifies the duration of each pulse within a period, influencing the sharpness or smoothness of the sensation.</li>
 <li><strong>Duration</strong>: Touch-specific parameter to set a precise duration (in milliseconds) for an instant haptic touch. This allows developers to control how long the sensation lasts, independent of the underlying signal period or amplitude.</li>
 </ol>
 <p>These parameters can be combined and adjusted to create a wide variety of tactile effects tailored to specific application needs.</p>
 </section>
+</section>
+<section id="calibration-and-amplitude-scaling" class="level3">
+<h3 class="anchored" data-anchor-id="calibration-and-amplitude-scaling">Calibration and amplitude scaling</h3>
+<p>Before any haptic API calls are made, the Teslasuit must be calibrated in the <strong>Control Center</strong>. Calibration helps to adjust to the individual sensitivity of each electrode channel on the current wearer and stores per-channel scaling factors.</p>
+<p><strong>All amplitude values passed through the haptic API are relative to the calibrated range, not to absolute current levels.</strong> An amplitude of <code>100</code> means 100% of the maximum current that was established during calibration for that channel — not 100% of the hardware maximum. An amplitude of <code>1</code> means the minimum perceptible level recorded during calibration.</p>
+<p>This scaling is applied automatically and transparently to every <code>create_touch_parameters</code>, <code>play_touch</code>, and playable call. There is no API parameter or flag that bypasses or overrides it.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>This is a safety feature.</strong> Calibration layer ensures that a given amplitude value produces a consistent, safe sensation. Skipping calibration before running stimulation scripts is not recommended — uncalibrated values may be stronger or weaker than expected.</p>
+</div>
+</div>
 </section>
 <section id="haptic-playables" class="level3">
 <h3 class="anchored" data-anchor-id="haptic-playables">Haptic playables</h3>
@@ -784,7 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Asset</strong>: A pre-designed haptic pattern created using the Haptic Editor, typically stored in the <code>.ts_asset</code> format.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -793,7 +890,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To create playble from the file with format <code>.ts_asset</code> you need:</p>
 <ol type="1">
@@ -1005,7 +1102,7 @@ Hint
 </tbody>
 </table>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1014,7 +1111,7 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>To select the correct haptic channel in your code, follow these steps:</p>
 <ol type="1">
