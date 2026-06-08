@@ -1,0 +1,81 @@
+
+
+# Introduction
+
+The **Teslasuit SDK** is a developer toolkit for integrating the Teslasuit - a full-body haptic suit with motion capture and biometric sensors - into immersive applications. With this SDK, developers can control the suit's haptic feedback system, stream and record motion data, and monitor biometric signals in real time.
+
+The **Teslasuit SDK Python API** provides a high-level interface for integrating Teslasuit systems into Python-based applications. It enables developers, researchers, and engineers to access the full range of Teslasuit's haptic, motion capture, and biometric capabilities through an efficient and extensible API.
+
+---
+
+## Documentation Structure
+
+The API documentation is organized into the following sections:
+
+- [Getting Started](Getting_started.qmd) - Fast setup for quick first steps 
+- [Main Concepts](Main%20concepts/index.qmd) - Theory and architecture of Teslasuit systems  
+- **API Reference**  
+  - [Core](API%20Reference/core/) - Initialization, connection, session control  
+  - [Subsystems](API%20Reference/subsystems/) - Haptics, Mocap, Biometry, Mapping, etc.  
+- [Examples](examples/) - Step-by-step usage scripts  
+- [Use Cases](usecases/) - Practical applications and integration flows  
+
+---
+
+## Main Capabilities
+
+### Haptics
+
+The Haptics module allows you to control the suit's network of electrical stimulators to create realistic tactile feedback or stimulate major muscle groups to elicit contractions. Developers can configure custom stimulation patterns, adjust intensity levels, and trigger feedback events in sync with application logic.
+
+For example, you might simulate the feeling of impact or rainfall on the user's body, or provide a complex stimulation pattern across multiple muscle groups in the lower extremities, synchronized with the [**gait cycle**](usecases/walking_FES.qmd).
+
+➡️ [**Create**](examples/haptic_example.qmd) your first haptic touch.  
+🔍 Learn more about the suit's EMS system and best practices for designing haptic feedback [`here`](Main%20concepts/haptic_concept.qmd).
+
+---
+
+### Motion Capture
+
+The Motion Capture module provides access to the suit's built-in IMU-based inertial tracking system. The SDK streams detailed motion and biomechanical data in real time, using a skeletal model to deliver full-body pose tracking.
+
+For example, you can animate a game character using real-time body motion, record physical activity for replay or analysis, or dynamically adjust stimulation based on biomechanical [`feedback`](usecases/elbow_FES.qmd).
+
+➡️ [**Start**](examples/mocap_example.qmd) your first motion capture stream.  
+🔍 Learn more about Teslasuit's Mocap system, coordinate systems, and best practices [`here`](Main%20concepts/mocap_concept.qmd).
+
+---
+
+### Biometry
+
+The Biometry module provides real-time biometric readings from the suit's sensors to monitor the user's physical state. With the Python API, developers can access data such as heart rate and heart rate variability (HRV), offering insights into stress, fatigue, or exertion levels.
+
+For instance, an adaptive training application can adjust difficulty or feedback based on a user's physiological response.
+
+➡️ [**Measure**](examples/ppg_example.qmd) your heart rate now.  
+🔍 Learn more about Teslasuit's biometric system and HRV metrics [`here`](Main%20concepts/ppg_concept.qmd).
+
+
+
+---
+
+## Requirements
+
+To use the Teslasuit SDK Python API, ensure you have:
+
+- Windows 10 or later  
+- Installed [**Teslasuit Control Center**](https://teslasuit.io/software/control-center/)
+- Python 3.8 or higher  
+- A connected Teslasuit device 
+
+---
+
+## Support and Contact
+
+For technical inquiries, feature requests, or troubleshooting assistance, please contact:
+
+- [Help Desk](https://developer.teslasuit.io/profile/help-desk/#)  
+- [FAQ](https://developer.teslasuit.io/faq/)  
+- [Developer Forum](https://developer.teslasuit.io/forum/)  
+- Email support: **support@teslasuit.io**
+

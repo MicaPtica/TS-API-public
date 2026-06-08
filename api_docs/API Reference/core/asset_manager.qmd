@@ -1,0 +1,85 @@
+---
+title: 'Asset manager'
+repo-actions: false
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The Asset Manager subsystem provides functions to manage Teslasuit assets, such as loading, retrieving, and unloading assets.
+ 
+
+### Note: 
+Since `TsAssetManager` is a member of the SDK, it cannot be used independently without an active Teslasuit device.
+
+## Class TsAssetManager
+
+Handles TESLASUIT asset management, including loading assets from paths or binary data, retrieving asset types, and unloading assets.
+
+### Class methods:
+
+***
+```python
+load_asset_from_path(self, path)
+```
+
+Loads an asset from a specified file path.
+
+Args: 
+
+- `path (str)`: Path to the asset.
+
+Returns:
+
+- `TsAssetHandle`: Handle to the loaded asset.
+
+***
+
+```python
+load_asset_from_data(self, data, size)
+```
+
+Loads an asset from binary data.
+
+Args: 
+
+- `data (bytes)`: Binary data of the asset.  
+- `size (int)`: Size of the binary data.
+
+Returns: 
+
+- `TsAssetHandle`: Handle to the loaded asset.
+
+***
+
+```python
+get_asset_type(self, asset_handle)
+```
+
+Retrieves the type of a loaded asset.
+
+Args: 
+
+- `asset_handle (TsAssetHandle)`: Handle to the asset.
+
+Returns: 
+
+- [`TsAssetType`](../core/data_structures.qmd#tsassettypeenum): Type of the asset.
+
+***
+
+```python
+unload_asset(self, asset_handle)
+```
+
+Unloads a previously loaded asset.
+
+Args: 
+
+- `asset_handle (TsAssetHandle)`: Handle to the asset.

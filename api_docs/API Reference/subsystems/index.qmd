@@ -1,0 +1,29 @@
+---
+title: 'Overview'
+---
+
+## Intro
+In this section, you can find documentation for the API subsystems responsible for communication with various Teslasuit and Teslaglove functionalities.
+
+## Prerequisites
+Before you have access to any subsystem, ensure the following steps are completed:
+
+1) Teslasuit API Initialization:
+The Teslasuit API must be initialized before accessing any of its features.
+
+2) Connected Teslasuit Device:
+A Teslasuit device must be connected. If no device is available, the system will wait until one is attached.
+
+💡 <span style="background-color: yellow;">**Note: The availability of the system depends on the type and version of your product.**
+</span>
+
+## Subsystems
+
+- [Haptic](haptic.qmd): Enables control of haptic feedback, including instant touches and looped playables.
+- [Mocap](mocap.qmd): Streams motion capture data, including raw sensor data, skeleton data, and biomechanical angles.
+- [PPG](ppg.qmd): Provides access to PPG sensor data, including raw data, HRV, and heart rate.
+- [Force feedback (Teslaglove)](force_feedback.qmd): Manages servomotor control for haptic feedback and movement restriction.
+- [EMG (experimental)](emg.qmd): Provides access to EMG data for muscle activity analysis.
+- [Current feedback(experimental)](current_feedback.qmd): Streams and processes current feedback data from Teslasuit devices.
+- [BIA (experimental)](bia.qmd): Handles BIA data streaming and configuration.
+

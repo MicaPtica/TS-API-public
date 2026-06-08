@@ -1,0 +1,494 @@
+---
+title: 'Haptic'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.5+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/haptic_concept.qmd)
+- [Examples](../../examples/haptic_example.qmd)
+- [Haptic data structures](../core/data_structures.qmd#haptic)
+
+## Intro
+The Haptic subsystem provides functionality to control haptic feedback on the Teslasuit. It allows developers to create, manage, and play haptic effects, including instant touches and looped playables.
+
+### Note: 
+Since `TsHapticPlayer` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsHapticPlayer
+
+Handles haptic feedback management, including creating and controlling haptic playables and instant touches.
+
+### Class methods:
+
+***
+```python
+is_player_running(self)
+```
+Checks if the haptic player is currently running.
+
+Returns:  
+
+- `bool`: `True` if the player is running.
+
+***
+```python
+stop_player(self)
+```
+Stops the haptic player for the connected device.
+
+***
+```python
+is_player_paused(self)
+```
+Checks if the haptic player is in a paused state.
+
+Returns:  
+
+- `bool`: `True` if the player is paused.
+
+***
+```python
+set_player_paused(self, is_paused)
+```
+Pauses or resumes the haptic player.
+
+Args:  
+
+- `is_paused (bool)`: `True` to pause, `False` to resume.
+
+***
+```python
+is_player_muted(self)
+```
+Checks if the haptic player is muted.
+
+Returns:  
+
+- `bool`: `True` if the player is muted.
+
+***
+```python
+set_player_muted(self, is_muted)
+```
+Mutes or unmutes the haptic player.
+
+Args:  
+
+- `is_muted (bool)`: `True` to mute, `False` to unmute.
+
+***
+```python
+get_player_time(self)
+```
+Retrieves the time elapsed since the haptic player started.
+
+Returns:  
+
+- `int`: Time in milliseconds.
+
+***
+```python
+get_number_of_master_multipliers(self)
+```
+Gets the number of master multipliers for the haptic player.
+
+Returns:  
+
+- `int`: Number of multipliers.
+
+***
+```python
+get_master_multipliers(self)
+```
+Gets the list of master multipliers for the haptic player.
+
+Returns:  
+
+- `list`: List of [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure).
+
+***
+```python
+set_master_multipliers(self, multipliers)
+```
+Sets the master multipliers for the haptic player.
+
+Args:  
+
+- `multipliers (list)`: List of [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure).
+
+***
+```python
+get_master_multiplier(self, type)
+```
+Gets a specific master multiplier by type.
+
+Args:  
+
+- type ['TsHapticParamType'](../core/data_structures.qmd#tshapticparamtypeenum)`: Type of the parameter.
+
+Returns:  
+
+- [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure)
+
+***
+```python
+set_master_multiplier(self, multiplier)
+```
+Sets a specific master multiplier.
+
+Args:  
+
+- multiplier ['TsHapticParamMultiplier'](../core/data_structures.qmd#tshapticparammultiplierstructure)
+
+***
+```python
+create_playable(self, asset, is_looped)
+```
+Creates a playable from a haptic asset.
+
+Args:  
+
+- `asset`: The haptic asset.  
+- `is_looped (bool)`: Whether the playable should loop.
+
+Returns:  
+
+- `int`: The ID of the created playable.
+
+***
+```python
+is_playable_exists(self, playable_id)
+```
+Checks if a haptic playable exists.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `bool`: `True` if the playable exists.
+
+***
+```python
+play_playable(self, playable_id)
+```
+Plays a haptic playable by its ID.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+play_touch(self, params, channels, duration)
+```
+Plays an instant haptic touch with the specified parameters.
+
+Args:  
+
+- `params (list)`: List of [`TsHapticParam`](../core/data_structures.qmd#tshapticparamstructure) objects.  
+- `channels (list)`: List of channel IDs.  
+- `duration (int)`: Duration in milliseconds.
+
+***
+```python
+create_touch(self, params, channels, duration)
+```
+Creates a haptic touch with the specified parameters.
+
+Args:  
+
+- `params (list)`: List of [`TsHapticParam`](../core/data_structures.qmd#tshapticparamstructure) objects.  
+- `channels (list)`: List of channel IDs.  
+- `duration (int)`: Duration in milliseconds.
+
+Returns: 
+
+- `int`: The ID of the created touch (playable).
+
+***
+```python
+is_playable_playing(self, playable_id)
+```
+Checks if a haptic playable is currently playing.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `bool`: `True` if the playable is playing.
+
+***
+```python
+stop_playable(self, playable_id)
+```
+Stops a haptic playable by its ID.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+remove_playable(self, playable_id)
+```
+Removes a haptic playable from the player.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+get_playable_paused(self, playable_id)
+```
+Checks if a haptic playable is paused.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns: 
+
+- `bool`: `True` if the playable is paused.
+
+***
+```python
+set_playable_paused(self, playable_id, is_paused)
+```
+Pauses or resumes a haptic playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.  
+- `is_paused (bool)`: `True` to pause, `False` to resume.
+
+***
+```python
+get_playable_muted(self, playable_id)
+```
+Checks if a haptic playable is muted.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `bool`: `True` if the playable is muted.
+
+***
+```python
+set_playable_muted(self, playable_id, is_muted)
+```
+Mutes or unmutes a haptic playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.  
+- `is_muted (bool)`: `True` to mute, `False` to unmute.
+
+***
+```python
+get_playable_looped(self, playable_id)
+```
+Checks if a haptic playable is looped.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns: 
+
+- `bool`: `True` if the playable is looped.
+
+***
+```python
+set_playable_looped(self, playable_id, is_looped)
+```
+Sets a haptic playable to loop or not.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.  
+- `is_looped (bool)`: `True` to loop, `False` otherwise.
+
+***
+```python
+get_number_of_playable_multipliers(self, playable_id)
+```
+Gets the number of multipliers for a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `int`: Number of multipliers.
+
+***
+```python
+get_playable_multipliers(self, playable_id)
+```
+Gets the multipliers for a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `list`: List of [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure).
+
+***
+```python
+set_playable_multipliers(self, playable_id, multipliers)
+```
+Sets the multipliers for a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.  
+- `multipliers (list)`: List of [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure).
+
+***
+```python
+get_playable_local_time(self, playable_id)
+```
+Gets the local playback time of a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns: 
+
+- `int`: Local time in milliseconds.
+
+***
+```python
+set_playable_local_time(self, playable_id, local_time)
+```
+Sets the local playback time of a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.  
+- `local_time (int)`: Local time in milliseconds.
+
+***
+```python
+get_playable_duration(self, playable_id)
+```
+Gets the duration of a playable.
+
+Args:  
+
+- `playable_id (int)`: The ID of the playable.
+
+Returns:  
+
+- `int`: Duration in milliseconds.
+
+***
+```python
+clear_all_playables(self)
+```
+Removes all haptic playables from the haptic player.
+
+***
+```python
+add_channel_to_dynamic_playable(self, channel_id, playable_id)
+```
+Adds a channel to a dynamic haptic playable.
+
+Args:  
+
+- `channel_id`: Channel ID.  
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+remove_channel_from_dynamic_playable(self, channel_id, playable_id)
+```
+Removes a channel from a dynamic haptic playable.
+
+Args:  
+
+- `channel_id`: Channel ID.  
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+set_material_channel_impact(self, channel_id, impact, playable_id)
+```
+Sets the channel impact for a haptic material.
+
+Args:  
+
+- `channel_id`: Channel ID.  
+- `impact (float)`: Impact value.  
+- `playable_id (int)`: The ID of the playable.
+
+***
+```python
+create_touch_parameters(self, period_us, amplitude, pulse_width)
+```
+Creates parameters for an instant haptic touch.
+
+Args:
+
+- `period_us (float)`: Period in microseconds (µs). Use `1000000 / frequency_hz` to convert from a desired frequency.
+- `amplitude (float)`: Amplitude value.
+- `pulse_width (float)`: Pulse width value.
+
+Returns:  
+
+- `list`: List of [`TsHapticParam`](../core/data_structures.qmd#tshapticparamstructure) objects.
+
+***
+```python
+create_touch_multipliers(self, period_us_m, amplitude_m, pulse_width_m)
+```
+Creates multipliers for an instant haptic touch.
+
+Args:
+
+- `period_us_m (float)`: Period multiplier.
+- `amplitude_m (float)`: Amplitude multiplier.
+- `pulse_width_m (float)`: Pulse width multiplier.
+
+Returns:  
+
+- `list`: List of [`TsHapticParamMultiplier`](../core/data_structures.qmd#tshapticparammultiplierstructure) objects.
+
+## Access to the data
+These code snippets and charts are just an example of how the data flow looks like. To know more, please visit [data structures](../core/data_structures.qmd#haptic) page.
+
+### Access to haptic player multipliers
+```python
+TsHapticPlayer.get_master_multipliers()[0].value
+```
+```{mermaid}
+flowchart TD
+A[TsHapticParamMultiplier] --> B[type]
+A --> C[value]
+```
+
+### Access to haptic touch parameters
+```python
+# period_us = 1000000 / 100 Hz = 10000 µs
+TsHapticPlayer.create_touch_parameters(10000, 0.5, 0.2)[0].value
+```
+```{mermaid}
+flowchart TD
+A[TsHapticParam] --> B[type]
+A --> C[value]
+```

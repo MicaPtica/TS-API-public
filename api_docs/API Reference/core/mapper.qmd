@@ -1,0 +1,302 @@
+---
+title: 'Mapper'
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The Mapper subsystem provides functionality to handle 2D mapping of device elements, including layouts, bones, and their associated data.
+
+### Note: 
+Since `TsMapper` interacts with device mappings, it cannot be used independently without an active Teslasuit device.
+
+## Class TsMapper
+Mapping represents a set of device's elements mapped on 2d space.
+Elements are described by the 2D Polygon - an array of points.
+Elements are bound to bones, a full set of bones is included in a layout, 
+multiple layouts with the same element types are contained in an array,
+an array of layouts with same type are packed by TsLayout2dType and TsLayout2dElementType.
+Mappings might have different versions. 
+Mapping can be requested by a mapping version or by a device handler because each device has a bound mapping version by default.
+
+### Class methods:
+
+***
+```python
+get_mapping_by_device(self, device)
+```
+
+Get the default mapping handler for a device.
+
+Args:  
+
+- `device class` ([`TsDevice`](../core/device.qmd)): Device handle.
+
+Returns:  
+
+- [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.
+
+***
+```python
+get_mapping_by_version(self, version)
+```
+
+Get the mapping handler by the mapping version.
+
+Args:  
+
+- `version` ([TsMapping2dVersion](../core/data_structures.qmd#tsmapping2dversionenum)): Mapping version.
+
+Returns: 
+
+- [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.
+
+***
+```python
+get_number_of_layouts(self, mapping)
+```
+
+Get the number of layouts in the mapping.
+
+Args:
+
+- `mapping` [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.
+
+Returns:
+
+- `int`: Number of layouts.
+
+***
+```python
+get_layouts(self, mapping)
+```
+
+Get all layouts in the mapping.
+
+Args: 
+
+- `mapping` [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.
+
+Returns:  
+
+- `list`: List of layouts.
+
+***
+```python
+get_layout_index(self, layout)
+```
+
+Get the index of a layout.
+
+Args: 
+
+- `layout` ([TsLayout](../core/data_structures.qmd#tslayoutstructure)): Layout handle.
+
+Returns: 
+
+- `int`: Layout index.
+
+***
+```python
+get_layout_type(self, layout)
+```
+
+Get the type of a layout.
+
+Args:
+
+- `layout` [TsLayout](../core/data_structures.qmd#tslayoutstructure): Layout handle.
+
+Returns:
+
+- `int`: Layout type.
+
+***
+```python
+get_layout_element_type(self, layout)
+```
+
+Get the element type of a layout.
+
+Args: 
+
+- `layout` [TsLayout](../core/data_structures.qmd#tslayoutstructure): Layout handle.
+
+Returns:
+
+- `int`: Layout element type.
+
+***
+```python
+get_number_of_bones(self, layout)
+```
+
+Get the number of bones in a layout.
+
+Args: 
+
+- `layout` [TsLayout](../core/data_structures.qmd#tslayoutstructure): Layout handle.
+
+Returns: 
+
+- `int`: Number of bones.
+
+***
+```python
+get_layout_bones(self, layout)
+```
+
+Get all bones in a layout.
+
+Args: 
+
+- `layout` [TsLayout](../core/data_structures.qmd#tslayoutstructure): Layout handle.
+
+Returns:  
+
+- `list`: List of bones.
+
+***
+```python
+get_bone_index(self, bone_handle)
+```
+
+Get the index of a bone.
+
+Args:  
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns: 
+
+- `int`: Bone index.
+
+***
+```python
+get_bone_side(self, bone_handle)
+```
+
+Get the side of a bone.
+
+Args: 
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns: 
+
+- `int`: Bone side.
+
+***
+```python
+get_bone_number_of_contents(self, bone_handle)
+```
+
+Get the number of contents in a bone.
+
+Args:
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns:
+
+- `int`: Number of contents.
+
+***
+```python
+get_bone_contents(self, bone_handle)
+```
+
+Get all contents of a bone.
+
+Args: 
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns: 
+
+- `list`: List of bone contents.
+
+***
+```python
+get_bone_number_of_points(self, bone_handle)
+```
+
+Get the number of points in a bone content.
+
+Args: 
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns: 
+
+- `int`: Number of points.
+
+***
+```python
+get_bone_points(self, bone_handle)
+```
+
+Get the points representing the shape of a bone content in 2D space.
+
+Args: 
+
+- `bone_handle` [TsBone](../core/data_structures.qmd#tsbonestructure): Bone handle.
+
+Returns:  
+
+- `list`: List of points.
+
+***
+```python
+get_haptic_electric_channel_layout(self, mapping)
+```
+
+Get the electric channel layout for haptic feedback.
+
+Args:
+
+- `mapping` [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.
+
+Returns:  
+
+- [TsLayout](../core/data_structures.qmd#tslayoutstructure): Electric channel layout handle.
+
+### Mapping Utils:
+
+***
+```python
+get_layout_by_type(self, mapping, layout_type, layout_element_type)
+```
+
+Get a layout by its type and element type.
+
+Args: 
+
+- `mapping` [`TsMapping2d`](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.  
+- `layout_type` (int): Layout type.  
+- `layout_element_type` (int): Layout element type.  
+
+Returns:
+
+- [TsLayout](../core/data_structures.qmd#tslayoutstructure): Layout handle.
+
+***
+```python
+get_haptic_electric_channel_layout(self, mapping)
+```
+
+Get the electric channel layout for haptic feedback.
+
+Args:  
+
+- `mapping` [TsMapping2d](../core/data_structures.qmd#tsmappingdatastructure): Mapping handler.  
+
+Returns: 
+
+- [TsLayout](../core/data_structures.qmd#tslayoutstructure): Electric channel layout handle.

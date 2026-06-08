@@ -1,0 +1,70 @@
+---
+title: "Force Feedback example"
+---
+![Teslaglove v.](https://img.shields.io/badge/Teslaglove_v.-1.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../Main%20concepts/force_feedback_concept.qmd)
+- [Force Feedback Subsystem](../API%20Reference/subsystems/force_feedback.qmd)
+- [Force Feedback data structures](../API%20Reference/core/data_structures.qmd#magnetic-encoder)
+
+## Intro
+This web page provides a comprehensive guide on how to use the Force Feedback feature of the Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, configuring force feedback parameters, and enabling/disabling force feedback.
+
+## Code for Force Feedback
+````python
+import time
+from teslasuit_sdk import ts_api
+from teslasuit_sdk.ts_mapper import TsBone2dIndex
+from teslasuit_sdk.subsystems.ts_magnetic_encoder import (
+    TsForceFeedbackLockDirection, TsForceFeedbackConfig)
+
+# Force feedback parameters — adjust to change the resistance feeling
+FF_BONE             = TsBone2dIndex.RightThumbProximal  # which finger joint to restrict
+FF_ANGLE_DEG        = 45   # maximum allowed joint angle in degrees (0–90)
+FF_HARDNESS_PERCENT = 100  # resistance level when the angle limit is reached (0–100%)
+FF_DURATION_S       = 10   # seconds to hold force feedback before releasing
+
+def main():
+    try:
+        print("Initialize API")
+        api = ts_api.TsApi()  # create the central API object
+
+        print("Waiting for a Teslasuit device to connect...")
+        device = api.get_device_manager().get_or_wait_last_device_attached()
+
+        print("Accessing the Magnetic Encoder subsystem...")
+        encoder = device.magnetic_encoder  # drives the Teslaglove servomotors
+
+        print("Set force feedback angle")
+        ff_config = [TsForceFeedbackConfig()]
+        ff_config[0].bone_index       = FF_BONE.value
+        ff_config[0].angle            = FF_ANGLE_DEG
+        ff_config[0].hardness_percent = FF_HARDNESS_PERCENT
+        # Both: resist movement in both flexion and extension past the angle limit
+        ff_config[0].lock_direction   = TsForceFeedbackLockDirection.Both.value
+        encoder.ts_force_feedback_enable(ff_config)
+
+        time.sleep(FF_DURATION_S)  # hold the feedback for the configured duration
+
+        print("Release force feedback")
+        encoder.ts_force_feedback_disable([FF_BONE.value])
+        print("Finished")
+
+    except (KeyboardInterrupt, SystemExit):
+        print('\n! Received keyboard interrupt, quitting glove forcefeedback\n')
+
+main()
+````
+
+## Expected output
+```
+Initialize API
+Waiting for a Teslasuit device to connect...
+Accessing the Magnetic Encoder subsystem...
+Set force feedback angle
+Release force feedback
+Finished
+```

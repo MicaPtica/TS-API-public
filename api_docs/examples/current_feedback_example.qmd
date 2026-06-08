@@ -1,0 +1,69 @@
+---
+title: "Current feedback example (experimental)"
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../Main%20concepts/current_feedback_concept.qmd)
+- [Current feedback Subsystem](../API%20Reference/subsystems/current_feedback.qmd)
+- [Current feedback data structures](../API%20Reference/core/data_structures.qmd#current-feedback)
+
+## Intro
+This web page provides a comprehensive guide on how to retrieve current feedback data from a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Current Feedback subsystem, and streaming data from nodes and channels.
+
+## Code for Current Feedback Data
+````python
+from teslasuit_sdk import ts_api
+import teslasuit_sdk.subsystems.ts_current_feedback
+
+# Stop collecting once data from this many unique nodes has been received.
+# A standard Teslasuit has 5 nodes; adjust if using a different hardware configuration.
+EXPECTED_NODE_COUNT = 5
+
+def main():
+    print("Initializing Teslasuit API...")
+    api = ts_api.TsApi()  # create the central API object
+
+    print("Waiting for a Teslasuit device to connect...")
+    device = api.get_device_manager().get_or_wait_last_device_attached()
+
+    print("Accessing the Current Feedback subsystem...")
+    current_feedback = device.current_feedback  # reports current flowing through each channel
+
+    print("Starting current feedback data streaming...")
+    current_feedback.start_streaming()
+
+    print("Waiting for Current Feedback data...")
+    nodes_data = {}  # accumulates: {node_index: {channel_index: value}}
+    while True:
+        data = current_feedback.get_data_on_ready()  # blocks until new data arrives
+        for node in data.nodes:
+            for channel in node.channels_data:
+                nodes_data.setdefault(node.node_index, {})[channel.channel_index] = channel.value
+                print(f"Node {node.node_index}, Channel {channel.channel_index}: {channel.value}")
+
+        # Exit once we have received data from all expected nodes
+        if len(nodes_data.keys()) == EXPECTED_NODE_COUNT:
+            break
+
+    print("Final Nodes Data:", nodes_data)
+
+
+if __name__ == "__main__":
+    main()
+````
+
+## Expected output
+```
+Initializing Teslasuit API...
+Waiting for a Teslasuit device to connect...
+Accessing the Current Feedback subsystem...
+Starting current feedback data streaming...
+Waiting for Current Feedback data...
+Node 0, Channel 0: 123
+Node 0, Channel 1: 456
+...
+Final Nodes Data: {0: {0: 123, 1: 456}, ...}
+```

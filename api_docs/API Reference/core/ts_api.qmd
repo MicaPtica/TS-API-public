@@ -1,0 +1,50 @@
+---
+title: 'TS API'
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The `TsApi` class serves as the central interface for interacting with the Teslasuit API. It provides access to core functionalities, including device management, asset management, and mapping subsystems. This class is essential for initializing and managing the Teslasuit API and its associated components.
+
+## Class TsApi
+
+The `TsApi` class is an aggregate class that initializes the Teslasuit API and provides access to its core components, such as the device manager, mapper, and asset manager.
+
+### Class methods:
+
+***
+```python
+get_device_manager(self)
+```
+
+Returns the [TsDeviceManager](device_manager.qmd) instance, which provides access to connected Teslasuit devices.
+
+Returns:
+
+- [TsDeviceManager](../core/device_manager.qmd): The device manager instance.
+
+
+## Usage Example
+```python
+from teslasuit_sdk.ts_api import TsApi
+
+# Initialize the API
+api = TsApi(lib_path="/path/to/libteslasuit_api.dylib")
+
+# Access the device manager
+device_manager = api.get_device_manager()
+
+# Perform operations with the device manager
+# ...
+```
+
+## Notes
+- The `TsApi` class must be initialized before accessing any Teslasuit functionalities.
+

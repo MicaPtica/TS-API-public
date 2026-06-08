@@ -1,0 +1,41 @@
+---
+title: 'Loader'
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The Loader subsystem provides functionality to load the Teslasuit C API library dynamically.
+
+## Class TsLoader
+
+Handles the loading of the Teslasuit C API library dynamically. This class ensures the library is loaded correctly and provides access to the library object.
+
+- **Initialization Parameters**:
+  - `lib_path` (str, optional): Path to the Teslasuit API library. If not provided, the environment variable `TESLASUIT_API_LIB_PATH` is used.
+
+### Class methods:
+
+***
+```python
+load(self)
+```
+
+Loads the Teslasuit C API library and returns the library object.
+
+Returns:
+
+- `ctypes.CDLL` or `ctypes.WinDLL`: The loaded library object.
+- `None`: If the library cannot be loaded.
+
+- **Note**:
+  If the library path is not provided or invalid, the system attempts to find the library using the default library name (`teslasuit_api`).
+
+**Notes**
+Ensure the library path is valid and accessible.

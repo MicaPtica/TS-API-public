@@ -1,0 +1,120 @@
+---
+title: 'Force Feedback (Teslaglove)'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslaglove_v.-1.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Force Feedback Subsystem](../API%20Reference/subsystems/force_feedback.qmd)
+- [Examples](../examples/force_feedback_example.qmd)
+- [Magnetic Encoder Data structures](../API%20Reference/core/data_structures.qmd#magnetic-encoder)
+
+## What is Force Feedback?
+
+Force feedback is a technology that provides physical sensations to the user by applying force or resistance through motors. In wearable devices like Teslaglove, force feedback is typically implemented using servomotors or similar mechanisms to restrict or guide movement, simulate resistance, or provide tactile cues.
+
+Force feedback enhances immersion and realism in virtual and augmented reality, training, and simulation by allowing users to physically feel virtual objects, boundaries, or forces. It is widely used in robotics, gaming, rehabilitation, and haptics research.
+
+## Force Feedback in Teslaglove
+
+Teslaglove integrates force feedback technology using magnetic encoders and servomotors to deliver programmable resistance and movement restriction to the fingers. The force feedback subsystem allows developers to configure the angle, hardness, and lock direction for each finger joint, enabling a wide range of interaction scenarios.
+
+The force feedback functionality is accessible through the [`TsMagneticEncoder`](../API%20Reference/subsystems/force_feedback.qmd) class, which provides methods for enabling/disabling force feedback, configuring parameters, and streaming finger position data. The subsystem is tightly integrated with the Teslasuit API, allowing seamless control and feedback in real time.
+
+## Key Features of the Teslaglove Force Feedback Subsystem
+
+1. **Programmable Resistance**: Developers can set the angle and hardness (resistance) for each finger joint, simulating the feel of virtual objects or barriers.
+2. **Lock Direction Control**: The subsystem supports locking movement in specific directions (up, down, or both), enabling complex interaction patterns.
+3. **Real-Time Position Streaming**: The API provides access to real-time finger position data for precise feedback and control.
+4. **Flexible Configuration**: Multiple fingers and joints can be controlled independently, allowing for highly customizable force feedback experiences.
+
+## How the Teslasuit API Implements Force Feedback
+
+The Teslasuit API provides a structured approach to accessing and utilizing force feedback. Below are the key steps involved:
+
+1. **Initialization**: The Teslasuit API must be initialized before accessing the force feedback subsystem.
+2. **Device Connection**: A Teslaglove device must be connected to access its magnetic encoder subsystem.
+3. **Subsystem Access**: The force feedback subsystem is accessed through the `magnetic_encoder` property of the connected device, returning an instance of the [`TsMagneticEncoder`](../API%20Reference/subsystems/force_feedback.qmd) class.
+4. **Configuration and Control**: The [`TsMagneticEncoder`](../API%20Reference/subsystems/force_feedback.qmd) class provides methods to enable/disable force feedback, set parameters, and stream finger positions.
+
+## Description of Force Feedback Data
+
+Below is a detailed description of the force feedback data and data structures used in the Teslasuit API for the Teslaglove force feedback subsystem.
+
+### Force Feedback Parameters
+
+#### What are Force Feedback Parameters?
+
+Force feedback parameters define how the servomotors restrict or guide finger movement. The main parameters include:
+
+- **Bone Index**: Specifies which finger joint the feedback is applied to.
+- **Angle**: The target angle for the joint, in degrees.
+- **Hardness Percent**: The resistance level, from 0 (no resistance) to 100 (maximum resistance).
+- **Lock Direction**: The direction(s) in which movement is restricted (up, down, or both).
+
+#### Why Force Feedback Parameters Matter
+
+By adjusting these parameters, developers can simulate the feel of grasping objects, encountering barriers, or experiencing dynamic resistance. This enables realistic and interactive virtual experiences, as well as applications in rehabilitation and training.
+
+#### Force Feedback Parameters in Teslaglove
+
+Teslaglove exposes force feedback parameters through the [`TsForceFeedbackConfig`](../API%20Reference/core/data_structures.qmd#tsforcefeedbackconfigstructure) structure. These parameters are passed to the magnetic encoder subsystem to configure force feedback for each finger joint.
+
+### Finger Position Data
+
+- **TsFingerMEPosition**: Represents the flexion and abduction angles of a finger.
+- **TsGloveMEPosition**: Represents the positions of all fingers on a glove.
+
+### Lock Direction
+
+- **TsMagneticEncoderLockDirection**: Enum specifying lock direction (`Up`, `Down`, or `Both`).
+
+## Applications of Force Feedback in Teslaglove
+
+The force feedback subsystem in the Teslaglove has a wide range of applications, including:
+
+- **Immersive VR/AR**: Simulate the feel of virtual objects, textures, and boundaries for enhanced immersion.
+- **Training and Simulation**: Provide realistic resistance and guidance for skill acquisition and muscle memory.
+- **Rehabilitation**: Deliver programmable resistance for therapy and recovery exercises.
+- **Gaming**: Enhance gameplay with tactile cues and physical interaction.
+
+## Dependencies in Data Structures and Accessing Data
+
+The Teslaglove force feedback subsystem relies on a hierarchy of data structures to manage and process force feedback effects. Below is a description of the dependencies between these structures and a block scheme illustrating how data is accessed.
+
+### Data Structure Dependencies
+
+1. **`TsForceFeedbackConfig`**:
+   - Represents the configuration for force feedback (bone index, angle, hardness, lock direction).
+2. **`TsFingerMEPosition`**:
+   - Represents the position (flexion and abduction angles) of a finger.
+3. **`TsGloveMEPosition`**:
+   - Represents the positions of all fingers on a glove.
+
+### Block Scheme for Accessing Data
+
+Below is a simplified block scheme illustrating the flow of data from configuration to feedback and position monitoring:
+
+```{mermaid}
+flowchart TD
+    A([TsMagneticEncoder]) --> B[[TsForceFeedbackConfig]]
+    A --> C[[TsGloveMEPosition]]
+    C --> D[[TsFingerMEPosition]]
+    D --> E((flexion_angle))
+    D --> F((abduction_angle))
+    B --> G((bone_index))
+    B --> H((angle))
+    B --> I((hardness_percent))
+    B --> J((lock_direction))
+```
+
+## Example Code
+
+For detailed examples of how to use the force feedback subsystem in the Teslasuit API, refer to the [Force Feedback Examples](../examples/force_feedback_example.qmd) page. These examples demonstrate how to initialize the API, connect to a device, and configure force feedback.
+
+## Conclusion
+
+The force feedback subsystem in the Teslaglove provides a powerful and flexible platform for delivering programmable resistance and tactile feedback. By leveraging the Teslasuit API, developers can create immersive, interactive, and responsive experiences across a wide range of applications.
+

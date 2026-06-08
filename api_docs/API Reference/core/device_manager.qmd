@@ -1,0 +1,59 @@
+---
+title: 'Device manager'
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The `TsDeviceManager` class is responsible for managing the connection and disconnection of TESLASUIT devices. It provides access to connected devices and their properties, enabling seamless interaction with the TESLASUIT ecosystem.
+
+
+## Class TsDeviceManager
+
+Handles the connection and disconnection of Teslasuit devices. Provides access to connected devices and their properties.
+
+### Class attributes:
+
+***
+```python
+devices: list
+```
+A list of connected devices. Each device is an instance of the [TsDevice](../core/data_structures.qmd#tsdevice) class.
+The `devices` attribute maintains a list of all currently connected TESLASUIT devices. Each device in the list is represented as an instance of the [TsDevice](../core/data_structures.qmd#tsdevice) class, which provides access to device-specific functionality.
+
+### Class methods:
+
+***
+```python
+wait_for_device_to_connect(self, number_of_devices_to_wait=1)
+```
+
+Waits for a specified number of devices to connect.
+This method blocks execution until the specified number of devices are connected. It periodically checks the connection status and prints a message while waiting.
+
+Args:
+
+- `number_of_devices_to_wait` (int): Number of devices to wait for. Defaults to 1.
+
+***
+
+```python
+get_or_wait_last_device_attached(self)
+```
+
+Returns the last connected device or waits for a device to connect if none are available.
+If no devices are currently connected, this method waits for a device to connect using the `wait_for_device_to_connect` method. Once a device is connected, it returns the most recently attached device.
+
+Returns:
+
+- [TsDevice](../core/device.qmd#tsdevice): The last device connected.
+
+### Notes:
+- The `TsDeviceManager` class automatically subscribes to device connection and disconnection events. Devices are added to or removed from the `devices` list dynamically.
+- Ensure that the Teslasuit SDK is properly initialized before using this class to avoid errors.

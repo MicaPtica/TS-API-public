@@ -1,0 +1,128 @@
+---
+title: 'Getting started'
+subtitle: 'Take your first steps with the Teslasuit API'
+---
+
+## Welcome
+
+Welcome to the Teslasuit API! This guide will help you take your first steps with the Teslasuit API — from setting up your environment to running your first haptic interaction.  
+Make sure your Teslasuit is [connected](https://developer.teslasuit.io/blog/suit-tutorial-pairing-calibration/) to your PC or laptop before continuing.
+
+## Requirements
+
+To get started, make sure the following requirements are met:
+
+- Teslasuit device connected and recognized by the system
+- Teslasuit Control Center installed (for suit calibration)
+- Teslasuit SDK added to your `PATH`. To add Teslasuit SDK to your `PATH`, please read [Environment setup](#environment-setup)
+
+## Environment Setup
+
+Before writing any code, make sure the Teslasuit SDK is available in your Python environment.  
+If you're developing locally and the SDK is not in your `PATH`, you can use the following snippet to add it dynamically:
+```python
+try:
+    import teslasuit_sdk
+except ImportError:
+    import os
+    import sys
+    sdk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    sys.path.insert(0, sdk_path)
+    import teslasuit_sdk
+    print(f'Successfully added \'{sdk_path}\' into sys.path')
+```
+
+To install Teslasuit Python SDK as a Python library, follow the next instructions:
+
+1) Open a terminal (with administrator rights on Windows)
+2) Navigate to the folder with Python SDK, usually it's `C:\Program Files\Teslasuit\Studio\python_api\`
+3) Check if the `README.md` file is present. Some Python packaging tools require this file for installation; if it's missing, create a new empty file named `README.md` in the folder.
+4) Make sure you are in the folder containing the Python SDK (e.g., `C:\Program Files\Teslasuit\Studio\python_api\`) before running the next command.
+5) Run the command `pip install .`
+
+## First steps
+
+### Connect the Suit
+After connecting your Teslasuit to your PC or laptop, you're ready to explore its capabilities using Python.
+
+To begin, you need to:
+
+- Attach the device
+- Initialize the API and Device
+- Create a haptic playable
+
+::: {.callout-warning}
+⚠️ Safety: Please calibrate your suit in Control Center before using stimulation or haptic scripts. Start with conservative settings, confirm electrode placement, and monitor for any discomfort.
+:::
+
+### Run Your First Touch
+
+Below is a complete example that demonstrates how to send a basic haptic touch to the right upper arm of the suit:
+
+```python
+import time
+from teslasuit_sdk import ts_api
+import teslasuit_sdk.subsystems.ts_haptic
+from teslasuit_sdk.ts_mapper import TsBone2dIndex
+
+# Touch parameters — adjust these to change the haptic sensation
+TOUCH_FREQ_HZ     = 100                           # stimulation frequency in Hz (valid range: 1–150)
+TOUCH_PERIOD_US   = 1000000 // TOUCH_FREQ_HZ    # period in µs; formula: 1000000 / frequency_hz
+TOUCH_AMPLITUDE   = 40    # signal amplitude as a percentage (valid range: 1–100)
+TOUCH_PULSE_WIDTH = 150   # electrical pulse width in microseconds
+TOUCH_DURATION_MS = 1000  # how long the touch plays, in milliseconds
+
+def main():
+    print("Initialize API")
+    api = ts_api.TsApi()  # create the central API object
+
+    # Wait until the suit is connected, then get a reference to it
+    device = api.get_device_manager().get_or_wait_last_device_attached()
+    player = device.haptic  # haptic subsystem for creating and playing touches
+    mapper = api.mapper     # mapper translates body-area names into channel lists
+
+    print("Setup channels to play and touch parameters")
+    # Build the full layout of haptic electric channels for this device version
+    layout   = mapper.get_haptic_electric_channel_layout(device.get_mapping())
+    bones    = mapper.get_layout_bones(layout)
+    # Select only the channels that cover the right upper arm
+    channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])
+    params   = player.create_touch_parameters(
+        period=TOUCH_PERIOD_US,
+        amplitude=TOUCH_AMPLITUDE,
+        pulse_width=TOUCH_PULSE_WIDTH,
+    )
+
+    print("Create touch and play")
+    playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)
+    player.play_playable(playable_id)
+
+    print("Wait until playback finished...")
+    time.sleep(TOUCH_DURATION_MS / 1000)  # convert ms → seconds
+    print("Finished")
+
+
+if __name__ == '__main__':
+    main()
+```
+
+## Test Your Setup
+
+If the suit is connected and the SDK is installed correctly, running the script above should produce a short haptic effect on the right upper arm of the suit.
+
+If nothing happens:
+
+- Ensure the device is calibrated in the Control Center
+- Check the connection
+- Confirm that Python can import the teslasuit_sdk module
+
+## Explore more
+Ready to dive deeper?
+
+- Learn about Teslasuit systems in the [Main concepts](Main%20concepts/index.qmd) section.
+
+- Explore the [Core](API%20Reference/core/index.qmd) and [Subsystems](API%20Reference/subsystems/index.qmd) API in the **API Reference**.
+
+- Walk through various [Examples](examples/) to get started with specific suit features.
+
+- Get inspired by real-world applications in the [Use cases](usecases/) section

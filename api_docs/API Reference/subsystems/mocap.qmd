@@ -1,0 +1,121 @@
+---
+title: 'Mocap'
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.5+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/mocap_concept.qmd)
+- [Examples](../../examples/mocap_example.qmd)
+- [Use case](../../usecases/ppg_visualiser.qmd)
+- [Mocap data structures](../core/data_structures.qmd#mocap)
+
+## Intro
+Biometry subsystem provides functions to access Mocap functionality.
+
+### Note: 
+Since `TsMocap` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsMocap
+Provides an interface for interacting with the Teslasuit motion capture (mocap) subsystem.  
+This class allows for streaming motion capture data, retrieving raw sensor data, skeleton data for individual bones, and calibration.
+
+### Class methods:
+
+***
+```python
+start_streaming(self)
+```
+
+Start mocap streaming for a provided device handle.  
+This method subscribes to the raw data and skeleton data update callbacks and starts the streaming process.
+
+***
+```python
+stop_streaming(self)
+```
+
+Stop mocap streaming for a provided device handle.  
+This method unsubscribes from the raw data and skeleton data update callbacks and stops the streaming process.
+
+***
+```python
+calibrate_skeleton(self)
+```
+
+Calibrate mocap skeleton model.  
+This method triggers the calibration process for the skeleton model to ensure accurate motion capture data.
+
+***
+```python
+get_raw_data_on_ready(self)
+```
+
+Wait until raw mocap data is ready and retrieve it.  
+This method blocks until raw data is available or streaming is stopped.  
+
+Returns:  
+
+- `dict`: A dictionary containing raw sensor data for all bones in format of [TsMocapSensor](../core/data_structures.qmd#tsmocapsensorstructure) structure.
+
+***
+```python
+get_skeleton_data_on_ready(self)
+```
+
+Wait until skeleton mocap data is ready and retrieve it.  
+This method blocks until skeleton data is available or streaming is stopped.  
+
+Returns:  
+
+- `dict`: A dictionary containing skeleton data for all bones in format of [TsMocapBone](../core/data_structures.qmd#tsmocapbonestructure) structure.
+
+***
+```python
+get_biomechanical_angles_on_ready(self)
+```
+
+Wait until biomechanical angles data is ready and retrieve it.  
+This method blocks until biomechanical angles data is available or streaming is stopped.  
+
+Returns:  
+
+- `dict`: A dictionary containing biomechanical angles for all bones in format [`TsBiomechanicalIndex`](../core/data_structures.qmd#tsbiomechanicalindexenum): `angle value`.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#mocap-motion-capture) page.
+
+### Access to raw sensor data
+```python
+TsMocap.get_raw_data_on_ready()[TsBone2dIndex.LeftUpperArm].gyro.x
+```
+```{mermaid}
+flowchart TD
+A[TsMocapSensor] --> B[gyro]
+B --> C[x]
+B --> D[y]
+B --> E[z]
+```
+
+### Access to skeleton data
+```python
+TsMocap.get_skeleton_data_on_ready()[TsBone2dIndex.LeftUpperArm].position.x
+```
+```{mermaid}
+flowchart TD
+A[TsMocapBone] --> B[position]
+B --> C[x]
+B --> D[y]
+B --> E[z]
+```
+
+### Access to biomechanical angles
+```python
+TsMocap.get_biomechanical_angles_on_ready()[TsBiomechanicalIndex.LeftElbowFlexion]
+```
+```{mermaid}
+flowchart TD
+A[TsBiomechanicalIndex] --> B[angle_value]
+```
+

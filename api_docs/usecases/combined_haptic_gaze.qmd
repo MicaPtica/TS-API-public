@@ -1,0 +1,129 @@
+---
+title: 'Gaze tracking'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [API Subsystems Reference](../API%20Reference/subsystems/)
+- [Main Concepts](../Main%20concepts/index.qmd)
+
+## What is Combined Haptic and Gaze Interaction?
+
+**Combined Haptic and Gaze Interaction** turns someone's visual attention into physical sensation on another person's body, using Teslasuit for haptics and a motion/eye-tracking system for targeting.
+
+::: {.callout-note}
+## Scenario (at a glance)
+- Person A wears a Teslasuit.
+- Person B wears eye-tracking glasses.
+- A mocap system streams Person A's body markers; the eye tracker streams B's gaze origin and direction.
+- When B looks at a region on A's body, the suit plays a localized haptic on that region-so A can physically sense being looked at.
+:::
+
+### Why this matters
+- Makes attention tangible: Person A feels where and when gaze lands.
+- Useful for training and social interaction studies.
+- Simple event-driven pipeline: track → intersect → stimulate.
+
+Technically, the system senses gaze direction and marker geometry, computes a ray-quad intersection, and actuates stimulation accordingly. It is event-triggered (open-loop): stimulation parameters are set by the operator and not adjusted by real-time feedback.
+
+  Technically, the system senses gaze direction and marker geometry, computes a ray-quad intersection, and actuates stimulation accordingly. It is event-triggered (open-loop): stimulation parameters are set by the operator and not adjusted by real-time feedback.
+
+## Project Overview
+
+- **Motion/Gaze Tracking:** Receive 3D markers and gaze vectors from QTM in real time.
+- **Haptic Feedback / FES:** Create and play electrical stimulation touches on mapped suit channels.
+- **Event-Triggered Control:** Play a predefined touch whenever the gaze intersects a designated area.
+
+### Motion Capture Example
+
+```python
+# Extract markers and gaze from a QTM frame
+header, markers = packet.get_3d_markers()
+quad = [np.array([m.x, m.y, m.z]) for m in markers[7:11]]
+_, vectors = packet.get_gaze_vectors()
+for _, samples in vectors:
+    for uv, pos in samples:
+        origin = np.array([pos.x, pos.y, pos.z])
+        direction = np.array([uv.x, uv.y, uv.z])
+        direction /= np.linalg.norm(direction)
+```
+
+**Explanation:**  
+A target quad is formed from four markers (indices 7-10). The gaze origin and a normalized gaze direction are taken from QTM's `gazevector` component for intersection testing.
+
+### Haptic Feedback / FES Example
+
+```python
+# Create and play a touch on mapped channels
+layout = api.mapper.get_haptic_electric_channel_layout(device.get_mapping())
+bones = api.mapper.get_layout_bones(layout)
+channels = api.mapper.get_bone_contents(bones[TsBone2dIndex.Chest.value])
+# period_us = 1000000 / 100 Hz = 10000 µs
+params = device.haptic.create_touch_parameters(10000, 40, 150)
+playable = device.haptic.create_touch(params, channels, 250)
+device.haptic.play_playable(playable)
+```
+
+**Explanation:**
+Channels are derived from the suit mapping (example uses the chest region). Touch parameters are period (**in µs**, use `1000000 / frequency_hz`), amplitude, pulse width, and playable duration (ms).
+
+### Closed-loop Control Example
+
+```python
+# Event-triggered actuation in the frame callback
+hit = gaze_processor.on_packet(packet)  # True if gaze ray hits the quad
+if hit:
+    haptics.create_haptic_touch(period_us=period, amplitude=amp, pulse_width=pw)
+    haptics.play_touch()
+```
+
+**Explanation:**  
+On each frame, the app checks gaze-quad intersection. If true, it (re)creates a touch with current operator parameters and plays it. This is open-loop, event-driven control.
+
+## Key Components
+
+- **Motion Capture Sensors:**  
+  3D markers and gaze vectors streamed from QTM provide the geometric context and gaze ray.
+
+- **Haptic Channels:**  
+  Suit electrodes are addressed via the mapping to target body regions with electrical stimulation.
+
+- **Control System:**  
+  An event detector performs ray-quad intersection; positive hits trigger a haptic touch.
+
+- **User Interface:**  
+  Operator-tunable stimulation parameters (e.g., period, amplitude, pulse width); logging for timing and events.
+
+## How the Key Components Work Together
+
+1. **Motion/Gaze Tracking:**  
+   QTM streams frames containing 3D markers and gaze vectors. The app builds a quad from four markers and extracts the gaze origin and unit direction.
+
+2. **Intersection Test:**  
+   The gaze ray is intersected with the quad's plane; if the hit point lies inside the quad, a "hit" is detected.
+
+3. **Stimulation Trigger:**  
+   On hit, a touch playable is created (or reused) with operator parameters and played on the selected channels.
+
+4. **Operator Control:**  
+   Parameters like period, amplitude, and pulse width can be adjusted without changing the detection pipeline.
+
+## Example Workflow
+
+1. **Setup:** Connect Teslasuit; ensure it's recognized by the SDK. Start QTM real-time streaming with `['3d', 'gazevector']`.
+2. **Designate Area:** Place four markers to define the quad; adjust indices as per your layout.
+3. **Stream & Detect:** For each frame, compute gaze origin/direction and run the ray-quad test.
+4. **Stimulation:** On a hit, play a touch with safe, preconfigured parameters.
+5. **Logging & Tuning:** Record hits and timestamps; tune parameters (period, amplitude, pulse width) as needed.
+6. **Iterate:** Refine quad placement, thresholds, and stimulation settings for your protocol.
+
+---
+
+::: {.callout-warning}
+⚠️ Safety: Before using electrical stimulation, make sure the haptic system is calibrated and working. Start with conservative stimulation settings: low amplitude and short duration.
+:::
+
+**Note:** This use case combines precise motion/gaze tracking with programmable electrical stimulation for immersive interaction and research. It operates in an open-loop, event-triggered manner rather than adaptive feedback control.

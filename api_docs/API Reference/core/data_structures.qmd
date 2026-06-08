@@ -1,0 +1,609 @@
+---
+title: 'Data structures'
+---
+
+## Intro
+This is the page where you can find explanation of data structures used in Teslasuit SDK.
+
+## PPG (Photoplethismography)
+### TsHrv(Structure):
+Represents Heart Rate Variability (HRV) metrics.
+
+This structure stores various HRV parameters, which are used to analyze 
+fluctuations in heart rate over time. These metrics help assess autonomic 
+nervous system activity and overall heart health.
+
+Attributes:
+
+- `mean_rr (float)`: Mean RR interval (time between successive heartbeats) in milliseconds.
+- `sdnn (float)`: Standard deviation of NN (normal-to-normal) intervals, indicating overall HRV.
+- `sdsd (float)`: Standard deviation of successive RR interval differences.
+- `rmssd (float)`: Root Mean Square of Successive Differences between RR intervals, reflecting short-term HRV.
+- `sd1 (float)`: Poincaré plot standard deviation perpendicular to the line of identity (short-term HRV component).
+- `sd2 (float)`: Poincaré plot standard deviation along the line of identity(long-term HRV component).
+- `hlf (float)`: High-frequency component of HRV, associated with parasympathetic nervous activity.
+
+---
+
+### TsPpgRawData(Structure):
+Represents raw PPG (Photoplethysmography) data from multiple sensor nodes.
+
+This structure holds raw PPG data collected from multiple sensor nodes, each of which 
+contains infrared, red, blue, and green sensor values, along with timestamps.
+
+Attributes:
+
+- `number_of_nodes (int)`: The number of sensor nodes providing PPG data.
+- `nodes (POINTER(`[`TsPpgRawNodeData`](#tsppgrawnodedatastructure)`))`: Pointer to an array of node data structures.
+
+---
+
+### TsPpgRawNodeData(Structure):
+Represents raw PPG (Photoplethysmography) sensor data.
+
+This structure stores raw PPG sensor data, including infrared, red, blue, and green 
+sensor values, along with a timestamp indicating when the last sample was captured.
+
+Attributes:
+
+- `sample_size (int)`: Number of samples in the data arrays.
+- `ir_data (POINTER(c_uint64))`: Infrared sensor values sample.
+- `red_data (POINTER(c_uint64))`: Red sensor values sample.
+- `blue_data (POINTER(c_uint64))`: Blue sensor values sample.
+- `green_data (POINTER(c_uint64))`: Green sensor values sample.
+- `timestamp (int)`: Time point when the last value from the sample was captured.
+
+---
+
+### TsPpgData(Structure):
+Represents processed PPG (Photoplethysmography) data from multiple sensor nodes.
+
+This structure stores processed PPG data collected from multiple sensor nodes. 
+Each node contains PPG-related metrics, including heart rate validation.
+
+Attributes:
+
+- `number_of_nodes (int)`: The number of sensor nodes providing PPG data.
+- `nodes (POINTER(`[`TsPpgNodeData`](#tsppgnodedata`))`: Pointer to an array of processed node data structures.
+
+---
+
+### TsPpgNodeData(Structure):
+Represents processed PPG (Photoplethysmography) data for a single sensor node.
+This structure stores heart rate, blood oxygen level, and validity flags 
+for a specific PPG sensor node, along with a timestamp indicating when 
+the data was recorded.
+Attributes:
+
+- `heart_rate (int)`: Heart rate calculated in BPM.
+- `is_heart_rate_valid (bool)`: Is calculated heart rate valid.
+- `timestamp (int)`: Time point that set when the last raw PPG data sample was processed.
+
+## BIA (Bioelectrical Impedance Analysis)
+### TsBiaConfig(Structure):
+Represents the configuration for BIA (Bioelectrical Impedance Analysis) data streaming.
+
+Attributes:
+
+- `channels (list)`: List of channel indexes to stream.
+- `number_of_channels (int)`: Number of channels.
+- `start_frequency (int)`: Starting frequency for the BIA data streaming.
+- `frequency_step (int)`: Frequency step size.
+- `number_of_steps (int)`: Number of frequency steps.
+
+---
+
+### TsComplexNumber(Structure):
+Represents a complex number.
+
+Attributes:
+
+- `real_value (int)`: Real part of the complex number.
+- `im_value (int)`: Imaginary part of the complex number.
+
+---
+
+### TsBiaFrequencyData(Structure):
+Represents frequency data for a BIA channel.
+
+Attributes:
+
+- `frequency (int)`: Frequency value.
+- `complex_number` [`TsComplexNumber`](#tscomplexnumber): Complex number associated with the frequency.
+
+---
+
+### TsBiaChannelData(Structure):
+Represents data for a single BIA channel.
+
+Attributes:
+
+- `channel_index (int)`: Index of the channel.
+- `number_of_frequencies (int)`: Number of frequencies in the channel.
+- `frequencies (list)`: List of [TsBiaFrequencyData](#tsbiafrequencydatastructure) objects.
+
+---
+
+### TsBiaChannels(Structure):
+Represents data for all BIA channels.
+
+Attributes:
+
+- `number_of_channels (int)`: Number of channels.
+- `channels (list)`: List of [TsBiaChannelData](#tsbiachanneldatastructure) objects.
+
+## Mocap (Motion Capture)
+### TsVec2f(Structure):
+Represents a 2D vector with float coordinates.
+
+Attributes:
+
+- `x (float)`: X coordinate.
+- `y (float)`: Y coordinate.
+
+---
+
+### TsVec3f(Structure):
+Represents a 3D vector with float coordinates.
+
+Attributes:
+
+- `x (float)`: X coordinate.
+- `y (float)`: Y coordinate.
+- `z (float)`: Z coordinate.
+
+---
+
+### TsQuat(Structure):
+Represents a quaternion for 3D rotation.
+
+Attributes:
+
+- `w (float)`: Rotation component.
+- `x (float)`: X coordinate.
+- `y (float)`: Y coordinate.
+- `z (float)`: Z coordinate.
+
+---
+
+### TsMocapBone(Structure):
+Represents skeleton bone data.
+
+Attributes:
+
+- `position` [`TsVec3f`](#tsvec3fstructure): Position of the bone.
+- `rotation` [`TsQuat`](#tsquatstructure): Rotation of the bone.
+
+---
+
+### TsMocapSensor(Structure):
+Represents raw IMU sensor data.
+
+Attributes:
+
+- `q6` [`TsQuat`](#tsquatstructure): 6-axis Quaternion data (without magnetometer).
+- `q9` [`TsQuat`](#tsquatstructure): 9-axis Quaternion data (q6 including magnetometer).
+- `accel` [`TsVec3f`](#tsvec3fstructure): Accelerometer data.
+- `gyro` [`TsVec3f`](#tsvec3fstructure): Gyroscope data.
+- `magn` [`TsVec3f`](#tsvec3fstructure): Magnetometer data.
+- `linear_accel` [`TsVec3f`](#tsvec3fstructure): Linear acceleration data.
+- `timestamp (uint64)`: Timestamp of the data.
+
+---
+
+### TsBone(Structure):
+Represents a bone data in the mapping.
+
+Attributes:
+
+- `id (int)`: Bone ID.  
+- `bone_index (int)`: Bone index.  
+- `bone_side (int)`: Bone side.  
+- `channels (int)`: Bone channels.
+
+---
+
+### TsLayout(Structure):
+Represents a layout data in the mapping.
+
+Attributes:
+
+- `id (int)`: Layout ID.  
+- `layout_type (int)`: Layout type.  
+- `element_type (int)`: Element type.  
+- `layout_index (int)`: Layout index.  
+- `bone (POINTER(TsBone))`: Pointer to a bone.
+
+---
+
+### TsMappingData(Structure):
+Represents a set of device's elements mapped on 2D space.
+
+Attributes:
+
+- `mapping_handle (void*)`: Mapping handle.  
+- `layouts (POINTER(TsLayout))`: Pointer to an array of layouts.
+
+---
+
+### TsMapping2dVersion(Enum):
+Enumeration of mapping versions.
+
+Values:
+
+- `Undefined` = 0,
+- `Mapping_4_5_4` = 1,
+- `Mapping_4_5_5` = 2,
+- `Mapping_4_6_0` = 3,
+- `MappingLeftGlove_1_0_0` = 4,
+- `MappingRightGlove_1_0_0` = 5,
+- `Mapping_4_5_4_Legacy` = 6,
+- `Mapping_4_5_5_Legacy` = 7,
+- `Mapping_5_0_0` = 8,
+- `MappingLeftGlove_1_2_0` = 9,
+- `MappingRightGlove_1_2_0` = 10,
+- `Mapping_5_0_1` = 11,
+- `Mapping_5_0_2` = 12,
+- `Mapping_5_0_3` = 13,
+- `Mapping_4_7_0` = 14,
+- `MappingLeftGlove_1_3_0` = 15,
+- `MappingRightGlove_1_3_0` = 16,
+- `Mapping_4_X_Medical` = 17,
+- `Mapping_4_5_6` = 18
+
+---
+
+### TsLayout2dType(Enum):
+Enumeration of layout types.
+
+Values:
+
+- `Undefined`: Undefined layout type.  
+- `Electric`: Electric layout.  
+- `Temperature`: Temperature layout.  
+- `Vibration`: Vibration layout.  
+- `Emg`: EMG layout.  
+- `Ecg`: ECG layout.
+
+---
+
+### TsLayout2dElementType(Enum):
+Enumeration of layout element types.
+
+Values:
+
+- `Undefined`: Undefined element type.  
+- `Cell`: Cell element.  
+- `Channel`: Channel element.
+
+---
+
+### TsBone2dIndex(IntEnum):
+Enumeration of bone indices in the mapping.
+
+Values:
+
+- `Hips` = 0, 
+- `LeftUpperLeg` = 1,
+- `RightUpperLeg` = 2,
+- `LeftLowerLeg` = 3,
+- `RightLowerLeg` = 4,
+- `LeftFoot` = 5,
+- `RightFoot` = 6,
+- `Spine` = 7,
+- `Chest` = 8,
+- `UpperChest` = 9,
+- `Neck` = 10,
+- `Head` = 11,
+- `LeftShoulder` = 12,
+- `RightShoulder` = 13,
+- `LeftUpperArm` = 14,
+- `RightUpperArm` = 15,
+- `LeftLowerArm` = 16,
+- `RightLowerArm` = 17,
+- `LeftHand` = 18,
+- `RightHand` = 19,
+- `LeftThumbProximal` = 20,
+- `LeftThumbIntermediate` = 21,
+- `LeftThumbDistal` = 22,
+- `LeftIndexProximal` = 23,
+- `LeftIndexIntermediate` = 24,
+- `LeftIndexDistal` = 25,
+- `LeftMiddleProximal` = 26,
+- `LeftMiddleIntermediate` = 27,
+- `LeftMiddleDistal` = 28,
+- `LeftRingProximal` = 29,
+- `LeftRingIntermediate` = 30,
+- `LeftRingDistal` = 31,
+- `LeftLittleProximal` = 32,
+- `LeftLittleIntermediate` = 33,
+- `LeftLittleDistal` = 34,
+- `RightThumbProximal` = 35,
+- `RightThumbIntermediate` = 36,
+- `RightThumbDistal` = 37,
+- `RightIndexProximal` = 38,
+- `RightIndexIntermediate` = 39,
+- `RightIndexDistal` = 40,
+- `RightMiddleProximal` = 41,
+- `RightMiddleIntermediate` = 42,
+- `RightMiddleDistal` = 43,
+- `RightRingProximal` = 44,
+- `RightRingIntermediate` = 45,
+- `RightRingDistal` = 46,
+- `RightLittleProximal` = 47,
+- `RightLittleIntermediate` = 48,
+- `RightLittleDistal` = 49
+
+---
+
+### TsBone2dSide(Enum):
+Enumeration of bone sides.
+
+Values:
+
+- `Undefined`: Undefined side.  
+- `Front`: Front side.  
+- `Back`: Back side.
+
+---
+
+### TsBiomechanicalIndex(Enum):
+Enumeration of biomechanical indices.
+
+Values:
+
+- `PelvisTilt`: Pelvis tilt.  
+- `PelvisList`: Pelvis list.  
+- `PelvisRotation`: Pelvis rotation.  
+- `HipFlexExtR`: Right hip flexion/extension.  
+- `HipAddAbdR`: Right hip adduction/abduction.  
+- `KneeFlexExtR`: Right knee flexion/extension.  
+- `AnkleFlexExtR`: Right ankle flexion/extension.  
+- `ElbowFlexExtR`: Right elbow flexion/extension.  
+- `WristFlexExtR`: Right wrist flexion/extension.  
+- `ShoulderAddAbdR`: Right shoulder adduction/abduction.  
+- `ShoulderFlexExtR`: Right shoulder flexion/extension.
+
+## EMG
+### TsEmgOptions(Structure):
+Represents EMG filter options.
+
+Attributes:
+
+- `lower_bandwidth (int)`: Filter's lower bandwidth.  
+- `upper_bandwidth (int)`: Filter's upper bandwidth.  
+- `sampling_frequency (int)`: Sampling frequency.  
+- `sample_size (int)`: Sample size.  
+
+---
+
+### TsEmgChannelData(Structure):
+Represents EMG channel data.
+
+Attributes:
+
+- `channel_index (int)`: Index of the channel.  
+- `number_of_samples (int)`: Number of samples in the channel.  
+- `samples (list)`: List of samples.  
+
+---
+
+### TsEmgNodeData(Structure):
+Represents EMG node data.
+
+Attributes:
+
+- `node_index (int)`: Index of the node.  
+- `number_of_channels (int)`: Number of channels in the node.  
+- `channels (list)`: List of [TsEmgChannelData](#tsemgchanneldatastructure) objects.  
+- `number_of_timestamps (int)`: Number of timestamps.  
+- `timestamps (list)`: List of timestamps.  
+
+---
+
+### TsEmgData(Structure):
+Represents EMG data.
+
+Attributes:
+
+- `number_of_nodes (int)`: Number of nodes.  
+- `nodes (list)`: List of [TsEmgNodeData](#tsemgnodedatastructure) objects.  
+- `options` [TsEmgOptions](#tsemgoptionsstucture)`: EMG options.
+
+## Haptic
+### TsHapticParam(Structure):
+Represents a haptic parameter.
+
+Attributes:
+
+- `type` [`TsHapticParamType`](#tshapticparamstructure): Type of the parameter (e.g., Period, Amplitude, PulseWidth).  
+- `value (float)`: Value of the parameter.
+
+---
+
+### TsHapticParamMultiplier(Structure):
+Represents a multiplier for haptic parameters.
+
+Attributes:
+
+- `type` [`TsHapticParamType`](#tshapticparamtypeenum): Type of the parameter (e.g., Period, Amplitude, PulseWidth).  
+- `value (float)`: Multiplier value (between 0 and 1).
+
+---
+
+### TsHapticParamType(Enum):
+Enumeration of haptic parameter types.
+
+Values:
+
+- `Undefined`: Undefined parameter type.  
+- `Period`: Period parameter.  
+- `Amplitude`: Amplitude parameter.  
+- `PulseWidth`: Pulse width parameter.  
+- `Temperature`: Temperature parameter.
+
+---
+
+
+## Magnetic Encoder
+
+### TsForceFeedbackConfig(Structure):
+Represents the configuration for servomotor magnetic encoder.
+
+Attributes: 
+
+- `bone_index (int)`: Index of the bone.  
+- `angle (float)`: Angle for the magnetic encoder.  
+- `hardness_percent (int)`: Hardness percentage from 0 to 100.  
+- `lock_direction` [`TsMagneticEncoderLockDirection`](#tsmagneticencoderlockdirectionenum): Direction of the lock.
+
+---
+
+### TsMagneticEncoderLockDirection(Enum):
+Enumeration of magnetic encoder lock directions.
+
+Values:  
+
+- `Up`: Lock movement upwards.  
+- `Down`: Lock movement downwards.  
+- `Both`: Lock movement in both directions.
+
+---
+
+### TsFingerMEPosition(Structure):
+Represents the position of a finger.
+
+Attributes: 
+
+- `flexion_angle (float)`: Flexion angle of the finger.  
+- `abduction_angle (float)`: Abduction angle of the finger.
+
+---
+
+### TsGloveMEPosition(Structure):
+Represents the magnetic encoder position structures for the fingers.
+
+Attributes:  
+
+- `side (TsDeviceSide)`: Side of the glove (left or right).  
+- `fingers (dict)`: Dictionary of bone indexes and their corresponding [`TsFingerMEPosition`](#tsfingermepositionstructure).
+
+
+---
+
+## Device
+
+### TsDevice(Structure):
+Represents a Teslasuit device.
+
+Attributes:
+
+- `uuid (bytes)`: A 16-byte UUID that uniquely identifies the device.
+
+
+---
+
+### TsVersion(Structure):
+Represents the version of the Teslasuit C API.
+
+Attributes:
+
+- `major (int)`: Major version number.  
+- `minor (int)`: Minor version number.  
+- `patch (int)`: Patch version number.  
+- `build (int)`: Build version number.
+
+---
+
+### TsDeviceType(Enum):
+Enumeration of Teslasuit device types.
+
+Values:
+
+- `Undefined`: Undefined device type.  
+- `Suit`: Teslasuit suit device type.  
+- `Glove`: Teslasuit glove device type.
+
+---
+
+### TsDeviceSide(Enum):
+Enumeration of Teslasuit glove device sides.
+
+Values:
+
+- `Undefined`: Undefined device side.  
+- `Right`: Right glove device side.  
+- `Left`: Left glove device side.
+
+---
+
+### TsDeviceEventPolicy(Enum):
+Enumeration of policies for handling Teslasuit device events.
+
+Values:
+
+- `Enumerate`: Enumerate all devices.  
+- `Attach`: Attach a device.  
+- `Detach`: Detach a device.
+
+---
+
+### TsDeviceEvent(Enum):
+Enumeration of events related to Teslasuit devices.
+
+Values:
+
+- `DeviceAttached`: Device attached event.  
+- `DeviceDetached`: Device detached event.
+
+---
+
+## Asset Manager
+
+### TsAssetType(Enum):
+Enumeration of Teslasuit asset types.
+
+Values:  
+
+- `Undefined`: Undefined asset type.  
+- `Spline`: Spline asset.  
+- `HapticEffect`: Haptic effect asset.  
+- `Material`: Material asset.  
+- `TouchSequence`: Touch sequence asset.  
+- `PresetAnimation`: Preset animation asset.  
+- `SceneAnimation`: Scene animation asset.
+
+---
+
+## Current Feedback
+
+### TsCurrentFeedbackChannelData(Structure):
+Represents a current feedback channel data.
+
+Attributes:
+
+- `channel_index (int)`: Index of the channel.
+- `value (int)`: Value of the channel.
+
+---
+
+### TsCurrentFeedbackNodeData(Structure):
+Represents a current feedback node data.
+
+Attributes:
+
+- `node_index (int)`: Index of the node.
+- `number_of_channels (int)`: Number of channels in the node.
+- `channels_data (list)`: List of [`TsCurrentFeedbackChannelData`](#tscurrentfeedbackchanneldatastructure) objects.
+
+---
+
+### TsCurrentFeedbackNodes(Structure):
+Represents a collection of current feedback nodes.
+
+Attributes:
+
+- `number_of_nodes (int)`: Number of nodes.
+- `nodes (list)`: List of [`TsCurrentFeedbackNodeData`](#tscurrentfeedbacknodedatastructure) objects.
+
+

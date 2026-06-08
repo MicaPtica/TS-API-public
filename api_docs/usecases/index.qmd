@@ -1,0 +1,12 @@
+---
+title: 'Overview'
+---
+## Intro
+On this page you can find focused use cases that demonstrate higher-level experiments built with the Teslasuit SDK. Each use case includes a short description and minimal code excerpts to get started.
+
+## Use cases
+
+- [Elbow FES](elbow_FES.qmd): Closed-loop elbow flexion example using FES; shows initialization, stimulation parameters, and a simple feedback controller.
+- [Walking FES](walking_FES.qmd): Open-loop gait-phase triggered FES; demonstrates the finite-state scheduling of per-muscle stimulation with delays and durations.
+- [Combined Haptic & Gaze](combined_haptic_gaze.qmd): Use motion capture + eye tracking to trigger localized haptic stimulation on a Teslasuit when one participant looks at another.
+

@@ -1,0 +1,163 @@
+project:
+  type: website
+
+website:
+  title: "API Docs"
+  navbar:
+    left:
+      - text: Home
+        menu:
+          - href: index.qmd
+            text: Overview
+          - href: Getting_started.qmd
+            text: Getting started
+      - text: Main concepts
+        menu:
+          - href: Main concepts/index.qmd
+            text: Overview
+          - href: Main concepts/ppg_concept.qmd
+            text: PPG 
+          - href: Main concepts/haptic_concept.qmd
+            text: Haptic
+          - href: Main concepts/mocap_concept.qmd
+            text: Mocap
+          - href: Main concepts/force_feedback_concept.qmd
+            text: Force Feedback
+          - href: Main concepts/emg_concept.qmd
+            text: EMG
+          - href: Main concepts/current_feedback_concept.qmd
+            text: Current Feedback
+          - href: Main concepts/bia_concept.qmd
+            text: BIA
+      - text: Core
+        menu:
+          - href: API Reference/core/index.qmd
+            text: Overview
+          - href: API Reference/core/ts_api.qmd
+            text: TS API
+          - href: API Reference/core/asset_manager.qmd
+            text: Asset Manager
+          - href: API Reference/core/device.qmd
+            text: Device
+          - href: API Reference/core/device_manager.qmd
+            text: Device Manager
+          - href: API Reference/core/mapper.qmd
+            text: Mapper
+          - href: API Reference/core/data_structures.qmd
+            text: Data Structures
+      - text: Subsystems
+        menu:
+          - href: API Reference/subsystems/index.qmd
+            text: Overview
+          - href: API Reference/subsystems/haptic.qmd
+            text: Haptic
+          - href: API Reference/subsystems/mocap.qmd 
+            text: Mocap
+          - href: API Reference/subsystems/ppg.qmd
+            text: PPG
+          - href: API Reference/subsystems/force_feedback.qmd
+            text: Force Feedback
+          - href: API Reference/subsystems/emg.qmd
+            text: EMG
+          - href: API Reference/subsystems/current_feedback.qmd
+            text: Current Feedback
+          - href: API Reference/subsystems/bia.qmd
+            text: BIA
+      - text: Examples
+        menu:
+          - href: examples/index.qmd
+            text: Overview
+          - href: examples/ppg_example.qmd
+            text: PPG Example
+          - href: examples/haptic_example.qmd
+            text: Haptic Example
+          - href: examples/mocap_example.qmd
+            text: Mocap Example
+          - href: examples/force_feedback_example.qmd
+            text: Force Feedback Example
+          - href: examples/emg_example.qmd
+            text: EMG Example
+          - href: examples/current_feedback_example.qmd
+            text: Current Feedback Example
+          - href: examples/bia_example.qmd
+            text: BIA Example
+      - text: Use cases
+        menu:
+          - href: usecases/index.qmd
+            text: Overview
+          - href: usecases/elbow_FES.qmd
+            text: Elbow FES
+          - href: usecases/walking_FES.qmd
+            text: Walking FES
+          - href: usecases/combined_haptic_gaze.qmd
+            text: Gaze tracking
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - section: "Home"
+        contents:
+          - index.qmd
+          - Getting_started.qmd
+      - section: "Main concepts"
+        contents:
+          - Main concepts/index.qmd
+          - Main concepts/haptic_concept.qmd
+          - Main concepts/mocap_concept.qmd
+          - Main concepts/ppg_concept.qmd
+          - Main concepts/force_feedback_concept.qmd 
+          - Main concepts/emg_concept.qmd
+          - Main concepts/current_feedback_concept.qmd
+          - Main concepts/bia_concept.qmd
+      - section: "API Reference"
+        contents: 
+        - section: "Core"
+          contents:
+            - API Reference/core/index.qmd
+            - API Reference/core/ts_api.qmd
+            - API Reference/core/asset_manager.qmd
+            - API Reference/core/device.qmd
+            - API Reference/core/device_manager.qmd
+            - API Reference/core/mapper.qmd
+            - API Reference/core/data_structures.qmd
+        - section: "Subsystems"
+          contents:
+            - API Reference/subsystems/index.qmd
+            - API Reference/subsystems/haptic.qmd
+            - API Reference/subsystems/mocap.qmd
+            - API Reference/subsystems/ppg.qmd
+            - API Reference/subsystems/force_feedback.qmd
+            - API Reference/subsystems/emg.qmd
+            - API Reference/subsystems/current_feedback.qmd
+            - API Reference/subsystems/bia.qmd
+      - section: "Examples"
+        contents:
+          - examples/index.qmd
+          - examples/ppg_example.qmd
+          - examples/haptic_example.qmd
+          - examples/mocap_example.qmd
+          - examples/force_feedback_example.qmd
+          - examples/emg_example.qmd
+          - examples/current_feedback_example.qmd
+          - examples/bia_example.qmd
+      - section: "Use cases"
+        contents:
+          - usecases/index.qmd
+          - usecases/elbow_FES.qmd
+          - usecases/walking_FES.qmd
+          - usecases/combined_haptic_gaze.qmd
+execute:
+  warning: false
+  error: false
+  cache: true
+
+format:
+  html:
+    theme: cosmo
+    # self-contained: true
+    self-contained: false    # не встраивать всё в один файл
+    external-resources: true
+    resources:
+    - images/
+    minify: true 
+    toc: true  # Включает оглавление внутри страницы

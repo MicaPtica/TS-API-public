@@ -1,0 +1,80 @@
+---
+title: 'BIA (experimental)'
+repo-actions: false
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-5.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/bia_concept.qmd)
+- [Examples](../../examples/bia_example.qmd)
+- [BIA data structures](../core/data_structures.qmd#bia)
+
+## Intro
+The BIA (Bioelectrical Impedance Analysis) subsystem provides functions to access BIA functionality.
+
+### Note:  
+Since `TsBia` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsBia
+
+Handles BIA (Bioelectrical Impedance Analysis) data processing and streaming.  
+This class manages the interaction with BIA sensors, including data streaming configuration, starting/stopping streaming, and retrieving BIA data.
+
+### Class methods:
+
+***
+```python
+start_streaming(self)
+```
+
+Start the streaming of BIA data.
+
+***
+```python
+stop_streaming(self)
+```
+
+Stop the streaming of BIA data.
+
+***
+```python
+get_data_on_ready(self)
+```
+
+Blocks execution until BIA data is ready and returns the latest data.
+
+Returns:
+
+- [`TsBiaChannels`](../core/data_structures.qmd#tsbiachannelsstructure) (struct): The latest BIA data.
+
+***
+```python
+set_streaming_config(self, channels, start_frequency=10000, number_of_steps=10, frequency_step=10000)
+```
+
+Set the streaming configuration for BIA data. 
+
+Args:  
+
+- `channels (list)`: List of channel indexes to stream.  
+- `start_frequency (int)`: Starting frequency for the BIA data.  
+- `number_of_steps (int)`: Number of frequency steps.  
+- `frequency_step (int)`: Frequency step size.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#bia-bioelectrical-impedance-analysis) page.
+
+### Access to BIA channel data
+```python
+TsBia.get_data_on_ready().channels[0].frequencies[0].complex_number.real_value
+```
+```{mermaid}
+flowchart TD
+A[TsBiaChannels] --> B[TsBiaChannelData]
+B --> C[TsBiaFrequencyData]
+C --> D[TsComplexNumber]
+D --> E[real_value]
+D --> F[im_value]
+```

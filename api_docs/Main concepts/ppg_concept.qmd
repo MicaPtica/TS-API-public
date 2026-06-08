@@ -1,0 +1,166 @@
+---
+title: 'PPG'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [PPG Subsystem](../API%20Reference/subsystems/ppg.qmd)
+- [Examples](../examples/ppg_example.qmd)
+- [Use case](../usecases/ppg_visualiser.qmd)
+- [PPG Data structures](../API%20Reference/core/data_structures.qmd#PPG)
+
+## What is PPG?
+
+Photoplethysmography (PPG) is a non-invasive optical technique used to measure blood volume changes in the microvascular bed of tissue. It is widely used in medical and fitness devices to monitor heart rate, blood oxygen levels, and other physiological parameters. PPG sensors work by emitting light into the skin and measuring the amount of light absorbed or reflected by blood vessels.
+
+PPG is a cornerstone technology in wearable devices, enabling real-time monitoring of cardiovascular health. Its applications range from fitness tracking to clinical monitoring, making it a versatile tool in health monitoring systems.
+
+## PPG in Teslasuit
+
+The Teslasuit integrates PPG technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The PPG subsystem in the Teslasuit is designed to provide real-time data on heart rate, heart rate variability (HRV), and raw PPG signals. This data can be used for various applications, including fitness tracking and stress monitoring
+
+The Teslasuit's PPG functionality is accessible through the [`TsPPG`](../API%20Reference/subsystems/ppg.qmd) class, which provides methods for streaming raw data, retrieving processed data, and performing calibration. The PPG subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate PPG data into their applications.
+
+## Key Features of the Teslasuit PPG Subsystem
+
+1. **Raw Data Streaming**: The Teslasuit PPG subsystem allows developers to stream raw PPG data in real time. This data can be used for custom signal processing and analysis.
+2. **Heart Rate Variability (HRV)**: The subsystem provides HRV data, which is a key indicator of autonomic nervous system activity and overall cardiovascular health.
+3. **Processed Data**: In addition to raw data, the subsystem offers processed PPG data, including heart rate and validity check of retrieved data.
+4. **Calibration**: The PPG subsystem includes a calibration feature to ensure accurate measurements.
+
+## How the Teslasuit API Implements PPG
+
+The Teslasuit API provides a structured approach to accessing and utilizing PPG data. Below are the key steps involved:
+
+1. **Initialization**: The Teslasuit API must be initialized before accessing the PPG subsystem. This ensures that the API is ready to communicate with the Teslasuit device.
+2. **Device Connection**: A Teslasuit device must be connected to access its PPG subsystem. The API provides methods to wait for and retrieve connected devices.
+3. **Subsystem Access**: The PPG subsystem is accessed through the `ppg` property of the connected device. This property returns an instance of the [`TsPpg`](../API%20Reference/subsystems/ppg.qmd) class.
+4. **Data Retrieval**: The [`TsPpg`](../API%20Reference/subsystems/ppg.qmd) class provides methods to retrieve raw and processed PPG data, as well as HRV metrics.
+
+## Description of PPG data
+
+Below is a detailed description of the PPG data and data structures used in the Teslasuit API for the PPG subsystem.
+
+### HRV
+
+#### What is Heart Rate Variability (HRV)?
+
+Heart Rate Variability (HRV) is a measure of the variation in time between consecutive heartbeats. These time intervals, typically measured in milliseconds, reflect how the autonomic nervous system regulates the heart. HRV is widely recognized as a non-invasive marker of physiological resilience, stress response, and overall autonomic balance.
+
+#### Why HRV Matters
+
+HRV provides insights into the balance between the sympathetic ("fight or flight") and parasympathetic ("rest and digest") branches of the autonomic nervous system. Higher HRV generally indicates better adaptability, recovery capacity, and health, while lower HRV can signal stress, fatigue, or underlying health issues.
+
+#### HRV in Teslasuit
+
+Teslasuit provides HRV analysis using various statistical and mathematical methods, including time-domain, frequency-domain, and non-linear approaches. These metrics provide different perspectives on how the body is responding and adapting over time. As calculation of different HRV parameters requires multiple R-R intervals, base for HRV calculations, Teslasuit has to make sufficient amount of measurements. Therefore the time buffer was implemented which makes impossible to get HRV data right after turning on the PPG sensor.
+
+#### HRV parameters and explanation
+
+1. **Mean R-R**: The average time interval between consecutive heartbeats, measured in milliseconds. It reflects the average heart period and is inversely related to heart rate.
+
+2. **Standard Deviation of NN Intervals (SDNN)**: A measure of overall heart rate variability, calculated as the standard deviation of all normal-to-normal RR intervals. It reflects both sympathetic and parasympathetic activity and is influenced by total recording duration.
+
+3. **Standard Deviation of Successive Differences (SDSD)**: The standard deviation of the differences between successive RR intervals. It reflects short-term variations in heart rate and is primarily influenced by parasympathetic activity.
+
+4. **Root Mean Square of Successive Differences (RMSSD)**: A time-domain index of short-term heart rate variability. It is calculated as the square root of the mean squared differences between adjacent RR intervals and serves as a reliable indicator of parasympathetic (vagal) activity.
+
+5. **SD1**: A non-linear HRV metric representing short-term variability, derived from the width of the Poincaré plot (a scatter plot of RR intervals against the next RR interval). It is mathematically related to RMSSD.
+
+6. **SD2**: A measure of both short- and long-term variability, reflecting the length of the Poincaré plot ellipse. It captures the overall magnitude of variability and complements SD1.
+
+7. **High-to-Low Frequency Ratio (HLF)**: The ratio between high-frequency and low-frequency spectral power in frequency-domain analysis. It provides an index of autonomic balance, with higher values indicating parasympathetic dominance and lower values suggesting sympathetic predominance.
+
+### Heart Rate
+
+#### What is Heart Rate?
+Heart rate refers to the number of times the heart beats per minute (bpm). It is a direct indicator of cardiac activity and is influenced by a wide range of physiological and environmental factors, including physical exertion, emotional state, body temperature, and cardiovascular health. Heart rate is one of the most fundamental vital signs used in health and performance monitoring.
+
+#### Why Heart Rate Matters
+Heart rate reflects the immediate state of the cardiovascular system and the body's response to internal and external stimuli. An elevated heart rate may indicate physical effort, stress, or cardiovascular strain, while a lower heart rate at rest is often associated with good cardiovascular fitness and efficient autonomic function. Tracking heart rate over time allows for monitoring of exercise intensity, recovery, fatigue, and overall wellness.
+
+#### Heart Rate in Teslasuit
+Teslasuit measures heart rate using a photoplethysmography (PPG) sensor, which detects changes in vessels blood volume with each heartbeat. This allows for continuous, non-invasive monitoring of heart rate in both active and resting states. Heart rate data is updated in real-time and can be used independently or in combination with HRV metrics to assess physical performance, recovery, and autonomic nervous system activity.
+
+#### Heart Rate parameter and explanation
+1. **Heart Rate (HR)**: The number of heartbeats per minute. It is calculated for every interval between successive heartbeats (R-R intervals) and reflects current cardiovascular activity. Heart rate increases with physical exertion or stress and decreases during rest or relaxation.
+
+2. **is_valid**: During periods of movement, signal artifacts may cause temporary disruptions or inaccuracies in heart rate measurements. To address this, we developed an extrapolation algorithm that maintains data continuity by estimating heart rate values when direct measurement is unreliable. As a result, each data point is accompanied by a validity flag indicating whether the value is based on a reliable measurement or an extrapolated estimate.
+
+## Applications of PPG in Teslasuit
+
+The PPG subsystem in the Teslasuit has a wide range of applications, including:
+
+- **Fitness and Wellness**: Monitor heart rate and HRV to track fitness levels and recovery.
+- **Stress Monitoring**: Use HRV data to assess stress levels and provide biofeedback.
+- **Rehabilitation**: Integrate PPG data into rehabilitation programs to monitor cardiovascular responses.
+- **Gaming and VR**: Enhance immersive experiences by incorporating real-time physiological data into gameplay or virtual environments.
+
+
+## Dependencies in Data Structures and Accessing Data
+
+The Teslasuit PPG subsystem relies on a hierarchy of data structures to manage and process PPG data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.
+
+### Data Structure Dependencies
+
+1. `TsPpgRawNodeData`:
+   - Represents raw PPG data for a single sensor node.
+   - Contains attributes like `ir_data`, `red_data`, `blue_data`, `green_data`, and `timestamp`.
+
+2. `TsPpgRawData`:
+   - Represents raw PPG data from multiple sensor nodes.
+   - Contains a list of `TsPpgRawNodeData` objects.
+
+3. `TsPpgNodeData`:
+   - Represents processed PPG data for a single sensor node.
+   - Contains attributes like `heart_rate`, `is_heart_rate_valid`, and `timestamp`.
+
+4. `TsPpgData`:
+   - Represents processed PPG data from multiple sensor nodes.
+   - Contains a list of `TsPpgNodeData` objects.
+
+5. `TsHrv`:
+   - Represents HRV metrics derived from processed PPG data.
+   - Contains attributes like `mean_rr`, `sdnn`, `rmssd`, and others.
+
+### Block Scheme for Accessing Data
+
+Below is a simplified block scheme illustrating the flow of data from raw sensor readings to processed metrics:
+
+```{mermaid}
+flowchart TD
+    A([PPG class]) --> B[[TsHrv]]
+    A --> C[[TsPpgRawData]]
+    C --> D[[TsPpgRawNodeData]]
+    D --> E((ir_data))
+    D --> F((red_data))
+    D --> G((blue_data))
+    D --> H((green_data))
+    D --> I((timestamp))
+    A --> Q[[TsPpgData]]
+    Q --> R[[TsPpgNodeData]]
+    R --> S((heart_rate))
+    R --> T((is_valid))
+    
+    B --> J((mean_rr))
+    B --> K((sdnn))
+    B --> L((sdsd))
+    B --> M((sd1))
+    B --> N((sd2))
+    B --> O((rmssd))
+    B --> P((hlf))
+
+    class B,J,K,L,M,N,O,P hrv;
+    class C,D,E,F,G,H,I,Q,R,S,T ppg;
+```
+
+## Example Code
+
+For detailed examples of how to use the PPG subsystem in the Teslasuit API, refer to the [PPG Examples](../examples/ppg_example.qmd) page. These examples demonstrate how to initialize the API, connect to a device, and retrieve PPG data.
+
+## Conclusion
+
+The PPG subsystem in the Teslasuit represents a powerful tool for real-time physiological monitoring. By leveraging the Teslasuit API, developers can integrate PPG data into a wide range of applications, from fitness tracking to immersive VR experiences.

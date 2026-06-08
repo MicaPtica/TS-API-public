@@ -1,0 +1,66 @@
+---
+title: 'Current Feedback (experimental)'
+repo-actions: false
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/current_feedback_concept.qmd)
+- [Examples](../../examples/current_feedback_example.qmd)
+- [Current feedback data structures](../core/data_structures.qmd#current-feedback)
+
+## Intro
+The Current Feedback subsystem provides functions to access and stream current feedback data from Teslasuit devices.
+
+### Note: 
+Since `TsCurrentFeedback` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsCurrentFeedback
+
+Handles current feedback data processing and streaming.  
+This class manages the interaction with current feedback nodes, including data streaming and retrieval.
+
+### Class methods:
+
+***
+```python
+start_streaming(self)
+```
+
+Start the streaming of current feedback data.
+
+***
+```python
+stop_streaming(self)
+```
+
+Stop the streaming of current feedback data.
+
+***
+```python
+get_data_on_ready(self)
+```
+
+Blocks execution until current feedback data is ready and returns the latest data. 
+
+Returns:
+
+- [`TsCurrentFeedbackNodes`](../core/data_structures.qmd#tscurrentfeedbacknodesstructure) (struct): The latest current feedback data.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#current-feedback) page.
+
+### Access to current feedback channel data
+```python
+TsCurrentFeedback.get_data_on_ready().nodes[0].channels_data[0].value
+```
+```{mermaid}
+flowchart TD
+A[TsCurrentFeedbackNodes] --> B[TsCurrentFeedbackNodeData]
+B --> C[TsCurrentFeedbackChannelData]
+C --> D[value]
+```
+
+

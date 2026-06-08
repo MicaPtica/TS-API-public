@@ -1,0 +1,94 @@
+---
+title: 'Device'
+repo-actions: false
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/index.qmd)
+- [Examples](../../examples/index.qmd)
+- [Use case](../../usecases/index.qmd)
+
+## Intro
+The Device module provides functions for connecting to TESLASUIT devices, subscribing to connections and disconnections of TESLASUIT devices, retrieving device information, and controlling the device.
+
+
+### Note:  
+Since `TsDevice` is the main entry point for interacting with a Teslasuit device, it must be instantiated before accessing any subsystems.
+
+## Class TsDevice
+
+Handles the connection, control, and information retrieval for a Teslasuit device. This class also provides access to various subsystems such as motion capture, haptics, and biometry.
+
+### Attributes:
+- **device_uuid**: UUID of the device.  
+
+- **mocap**: [TsMocap](../subsystems/mocap.qmd) class that provides access to the motion capture subsystem.  
+- **emg**: [TsEmg](../subsystems/emg.qmd) class that provides access to the EMG subsystem.  
+- **ppg**: [TsPpg](../subsystems/ppg.qmd) class that provides access to the PPG subsystem.  
+- **current_feedback**: [TsCurrentFeedback](../subsystems/current_feedback.qmd) class that provides access to the current feedback subsystem.  
+- **magnetic_encoder**: [TsMagneticEncoder](../subsystems/force_feedback.qmd) class that provides access to the magnetic encoder subsystem.  
+- **haptic**: [TsHapticPlayer](../subsystems/haptic.qmd) class that provides access to the haptic subsystem.  
+- **bia**: [TsBia](../subsystems/bia.qmd) class that provides access to the BIA subsystem.  
+
+### Class methods:
+
+***
+```python
+get_device_ssid(self)
+```
+
+Retrieves the SSID of the device.
+
+Returns:  
+
+- `list`: SSID of the device.
+
+***
+```python
+get_device_serial(self)
+```
+
+Retrieves the serial number of the device.
+
+Returns:  
+
+- `str`: Serial number of the device.
+
+***
+```python
+get_product_type(self)
+```
+
+Retrieves the product type of the device.
+
+Returns:  
+
+- [`TsDeviceType`](../core/data_structures.qmd#tsdevicetypeenum): Product type of the device.
+
+***
+```python
+get_mapping(self)
+```
+
+Retrieves the mapping according to the device type and version.
+
+Returns:  
+
+- [`TsMapping2D`](../core/data_structures.qmd#tsmapping2ddatastructure): Mapping of the device.
+
+
+### Subsystems:
+The `TsDevice` class provides access to the following subsystems:
+
+- [Motion Capture (TsMocap)](../subsystems/mocap.qmd)  
+- [EMG (TsEmg)](../subsystems/emg.qmd)  
+- [PPG (TsPpg)](../subsystems/ppg.qmd)  
+- [Current Feedback (TsCurrentFeedback)](../subsystems/current_feedback.qmd)  
+- [Magnetic Encoder (TsMagneticEncoder)](../subsystems/force_feedback.qmd)  
+- [Haptics (TsHapticPlayer)](../subsystems/haptic.qmd)  
+- [BIA (TsBia)](../subsystems/bia.qmd)  
+
+**Notes** Each subsystem requires an active connection to a Teslasuit device. Refer to the respective subsystem documentation for more details.

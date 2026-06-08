@@ -1,0 +1,23 @@
+---
+title: 'Overview'
+---
+
+## Intro
+On this page, you can find categorized examples of API usage for the Teslasuit SDK. Each example demonstrates how to interact with a specific subsystem or feature of the Teslasuit.
+
+## Examples
+
+### Sensor Data
+- [PPG](ppg_example.qmd): Retrieve heart rate and HRV data.
+- [EMG (experimental)](emg_example.qmd): Stream muscle activity data.
+- [BIA (experimental)](bia_example.qmd): Analyze body composition using impedance data.
+
+### Motion Capture
+- [Mocap](mocap_example.qmd): Stream biomechanical angles and IMU data.
+
+### Feedback Systems
+- [Force Feedback (Teslaglove)](force_feedback_example.qmd): Configure and control force feedback.
+- [Haptic](haptic_example.qmd): Create and play haptic feedback.
+
+### Current Monitoring
+- [Current Feedback (experimental)](current_feedback_example.qmd): Stream current feedback data from nodes and channels.

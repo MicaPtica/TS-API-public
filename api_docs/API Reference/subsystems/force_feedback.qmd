@@ -1,0 +1,224 @@
+---
+title: 'Force feedback (Teslaglove)'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslaglove_v.-1.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/force_feedback_concept.qmd)
+- [Examples](../../examples/force_feedback_example.qmd)
+- [Magnetic encoder data structures](../core/data_structures.qmd#magnetic-encoder)
+
+## Intro
+The Magnetic Encoder subsystem provides functions to control servomotors for haptic feedback and movement restriction.
+
+### Note: 
+since `TsMagneticEncoder` is a member of the [device](../core/device.qmd) class and cannot be used independently without an active Teslasuit device.
+
+## Class TsMagneticEncoder
+
+Handles servomotor magnetic encoder control, including locking directions and configuring feedback parameters.
+
+### Class methods:
+
+***
+```python
+get_positions(self)
+```
+
+Get the current positions of the fingers.
+
+Returns:
+
+- `dict`: A dictionary of bone indexes and their corresponding TsFingerMEPosition.
+
+***
+```python
+start_me_streaming(self)
+```
+
+Starts magnetic encoder data streaming.
+This method subscribes to the data update callback and starts streaming.
+
+***
+```python
+stop_me_streaming(self)
+```
+
+Stops magnetic encoder data streaming.
+This method stops the streaming and unsubscribes from the data update callback.
+
+***
+```python
+ts_magnetic_encoder_enable(self, me_configs)
+```
+
+Enable magnetic encoder for the specified bone indexes.
+
+Args:  
+
+- `me_configs (list)`: A list of [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure) objects.
+
+***
+```python
+ts_magnetic_encoder_disable(self, bone_indexes)
+```
+
+Disable magnetic encoder for the specified bone indexes.
+
+Args:  
+
+- `bone_indexes (list)`: A list of bone indexes to disable magnetic encoder for.
+
+***
+```python
+get_default_me_controls_struct(self)
+```
+
+Get the default magnetic encoder controls structure.
+
+Returns:  
+
+- [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure): Default magnetic encoder configuration.
+
+***
+```python
+get_default_ff_controls_struct(self)
+```
+
+Get the default force feedback controls structure for the magnetic encoder.
+
+Returns:
+
+- [`TsForceFeedbackConfig`](../core/data_structures.qmd#tsforcefeedbackconfigstructure): A [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure) structure.
+
+***
+```python
+get_bone_indexes(self)
+```
+
+Get the bone indexes for the magnetic encoder.
+
+Returns: 
+
+- `list`: A list of bone indexes.
+
+## Utilities
+
+### Utility functions:
+
+***
+```python
+get_position_struct_for_bones(bone_indexes)
+```
+
+Create a dictionary of [TsFingerMEPosition](../core/data_structures.qmd#tsfingermepositionstructure) for the given bone indexes.
+
+Args:  
+
+- `bone_indexes (list)`: List of bone indexes.
+
+Returns:  
+
+- `dict`: A dictionary of bone indexes and their corresponding [TsFingerMEPosition](../core/data_structures.qmd#tsfingermepositionstructure).
+
+***
+```python
+get_left_default_position_struct()
+```
+
+Create a default position struct for the left hand.
+
+Returns:
+
+- `dict`: A dictionary of bone indexes and their corresponding [TsFingerMEPosition](../core/data_structures.qmd#tsfingermepositionstructure).
+
+***
+```python
+get_right_default_position_struct()
+```
+
+Create a default position struct for the right hand.
+
+Returns:  
+
+- `dict`: A dictionary of bone indexes and their corresponding [TsFingerMEPosition](../core/data_structures.qmd#tsfingermepositionstructure).
+
+***
+```python
+mirror_bone_index(bone_index)
+```
+
+Mirror the bone index for the opposite hand.
+
+Args:  
+
+- `bone_index`: Bone index to be mirrored.
+
+Returns:  
+
+- `int`: Mirrored bone index.
+
+***
+```python
+get_me_controls_struct_for_bones(bone_indexes)
+```
+
+Create a [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure) structure for the given bone indexes.
+
+Args:  
+
+- `bone_indexes (list)`: List of bone indexes.
+
+Returns:  
+
+- [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure): Magnetic encoder configuration structure.
+
+***
+```python
+get_left_default_me_controls_struct()
+```
+
+Create a default magnetic encoder controls struct for the left hand.
+
+Returns:  
+
+- [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure): Default magnetic encoder configuration.
+
+***
+```python
+get_right_default_me_controls_struct()
+```
+
+Create a default magnetic encoder controls struct for the right hand.
+
+Returns:  
+
+- [TsForceFeedbackConfig](../core/data_structures.qmd#tsforcefeedbackconfigstructure): Default magnetic encoder configuration.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#magnetic-encoder) page.
+
+### Access to finger positions
+```python
+TsMagneticEncoder.get_positions().fingers[TsBone2dIndex.LeftThumbProximal].flexion_angle
+```
+```{mermaid}
+flowchart TD
+A[TsFingerMEPosition] --> B[flexion_angle]
+A --> C[abduction_angle]
+```
+
+### Access to force feedback configuration
+```python
+TsMagneticEncoder.get_default_ff_controls_struct().bone_index
+```
+```{mermaid}
+flowchart TD
+A[TsForceFeedbackConfig] --> B[bone_index]
+A --> C[angle]
+A --> D[hardness_percent]
+A --> E[lock_direction]
+```

@@ -1,0 +1,73 @@
+---
+title: 'Overview'
+---
+
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Introduction
+
+The Teslasuit API provides a comprehensive set of tools for interacting with Teslasuit devices. This documentation covers the core components of the API, including:
+
+- device management
+- mapping
+- asset handling
+- subsystem access.
+
+
+## Prerequisites
+1) **Teslasuit API Library**  
+   Ensure the Teslasuit API library (`libteslasuit_api.dylib`) is available and correctly loaded.
+2) **Teslasuit API Library Path** Ensure the Teslasuit API library path is  correctly set in the environment variable  `TESLASUIT_API_LIB_PATH`or provided explicitly.
+2) **Connected Teslasuit Device**  
+   A Teslasuit device must be connected to access its features.
+3) **Python Environment**  
+   Python 3.8+ is required to use the Teslasuit SDK.
+
+## Core Components
+
+### [TS API](./ts_api.qmd)
+The central interface for initializing and managing the Teslasuit API. It provides access to core functionalities such as device management, asset management, and mapping subsystems.
+
+### [Device Manager](./device_manager.qmd)
+Handles the connection and disconnection of Teslasuit devices. It provides access to connected devices and their properties, enabling seamless interaction with the Teslasuit ecosystem.
+
+### [Device](./device.qmd)
+Represents a Teslasuit device and provides access to its subsystems, such as motion capture, haptics, and biometry. It also allows retrieval of device-specific information.
+
+### [Mapper](./mapper.qmd)
+Provides functionality for handling 2D mapping of device elements, including layouts, bones, and associated data. It supports operations like retrieving mappings and layouts.
+
+### [Loader](./loader.qmd)
+Handles the dynamic loading of the Teslasuit C API library. It ensures the library is correctly loaded and accessible for API operations.
+
+### [Asset Manager](./asset_manager.qmd)
+Manages Teslasuit assets, including loading, retrieving, and unloading assets. It supports operations with assets such as haptic effects and animations.
+
+### [Data Structures](./data_structures.qmd)
+Defines the data structures and enumerations used across the Teslasuit SDK, including mappings, layouts, bones, and subsystem-specific configurations.
+
+## Inheritance scheme
+```{mermaid}
+flowchart TD
+    A([TsApi]) --> |Handles mapping the device| B[[TsMapper]]
+    A --> |Provides access to connected device| C[[TsDeviceManager]]
+    A --> |Loads the Teslasuit C API library| D[[TsLoader]]
+    A --> |Manages Teslasuit assets| E[[TsAssetManager]]
+
+    C --> N[[TsDevice]]
+    N --> F(Access to subsystems)
+    F --> G[[PPG]]
+    F --> H[[Mocap]]
+    F --> I[[Haptic]]
+    F --> J[[Current feedback]]
+    F --> K[[BIA]]
+    F --> L[[EMG]]
+    F --> M[[Force feedback]]
+
+```
+
+## Notes
+
+- Ensure the Teslasuit API is initialized before accessing any of its components.
+- Refer to the respective component pages for detailed usage and examples.

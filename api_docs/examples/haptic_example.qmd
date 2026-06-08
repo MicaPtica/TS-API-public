@@ -1,0 +1,83 @@
+---
+title: 'Haptic example'
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.5+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../Main%20concepts/haptic_concept.qmd)
+- [Haptic Subsystem](../API%20Reference/subsystems/haptic.qmd)
+- [Haptic data structures](../API%20Reference/core/data_structures.qmd#Haptic)
+
+::: {.callout-warning}
+⚠️ Safety: Make sure the Teslasuit device is connected and calibrated before running the script. Start with conservative touch settings (low amplitude and short duration), check channel/electrode placement, and stop if anything feels wrong.
+:::
+
+## Intro
+This web page provides a comprehensive guide on how to create and play haptic feedback on a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the Haptic subsystem, and playing haptic touches.
+
+## Code for Haptic Touch
+````python
+import time
+import _setup_sys_path
+
+from teslasuit_sdk import ts_api
+import teslasuit_sdk.subsystems.ts_haptic
+from teslasuit_sdk.ts_mapper import TsBone2dIndex
+
+# Touch parameters — adjust these to change the haptic sensation
+TOUCH_FREQ_HZ     = 100                           # stimulation frequency in Hz (valid range: 1–150)
+TOUCH_PERIOD_US   = 1000000 // TOUCH_FREQ_HZ    # period in µs; formula: 1000000 / frequency_hz
+TOUCH_AMPLITUDE   = 40    # signal amplitude as a percentage (valid range: 1–100)
+TOUCH_PULSE_WIDTH = 150   # electrical pulse width in microseconds
+TOUCH_DURATION_MS = 3000  # how long the touch plays, in milliseconds
+
+def main():
+    try:
+        print("Initialize API")
+        api = ts_api.TsApi()  # create the central API object
+
+        # Wait until the suit is connected, then get a reference to it
+        device = api.get_device_manager().get_or_wait_last_device_attached()
+        player = device.haptic  # haptic subsystem for creating and playing touches
+        mapper = api.mapper     # mapper translates body-area names into channel lists
+
+        print("Setup channels to play and touch parameters")
+        # Build the full layout of haptic electric channels for this device version
+        layout   = mapper.get_haptic_electric_channel_layout(device.get_mapping())
+        bones    = mapper.get_layout_bones(layout)
+        # Select only the channels that cover the right upper arm
+        channels = mapper.get_bone_contents(bones[TsBone2dIndex.RightUpperArm.value])
+        params   = player.create_touch_parameters(
+            period=TOUCH_PERIOD_US,
+            amplitude=TOUCH_AMPLITUDE,
+            pulse_width=TOUCH_PULSE_WIDTH,
+        )
+
+        print("Create touch and play")
+        # create_touch returns a playable ID that can be scheduled with play_playable
+        playable_id = player.create_touch(params, channels, TOUCH_DURATION_MS)
+        player.play_playable(playable_id)
+
+        print("Wait until playback finished...")
+        time.sleep(TOUCH_DURATION_MS / 1000)  # convert ms → seconds
+        print("Finished")
+
+    except (KeyboardInterrupt, SystemExit):
+        print('\n! Received keyboard interrupt, quitting haptic touch play\n')
+
+
+if __name__ == '__main__':
+    main()
+````
+
+## Expected output
+```
+Initialize API
+Setup channels to play and touch parameters
+Create touch and play
+Wait until playback finished...
+Finished
+```

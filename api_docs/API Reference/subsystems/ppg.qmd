@@ -1,0 +1,133 @@
+---
+title: 'PPG'
+repo-actions: false
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/ppg_concept.qmd)
+- [Examples](../../examples/ppg_example.qmd)
+- [Use case](../../usecases/ppg_visualiser.qmd)
+- [PPG Data structures](../core/data_structures.qmd#ppg)
+
+## Intro
+Biometry subsystem provides functions to access PPG functionality.
+
+### Note: 
+Since `TsPPG` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsPpg
+
+Handles PPG (Photoplethysmography) sensor data processing and streaming.
+This class manages the interaction with a PPG sensor, including raw and processed data streaming, calibration, and retrieving heart rate variability (HRV) and raw PPG data.
+
+### Class methods:
+
+***
+```python
+start_raw_streaming(self)
+```
+Start the streaming of a PPG raw data
+
+***
+```python
+stop_raw_streaming(self)
+```
+Stop the streaming of a PPG raw data
+
+***
+```python
+get_hrv_data_on_ready(self)
+```
+
+Blocks execution until HRV data is ready and returns the latest HRV data.
+
+Returns:
+
+- [`TsHrv`](../core/data_structures.qmd#tshrvstructure) structure: The latest HRV data.
+
+***
+```python
+get_raw_data_on_ready(self)
+```
+
+Blocks execution until raw PPG data is ready and returns the latest raw data.
+
+Returns:
+
+- [`TsPpgRawData`](../core/data_structures.qmd#tsppgrawdatastructure) structure: The latest raw PPG data.
+
+***
+```python
+get_hrv(self)
+```
+
+Retrieves the latest HRV data.
+
+Returns:
+
+- [`TsHrv`](../core/data_structures.qmd#tshrvstructure) structure: The latest HRV data.
+
+***
+```python
+get_data_raw(self)
+```
+
+Retrieves the latest raw PPG data.
+
+Returns:
+
+- [`TsPpgRawData`](../core/data_structures.qmd#tsppgrawdatastructure) structure: The latest raw PPG data.
+
+***
+```python
+get_data(self)
+```
+
+Retrieves the latest processed PPG data.
+
+Returns:
+
+- [`TsPpgData`](../core/data_structures.qmd#tsppgdatastructure): The latest processed PPG data.
+
+**NB!**
+[TsPpgData](../core/data_structures.qmd#tsppgdatastructure) structure doesn't provide any parameters such as "heart_rate". The access is given through the [TsPpgNodeData](../core/data_structures.qmd#tsppgnodedatastructure) structure. Please see the [example](../../examples/ppg_example.qmd#code-for-heart-rate-data).
+
+***
+```python
+calibrate(self)
+```
+
+Calibrates PPG processor.
+The calibration procedure is capturing interval of the raw data during 3 seconds. 
+The captured interval will be used in calculation of all ppg parameters.
+By default, calibration procedure starts on starting PPG processor.
+In case on bad start, the calibration procedure might be restarted using this function.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#ppg) page.
+
+### Access to raw data
+```python
+TsPpg.get_raw_data_on_ready().nodes[0].ir_data
+```
+```{mermaid}
+flowchart TD
+A[TsPpgRawData] --> B[TsPpgRawNodeData]
+```
+
+### Access to HRV data
+```python
+TsPpg.get_hrv_data_on_ready().mean_rr
+```
+
+### Access to heart rate data
+```python
+TsPpg.get_data().nodes[0].heart_rate
+```
+```{mermaid}
+flowchart TD
+A[TsPpgData] --> B[TsPpgNodeData]
+```

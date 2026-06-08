@@ -1,0 +1,104 @@
+---
+title: "Current feedback (experimental)"
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Current feedback Subsystem](../API%20Reference/subsystems/current_feedback.qmd)
+- [Examples](../examples/current_feedback_example.qmd)
+- [Current feedback Data structures](../API%20Reference/core/data_structures.qmd#current-feedback)
+
+## What is Current Feedback?
+
+Current feedback refers to the real-time measurement and monitoring of electrical current delivered to electrodes in wearable devices. In the context of Teslasuit, current feedback enables precise tracking of the actual current supplied to haptic, stimulation, or sensor channels, ensuring safety, device integrity, and accurate feedback for closed-loop control.
+
+Current feedback is essential for verifying that the intended electrical stimulation is being delivered as expected. It helps detect anomalies, prevent overcurrent conditions, and provide diagnostic information for both developers and end users.
+
+## Current Feedback in Teslasuit
+
+The Teslasuit integrates current feedback technology as part of its hardware monitoring and safety subsystem. The current feedback subsystem provides real-time data on the current values for each node and channel in the suit. This allows developers to monitor electrical delivery, validate stimulation protocols, and implement safety checks in their applications.
+
+The Teslasuit's current feedback functionality is accessible through the [`TsCurrentFeedback`](../API%20Reference/subsystems/current_feedback.qmd) class, which provides methods for starting and stopping data streaming, as well as retrieving current feedback data for all nodes and channels. The subsystem is tightly integrated with the Teslasuit API, enabling seamless access to current measurements during operation.
+
+## Key Features of the Teslasuit Current Feedback Subsystem
+
+1. **Real-Time Data Streaming**: Stream current feedback data from all nodes and channels in real time.
+2. **Multi-Node, Multi-Channel Support**: Monitor current values across multiple hardware nodes and channels simultaneously.
+3. **Safety and Diagnostics**: Use current feedback to detect abnormal conditions, verify stimulation delivery, and ensure device safety.
+4. **Integration with Other Subsystems**: Combine current feedback data with haptic, EMG, or other sensor data for advanced closed-loop applications.
+
+## How the Teslasuit API Implements Current Feedback
+
+The Teslasuit API provides a structured approach to accessing and utilizing current feedback data. Below are the key steps involved:
+
+1. **Initialization**: The Teslasuit API must be initialized before accessing the current feedback subsystem.
+2. **Device Connection**: A Teslasuit device must be connected to access its current feedback subsystem.
+3. **Subsystem Access**: The current feedback subsystem is accessed through the `current_feedback` property of the connected device, returning an instance of the [`TsCurrentFeedback`](../API%20Reference/subsystems/current_feedback.qmd) class.
+4. **Data Streaming and Retrieval**: The [`TsCurrentFeedback`](../API%20Reference/subsystems/current_feedback.qmd) class provides methods to start/stop streaming and retrieve current feedback data.
+
+## Description of Current Feedback Data
+
+Below is a detailed description of the current feedback data and data structures used in the Teslasuit API for the current feedback subsystem.
+
+### Current Feedback Data Structures
+
+- **TsCurrentFeedbackChannelData**: Represents current feedback data for a single channel, including channel index and measured value.
+- **TsCurrentFeedbackNodeData**: Represents current feedback data for a single node, including node index and a list of channel data.
+- **TsCurrentFeedbackNodes**: Represents the collection of all current feedback nodes and their associated channel data.
+
+#### Why Current Feedback Data Matters
+
+Current feedback data allows developers and researchers to:
+
+- Verify that electrical stimulation or actuation is being delivered as intended.
+- Detect hardware faults, overcurrent, or undercurrent conditions.
+- Implement closed-loop control algorithms that adjust stimulation based on real-time measurements.
+- Ensure user safety and device reliability.
+
+#### Current Feedback Parameters in Teslasuit
+
+Teslasuit exposes current feedback parameters through the [`TsCurrentFeedbackNodes`](../API%20Reference/core/data_structures.qmd#tscurrentfeedbacknodesstructure) and related structures. These can be accessed using the `TsCurrentFeedback` class methods.
+
+## Applications of Current Feedback in Teslasuit
+
+The current feedback subsystem in the Teslasuit has a wide range of applications, including:
+
+- **Safety Monitoring**: Detect and respond to abnormal current delivery in real time.
+- **Diagnostics and Maintenance**: Identify hardware issues or degradation over time.
+- **Closed-Loop Control**: Adjust stimulation or actuation parameters based on measured current.
+- **Research and Development**: Analyze current delivery patterns for optimization and validation.
+
+## Dependencies in Data Structures and Accessing Data
+
+The Teslasuit current feedback subsystem relies on a hierarchy of data structures to manage and process current feedback data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.
+
+### Data Structure Dependencies
+
+1. **`TsCurrentFeedbackNodes`**:
+   - Represents all current feedback nodes.
+2. **`TsCurrentFeedbackNodeData`**:
+   - Represents data for a single node, including channel data.
+3. **`TsCurrentFeedbackChannelData`**:
+   - Represents data for a single channel, including the measured value.
+
+### Block Scheme for Accessing Data
+
+Below is a simplified block scheme illustrating the flow of data from nodes to channel values:
+
+```{mermaid}
+flowchart TD
+    A([TsCurrentFeedbackNodes]) --> B[[TsCurrentFeedbackNodeData]]
+    B --> C[[TsCurrentFeedbackChannelData]]
+    C --> D((value))
+```
+
+## Example Code
+
+For detailed examples of how to use the current feedback subsystem in the Teslasuit API, refer to the [Current Feedback Examples](../examples/current_feedback_example.qmd) page. These examples demonstrate how to initialize the API, connect to a device, and retrieve current feedback data.
+
+## Conclusion
+
+The current feedback subsystem in the Teslasuit provides a robust and flexible platform for real-time monitoring of electrical current delivery. By leveraging the Teslasuit API, developers can ensure safety, optimize stimulation protocols, and enable advanced closed-loop applications.

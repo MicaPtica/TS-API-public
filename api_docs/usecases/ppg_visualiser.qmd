@@ -1,0 +1,141 @@
+---
+code-annotations: hover
+title: "Real-time heart rate visualiser"
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-1.001+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../Main%20concepts/ppg_concept.qmd)
+- [Examples](../examples/ppg_example.qmd)
+- [PPG Subsystem](../API%20Reference/subsystems/ppg.qmd)
+- [PPG Data structures](../API%20Reference/core/data_structures.qmd#PPG)
+
+::: {.callout-tip collapse="true"}
+## To start we need
+To start working with the Teslasuit PPG sensor, you need to ensure the following prerequisites are met:
+
+1. **Teslasuit Device**  
+    - Ensure you have access to a Teslasuit device with of version 4.7 or higher.  
+
+2. **Teslasuit SDK**  
+    - Install the Teslasuit SDK.  
+    - Follow the [installation guide](https://developer.teslasuit.io/file/software-bundle/) to set up the SDK on your system.
+
+3. **Python Environment**
+    - Install Python 3.8 or higher.
+    - Ensure that Python SDK is added to your <PATH>. If it's not run script from [this section](../Getting_started.qmd#environment-setup)
+
+4. **Connection Setup**  
+    - Ensure the Teslasuit device is powered on and connected to your computer via WiFi.
+    - Verify the connection using the Teslasuit Control Center application.  
+
+5. **Development Environment**  
+    - Use an IDE or text editor that supports Python development, such as VS Code or PyCharm.   
+
+6. **Permissions**  
+    - Ensure you have the necessary permissions to access the Teslasuit device and its subsystems.  
+    - On some systems, you may need to run the script with elevated privileges.  
+
+Once these prerequisites are met, you can proceed to initialize the Teslasuit API and start working with the PPG subsystem as demonstrated in the code section below.
+:::
+
+## Visualising heart rate data
+
+```python
+import matplotlib.pyplot as plt
+from teslasuit_sdk import ts_api                                   # <1>
+import teslasuit_sdk.subsystems.ts_ppg                             # <2>
+
+
+def main():
+    print("Initializing Teslasuit API...")                          # <3>
+    api = ts_api.TsApi()                                            # <3>
+
+    print("Waiting for a Teslasuit device to connect...")           # <4>
+    device = api.get_device_manager().get_or_wait_last_device_attached()  # <4>
+
+    print("Accessing the PPG subsystem...")                         # <5>
+    ppg = device.ppg                                                # <5>
+
+    print("Starting raw PPG data streaming...")                     # <6>
+    ppg.start_raw_streaming()                                       # <6>
+
+    # Initialize plot
+    plt.ion()                                                       # <7>
+    fig, ax = plt.subplots()                                        # <7>
+    x_data, y_data = [], []                                         # <7>
+    line, = ax.plot(x_data, y_data, label="Heart Rate (bpm)")       # <7>
+    ax.set_xlabel("Timestamp (s)")                                  # <7>
+    ax.set_ylabel("Heart Rate (bpm)")                               # <7>
+    ax.set_title("Real-Time Heart Rate Data")                       # <7>
+    ax.legend()                                                     # <7>
+
+    print("Waiting for Heart Rate data...")                         # <8>
+
+    try:
+        while True:
+            # Get processed PPG data
+            node_data = ppg.get_data()                              # <9>
+            heart_rate = node_data.nodes[0].heart_rate              # <9>
+            timestamp = node_data.nodes[0].timestamp                # <9>
+
+            # Update data
+            x_data.append(timestamp)                                # <10>
+            y_data.append(heart_rate)                               # <10>
+
+            # Update plot
+            line.set_xdata(x_data)                                  # <11>
+            line.set_ydata(y_data)                                  # <11>
+            ax.relim()                                              # <11>
+            ax.autoscale_view()                                     # <11>
+            plt.draw()                                              # <11>
+            plt.pause(0.01)                                         # <11>
+
+    except KeyboardInterrupt:                                       # <12>
+        print("Stopping real-time plotting...")                     # <12>
+    finally:
+        ppg.stop_raw_streaming()                                    # <13>
+        plt.ioff()                                                  # <13>
+        plt.show()                                                  # <13>
+
+if __name__ == "__main__":
+    main()                                                          # <14>
+```
+
+1. Import the main Teslasuit API module: Import the required Teslasuit SDK modules.
+2. Import the PPG subsystem: Import the PPG subsystem from the SDK.
+3. Initialize the Teslasuit API: Create an instance of the Teslasuit API.
+4. Wait for a Teslasuit device to connect: Wait for a Teslasuit device to be connected and get it.
+5. Access the PPG subsystem: Access the PPG subsystem from the connected device.
+6. Start raw PPG data streaming: Start streaming raw PPG data from the suit.
+7. Initialize the real-time plot: Set up the matplotlib plot for real-time visualization of heart rate data.
+8. Start waiting for heart rate data: Begin the loop to process and visualize heart rate data.
+9. Retrieve heart rate data: Get processed PPG data and extract the heart rate and timestamp.
+10. Update data arrays: Append the timestamp and heart rate to the respective data arrays.
+11. Update the plot: Update the plot with the new data and refresh the visualization.
+12. Handle keyboard interrupt: Gracefully stop the program when interrupted (e.g., via Ctrl+C).
+13. Stop raw PPG data streaming: Stop the PPG data stream and close the plot.
+15. Run the main function: Start the program using the main function.
+
+
+::: {.callout-caution collapse="true"}
+## Potential problems and solutions
+
+1. **Device Connection Issues**  
+    - **Problem**: The Teslasuit device may not connect or be detected by the API.  
+    - **Solution**: Ensure the device is powered on and within range. Verify that the Teslasuit drivers and SDK are correctly installed. Check for any connection errors in the logs.
+
+2. **PPG Subsystem Not Accessible**  
+    - **Problem**: The PPG subsystem might not be available or initialized properly.  
+    - **Solution**: Confirm that the connected Teslasuit device supports the PPG subsystem. Restart the device and reinitialize the API if necessary. Double-check that the Teslasuit version is 4.7 or higher, as earlier versions may not support the PPG functionality.
+
+3. **SDK Initialization Issues**  
+    - **Problem**: The SDK cannot be initialized, or the library is not found.  
+    - **Solution**: Verify that the Teslasuit SDK is installed correctly. Refer to the [installation guide](https://developer.teslasuit.io/file/software-bundle/) for instructions. Ensure the environment of the working project is properly set up. Refer to the [this section](../Getting_started.qmd#environment-setup) for details.
+
+4. **Data Streaming Delays**  
+    - **Problem**: There may be delays in receiving HRV or heart rate data.  
+    - **Solution**: Delays could be caused by the algorithm behind HRV calculation. Usually it requires at least 30 second of raw data to calculate HRV.
+:::

@@ -1,0 +1,102 @@
+---
+title: "PPG example"
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-4.7+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../Main%20concepts/ppg_concept.qmd)
+- [PPG Subsystem](../API%20Reference/subsystems/ppg.qmd)
+- [Use case](../usecases/ppg_visualiser.qmd)
+- [PPG data structures](../API%20Reference/core/data_structures.qmd#PPG)
+
+::: {.callout-warning}
+⚠️ Safety: For valid HRV/PPG readings, wait at least 30 seconds after starting the PPG stream and make sure the PPG subsystem is calibrated.
+:::
+
+## Intro
+This web page provides a comprehensive guide on how to retrieve data from the PPG (Photoplethysmography) sensor of a Teslasuit device. The page is structured to help developers understand the process of initializing the Teslasuit API, connecting to a device, accessing the PPG subsystem, and streaming data such as heart rate and HRV (Heart Rate Variability).
+
+## Code for HRV data
+````python
+from teslasuit_sdk import ts_api
+import teslasuit_sdk.subsystems.ts_ppg
+
+def main():
+    print("Initializing Teslasuit API...")
+    api = ts_api.TsApi()  # create the central API object
+
+    print("Waiting for a Teslasuit device to connect...")
+    device = api.get_device_manager().get_or_wait_last_device_attached()
+
+    print("Accessing the PPG subsystem...")
+    ppg = device.ppg  # PPG sensor is located on the right shoulder of the suit
+
+    # start_raw_streaming must be called before requesting any processed data
+    print("Starting raw PPG data streaming...")
+    ppg.start_raw_streaming()
+
+    print("Waiting for HRV data (Mean R-R)...")
+    while True:
+        # get_hrv_data_on_ready blocks until fresh HRV data is available
+        # Note: valid data requires ~30 s of streaming after start_raw_streaming
+        hrv_data = ppg.get_hrv_data_on_ready()
+        print("Mean R-R Interval:", hrv_data.mean_rr)  # mean R-R interval in milliseconds
+
+
+if __name__ == "__main__":
+    main()
+````
+
+## Expected output
+```
+Initializing Teslasuit API...
+Waiting for a Teslasuit device to connect...
+Accessing the PPG subsystem...
+Starting raw PPG data streaming...
+Waiting for HRV data (Mean R-R)...
+Mean R-R Interval: 750
+```
+
+
+## Code for Heart rate data
+````python
+from teslasuit_sdk import ts_api
+import teslasuit_sdk.subsystems.ts_ppg
+
+def main():
+    print("Initializing Teslasuit API...")
+    api = ts_api.TsApi()  # create the central API object
+
+    print("Waiting for a Teslasuit device to connect...")
+    device = api.get_device_manager().get_or_wait_last_device_attached()
+
+    print("Accessing the PPG subsystem...")
+    ppg = device.ppg  # PPG sensor is located on the right shoulder of the suit
+
+    # start_raw_streaming must be called before requesting any processed data
+    print("Starting raw PPG data streaming...")
+    ppg.start_raw_streaming()
+
+    print("Waiting for Heart Rate data...")
+    while True:
+        # get_data returns the latest processed PPG node data
+        # nodes[0] refers to the first (and only) PPG sensor node on the suit
+        node_data = ppg.get_data()
+        print("Heart Rate:", node_data.nodes[0].heart_rate)  # heart rate in BPM
+
+
+if __name__ == "__main__":
+    main()
+````
+
+## Expected output
+```
+Initializing Teslasuit API...
+Waiting for a Teslasuit device to connect...
+Accessing the PPG subsystem...
+Starting raw PPG data streaming...
+Waiting for Heart Rate data...
+Heart Rate: 72
+```

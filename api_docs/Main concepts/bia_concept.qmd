@@ -1,0 +1,112 @@
+---
+title: "BIA (experimental)"
+---
+
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-5.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [BIA Subsystem](../API%20Reference/subsystems/bia.qmd)
+- [Examples](../examples/bia_example.qmd)
+- [BIA Data structures](../API%20Reference/core/data_structures.qmd#bia)
+
+## What is BIA?
+
+Bioelectrical Impedance Analysis (BIA) is a non-invasive technique used to measure the electrical impedance of body tissues. By applying a small alternating current and measuring the resulting voltage, BIA provides information about body composition, such as total body water, fat-free mass, and fat mass. The impedance varies with tissue type and hydration, making BIA a valuable tool in health, fitness, and medical diagnostics.
+
+BIA is widely used in wearable devices and clinical settings for body composition analysis, hydration monitoring, and physiological research. Its applications range from sports science and wellness tracking to clinical assessment of fluid balance and nutrition.
+
+## BIA in Teslasuit
+
+The Teslasuit integrates BIA technology as part of its biometry subsystem, enabling advanced physiological monitoring capabilities. The BIA subsystem in the Teslasuit is designed to provide real-time data on tissue impedance across multiple channels and frequencies. This data can be used for applications such as hydration monitoring, body composition analysis, and research into physiological responses.
+
+The Teslasuit's BIA functionality is accessible through the [`TsBia`](../API%20Reference/subsystems/bia.qmd) class, which provides methods for configuring streaming, starting and stopping data acquisition, and retrieving BIA data. The BIA subsystem is tightly integrated with the Teslasuit API, allowing developers to seamlessly incorporate BIA data into their applications.
+
+## Key Features of the Teslasuit BIA Subsystem
+
+1. **Multi-Channel Support**: The Teslasuit BIA subsystem allows developers to stream impedance data from multiple channels (electrode pairs) simultaneously.
+2. **Multi-Frequency Analysis**: The subsystem supports impedance measurements across a range of frequencies, enabling detailed tissue characterization.
+3. **Complex Impedance Data**: BIA data includes both real and imaginary components, providing insight into resistive and reactive properties of tissues.
+4. **Configurable Streaming**: Developers can configure which channels and frequencies to stream, optimizing data collection for specific applications.
+
+## How the Teslasuit API Implements BIA
+
+The Teslasuit API provides a structured approach to accessing and utilizing BIA data. Below are the key steps involved:
+
+1. **Initialization**: The Teslasuit API must be initialized before accessing the BIA subsystem. This ensures that the API is ready to communicate with the Teslasuit device.
+2. **Device Connection**: A Teslasuit device must be connected to access its BIA subsystem. The API provides methods to wait for and retrieve connected devices.
+3. **Subsystem Access**: The BIA subsystem is accessed through the `bia` property of the connected device. This property returns an instance of the [`TsBia`](../API%20Reference/subsystems/bia.qmd) class.
+4. **Data Streaming and Retrieval**: The [`TsBia`](../API%20Reference/subsystems/bia.qmd) class provides methods to configure streaming, start/stop data acquisition, and retrieve BIA data.
+
+## Description of BIA Data
+
+Below is a detailed description of the BIA data and data structures used in the Teslasuit API for the BIA subsystem.
+
+### BIA Data Structures
+
+- **TsBiaConfig**: Represents the configuration for BIA data streaming, including channels, frequency range, and step size.
+- **TsComplexNumber**: Represents a complex number with real and imaginary parts, used for impedance data.
+- **TsBiaFrequencyData**: Represents impedance data for a specific frequency, including the frequency value and associated complex impedance.
+- **TsBiaChannelData**: Represents data for a single BIA channel, including channel index and a list of frequency data.
+- **TsBiaChannels**: Represents all BIA channel data collected in a streaming session.
+
+### BIA Parameters and Explanation
+
+1. **Channels**: Electrode pairs or sensor locations from which impedance is measured. Multiple channels allow for spatial mapping of tissue properties.
+2. **Frequency**: The frequency of the applied current. Different frequencies probe different tissue characteristics (e.g., cell membranes, extracellular fluid).
+3. **Complex Impedance**: Each measurement consists of a real part (resistance) and an imaginary part (reactance), providing a complete picture of tissue electrical properties.
+
+#### Why BIA Parameters Matter
+
+By analyzing impedance across multiple channels and frequencies, developers and researchers can gain insights into body composition, hydration status, and physiological changes. The real and imaginary components help distinguish between different tissue types and fluid compartments.
+
+#### BIA Parameters in Teslasuit
+
+Teslasuit exposes BIA parameters through the [`TsBiaConfig`](../API%20Reference/core/data_structures.qmd#tsbiaconfigstructure) and related data structures. These parameters can be set and retrieved using the `TsBia` class methods.
+
+## Applications of BIA in Teslasuit
+
+The BIA subsystem in the Teslasuit has a wide range of applications, including:
+
+- **Body Composition Analysis**: Estimate fat-free mass, fat mass, and total body water.
+- **Hydration Monitoring**: Track changes in body water content for wellness and performance.
+- **Clinical Assessment**: Support diagnosis and monitoring of fluid balance in medical settings.
+- **Sports Science**: Monitor physiological changes during training, recovery, and competition.
+- **Research**: Enable advanced studies of tissue properties and physiological responses.
+
+## Dependencies in Data Structures and Accessing Data
+
+The Teslasuit BIA subsystem relies on a hierarchy of data structures to manage and process impedance data. Below is a detailed description of the dependencies between these structures and a block scheme illustrating how data is accessed.
+
+### Data Structure Dependencies
+
+1. **`TsBiaChannels`**:
+   - Represents all BIA channel data.
+2. **`TsBiaChannelData`**:
+   - Represents data for a single channel, including frequency data.
+3. **`TsBiaFrequencyData`**:
+   - Represents impedance data for a specific frequency.
+4. **`TsComplexNumber`**:
+   - Represents the real and imaginary parts of impedance.
+
+### Block Scheme for Accessing Data
+
+Below is a simplified block scheme illustrating the flow of data from channels to frequency-specific impedance values:
+
+```{mermaid}
+flowchart TD
+    A([TsBiaChannels]) --> B[[TsBiaChannelData]]
+    B --> C[[TsBiaFrequencyData]]
+    C --> D[[TsComplexNumber]]
+    D --> E((real_value))
+    D --> F((im_value))
+```
+
+## Example Code
+
+For detailed examples of how to use the BIA subsystem in the Teslasuit API, refer to the [BIA Examples](../examples/bia_example.qmd) page. These examples demonstrate how to initialize the API, connect to a device, configure streaming, and retrieve BIA data.
+
+## Conclusion
+
+The BIA subsystem in the Teslasuit represents a powerful tool for real-time physiological and body composition monitoring. By leveraging the Teslasuit API, developers can integrate BIA data into a wide range of applications, from wellness and sports science to clinical research.

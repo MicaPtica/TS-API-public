@@ -1,0 +1,92 @@
+---
+title: "EMG (experimental)"
+---
+![Teslasuit v.](https://img.shields.io/badge/Teslasuit_v.-5.0+-red)
+![Teslasuit SDK](https://img.shields.io/badge/Teslasuit_SDK-2.5.1+-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+
+## Quick access
+- [Main concept](../../Main%20concepts/emg_concept.qmd)
+- [Examples](../../examples/emg_example.qmd)
+- [EMG data structures](../core/data_structures.qmd#emg)
+
+## Intro
+The EMG subsystem provides functionality to access and process Electromyography (EMG) data from Teslasuit devices.
+
+### Note: 
+Since `TsEmg` is a member of the [device](../core/device.qmd) class, it cannot be used independently without an active Teslasuit device.
+
+## Class TsEmg
+Provides an interface for interacting with the Teslasuit EMG subsystem.  
+This class allows for streaming EMG data, setting filter options, and retrieving raw EMG data.
+
+### Class methods:
+
+***
+```python
+set_options(self, lower_bandwidth, upper_bandwidth, sample_frequency, sample_size)
+```
+
+Set options for EMG streaming, such as filter parameters.  
+
+Args:  
+
+- `lower_bandwidth (int)`: Filter's lower bandwidth.  
+- `upper_bandwidth (int)`: Filter's upper bandwidth.  
+- `sample_frequency (int)`: Sampling frequency.  
+- `sample_size (int)`: Sample size.  
+
+***
+```python
+start_streaming(self)
+```
+
+Start EMG streaming for a provided device handle.  
+This method subscribes to the data update callbacks and starts the streaming process.
+
+***
+```python
+stop_streaming(self)
+```
+
+Stop EMG streaming for a provided device handle.  
+This method unsubscribes from the data update callbacks and stops the streaming process.
+
+***
+```python
+get_data_on_ready(self)
+```
+
+Wait until EMG data is ready and retrieve it.  
+This method blocks until data is available or streaming is stopped. 
+
+Returns:  
+
+- [`TsEmgData`](../core/data_structures.qmd#tsemgdatastructure): The latest EMG data object containing information about nodes, channels, and timestamps.
+
+## Access to the data
+These code snippets and charts are just an example of how is the data flow looks like. to know more, please visit [data structures](../core/data_structures.qmd#emg) page.
+
+### Access to EMG channel data
+```python
+TsEmg.get_data_on_ready().nodes[0].channels[0].samples[0]
+```
+```{mermaid}
+flowchart TD
+A[TsEmgData] --> B[TsEmgNodeData]
+B --> C[TsEmgChannelData]
+C --> D[samples]
+```
+
+### Access to EMG options
+```python
+TsEmg.get_data_on_ready().options.lower_bandwidth
+```
+```{mermaid}
+flowchart TD
+A[TsEmgOptions] --> B[lower_bandwidth]
+A --> C[upper_bandwidth]
+A --> D[sampling_frequency]
+A --> E[sample_size]
+```
+

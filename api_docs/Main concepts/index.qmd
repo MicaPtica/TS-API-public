@@ -1,0 +1,26 @@
+---
+title: 'Overview'
+---
+
+# Teslasuit: Main Concept Overview
+
+Teslasuit is a smart full-body suit designed as an advanced interface between the user and digital environments. The suit combines motion capture, haptic feedback, and biometric sensing to create a seamless and immersive connection with virtual worlds.
+
+## Integrated Systems
+
+- **Motion Capture (Mocap):**  
+  Teslasuit features 14 mocap sensors distributed across the jacket and trousers, including magnetometers, gyroscopes, and accelerometers. These sensors track the user's movements in real time, enabling accurate avatar representation and interaction in VR and AR applications.
+
+- **Haptic Feedback:**  
+  The suit delivers precise tactile sensations using 80 haptic channels of shaped electrodes mapped to anatomically suitable locations. These electrodes stimulate skin and muscle nerves with electrical impulses, simulating touch and interaction with digital objects.
+
+- **Biometric Monitoring:**  
+  Teslasuit integrates a PPG (photoplethysmography) sensor on the right shoulder to monitor heart activity, enabling real-time tracking of heart rate and heart rate variability.
+
+## Hardware Architecture
+
+  Teslasuit consists of two garments: the jacket and trousers. Each garment contains its own set of sensors and electrodes, managed by distributed nodes. The jacket houses the main control unit, which processes data from all nodes and coordinates the suit's functions.
+
+## Connectivity and Power
+
+  The suit is powered by a dedicated power bank located in a special pocket on the back of the jacket. Connectivity between the jacket and trousers, as well as to the power bank, is provided by USB Type-C cables.
