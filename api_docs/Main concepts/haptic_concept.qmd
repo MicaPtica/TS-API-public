@@ -105,6 +105,18 @@ Teslasuit exposes haptic parameters through the [`TsHapticParam`](../API%20Refer
 
 These parameters can be combined and adjusted to create a wide variety of tactile effects tailored to specific application needs.
 
+### Calibration and amplitude scaling
+
+Before any haptic API calls are made, the Teslasuit must be calibrated in the **Control Center**. Calibration helps to adjust to the individual sensitivity of each electrode channel on the current wearer and stores per-channel scaling factors.
+
+**All amplitude values passed through the haptic API are relative to the calibrated range, not to absolute current levels.** An amplitude of `100` means 100% of the maximum current that was established during calibration for that channel — not 100% of the hardware maximum. An amplitude of `1` means the minimum perceptible level recorded during calibration.
+
+This scaling is applied automatically and transparently to every `create_touch_parameters`, `play_touch`, and playable call. There is no API parameter or flag that bypasses or overrides it.
+
+::: {.callout-note}
+**This is a safety feature.** Calibration layer ensures that a given amplitude value produces a consistent, safe sensation. Skipping calibration before running stimulation scripts is not recommended — uncalibrated values may be stronger or weaker than expected.
+:::
+
 ### Haptic playables
 
 - **Asset**: A pre-designed haptic pattern created using the Haptic Editor, typically stored in the `.ts_asset` format.
